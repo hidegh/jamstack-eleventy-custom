@@ -1,0 +1,16 @@
+{
+  "name": "jamstack-eleventy-custom",
+  "version": "1.0.0",
+  "description": "A step-by-step guide to a full BLOG engine",
+  "main": "index.js",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
