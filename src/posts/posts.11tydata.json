@@ -1,0 +1,8 @@
+{
+  "eleventyExcludeFromCollections": false,
+  "layout": "post",
+  "permalink": "post/{{ title | slug }}/",
+  "tags": [
+    "posts"
+  ]
+}

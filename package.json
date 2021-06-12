@@ -1,16 +1,22 @@
 {
-  "name": "jamstack-eleventy-custom",
-  "version": "1.0.0",
-  "description": "A step-by-step guide to a full BLOG engine",
-  "main": "index.js",
-  "dependencies": {
-    "@11ty/eleventy": "^0.12.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "jamstack-eleventy-custom",
+    "version": "1.0.0",
+    "description": "A step-by-step guide to a full BLOG engine",
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "scripts": {
+        "build": "npm run sass && eleventy",
+        "sass": "sass src/assets/css/main.scss:_site/assets/css/main.css --load-path=node_modules --load-path=node_modules/bootstrap/scss",
+        "serve": "npm-run-all sass --parallel watch:*",
+        "watch:eleventy": "eleventy --serve --port=4300",
+        "watch:sass": "npm run sass -- --watch"
+    },
+    "dependencies": {
+        "@11ty/eleventy": "^0.12.1",
+        "bootstrap": "^5.0.1",
+        "npm-run-all": "^4.1.5",
+        "sass": "^1.34.1"
+    },
+    "devDependencies": {}
 }
