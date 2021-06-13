@@ -1,0 +1,36 @@
+---
+# fluid: true
+# aside: 3
+# asideBreak: xl
+# asideMobile: true
+---
+{% extends './base.njk' %}
+
+{% block main %}
+
+    {% block before %}{% endblock %}
+
+    <div class="{% if fluid %}container-fluid{% else %}container{% endif %}">
+
+        <div id="global-content-view" class="row pt-3">
+
+            <div class="col-12 col-{{ asideBreak }}-{{ 12 - aside }} p-0 overflow-hidden">
+                {% block content %}{% endblock %}
+            </div>
+
+            <aside class="sticky-container {% if aside == 0 %}d-none{% else %}{% if not asideMobile %}d-none{% else %}col-12{% endif %} d-{{ asideBreak }}-block small col-{{ asideBreak }}-{{ aside }} p-0{% endif %}">
+                {% block aside %}{% endblock %}
+            </aside>
+
+        </div>
+
+        <div id="search-results-container" class="row pt-3 d-none">
+            <div class="search-results col-12">
+            </div>
+        </div>
+
+    </div>
+
+    {% block after %}{% endblock %}
+
+{% endblock %}

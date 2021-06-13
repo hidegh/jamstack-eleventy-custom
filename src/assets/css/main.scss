@@ -1,0 +1,40 @@
+/*
+Font-awesome
+- we decided to serve it from CDN (caching / speed)
+- it also removes us from the responsibility to serve the webfont assets
+*/
+
+/*
+BOOTSTRAP
+- we use overrides, need just to make sure that the grid classes won't get disabled!
+*/
+// @import "./bs-overrides/boldstrap-purple";
+// @import "./bs-overrides/grayson";
+// @import "./bs-overrides/lovey";
+@import "./bs-overrides/tequila";
+
+/*
+Basic styles
+*/
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+}
+
+/*
+Navbar
+*/
+.navbar {
+
+    @extend .navbar-dark;
+    @extend .bg-dark;
+
+    .navbar-brand img {
+        max-height: 2em;
+    }
+
+    .navbar-toggler {
+        // If we'd like to have a more lighter hamburger icon...
+        // @extend .text-light;
+    }
+
+}

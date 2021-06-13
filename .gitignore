@@ -1,3 +1,4 @@
 ﻿_site
 node_modules
 package-lock.json
+src/posts/_test

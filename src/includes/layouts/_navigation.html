@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-{{ globals.navbar.break }}">
+
+    <div class="container">
+
+        <a class="navbar-brand align-middle" href="#">
+            <img src="{{ globals.site.logo | url }}" />
+        </a>
+
+        <div class="ms-auto mx-2"></div>
+
+        <button type="button" class="btn navbar-toggler"
+            data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Using navbar-toggler fix in main.scss and FA icons instead of: <span class="navbar-toggler-icon"></span> -->
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-sm-0">
+
+                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
+                    <a class="nav-link p-2" href="{{ '/' | url }}">Home</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

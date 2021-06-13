@@ -1,0 +1,24 @@
+#
+# This is a custom data file!
+#
+
+# site
+site:
+  url: https://blog.domain.com
+  logo: /assets/logo.png
+  title: BLOG
+  description: Helping others with useful content
+  keywords:
+    - digitalization
+    - business
+    - management
+    - agile
+    - software
+    - softwareengineering
+    - softwarearchitecture
+    - programming
+  copyright: Copyright - 2021
+
+#navbar
+navbar:
+  break: lg

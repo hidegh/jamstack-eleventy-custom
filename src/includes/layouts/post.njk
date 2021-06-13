@@ -1,0 +1,18 @@
+---
+aside: 3
+asideBreak: xl
+asideMobile: false
+---
+{% extends './main.njk' %}
+
+{% block content %}
+
+    <section class="print-container p-3 mb-3">
+        {{ content | safe }}
+    </section>
+  
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}
