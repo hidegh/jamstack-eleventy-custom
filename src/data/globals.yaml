@@ -22,3 +22,7 @@ site:
 #navbar
 navbar:
   break: lg
+
+#posts
+posts:
+  collectionName: postCollection

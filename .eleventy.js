@@ -1,4 +1,5 @@
 const yaml = require("js-yaml");
+const util = require("util");
 
 module.exports = function (eleventyConfig) {
 
@@ -20,7 +21,17 @@ module.exports = function (eleventyConfig) {
     // add YAML support
     eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
+    //
+    // Debugging
+    eleventyConfig.addFilter("json", function (value) { return JSON.stringify(value); });
+    eleventyConfig.addFilter("inspect", function (value) { return util.inspect(value); });
 
+
+    //
+    // Collections (posts)
+    const postCollectionName = 'postCollection';
+    eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob('src/posts/**/*.md'));
+   
     return {
 
         passthroughFileCopy: true,

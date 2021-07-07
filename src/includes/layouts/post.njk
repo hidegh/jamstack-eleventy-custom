@@ -8,6 +8,10 @@ asideMobile: false
 {% block content %}
 
     <section class="print-container p-3 mb-3">
+        <h1>{{ title }}</h1>
+        {# need to load full page data #}
+        {% set post = collections[globals.posts.collectionName] | getCollectionItem(page) %}
+        {% if post.data.image %}<img src="{{ post.data.image | url }}" class="w-25"></img>{% endif %}
         {{ content | safe }}
     </section>
   
