@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
 
     //
     // Default config
+    eleventyConfig.setUseGitIgnore(false);
 
     // NOTE:
     // unlike in hugo, not the content of the assets folder, but the asset folder itself (with it's subfolders) will be copied...
