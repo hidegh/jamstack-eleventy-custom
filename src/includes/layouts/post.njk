@@ -11,7 +11,7 @@ asideMobile: false
         <h1>{{ title }}</h1>
         {# need to load full page data #}
         {% set post = collections[globals.posts.collectionName] | getCollectionItem(page) %}
-        {% if post.data.image %}<img src="{{ post.data.image | url }}" class="w-25"></img>{% endif %}
+        {% if post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="w-25"></img>{% endif %}
         {{ content | safe }}
     </section>
   

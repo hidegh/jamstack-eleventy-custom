@@ -1,6 +1,8 @@
 const yaml = require("js-yaml");
 const util = require("util");
 
+const localPostImagesPlugin = require("./src/plugins/eleventy-hugo-style-local-post-images");
+
 module.exports = function (eleventyConfig) {
 
     //
@@ -26,12 +28,18 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("json", function (value) { return JSON.stringify(value); });
     eleventyConfig.addFilter("inspect", function (value) { return util.inspect(value); });
 
+    //
+    // Custom plugins / filters / ...
+
+    // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
+    eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
 
     //
     // Collections (posts)
     const postCollectionName = 'postCollection';
     eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob('src/posts/**/*.md'));
    
+
     return {
 
         passthroughFileCopy: true,

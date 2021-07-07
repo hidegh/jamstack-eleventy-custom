@@ -7,7 +7,7 @@ permalink: /posts/
 <ul>
 {%- for post in collections.postCollection -%}
   <li>
-    {% if post.data.image %}<img src="{{ post.data.image | url }}" class="w-25"></img>{% endif %}
+    {% if post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="w-25"></img>{% endif %}
     <h5><a href="{{ post.url | url }}">{{ post.data.title }}</a></h5>
   </li>
 {%- endfor -%}
