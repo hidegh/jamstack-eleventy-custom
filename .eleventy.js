@@ -1,7 +1,18 @@
 const yaml = require("js-yaml");
 const util = require("util");
 
+//
+// Custom plugins / filters / ...
+
+// local assets
 const localPostImagesPlugin = require("./src/plugins/eleventy-hugo-style-local-post-images");
+
+//
+// NuGet plugins / filters / ...
+
+// Syntax-highlight for MD code-blocks
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 
 module.exports = function (eleventyConfig) {
 
@@ -34,6 +45,17 @@ module.exports = function (eleventyConfig) {
 
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
+
+    //
+    // NuGet plugins / filters / ...
+
+    // syntax-highlight for MD code-blocks: https://prismjs.com/#supported-languages (also see Prism.languages.extend...)
+    eleventyConfig.addPlugin(syntaxHighlight, {
+        init: function({ Prism }) {
+            // Not workign as expected, see: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/47
+            // Prism.languages.console = Prism.languages.extend('markup', {});
+        }
+    });
 
     //
     // Collections (posts)
