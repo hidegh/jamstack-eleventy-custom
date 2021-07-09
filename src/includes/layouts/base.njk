@@ -38,8 +38,6 @@
         <link rel="canonical" href="{{ globals.site.url | url }}{{ page.url }}">
         <link rel="shortcut icon" type="image/png" href="{{ '/assets/img/favicon.png' | url }}">
         
-        <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
-
         <link rel="preconnect" href="cdnjs.cloudflare.com">
         <link rel="dns-prefetch" href="cdnjs.cloudflare.com">
 
@@ -51,8 +49,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         
+        <script src="{{ '/assets/js/custom/clipboard-copy.js' | url }}"></script>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
+        <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
+
     </head>
     <body>
 
@@ -69,10 +71,12 @@
             {% endblock %}
         </main>
 
-	<!-- scripts -->
+	    <!-- dynamic & custom scripts to alter rendered content -->
 
     </body>
 
-    <!-- dynamic & custom scripts for content -->
-    
+    <!-- dynamic & custom scripts that need to run after the entire "final" content is rendered -->
+    <script src="{{ '/assets/js/custom/d-hide-if-empty.js' | url }}"></script>
+    <script src="{{ '/assets/js/custom/sticky.js' | url }}"></script>
+
 </html>
