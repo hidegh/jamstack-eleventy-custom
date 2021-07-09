@@ -1,6 +1,8 @@
 const yaml = require("js-yaml");
 const util = require("util");
 
+const filters = require("./src/scripts/filters");
+
 //
 // Custom plugins / filters / ...
 
@@ -17,6 +19,9 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginTOC = require('eleventy-plugin-nesting-toc');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+
+// RSS
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
 
@@ -47,6 +52,8 @@ module.exports = function (eleventyConfig) {
     //
     // Custom plugins / filters / ...
 
+    eleventyConfig.addFilter('mergePaths', function(value) { return filters.mergePaths(value); });
+
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
 
@@ -72,6 +79,13 @@ module.exports = function (eleventyConfig) {
             typographer: true,
         }).use(markdownItAnchor, {})
     );
+
+    // RSS
+    eleventyConfig.addPlugin(pluginRss, {
+        posthtmlRenderOptions: {
+            closingSingleTag: "default" // opt-out of <img/>-style XHTML single tags
+        }
+    });
 
     //
     // Collections (posts)

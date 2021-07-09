@@ -18,6 +18,8 @@ site:
     - softwarearchitecture
     - programming
   copyright: Copyright - 2021
+  paths:
+    rss: /rss.xml
 
 #navbar
 navbar:
