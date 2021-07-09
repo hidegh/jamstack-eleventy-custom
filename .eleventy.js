@@ -13,6 +13,10 @@ const localPostImagesPlugin = require("./src/plugins/eleventy-hugo-style-local-p
 // Syntax-highlight for MD code-blocks
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+// TOC: the main (eleventy-plugin-nesting-toc) plugin generates TOC, the markdown-it-anchor plugin adds ID's to headings...
+const pluginTOC = require('eleventy-plugin-nesting-toc');
+const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
 
 module.exports = function (eleventyConfig) {
 
@@ -56,6 +60,18 @@ module.exports = function (eleventyConfig) {
             // Prism.languages.console = Prism.languages.extend('markup', {});
         }
     });
+
+    // TOC generator with required auto ID anchors creation
+    eleventyConfig.addPlugin(pluginTOC);
+
+    // Example Markdown configuration (to add IDs to the headers)
+    eleventyConfig.setLibrary("md",
+        markdownIt({
+            html: true,
+            linkify: true,
+            typographer: true,
+        }).use(markdownItAnchor, {})
+    );
 
     //
     // Collections (posts)
