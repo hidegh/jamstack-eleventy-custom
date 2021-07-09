@@ -5,6 +5,8 @@ asideMobile: false
 ---
 {% extends './main.njk' %}
 
+{% import "macros/heading.html" as heading %}
+
 {% block content %}
 
     <section class="print-container p-3 mb-3">
@@ -18,5 +20,12 @@ asideMobile: false
 {% endblock %}
 
 {% block aside %}
+
+    <section class="p-3 mb-3 d-hide-if-empty sticky">
+        {{ heading.withLink('Table of Contents') }}
+        <div class="text-nowrap overflow-hidden">
+        {% include 'partials/toc.html' %}
+        </div>
+    </section>
 
 {% endblock %}

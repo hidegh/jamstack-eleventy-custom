@@ -1,0 +1,4 @@
+{% set tocHtml = content | toc | safe %}
+{% if tocHtml.length %}
+{{ tocHtml }}
+{% endif %}
