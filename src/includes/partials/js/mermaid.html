@@ -1,0 +1,6 @@
+{% set currentPageWithDetails = collections.all | getCollectionItem(page) %}
+{% if currentPageWithDetails.data.mermaid -%}
+<script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js">
+    mermaid.initialize({ startOnLoad: true });
+</script>
+{%- endif %}

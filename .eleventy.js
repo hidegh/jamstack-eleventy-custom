@@ -69,6 +69,23 @@ module.exports = function (eleventyConfig) {
         }
     });
 
+    // add support for ```mermaid and ```mathjax higlighting inside MD
+    //
+    // don't forget to allow them via setting the corresponding parameter inside the front matter:
+    // mermaid: true
+    // mathjax: true 
+    var markdownHighlighter = eleventyConfig.markdownHighlighter;
+
+    eleventyConfig.addMarkdownHighlighter((str, language) => {        
+        if (language === "mermaid") 
+            return `<pre class="mermaid">${str}</pre>`;
+        else if (language === "mathjax")
+        // TODO: pre and code tags generated making problems
+            return `<pre class="mathjax">$$ ${str} $$</pre>`;
+        else
+            return markdownHighlighter(str, language);
+    });
+
     // TOC generator with required auto ID anchors creation
     eleventyConfig.addPlugin(pluginTOC);
 

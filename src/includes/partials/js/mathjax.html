@@ -1,0 +1,20 @@
+{% set currentPageWithDetails = collections.all | getCollectionItem(page) %}
+{% if currentPageWithDetails.data.mathjax -%}
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$$', '$$']]
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            skipHtmlTags: [
+                'script', 'noscript', 'style', 'textarea', /* 'pre', 'code', */ 'annotation', 'annotation-xml'
+            ]
+        }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es5"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" integrity="sha256-zLYf6lctKDKZBp0Gn5vP7VBivbAaLp9k5ZTPxCf9zbw=" crossorigin="anonymous"></script>
+{%- endif %}
