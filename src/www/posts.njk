@@ -1,14 +1,21 @@
 ---
-permalink: /posts/
+pagination:
+    data: collections.postCollection
+    size: 5
+permalink: "{{ globals.posts.path | normalize }}{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}{% endif %}/"
 ---
 
-<h2>Posts</h2>
-
 <ul>
-{%- for post in collections.postCollection -%}
+{%- for page in pagination.items -%}
   <li>
+    {# need to load full page data #}
+    {% set post = collections.postCollection | getCollectionItem(page) %}
     {% if post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="w-25"></img>{% endif %}
     <h5><a href="{{ post.url | url }}">{{ post.data.title }}</a></h5>
   </li>
 {%- endfor -%}
 </ul>
+
+<div class="d-flex justify-content-center">
+{% include "partials/paginator.njk" %}
+</div>

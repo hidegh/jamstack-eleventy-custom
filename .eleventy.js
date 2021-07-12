@@ -53,6 +53,7 @@ module.exports = function (eleventyConfig) {
     // Custom plugins / filters / ...
 
     eleventyConfig.addFilter('mergePaths', function(value) { return filters.mergePaths(value); });
+    eleventyConfig.addFilter('normalize', function(value) { return filters.normalize(value); });
 
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
