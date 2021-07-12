@@ -1,0 +1,39 @@
+{% if globals.googleAnalytics.id %}
+<!-- based on Jekyll - Chirpy + extension to support CC -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id={{ globals.googleAnalytics.id }}"></script>
+
+<script>
+    function loadGA(anonymizeIp) {
+
+        console.log('loaging GA...')
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+
+            gtag('js', new Date());
+
+            /*
+            Note:
+            Without an opt-in consent, we need to use anonymization.
+            In general we should avoid collecting personal data.
+            Here we can do the usual if/then branching if we still decide to collect personal data (yes, even a generated USER_ID or IP counts as such)!
+      
+            On the other hand, by using tools like Disqus, we need to notify user that:
+            - cookies are used
+            - and that 3rd party might store private data
+            - ...but the user itself is in full control over those data - via the Disqus platform
+            */
+            options = {};
+
+            if (anonymizeIp) options['anonymize_ip'] = true;
+
+            gtag('config', '{{ globals.googleAnalytics.id }}', options);
+        });
+    }
+
+    {%- if (globals.cookieConsent.required == false or globals.googleAnalytics.useCcLoader == false) %}
+    loadGA(globals.googleAnalytics.anonymizeIp);
+    {%- endif %}
+</script>
+{% endif %}

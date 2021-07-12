@@ -30,6 +30,12 @@ cookieConsent:
     required: true
     consentUrl: /cookies.html
 
+# google analytics
+googleAnalytics:
+    id:                             # GA https://tagmanager.google.com/
+    anonymizeIp: true               # only when loaded automatically
+    useCcLoader: true               # if TRUE, cookie consent script is responsible for loading
+
 #posts
 posts:
   collectionName: postCollection
