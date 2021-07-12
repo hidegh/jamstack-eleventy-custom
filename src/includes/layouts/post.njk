@@ -21,6 +21,10 @@ asideMobile: false
         {% if post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="w-25"></img>{% endif %}
         {{ content | safe }}
     </section>
+
+    <section class="p-3">
+        {% include 'partials/js/disqus.html' %}
+    </section>
   
 {% endblock %}
 

@@ -1,0 +1,41 @@
+{% if globals.disqus.shortname %}
+<!--
+    Based on: Jekyll - Chirpy + extension to support CC
+
+    Inserts DISQUS to the page.
+    Also loads necessary scripts and sets disqus identifier to the given page URL.
+
+    Usage (on the page / post layout):
+
+        {% if site.disqus.comments and page.comments %}{% include 'partials/disqus.html' %}{% endif %}
+-->
+<div id="disqus">
+    <p class="font-italic text-center text-muted small">
+        Comments powered by <a href="https://disqus.com/">Disqus</a> - function requires cookie consent (see drawer at the bottom right corner)!
+    </p>
+</div>
+
+<script src="{{ '/assets/js/disqusloader.min.js' | url }}"></script>
+
+<script>
+    function loadDisqus() {
+
+        console.log('loading disqus....');
+        
+        var options = {
+            scriptUrl: '//{{ globals.disqus.shortname }}.disqus.com/embed.js',
+
+            disqusConfig: function () {
+                this.page.url = document.location.origin + '{{ page.url | url }}';
+                this.page.identifier = '{{ page.url }}';
+            }
+        };
+
+        disqusLoader('#disqus', options);
+    }
+
+    {%- if (globals.cookieConsent.required == false or globals.disqus.useCcLoader == false ) %}
+    loadDisqus();
+    {%- endif %}
+</script>
+{% endif %}
