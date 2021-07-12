@@ -1,0 +1,124 @@
+{% if globals.cookieConsent.required %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
+
+<script>
+    const scripts_config = {
+
+        defaultCookies: function () {
+            console.log('default cookies');
+
+            // note: using anonymized IP
+            if (typeof loadGA === 'function') loadGA(true);
+        },
+
+        enableCookies: function () {
+            console.log('enabled cookies');
+
+            if (typeof loadGA === 'function') loadGA(false);
+            if (typeof loadDisqus === 'function') loadDisqus();
+        },
+
+        disableCookies: function () {
+            console.log('disabled cookies');
+
+            this.defaultCookies();
+        },
+
+        loadScripts: function (requireConsent, consentUrl) {
+            if (requireConsent) {
+                // scripts managed based on consent status
+                this.initializeCookieConsent(consentUrl);
+            } else {
+                // all scripts enabled
+                this.enableCookies();
+            }
+        },
+
+        initializeCookieConsent: function (consentUrl) {
+
+            const me = this;
+
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#edeff5",
+                        "text": "#838391"
+                    },
+                    "button": {
+                        "background": "#4b81e8"
+                    }
+                },
+                "position": "bottom-right",
+                "type": "opt-in",
+                "content": {
+                    "message": "This website uses cookies to ensure you get the best experience here.",
+                    "href": consentUrl
+                },
+
+                onInitialise: function (status) {
+                    console.log(`cc - onInitialise, status: ${status}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+                    if (type == 'opt-in' && didConsent) {
+                        me.enableCookies();
+                    }
+                    else if (type == 'opt-out' && !didConsent) {
+                        me.disableCookies();
+                    }
+                    else {
+                        me.defaultCookies();
+                    }
+                },
+
+                onStatusChange: function (status, chosenBefore) {
+                    console.log(`cc - onStatusChange, status: ${status}, chosenBefore: ${chosenBefore}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+                    if (type == 'opt-in' && didConsent) {
+                        me.enableCookies();
+                    }
+                    if (type == 'opt-out' && !didConsent) {
+                        me.disableCookies();
+                    }
+                },
+
+                onRevokeChoice: function () {
+                    // NOTE: this hook is called immediately after the revoke button is clicked and removes previous answers
+                    console.log(`cc - onRevokeChoice`);
+
+                    var type = this.options.type;
+                    if (type == 'opt-in') {
+                        me.disableCookies();
+
+                        // NOTE: we need to reload page, so that we get rid of the loaded GA / Disqus scripts!
+                        location.reload();
+                    }
+                    if (type == 'opt-out') {
+                        me.enableCookies();
+                    }
+                },
+
+                onPopupOpen: function () {
+                    console.log(`cc - onPopupOpen`);
+                },
+
+                onPopupClose: function () {
+                    console.log(`cc - onPopupClose`);
+                }
+
+            });
+
+        }
+
+    };
+
+    const requireConsent = JSON.parse('{{ globals.cookieConsent.required }}');
+    const consentUrl = '{{ globals.cookieConsent.consentUrl | url }}';
+    
+    scripts_config.loadScripts(requireConsent, consentUrl);
+</script>
+{% endif %}

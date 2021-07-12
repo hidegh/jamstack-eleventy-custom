@@ -25,6 +25,11 @@ site:
 navbar:
   break: lg
 
+# cookie consent
+cookieConsent:
+    required: true
+    consentUrl: /cookies.html
+
 #posts
 posts:
   collectionName: postCollection
