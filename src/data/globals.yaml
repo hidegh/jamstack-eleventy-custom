@@ -29,3 +29,52 @@ navbar:
 posts:
   collectionName: postCollection
   path: /posts
+
+# social platforms (share, link) - user must be set, otherwise ignored!
+platforms:
+  -
+    name: LinkedIn
+    user: 
+    show: true
+    allowShare: true
+    icon: "fab fa-fw fa-linkedin"
+    url: https://www.linkedin.com/in/{USER}
+    shareUrl: "https://www.linkedin.com/sharing/share-offsite/?url={URL}"
+  -
+    name: GitHub
+    user:    
+    show: true
+    icon: "fab fa-fw fa-github"
+    url: https://github.com/{USER}
+  -
+    name: Twitter
+    user: 
+    show: true
+    allowShare: true
+    icon: "fab fa-fw fa-twitter"
+    url: https://twitter.com/{USER}
+    shareUrl: "https://twitter.com/intent/tweet?text={TITLE}&url={URL}"
+  -
+    name: Facebook
+    user: 
+    show: false
+    allowShare: false
+    icon: "fab fa-fw fa-facebook-square"
+    url: https://www.facebook.com/{USER}
+    shareUrl: "https://www.facebook.com/sharer/sharer.php?title={TITLE}&u={URL}"
+  -
+    name: Telegram
+    user:
+    show: false
+    allowShare: false
+    icon: "fab fa-fw fa-telegram"
+    url: https://t.me/{USER}
+    shareUrl: "https://telegram.me/share?text={TITLE}&url={URL}"
+  -
+    name: Weibo
+    user:
+    show: false
+    allowShare: false
+    icon: "fab fa-fw fa-weibo"
+    url: https://weibo.com/{USER}
+    shareUrl: "http://service.weibo.com/share/share.php?title={TITLE}&url={URL}"
