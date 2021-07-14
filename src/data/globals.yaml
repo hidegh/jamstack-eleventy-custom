@@ -20,6 +20,11 @@ site:
   copyright: Copyright - 2021
   paths:
     rss: /rss.xml
+    searchIndex: /search.json
+  search:
+    collectionName: postCollection
+    maximizeSummaryContent: 400
+    maximizeSummaryLines: 10
 
 #navbar
 navbar:

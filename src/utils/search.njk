@@ -1,0 +1,20 @@
+---
+layout: none
+permalink: '{{ globals.site.paths.searchIndex }}'
+eleventyExcludeFromCollections: true
+---
+[
+{%- for post in collections[globals.site.search.collectionName] %}
+    {
+        "url": "{{ metadata.url }}{{ post.data.page.url }}",
+        "title": "{{ post.data.title }}",
+        "date": "{{ post.date }}",
+        "author": "{{ post.data.author }}",
+        "image": "{{ post.data.image }}",
+        "tags": {% if post.data.tags %}{{ post.data.tags | json | safe }}{% else %}[]{% endif %},
+        "categories": {% if post.data.categories %}{{ post.data.categories | json | safe }}{% else %}[]{% endif %},
+        "summary": {% if post.data.page.excerpt %}{{ post.data.page.excerpt | truncateHtml(globals.site.search.maximizeSummaryContent, globals.site.search.maximizeSummaryLines) | json | safe }}{% else %}{{ post.templateContent | truncateHtml(globals.site.search.maximizeSummaryContent, globals.site.search.maximizeSummaryLines) | json | safe }}{%- endif %},
+        "text": {{ post.templateContent | striptags(true) | json | safe }}
+    }{% if loop.revindex0 != 0 %},{% endif %}
+{%- endfor %}
+]

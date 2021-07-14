@@ -1,0 +1,276 @@
+<script>
+
+    /* uses:
+    EJS.CO for templating
+    LUNR for search
+    HE for HTML encoding (at highlight fnc.)
+    */
+   
+    class Debouncer {
+        _timeoutId = undefined;
+        _wait = 250;
+        _callback;
+
+        constructor(callback, wait) {
+            this._wait = wait ? wait : this._wait;
+            this._callback = callback;
+        }
+
+        next(...args) {
+            this.cancel();
+            this._timeoutId = window.setTimeout(() => {
+            this._callback.apply(null, args);
+            }, this._wait);
+        }
+
+        cancel() {
+            window.clearTimeout(this._timeoutId);
+        }
+    }
+
+    const blogSearch = {
+
+        _searchIndexPath: '{{ globals.site.paths.searchIndex | url }}',
+        _urlPrefix: '{{ "/" | url }}',
+        _debounceTime: 400,
+
+        _searchingTemplate: `
+<h2>
+    <i class="text-secondary fas fa-spin fa-circle-notch"></i>
+    <span class="text-secondary">Searching for:</span>
+    <span class="text-primary"><%= searchText %></span>
+</h2>
+`,
+
+        _resultTemplate: `
+<h2>
+    <span class="text-secondary">Search results for:</span>
+    <span class="text-primary"><%= searchText %></span>
+</h2>
+
+<ul class="search-results">
+<% searchResults.forEach((sr) => { %>
+    <li>
+        <div class="search-result-item position-relative border shadow">
+            <h5><%- sr.ref.title %></h5>
+            <p class="x-text-nowrap x-text-truncate"><%- sr.ref.summary %></p>
+            <a href="<%- urlPrefix %><%- sr.ref.url %>" class="stretched-link"></a>
+        </div>
+    </li>
+<% }); %>
+</ul>        
+`,
+
+        _inputElements: [],
+        _cancelElements: [],
+        
+        _updateInputs(value) {
+            this._inputElements.forEach(el => el.value = value);
+        },
+
+        _setUpListeners(inputSelector, cancelSelector) {
+            if (inputSelector) {
+                this._inputElements = document.querySelectorAll(inputSelector);
+                this._inputElements.forEach(el => el.addEventListener('keyup', evt => { if (evt.keyCode == 27) this._escapePressed(el); else this._inputValueChanged(el); } ));
+            } else {
+                this._inputElements = [];
+            }
+
+            if (cancelSelector) {
+                this._cancelElements = document.querySelectorAll(cancelSelector);
+            } else {
+                this._cancelElements = [];
+            }
+        },
+
+        _escapePressed(el) {
+            this.clearSearch();
+        },
+
+        _inputValueChanged(el) {
+            const value = el.value;
+            this._updateInputs(value);
+            this._debouncedSearch.next(value);
+        },
+
+        _resultContainerEls: [],
+        _containersToHideEls: [],
+
+        _setUpContainers(resultContainerSelector, containersToHideWhenResultSelector) {
+            this._resultContainerEls = document.querySelectorAll(resultContainerSelector);
+            this._containersToHideEls = document.querySelectorAll(containersToHideWhenResultSelector);
+        },
+
+        _showResults: false,
+        _searching: false,
+        _searchText: '',
+        _searchResults: [],
+
+        refreshUi() {
+            const self = this;
+
+            self._inputElements.forEach(el => el.value = self._searchText );
+
+            const html = self._showResults
+                ? self._searching
+                    ? ejs.render(self._searchingTemplate, { searchText: self._searchText })
+                    : ejs.render(self._resultTemplate, { urlPrefix: self._urlPrefix.replace(/\/+$/, ''), searchText: self._searchText, searchResults: self._searchResults })
+                : '';
+
+            self._resultContainerEls.forEach(el => { 
+                // hide/show container
+                self._showResults ? el.classList.remove("d-none") : el.classList.add("d-none")
+                
+                // find results element and set results
+                const resultsEl = el.querySelector(".search-results");
+                if (resultsEl) {
+                    resultsEl.innerHTML = self._showResults ? html : "";
+                }
+            });
+
+            self._containersToHideEls.forEach(el => self._showResults ? el.classList.add("d-none") : el.classList.remove("d-none"));          
+        },
+
+        clearSearch() {
+            this._showResults = false;
+            this._searchText = '';
+            this._searchResults = [];
+            this.refreshUi();
+        },
+
+        search(text) {
+
+            const self = this;
+
+            console.log('searching for: ', text);
+            self._searchText = text;
+
+            if (!text) {
+                self.clearSearch();
+                return;
+            }
+
+            this._searchResults = [];
+            self._searching = true;
+            self._showResults = true;
+            this.refreshUi();
+
+            const hasSpecial = self._lunrSpecial.some(special => text.includes(special));
+            const pattern =  hasSpecial 
+                ? text
+                : text + "*";
+
+            console.log('lunr pattern: ', pattern);
+            const localResults = self._lunrEngine.search(pattern);
+
+            // NOTE: just for tests...
+            // console.log('total result', localResults)
+
+            // NOTE: highlighting
+            localResults.forEach(localResult => {
+                // NOTE: hard. ref.
+                const data = self._lunrSearchData.find(i => i.url == localResult.ref);
+
+                const highlight = {};
+
+                for (let term in localResult.matchData.metadata) {
+                    for (let field in localResult.matchData.metadata[term]) {
+
+                        const positions = localResult.matchData.metadata[term][field].position;
+
+                        const fieldValue = data[field];
+                        let fieldReadIndex = 0;
+
+                        highlight[field] = "";
+
+                        for (let position of positions) {
+
+                            if (position[0] > fieldReadIndex)
+                                highlight[field] += fieldValue.substring(fieldReadIndex, position[0]);
+
+                            highlight[field] += ("{:::" + fieldValue.substring(position[0], position[0] + position[1]) + ":::}");
+
+                            fieldReadIndex = position[0] + position[1];
+
+                        }
+
+                        highlight[field] += fieldValue.substring(fieldReadIndex);             
+
+                    }
+
+                }
+
+                for (let key in highlight) {
+                    let value = highlight[key];
+
+                    const encode = false;
+                    let encoded = encode
+                        ? he.encode(value)
+                        : value;
+
+                    let highlighted = encoded.replace(/{:::/g, '<mark>').replace(/:::}/g, '</mark>');
+                    highlight[key] = highlighted;
+                }
+
+                localResult.ref = Object.assign({}, data, highlight);
+            });
+
+            self._searchResults = localResults;
+
+            // finally
+            self._searching = false;
+            self.refreshUi();
+        },
+
+        _lunrSpecial: "*+-:^~".split(''),
+        _lunrSearchData: undefined,
+        _lunrEngine: undefined,
+
+        init(inputSelector, cancelSelector, resultContainerSelector, containersToHideWhenResultSelector) {
+
+            console.log('initializing search', this);
+
+            // set up result / hide elements
+            this._setUpContainers(resultContainerSelector, containersToHideWhenResultSelector);
+
+            // refresh
+            this.refreshUi();
+
+            fetch(this._searchIndexPath).then((response) => {
+                response.json().then((raw) => {
+
+                    // set up engine, store search data
+                    this._lunrSearchData = raw;
+
+                    this._lunrEngine = lunr(function () {
+                        this.ref('url')
+                        this.field('title')
+                        this.field('date')
+                        this.field('author')
+                        this.field('summary')
+                        this.field('text')
+
+                        this.metadataWhitelist = ['position']
+
+                        raw.forEach(function (doc) { this.add(doc) }, this)
+                    });
+
+                    // set up UI listeners
+                    this._debouncedSearch = new Debouncer((args) => this.search(args), this._debounceTime);
+                    this._setUpListeners(inputSelector, cancelSelector);
+
+                    // refresh
+                    this.refreshUi();
+                });
+            });
+
+        }
+
+    };
+
+    // NOTE:
+    // #search-results-container must have an additional element with a .search-results class
+    // these objects (along with #global-content-view) were already set up inside main.njk
+    blogSearch.init('.blog-search-input', '.blog-search-cancel', '#search-results-container', '#global-content-view');
+
+</script>

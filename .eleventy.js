@@ -1,5 +1,6 @@
 const yaml = require("js-yaml");
 const util = require("util");
+const clip = require("text-clipper").default;
 
 const filters = require("./src/scripts/filters");
 
@@ -54,6 +55,8 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter('mergePaths', function(value) { return filters.mergePaths(value); });
     eleventyConfig.addFilter('normalize', function(value) { return filters.normalize(value); });
+
+    eleventyConfig.addFilter('truncateHtml', function(value, charLimit, lineLimit) { return clip(value, charLimit, { html: true, maxLines: lineLimit }); });
 
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
