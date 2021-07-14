@@ -1,0 +1,266 @@
+---
+permalink: tests/vue-lunr-search/
+---
+<!-- 
+Uses:
+     VUE for templating and the dynamic stuff - <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.7/vue.global.js" integrity="sha512-+i5dAv2T8IUOP7oRl2iqlAErpjtBOkNtREnW/Te+4VgQ52h4tAY5biFFQJmF03jVDWU4R7l47BwV8H6qQ+/MfA==" crossorigin="anonymous"></script>
+     LUNR for search
+     HE for HTML encoding (at highlight fnc.)
+
+NOTES:
+    VUE is not the best tool when used with NJK, as it uses similar templating syntax (with curly braces) as the NJK.
+    We would need to make sure to use {% raw %} {% endraw %} properly.
+
+    If more than 1 input would need the VUE model, we'd ev. do that by:
+    - keeping this code within raw/endraw blocks
+    - calling mount on the top-most node
+    - adding VUE binding to the req. inputs
+
+TODO:
+    Ideal would be to impl. a search INPUT component and then apply that component (and wire them to a single model - parent data)!
+-->
+<h1>Search</h1>
+
+<script>
+    const searchIndexPath = '{{ globals.site.paths.searchIndex | url }}';
+</script>
+
+{% raw %}
+
+<div id="dynamic" class="vue">
+    
+    <button v-on:click="this.showResults = !this.showResults">S/H</button>
+
+    <div class="input-group">
+        <input v-model.number="searchText" id="search" v-on:input="debouncedSearch.next($event)" @keydown.esc="clearSearch()" />
+        <button class="btn btn-outline-dark" v-on:click="clearSearch()"><i class="fas fa-times-circle"></i></button>
+    </div>
+
+    <br />
+    Search value: <span>{{ searchText }}</span>, Show: {{ showResults }}
+    <br />
+
+    <!-- make sure that the VUE script is applied after the teleport object is added to DOM -->
+    <teleport to="#myresults">
+
+        <div id="global-search-results" v-if="showResults"/>
+            <h2 v-if="searching">
+                <i class="text-secondary fas fa-spin fa-circle-notch"></i>
+                <span class="text-secondary">Searching for:</span>
+                <span class="text-primary">{{ searchText }}</span>
+            </h2>
+            <h2 v-else>
+                <span class="text-secondary">Search results for:</span>
+                <span class="text-primary">{{ searchText }}</span>
+            </h2>   
+
+            <ul>
+                <li v-for="sr in searchResults">
+                    <span v-html="sr.ref.title"></span>
+                    <p class="x-text-nowrap x-text-truncate" v-html="sr.ref.summary"></p>
+                </li>
+            </ul>
+
+            <hr />
+
+            {{ searchResults.length }}
+            <pre>{{ JSON.stringify(searchResults, null, '\t') }}</pre>
+
+        </div>
+
+    </teleport>
+
+</div>
+
+<hr /> 
+
+<h2>Projected result outside VUE node:</h2>
+<div id="myresults"></div>
+
+<script>
+
+    class Debouncer {
+        _timeoutId = undefined;
+        _wait = 250;
+        _callback;
+
+        constructor(callback, wait) {
+            this._wait = wait ? wait : this._wait;
+            this._callback = callback;
+        }
+
+        next(...args) {
+            this.cancel();
+            this._timeoutId = window.setTimeout(() => {
+            this._callback.apply(null, args);
+            }, this._wait);
+        }
+
+        cancel() {
+            window.clearTimeout(this._timeoutId);
+        }
+    }
+
+    const mainComponent = {
+
+        data: function () {
+            return {
+                searchData: [],
+                engine: {},
+                lunrSpecial: "*+-:^~".split(''),
+                searchText: '',
+                searching: false,
+                searchResults: [],
+                showResults: false,
+                globalContentViewId: 'global-content-view',
+                globalContentViewElem: undefined
+            }
+        },
+
+        created() {
+            this.debouncedSearch = new Debouncer((args) => this.search(args), 300);
+            this.globalContentViewElem = document.getElementById(this.globalContentViewId);
+        },
+
+        unmounted() {
+            this.debouncedSearch.cancel();
+        },
+
+        mounted: function () {
+
+            const self = this;
+
+            fetch(searchIndexPath).then((response) => {
+                response.json().then((raw) => {
+                    console.log('Mounted')
+                    self.searchData = raw;
+
+                    self.engine = lunr(function () {
+                        this.ref('url')
+                        this.field('title')
+                        this.field('date')
+                        this.field('author')
+                        this.field('summary')
+                        this.field('text')
+
+                        this.metadataWhitelist = ['position']
+
+                        raw.forEach(function (doc) { this.add(doc) }, this)
+                    });
+                    
+                })
+            })
+        },
+
+        updated: function () {
+            // NOTE: testing only (returns proxies)
+            // console.log("Data updated", this.searchData);
+        },
+
+        watch: {
+        	showResults: function(value, old) {
+    		    console.log("showResults changed from " + old + " to " + value);
+                // TODO: uncomment later - temporary bypass
+                // this.refreshUi();
+	        }
+        },
+
+        methods: {
+
+            refreshUi() {
+                const showGlobalContent = !this.showResults;
+                if (this.globalContentViewElem) {
+                    if (showGlobalContent)
+                        this.globalContentViewElem.classList.remove('d-none');
+                    else
+                        this.globalContentViewElem.classList.add('d-none');
+                }
+            },
+
+            clearSearch() {
+                this.searching = false;
+                this.showResults = false;
+            },
+
+            search(ev) {
+
+                const self = this;
+        
+                console.log('searching for: ', self.searchText);
+
+                if (!self.searchText) {
+                    self.clearSearch();
+                    return;
+                }
+
+                self.searchResults = [];
+                self.searching = true;
+                self.showResults = true;
+
+                const hasSpecial = self.lunrSpecial.some(special => self.searchText.includes(special));
+                const pattern =  hasSpecial 
+                    ? self.searchText
+                    : self.searchText + "*";
+
+                console.log('lunr pattern: ', pattern);                
+                const localResults = self.engine.search(pattern);
+                
+                // NOTE: just for tests...
+                // console.log('total result', localResults)
+
+                // NOTE: highlighting
+                localResults.forEach(localResult => {
+                    // NOTE: hard. ref.
+                    const data = self.searchData.find(i => i.url == localResult.ref);
+
+                    const highlight = {};
+
+                    for (let term in localResult.matchData.metadata) {
+                        for (let field in localResult.matchData.metadata[term]) {
+
+                            const positions = localResult.matchData.metadata[term][field].position;
+
+                            const fieldValue = data[field];
+                            let fieldReadIndex = 0;
+
+                            highlight[field] = "";
+
+                            for (let position of positions) {
+
+                                if (position[0] > fieldReadIndex)
+                                    highlight[field] += fieldValue.substring(fieldReadIndex, position[0]);
+
+                                highlight[field] += ("{:::" + fieldValue.substring(position[0], position[0] + position[1]) + ":::}");
+
+                                fieldReadIndex = position[0] + position[1];
+
+                            }
+
+                            highlight[field] += fieldValue.substring(fieldReadIndex);             
+
+                        }
+
+                    }
+
+                    for (let key in highlight) {
+                        let value = highlight[key];
+                        let encoded = he.encode(value);
+                        let highlighted = encoded.replace(/{:::/g, '<mark>').replace(/:::}/g, '</mark>');
+                        highlight[key] = highlighted;
+                    }
+
+                    localResult.ref = Object.assign({}, data, highlight);
+                });
+
+                self.searchResults = localResults;
+                self.searching = false;
+            }
+        }
+
+    }
+
+    Vue.createApp(mainComponent).mount('#dynamic');
+
+</script>
+
+{% endraw %}
