@@ -1,0 +1,159 @@
+---
+permalink: /tests/vue-fuse-search/
+---
+<!--
+Uses:
+    FUSEJS - which is fuzzy search, not suited for perfect matches
+    VUE
+
+NOTE:
+    This was the 1st approach, has no debouncer, nor content projection set up to other div.
+-->
+<script>
+    const searchIndexPath = '{{ globals.site.paths.searchIndex | url }}';
+</script>
+
+{% raw %}
+
+<div id="dynamic">
+    <input v-model.number="searchText" id="search" v-on:input="search($event)" />
+
+    <br />
+    Search text: <span>{{ searchText }}</span>
+    <br />
+
+    <ul class="d-none">
+        <li v-for="sd in searchData">{{ sd.title }}</li>
+    </ul>
+
+    <hr/>
+
+    <div id="search-result">
+        Result:
+    </div>
+
+    <br />
+
+    <ul>
+        <li v-for="sr in searchResult">
+            <h3>{{ sr.item.title }}</h3>
+            <p v-html="sr.highlight"></p>
+        </li>
+    </ul>
+
+    <hr />
+
+    {{ searchResult.length }}
+    <pre>{{ JSON.stringify(searchResult, null, '\t') }}</pre>
+
+</div>
+
+<script>
+
+    const mainComponent = {
+        data: function () {
+            return {
+                searchData: [],
+                fuse: {},
+                fuseOptions: {
+                    keys: [
+                        { name: 'title', weight: 1 },
+                        { name: 'summary', weight: .6 },
+                        { name: 'text', weight: .6 },
+                        { name: 'author', weight: .4 }
+                    ],
+
+                    includeScore: true,
+                    includeMatches: true,
+
+                    useExtendedSearch: true,
+
+                    tokenize: false,
+                    matchAllTokens: true,
+
+                    threshold: 0.6,
+                    location: 0,
+                    distance: 0,
+                    ignoreLocation: true,
+                    maxPatternLength: 32,
+                    minMatchCharLength: 2,
+                },
+                searchText: '',
+                searchResult: []
+            }
+        },
+
+        mounted: function () {
+            const self = this;
+            fetch(searchIndexPath).then((response) => {
+                response.json().then((raw) => {
+                    console.log('Mounted')
+                    self.searchData = raw;
+                    self.fuse = new Fuse(raw, self.fuseOptions);
+                })
+            })
+        },
+
+        updated: function () {
+            console.log("Data updated", this.searchData);
+        },
+
+        methods: {
+            search(ev) {
+                const pattern = this.searchText;
+                console.log('searching for: ', ev, pattern);
+                const localResult = this.fuse.search(pattern)
+                const localHighlightedResult = this.highlightResult(localResult);
+                this.searchResult = localHighlightedResult;
+                console.log('search result: ', this.searchResult);
+            },
+
+            highlightResult(resultItems) {
+
+                // https://github.com/brunocechet/Fuse.js-with-highlight/blob/master/index.js
+                resultItems.forEach(resultItem => {
+
+                    resultItem.matches.forEach((matchItem) => {
+
+                        var text = resultItem.item[matchItem.key];
+                        var result = []
+                        var matches = [].concat(matchItem.indices); // limpar referencia
+                        var pair = matches.shift()
+
+                        for (var i = 0; i < text.length; i++) {
+                        
+                            var char = text.charAt(i)
+                        
+                            if (pair && i == pair[0]) {
+                                result.push('<b>')
+                            }
+                        
+                            result.push(char)
+                        
+                            if (pair && i == pair[1]) {
+                                result.push('</b>')
+                                pair = matches.shift()
+                            }
+                        }
+
+                        resultItem.highlight = result.join('');
+
+                        if (resultItem.children && resultItem.children.length > 0)
+                            resultItem.children.forEach((child) => highlighter(child));
+                        
+                    });
+
+                });
+
+                return resultItems;
+
+            }
+        }
+
+    }
+
+    Vue.createApp(mainComponent).mount('#dynamic');
+
+</script>
+
+{% endraw %}
