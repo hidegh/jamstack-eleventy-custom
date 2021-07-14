@@ -113,6 +113,20 @@ module.exports = function (eleventyConfig) {
     const postCollectionName = 'postCollection';
     eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob('src/posts/**/*.md'));
    
+    //
+    // Experimental
+
+    // extending context with our functions
+    fncs = require('./src/scripts/fncs');
+
+    // making filters and other configured JS functions available inside EJS
+    js = eleventyConfig.javascriptFunctions;
+
+    /*
+    // Coming in v1.0.0: in template {{ fncs().echo('1.2.3') }}
+    eleventyConfig.addNunjucksGlobal('fncs', () => fncs);
+    eleventyConfig.addGlobal("fncs", () => fncs);
+    */
 
     return {
 

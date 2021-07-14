@@ -1,0 +1,6 @@
+---
+    layout: none
+    permalink: /search-index.json
+    eleventyExcludeFromCollections: true
+---
+<% const searchData = fncs.getSearchData(collections[globals.posts.collectionName]) %><% const indexedData = fncs.getIndexedSearchData(searchData) %><%- indexedData %>
