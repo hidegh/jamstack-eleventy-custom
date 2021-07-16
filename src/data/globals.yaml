@@ -51,6 +51,8 @@ disqus:
 posts:
   collectionName: postCollection
   path: /posts
+  recent:
+    limit: 5
 
 # social platforms (share, link) - user must be set, otherwise ignored!
 platforms:

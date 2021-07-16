@@ -1,0 +1,10 @@
+{% set recent = collections[globals.posts.collectionName] | sort(true, false, "data.date") | batch(globals.posts.recent.limit) | first %}
+<ul class="recent-posts">
+    {% for post in recent %}
+    <li>
+        <a href="{{ post.url | url }}">
+            <span>{{ post.data.title }}</span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

@@ -34,6 +34,11 @@ asideMobile: false
 
 {% block aside %}
 
+    <section class="sticky p-3 mb-3">
+        {{ heading.withLink('Recent posts') }}
+        {% include 'partials/recent-posts.html' %}
+    </section>
+    
     <section class="p-3 mb-3 d-hide-if-empty sticky">
         {{ heading.withLink('Table of Contents') }}
         <div class="text-nowrap overflow-hidden">
