@@ -1,15 +1,141 @@
-<!--
-note:   the default navigation based on: https://www.11ty.dev/docs/pagination/nav/
-fixed:  made it work with pathPrefix
---> 
+{% set customPagination = customPagination | default(pagination) %}
+
+{% set pageNumber = customPagination.pageNumber %}
+{% set hrefs = customPagination.hrefs %}
+
+{#
+ # from here on we do work with the properties/fields that we have already set up above ^
+ # ...this allows us to use both 11ty's pagination class
+ # ...as our custom pagination object
+ #} 
+
+{% set totalPages = hrefs.length %}
+
+{% set isFirst = pageNumber == 0 %}
+{% set isLast = pageNumber == totalPages - 1 %}
+
+{% set firstPageHref = hrefs[0] %}
+{% set lastPageHref = hrefs[totalPages - 1] %}
+
+{% if not isFirst %}
+    {% set previousPageHref = hrefs[pageNumber - 1] %}
+{% endif %}
+
+{% if not isLast %}
+    {% set nextPageHref = hrefs[pageNumber + 1] %}
+{% endif %}
+
+{#
+ # custom properties to set up paginator
+ # ...and some additional calculated based upon them
+ #}
+
+{% set showAllSteps = paginator.showAll | default(true) %}
+{% set showPrevNext = paginator.showPrevNext | default(true) %}
+{% set smallCount = paginator.smallCount | default(2) %}
+{% set bigCount = paginator.bigCount | default(2) %}
+{% set bigStepRounding = paginator.bigStepRounding %}
+
+{% set bigStep = ((totalPages / bigCount / 2) | round(0)) %}
+{% if bigStepRounding %}
+    {% set bigStep = ((bigStep / bigStepRounding) | round(0)) * bigStepRounding %}
+{% endif %}
+
+{% macro paginationLink(active, disabled, href, title) %}    
+    <li class="page-item {% if active %} active {% elseif disabled %} disabled {% endif %}">
+        {% if disabled %} 
+            <span class="page-link">{{ title | safe }}</span>
+        {% else %}
+            <a class="page-link" href="{{ href | url }}">{{ title | safe }}</a>
+        {% endif %}        
+    </li>
+{% endmacro %}
+
+<!-- pager calculations -->
+
+{% set firstSmallStepIndex = pageNumber - smallCount %}
+{% set lastSmallStepIndex = pageNumber + smallCount %}
+
+{% set showMatrix = [] %}
+{% set firstBigStepLeft = -1 %}
+{% set firstBigStepRight = -1 %}
+
+{% for href in hrefs %}
+    {% set index = loop.index0 %}
+
+    {% set isSmallStep = index >= firstSmallStepIndex and index <= lastSmallStepIndex %}
+
+    <!-- note: 
+        we keep pagers (big steps) and small steps separate
+        even in case that the big step is immediately after the range of small steps
+    -->
+    {% set isBigStep = (not isSmallStep) and ((index + 1) % bigStep) == 0 %}
+    {% set isSmallStepNeighbor = index == firstSmallStepIndex - 1 or index == lastSmallStepIndex + 1 %}
+    {% set showBigStep = isBigStep and (true or not isSmallStepNeighbor) %}
+
+    {% if showAllSteps or isSmallStep or showBigStep %}
+        {% set showMatrix = showMatrix.concat([true]) %}        
+        {% if isBigStep and index < firstSmallStepIndex %}{% set firstBigStepLeft = index %}{% endif %}
+        {% if isBigStep and index > lastSmallStepIndex and firstBigStepRight == -1 %}{% set firstBigStepRight = index %}{% endif %}
+    {% else %}
+        {% set showMatrix = showMatrix.concat([false]) %}
+    {% endif %}
+
+{% endfor %}
+
+<!-- pager rendering base on calculated values -->
+
 <nav>
     <ul class="pagination">
-        <li class="page-item">{% if page.url != pagination.href.first %}<a class="page-link" href="{{ pagination.href.first | url }}">First</a>{% else %}<span class="page-link">First</span>{% endif %}</li>
-        <li class="page-item">{% if pagination.href.previous %}<a class="page-link" href="{{ pagination.href.previous | url }}">Previous</a>{% else %}<span class="page-link">Previous</span>{% endif %}</li>
-    {%- for pageEntry in pagination.pages %}
-        <li class="page-item{% if page.url == pagination.hrefs[ loop.index0 ] %} active{% endif %}"><a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] | url }}">Page {{ loop.index }}</a></li>
-    {%- endfor %}
-        <li class="page-item">{% if pagination.href.next %}<a class="page-link" href="{{ pagination.href.next | url }}">Next</a>{% else %}<span class="page-link">Next</span>{% endif %}</li>
-        <li class="page-item">{% if page.url != pagination.href.last %}<a class="page-link" href="{{ pagination.href.last | url }}">Last</a>{% else %}<span class="page-link">Last</span>{% endif %}</li>
+
+        <!-- first --!>
+        {{ paginationLink(false, isFirst, firstPageHref, '<i class="fas fa-angle-double-left"></i>') }}
+
+        <!-- previous --!>
+        {% if showPrevNext %}
+            {{ paginationLink(false, isFirst, previousPageHref, '<i class="fas fa-angle-left"></i>') }}
+        {% endif %}
+
+        <!-- if first link isn't shown --!>
+        {% if not showMatrix[0] %}
+            {{ paginationLink(false, true, null, '<span class="small">..</span>') }} 
+        {% endif %}
+
+        <!-- links -->
+        {% for href in hrefs %}
+            {% set index = loop.index0 %}            
+            {% set active = page.url == href %}
+
+            {% if showMatrix[index] %}
+
+                <!-- has a big step link on the left and first small step -->
+                {% if firstBigStepLeft != -1 and index == firstSmallStepIndex %}
+                    {{ paginationLink(false, true, null, '<span class="small">..</span>') }} 
+                {% endif %}
+
+                {{ paginationLink(active, active, hrefs[index], index + 1) }}
+
+                <!-- has a big step link on the right last small step -->
+                {% if firstBigStepRight != -1 and index == lastSmallStepIndex %}
+                    {{ paginationLink(false, true, null, '<span class="small">..</span>') }} 
+                {% endif %}
+
+            {% endif %}
+
+        {% endfor %}
+
+        <!-- if last link isn't shown --!>
+        {% if not showMatrix[totalPages - 1] %}
+            {{ paginationLink(false, true, null, '<span class="small">..</span>') }} 
+        {% endif %}
+
+        <!-- next --!>
+        {% if showPrevNext %}
+            {{ paginationLink(false, isLast, nextPageHref, '<i class="fas fa-angle-right"></i>') }}
+        {% endif %}
+
+        <!-- last --!>
+        {{ paginationLink(false, isLast, lastPageHref, '<i class="fas fa-angle-double-right"></i>') }}
+
     </ul>
 </nav>

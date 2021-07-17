@@ -1,0 +1,15 @@
+<!--
+note:   the default navigation based on: https://www.11ty.dev/docs/pagination/nav/
+fixed:  made it work with pathPrefix
+--> 
+<nav>
+    <ul class="pagination">
+        <li class="page-item">{% if page.url != pagination.href.first %}<a class="page-link" href="{{ pagination.href.first | url }}">First</a>{% else %}<span class="page-link">First</span>{% endif %}</li>
+        <li class="page-item">{% if pagination.href.previous %}<a class="page-link" href="{{ pagination.href.previous | url }}">Previous</a>{% else %}<span class="page-link">Previous</span>{% endif %}</li>
+    {%- for pageEntry in pagination.pages %}
+        <li class="page-item{% if page.url == pagination.hrefs[ loop.index0 ] %} active{% endif %}"><a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] | url }}">Page {{ loop.index }}</a></li>
+    {%- endfor %}
+        <li class="page-item">{% if pagination.href.next %}<a class="page-link" href="{{ pagination.href.next | url }}">Next</a>{% else %}<span class="page-link">Next</span>{% endif %}</li>
+        <li class="page-item">{% if page.url != pagination.href.last %}<a class="page-link" href="{{ pagination.href.last | url }}">Last</a>{% else %}<span class="page-link">Last</span>{% endif %}</li>
+    </ul>
+</nav>
