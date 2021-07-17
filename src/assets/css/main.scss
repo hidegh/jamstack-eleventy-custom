@@ -40,6 +40,34 @@ Navbar
 }
 
 /*
+Multi sticky:
+- https://github.com/samsono/sticky-multi-header-scroll
+- or viapure CSS
+- or combination
+*/
+.sticky-container
+{
+    //
+    // NOTE: in case we want to go with pure CSS, which cannot take non-displayed content with sticky class in account....
+    //
+    // $sticky-heading-height: 2.4em;
+    // 
+    // @for $i from 1 through 10 {
+    //     .sticky:nth-child(#{$i}) {
+    //         top: calc(#{$sticky-top} + (#{$i} - 1) * #{$sticky-heading-height});
+    //     }
+    // }
+
+    .sticky {
+        position: sticky;
+
+        // Must have non-transparent BG otherwise the sticky panel texts will overlap
+        @extend .bg-body;
+    }
+
+}
+
+/*
 NOTE: BS 5 is missing the possibility to include an icon into the input, so we added it.
 
 Sample:
