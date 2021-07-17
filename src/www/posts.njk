@@ -1,20 +1,34 @@
 ---
+# the pagination.size does not seems to accept custon data variables
+# so we split the data into page objects (bundles)
+# and render each bundle (thus size: 1)
 pagination:
-    data: collections.postCollection
-    size: 5
-permalink: "{{ globals.posts.path | normalize }}{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}{% endif %}/"
+    data: collections.pagedPostCollection
+    alias: customPagination
+    size: 1
+paginator:
+    showAll: false
+    showPrevNext: true
+    smallCount: 2
+    bigCount: 2
+    bigStepRounding: 5
+permalink: "{{ customPagination.pagedPath }}/"
 ---
 
+<h2>Posts</h2>
+
 <ul>
-{%- for page in pagination.items -%}
+{%- for item in customPagination.items -%}
   <li>
     {# need to load full page data #}
-    {% set post = collections.postCollection | getCollectionItem(page) %}
+    {% set post = collections.postCollection | getCollectionItem(item) %}
     {% if post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="w-25"></img>{% endif %}
     <h5><a href="{{ post.url | url }}">{{ post.data.title }}</a></h5>
   </li>
 {%- endfor -%}
 </ul>
+
+<hr/>
 
 <div class="d-flex justify-content-center">
 {% include "partials/paginator.njk" %}
