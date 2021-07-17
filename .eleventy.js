@@ -4,6 +4,7 @@ const clip = require("text-clipper").default;
 const { DateTime } = require("luxon");
 
 const filters = require("./src/scripts/filters");
+const customPagination = require("./src/scripts/custom-pagination");
 
 //
 // Custom plugins / filters / ...
@@ -64,6 +65,8 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter("readableDate", dateObj => { return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy"); });
 
+    eleventyConfig.addFilter('firstPage', function(value, doPaging) { return customPagination.firstPage(value, doPaging); });
+
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
 
@@ -121,6 +124,9 @@ module.exports = function (eleventyConfig) {
     // Collections (posts)
     const postCollectionName = 'postCollection';
     eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob('src/posts/**/*.md'));
+
+    const pagedPostCollectionName = 'pagedPostCollection';
+    eleventyConfig.addCollection(pagedPostCollectionName, require('./src/scripts/collections/paged-posts').forCollection(postCollectionName));
    
 
     return {
