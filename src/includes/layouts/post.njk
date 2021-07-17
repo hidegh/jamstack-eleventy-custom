@@ -10,16 +10,38 @@ asideMobile: false
 
 {% block content %}
 
+    {#
+        the basic page object has just a subset of the entire post-data available
+        so we need to find the post with full data from the post collection
+        storing it into the post variable makes it possible for us to ise the includes/partials/post/*
+    #}
+    {% set post = collections[globals.posts.collectionName] | getCollectionItem(page) %}
+    
     <section class="p-3 d-flex d-flex justify-content-between align-items-center">
         {{ share.withTitle(globals, page, 'Share post') }}
     </section>
     
     <section class="print-container p-3 mb-3">
-        <h1>{{ title }}</h1>
-        {# need to load full page data #}
-        {% set post = collections[globals.posts.collectionName] | getCollectionItem(page) %}
-        {% if post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="w-25"></img>{% endif %}
-        {{ content | safe }}
+
+        <section>
+            <h1>{{ title }}</h1>
+        </section>
+
+        <section class="pb-3">
+            <div class="row row-cols-auto gx-3">
+                <div class="col"><i class="far fa-fw fa-calendar-alt"></i>{{ post.data.date | readableDate }}</div>
+                <div class="col"><i class="far fa-fw fa-user"></i>{{ post.data.author }}</div>
+                <div class="col"><i class="fas fa-fw fa-stopwatch"></i> {{ post.templateContent | readingTime }} reading time</div>
+            </div>
+        </section>
+
+        <section class="pb-3">
+            {% if (post | hasImage) -%}
+            <img class="img-responsive" src="{{ post | absoluteImageUrl | url }}">
+            {%- endif %}
+            {{ content | safe }}
+        </section>
+
     </section>
 
     <section class="p-3">
@@ -38,7 +60,7 @@ asideMobile: false
         {{ heading.withLink('Recent posts') }}
         {% include 'partials/recent-posts.html' %}
     </section>
-    
+
     <section class="p-3 mb-3 d-hide-if-empty sticky">
         {{ heading.withLink('Table of Contents') }}
         <div class="text-nowrap overflow-hidden">

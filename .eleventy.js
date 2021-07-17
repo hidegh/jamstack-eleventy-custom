@@ -1,6 +1,7 @@
 const yaml = require("js-yaml");
 const util = require("util");
 const clip = require("text-clipper").default;
+const { DateTime } = require("luxon");
 
 const filters = require("./src/scripts/filters");
 
@@ -23,6 +24,9 @@ const markdownItAnchor = require('markdown-it-anchor');
 
 // RSS
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+
+// Reading time
+const pluginReadingTime = require('eleventy-plugin-reading-time');
 
 module.exports = function (eleventyConfig) {
 
@@ -57,6 +61,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('normalize', function(value) { return filters.normalize(value); });
 
     eleventyConfig.addFilter('truncateHtml', function(value, charLimit, lineLimit) { return clip(value, charLimit, { html: true, maxLines: lineLimit }); });
+
+    eleventyConfig.addFilter("readableDate", dateObj => { return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy"); });
 
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
@@ -107,6 +113,9 @@ module.exports = function (eleventyConfig) {
             closingSingleTag: "default" // opt-out of <img/>-style XHTML single tags
         }
     });
+
+    // Reading time
+    eleventyConfig.addPlugin(pluginReadingTime);
 
     //
     // Collections (posts)
