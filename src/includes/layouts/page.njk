@@ -22,4 +22,9 @@ asideMobile: false
         {% include 'partials/recent-posts.html' %}
     </section>
 
+    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        {{ heading.withLink('Tag cloud') }}
+        {% include 'partials/tag-cloud.html' %}
+    </section>
+    
 {% endblock %}

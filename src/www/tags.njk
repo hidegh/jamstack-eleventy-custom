@@ -1,0 +1,19 @@
+---
+title: Tags
+eleventyComputed:
+  permalink: "{{ globals.tags.path | normalize }}"
+---
+
+<h1>{{ title }}</h1>
+
+<ul class="tags">
+{% for tag in collections.tagCollection %}
+    <li>
+        <span class="d-inline-block text-end me-1" style="width: 4ch"><span class="badge bg-secondary">{{ tag.count }}</span></span>
+        <a href="{{ globals.tag.path | url | normalize }}{{ tag.name | slug | firstPage(globals.tag.postsPageSize) }}">
+            <i class="fas fa-fw fa-tag text-primary"></i>       
+            <span>{{ tag.name | capitalize }}</span>
+        </a>
+    </li>
+{% endfor %}
+</ul>

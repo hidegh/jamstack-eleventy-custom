@@ -56,9 +56,24 @@ paging:
 posts:
   collectionName: postCollection
   path: /posts
-  pageSize: 6 # 0 to display all on a single page
+  pageSize: 6   # 0 to display all on a single page
   recent:
     limit: 5
+
+# used by tags, tag-list / tag-cloud & paged-posts-by-tag
+tags:
+  path: /tags
+  sortBy: name  # name | count
+  sortDesc: false
+  tag-cloud:
+    minFontSize: .8
+    maxFontSize: 1.8
+
+tag:
+  path: /tag
+  postsPageSize: 20     # 0 to display all on a single page
+  postsSortBy: date     # title | date
+  postsSortDesc: true
 
 # social platforms (share, link) - user must be set, otherwise ignored!
 platforms:

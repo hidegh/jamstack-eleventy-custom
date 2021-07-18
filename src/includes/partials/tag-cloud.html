@@ -1,0 +1,5 @@
+{% for tag in collections.tagCollection %} 
+    <span style="font-size: {{ tag.size }}em;">
+        <a href="{{ globals.tag.path | url | normalize }}{{ tag.name | slug | firstPage(globals.tag.postsPageSize) }}">{{ tag.name }}</a>
+    </span>
+{% endfor %}

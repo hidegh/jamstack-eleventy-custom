@@ -1,0 +1,28 @@
+---
+pagination:
+    data: collections.pagedPostsByTagCollection
+    size: 1
+    alias: customPagination
+permalink: "{{ customPagination.pagedPath | normalize }}"
+eleventyComputed:
+    title: "Tagged with \"{{ customPagination.name }}\""
+---
+
+<h1>
+    <a class="text-secondary" href="{{ globals.tags.path | url }}">Tag:</a>
+    <a href="{{ page.url | url }}">{{ customPagination.name }}</a>
+</h1>
+
+<hr/>
+
+<h2>Posts</h2>
+
+<ul>
+    {% for post in customPagination.items %}
+        <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
+    {% endfor %}
+</ul>
+
+{% if customPagination.hrefs.length %}
+    {% include "partials/paginator.njk" %}
+{% endif %}
