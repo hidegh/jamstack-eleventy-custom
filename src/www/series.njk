@@ -1,0 +1,14 @@
+---
+title: Series
+eleventyComputed:
+  permalink: "{{ globals.series.path | normalize }}"
+---
+<h1>{{ title }}</h1>
+
+<ul class="series">
+{% for serie in collections.seriesCollection %}
+    <li>
+        <a href="{{ globals.serie.path | normalize | url }}{{ serie.name | slug }}/">{{ serie.name }}</a>
+    </li>
+{% endfor %}
+</ul>

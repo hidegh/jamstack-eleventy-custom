@@ -1,0 +1,13 @@
+{% set navLinks = page | getSeriesNavigationDetails(collections[globals.posts.collectionName], globals.post.serie.navigation.totalLinkCount, globals.post.serie.navigation.nextLinkCount) %} 
+{%- if navLinks.length -%}
+<ul>
+{% for link in navLinks %}
+    <li>
+    {%- if link.url == page.url %}
+        <span class="active">{{ link.data.title }} - {{ link.data.series }}</span>
+    {%- else %}
+        <a href="{{ link.url | url }}">{{ link.data.title }} - {{ link.data.series }}</a></li>
+    {% endif -%}
+{% endfor %}
+</ul>
+{%- endif -%}

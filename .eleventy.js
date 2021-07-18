@@ -67,6 +67,8 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter('firstPage', function(value, doPaging) { return customPagination.firstPage(value, doPaging); });
 
+    eleventyConfig.addFilter('getSeriesNavigationDetails', (...args) => require('./src/scripts/post-series.filter').getSeriesNavigationDetails(...args));
+
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
 
@@ -139,6 +141,9 @@ module.exports = function (eleventyConfig) {
 
     const pagedPostsByCategoryCollectionName = 'pagedPostsByCategoryCollection';
     eleventyConfig.addCollection(pagedPostsByCategoryCollectionName, require('./src/scripts/collections/paged-posts-by-category').for(categoryCollectionName));
+    
+    const seriesCollectionName = 'seriesCollection';
+    eleventyConfig.addCollection(seriesCollectionName, require('./src/scripts/collections/series').forCollection(postCollectionName));
    
 
     return {

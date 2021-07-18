@@ -25,6 +25,9 @@ asideMobile: false
 
         <section>
             <h1>{{ title }}</h1>
+            {% if post.data.series %}
+            <p>This article is part of the serie: <a href="{{ globals.serie.path | normalize | url }}{{ post.data.series | slug }}">{{ post.data.series }}</a></p>
+            {% endif %}
         </section>
 
         <section class="pb-3">
@@ -55,6 +58,12 @@ asideMobile: false
 {% endblock %}
 
 {% block aside %}
+
+    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        {% set seriesHtml %}{% include 'partials/post/series-navigation.html' %}{% endset %}
+        {{ heading.withLink('Series') }}
+        {{ seriesHtml | safe }}
+    </section>
 
     <section class="sticky p-3 mb-3">
         {{ heading.withLink('Recent posts') }}

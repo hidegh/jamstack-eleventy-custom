@@ -60,6 +60,12 @@ posts:
   recent:
     limit: 5
 
+post:
+  serie:
+    navigation:
+      totalLinkCount: 4
+      nextLinkCount: 2
+
 # used by tags, tag-list / tag-cloud & paged-posts-by-tag
 tags:
   path: /tags
@@ -86,6 +92,15 @@ category:
   postsPageSize: 20    # 0 to display all on a single page
   postsSortBy: date    # title | date
   postsSortDesc: true
+
+# user by series & serie
+series:
+  path: /series
+  sortBy: date  # date | name | count
+  sortDesc: desc
+
+serie:
+  path: /serie
 
 # social platforms (share, link) - user must be set, otherwise ignored!
 platforms:
