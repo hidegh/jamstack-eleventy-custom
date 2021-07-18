@@ -75,6 +75,18 @@ tag:
   postsSortBy: date     # title | date
   postsSortDesc: true
 
+# used by categories and paged-posts-by-category  
+categories:
+  path: /categories
+  sortBy: name # name | count
+  sortDesc: false
+
+category:
+  path: /category
+  postsPageSize: 20    # 0 to display all on a single page
+  postsSortBy: date    # title | date
+  postsSortDesc: true
+
 # social platforms (share, link) - user must be set, otherwise ignored!
 platforms:
   -

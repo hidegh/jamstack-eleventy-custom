@@ -1,0 +1,46 @@
+---
+title: Categories
+eleventyComputed:
+  permalink: "{{ globals.categories.path | normalize }}"
+---
+
+<h1>{{ title }}</h1>
+
+{% set level = 0 %}
+
+{% for category in collections.categoryCollection %}
+
+    {% set ulCount = (category.level - level) | abs %}
+
+    {% for i in range(0, ulCount) %}
+        {% if category.level > level %}
+            <ul{% if level == 0 %} class="categories"{% endif %}>
+        {% else  %}
+            </ul>
+        {% endif %} 
+    {% endfor %}
+
+    <li class="d-flex justify-content-between">
+        <span>
+            <!--
+            <i class="fas fa-fw fa-angle-right"></i>
+            -->
+            <span class="d-inline-block text-end me-1" style="width: 4ch">
+                <span class="badge bg-secondary">{{category.items.length}}</span>
+                <!--
+                <span class="badge bg-primary">{{ category.allItems.length }}</span>
+                -->
+            </span>
+            <a href="{{ category.categoryUriNonPaged | url | normalize | firstPage(globals.category.postsPageSize) }}">
+                {{ category.categoryName | capitalize }}
+            </a>
+        </span>
+    </li>
+
+    {% set level = category.level %}
+
+{% endfor %}
+
+{% for i in range(0, level) %}
+    </ul>
+{% endfor %}

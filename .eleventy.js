@@ -133,6 +133,12 @@ module.exports = function (eleventyConfig) {
 
     const pagedPostsByTagCollectionName = 'pagedPostsByTagCollection';
     eleventyConfig.addCollection(pagedPostsByTagCollectionName, require('./src/scripts/collections/paged-posts-by-tag').for(tagCollectionName, postCollectionName));
+
+    const categoryCollectionName = 'categoryCollection';
+    eleventyConfig.addCollection(categoryCollectionName, require('./src/scripts/collections/categories').forCollection(postCollectionName));
+
+    const pagedPostsByCategoryCollectionName = 'pagedPostsByCategoryCollection';
+    eleventyConfig.addCollection(pagedPostsByCategoryCollectionName, require('./src/scripts/collections/paged-posts-by-category').for(categoryCollectionName));
    
 
     return {
