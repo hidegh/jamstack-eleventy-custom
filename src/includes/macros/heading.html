@@ -4,3 +4,10 @@
     <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
 </div>
 {% endmacro %}
+
+{% macro withLinkWhenContent(title, contentHtml) %}
+{% if contentHtml %}
+{{ withLink(title) }}
+<div>{{contentHtml | safe}}</div>
+{% endif %}
+{% endmacro %}
