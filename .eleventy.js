@@ -69,6 +69,8 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter('getSeriesNavigationDetails', (...args) => require('./src/scripts/post-series.filter').getSeriesNavigationDetails(...args));
 
+    eleventyConfig.addFilter('getRelatedNavigationDetails', (...args) => require('./src/scripts/post-related.filter').getRelatedNavigationDetails(...args));
+
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
 

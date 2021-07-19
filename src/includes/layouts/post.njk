@@ -64,6 +64,11 @@ asideMobile: false
         {{ heading.withLinkWhenContent('Articles in serie', seriesHtml) }}
     </section>
 
+    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        {% set relatedHtml %}{% include 'partials/post/related-navigation.html' %}{% endset %}
+        {{ heading.withLinkWhenContent('Similar articles', relatedHtml) }}
+    </section>
+
     <section class="sticky p-3 mb-3">
         {{ heading.withLink('Recent posts') }}
         {% include 'partials/recent-posts.html' %}

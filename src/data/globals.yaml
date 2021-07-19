@@ -65,6 +65,11 @@ post:
     navigation:
       totalLinkCount: 4
       nextLinkCount: 2
+  related:
+    limit: 5            # limit for related post listing
+    tagScore: 1         # linear = each category increases by same score
+    categoryScore: 2    # exponential = each category match increases by score ^ x (where x = hierarchies matched)
+    #todo: parametrization and/or totally excluding same series (they do have a series-list control)
 
 # used by tags, tag-list / tag-cloud & paged-posts-by-tag
 tags:
