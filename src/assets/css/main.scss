@@ -8,14 +8,48 @@ Font-awesome
 BOOTSTRAP
 - we use overrides, need just to make sure that the grid classes won't get disabled!
 */
-// @import "./bs-overrides/boldstrap-purple";
-// @import "./bs-overrides/grayson";
-// @import "./bs-overrides/lovey";
-@import "./bs-overrides/tequila";
+/*
+// NOTES: boldstrap-purple, grayson, lovey, tequila
+@import "./themestr/bs4/tequila";
+*/
+/*
+// NOTES: journal, materia, superhero, darkly, slate, flatly, sandstone
+@import "./bootswatch/bs5/journal/variables";
+@import "bootstrap";
+@import "./bootswatch/bs5/journal/bootswatch";
+*/
+
+@import "./bootswatch/bs5/flatly/variables";
+
+@import url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700);
+@import url(https://fonts.googleapis.com/css2?family=Lora);
+$headings-font-family: Voltaire;
+$font-family-sans-serif: Lora;
+
+@import "bootstrap";
+@import "./bootswatch/bs5/flatly/bootswatch";
 
 /*
 Basic styles
 */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+html, body {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 16px;
+    overflow-y: scroll
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin-top: 1em;
 }
@@ -23,10 +57,10 @@ h1, h2, h3, h4, h5, h6 {
 /*
 Navbar
 */
-.navbar {
+.navbar-this {
 
     @extend .navbar-dark;
-    @extend .bg-dark;
+    @extend .bg-primary;
 
     .navbar-brand img {
         max-height: 2em;
@@ -37,6 +71,21 @@ Navbar
         // @extend .text-light;
     }
 
+}
+
+/*
+Main article
+*/
+.article {
+    font-size: 1.1rem;
+}
+
+/*
+Color overrides for mermaid (and mathjax) - as it needs a light background for thin lines to be visible (have contrast)
+*/
+.mermaid {
+    @extend .bg-light;
+    display: inline-block;   
 }
 
 /*
@@ -113,6 +162,10 @@ Sample:
 /*
 Search
 */
+.nav-search-below {
+    @extend .bg-dark;
+}
+
 ul.search-results {
 
     padding: 1em 0;
