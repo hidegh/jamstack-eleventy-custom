@@ -51,7 +51,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 1em;
+    margin-top: .5em;
 }
 
 /*
@@ -86,6 +86,36 @@ Color overrides for mermaid (and mathjax) - as it needs a light background for t
 .mermaid {
     @extend .bg-light;
     display: inline-block;   
+}
+
+/*
+Print area config via CSS
+*/
+@media print {
+
+    // see: https://developers.hp.com/print-fundamentals-developers/blog/selecting-regions-webpage-print
+
+    body {
+        visibility: hidden;
+    }
+
+    .print-container {
+        overflow: visible;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+    }
+    
+    .print-container, .print-container * {
+        visibility: visible;
+    }
+
+    /*
+    // NOTE: make sure the main container, which holds the printable is not set to display: none!
+    :not(body):not(:root):not(.print):not(.print *) {
+        display: none;
+    }
+    */
 }
 
 /*
