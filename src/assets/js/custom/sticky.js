@@ -87,8 +87,10 @@ Motivated by: https://github.com/samsono/sticky-multi-header-scroll
 
                     // increment the sticky-TOP by heading size + top padding (to avoid clipping)
                     const stickyHeadingEl = el.querySelector(".heading, h1, h2, h3, h4, h5, h6");
-                    const stickyHeadingElHeightWithContainersTopPadding = getOuterHeight(stickyHeadingEl) + parseInt(getComputedStyle(el).paddingTop);
-                    previousHeadingHeights = previousHeadingHeights + stickyHeadingElHeightWithContainersTopPadding;                   
+                    if (stickyHeadingEl) {
+                        const stickyHeadingElHeightWithContainersTopPadding = getOuterHeight(stickyHeadingEl) + parseInt(getComputedStyle(el).paddingTop);
+                        previousHeadingHeights = previousHeadingHeights + stickyHeadingElHeightWithContainersTopPadding;                   
+                    }
                 }
 
                 // increment previous item heights
