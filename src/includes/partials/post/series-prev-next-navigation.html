@@ -1,6 +1,8 @@
-{# post nav #}
-{% set prev = collections[globals.posts.collectionName] | getPreviousCollectionItem(page) %}
-{% set next = collections[globals.posts.collectionName] | getNextCollectionItem(page) %}
+{%- if post.data.series -%}
+{# series nav #}
+{% set navDetails = page | getSeriesNavigationDetails(collections[globals.posts.collectionName], globals.post.serie.navigation.totalLinkCount, globals.post.serie.navigation.nextLinkCount) %} 
+{% set prev = navDetails.prev %}
+{% set next = navDetails.next %}
 <div class="d-flex">
     {%- if prev.url %}
     <div class="post-navigation-button text-start me-auto">
@@ -13,3 +15,4 @@
     </div>
     {% endif -%}
 </div>
+{%- endif -%}
