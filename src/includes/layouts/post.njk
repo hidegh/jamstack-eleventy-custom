@@ -21,21 +21,25 @@ asideMobile: false
         {{ share.withTitle(globals, page, 'Share post') }}
     </section>
     
-    <section class="print-container p-3 mb-3">
+    <section class="article print-container p-3 mb-3">
 
         <section>
             <h1>{{ title }}</h1>
             {% if post.data.series %}
             <p>This article is part of the serie: <a href="{{ globals.serie.path | normalize | url }}{{ post.data.series | slug }}">{{ post.data.series }}</a></p>
+            <section class="pb-3">
+                {% include 'partials/post/series-prev-next-navigation.html' %}
+            </section>
             {% endif %}
         </section>
 
-        <section class="pb-3">
+        <section class="small">
             <div class="row row-cols-auto gx-3">
                 <div class="col"><i class="far fa-fw fa-calendar-alt"></i>{{ post.data.date | readableDate }}</div>
                 <div class="col"><i class="far fa-fw fa-user"></i>{{ post.data.author }}</div>
                 <div class="col"><i class="fas fa-fw fa-stopwatch"></i> {{ post.templateContent | readingTime }} reading time</div>
             </div>
+            <hr/>
         </section>
 
         <section class="pb-3">

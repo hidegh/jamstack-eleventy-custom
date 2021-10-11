@@ -1,15 +1,15 @@
+{# post nav #}
 {% set prev = collections[globals.posts.collectionName] | getPreviousCollectionItem(page) %}
 {% set next = collections[globals.posts.collectionName] | getNextCollectionItem(page) %}
-
 <div class="d-flex">
     {%- if prev.url %}
     <div class="post-navigation-button text-start me-auto">
-        <a href="{{ prev.url | url }}" title="{{ prev.data.title }}"><i class="me-3 fas fa-2x fa-chevron-left align-middle"></i>Previous</a>
+        <a class="btn btn-sm btn-outline-primary" href="{{ prev.url | url }}" title="{{ prev.data.title }}"><i class="me-3 fas fa-chevron-left align-middle"></i>{{ prev.data.title }}</a>
     </div>
     {% endif -%}
     {%- if next.url %}
     <div class="post-navigation-button text-end ms-auto">
-        <a href="{{ next.url | url }}" title="{{ next.data.title }}">Next<i class="ms-3 fas fa-2x fa-chevron-right align-middle"></i></a>
+        <a class="btn btn-sm btn-outline-primary" href="{{ next.url | url }}" title="{{ next.data.title }}">{{ next.data.title }}<i class="ms-3 fas fa-chevron-right align-middle"></i></a>
     </div>
     {% endif -%}
 </div>

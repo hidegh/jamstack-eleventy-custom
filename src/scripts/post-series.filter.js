@@ -68,7 +68,12 @@ module.exports = {
             finalSeries = series.slice(pagerWindowStartIndex, pagerWindowStartIndex + totalLinks);
         }
 
-        return finalSeries;
+        return {
+            links: finalSeries || [],
+            next: (seriesPageIndex < series.length - 1 ? series[seriesPageIndex + 1] : undefined),
+            prev: (seriesPageIndex > 0 ? series[seriesPageIndex - 1] : undefined)
+        };
+
     }
 
 }

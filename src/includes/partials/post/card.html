@@ -1,0 +1,30 @@
+<div class="catalogue-item position-relative">
+    
+    <a class="stretched-link" href="{{ post.url | url }}"></a>
+    <h3 class="catalogue-title">{{ post.data.title }}</h3>
+    <div class="catalogue-line"></div>
+
+    <div class="catalogue-meta">
+
+        <div class="small d-flex gap-3">
+            <span><i class="far fa-fw fa-calendar-alt"></i>{{ post.data.date | readableDate }}</span>
+            <span><i class="fas fa-fw fa-stopwatch"></i> {{ post.templateContent | readingTime }} reading time</span>
+        </div>
+
+        {%- if globals.posts.showTaxonomy -%}
+        <div class="stretched-link-exempt text-muted small d-flex gap-3">
+            {% include "./_tags.html" %}
+            {% include "./_categories.html" %}
+        </div>
+        {%- endif -%}
+
+    </div>
+
+    <div class="catalogue-preview clearfix">
+        {% if globals.posts.showImage  and post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="catalogue-image img-fluid img-thumbnail"></img>{% endif %}
+        <div class="exceprt">
+            {% if post.data.page.excerpt %}{{ post.data.page.excerpt | truncateHtml(globals.posts.maximizeContent, globals.posts.maximizeLines) | safe }}{% elseif globals.posts.card.showContentWhenExcerptMissing %}{{ post.templateContent | truncateHtml(globals.posts.maximizeContent, globals.posts.maximizeLines) | safe }}{% endif %}
+        </div>
+    </div>
+
+</div>

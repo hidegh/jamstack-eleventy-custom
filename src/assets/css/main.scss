@@ -8,25 +8,69 @@ Font-awesome
 BOOTSTRAP
 - we use overrides, need just to make sure that the grid classes won't get disabled!
 */
-// @import "./bs-overrides/boldstrap-purple";
-// @import "./bs-overrides/grayson";
-// @import "./bs-overrides/lovey";
-@import "./bs-overrides/tequila";
+/*
+// NOTES: boldstrap-purple, grayson, lovey, tequila
+@import "./themestr/bs4/tequila";
+*/
+/*
+// NOTES: journal, materia, superhero, darkly, slate, flatly, sandstone
+@import "./bootswatch/bs5/journal/variables";
+@import "bootstrap";
+@import "./bootswatch/bs5/journal/bootswatch";
+*/
+
+@import "./bootswatch/bs5/flatly/variables";
+
+@import url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700);
+@import url(https://fonts.googleapis.com/css2?family=Lora);
+$headings-font-family: Voltaire;
+$font-family-sans-serif: Lora;
+
+@import "bootstrap";
+@import "./bootswatch/bs5/flatly/bootswatch";
 
 /*
 Basic styles
 */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+html, body {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 16px;
+    overflow-y: scroll
+}
+
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 1em;
+    margin-top: .5em;
+}
+
+.stretched-link-exempt {
+    position:relative;
+    pointer-events: none;
+    z-index: 1;
+    
+    a {
+        pointer-events: all;
+    }
 }
 
 /*
 Navbar
 */
-.navbar {
+.navbar-this {
 
     @extend .navbar-dark;
-    @extend .bg-dark;
+    @extend .bg-primary;
 
     .navbar-brand img {
         max-height: 2em;
@@ -37,6 +81,51 @@ Navbar
         // @extend .text-light;
     }
 
+}
+
+/*
+Main article
+*/
+.article {
+    font-size: 1.1rem;
+}
+
+/*
+Color overrides for mermaid (and mathjax) - as it needs a light background for thin lines to be visible (have contrast)
+*/
+.mermaid {
+    @extend .bg-light;
+    display: inline-block;   
+}
+
+/*
+Print area config via CSS
+*/
+@media print {
+
+    // see: https://developers.hp.com/print-fundamentals-developers/blog/selecting-regions-webpage-print
+
+    body {
+        visibility: hidden;
+    }
+
+    .print-container {
+        overflow: visible;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+    }
+    
+    .print-container, .print-container * {
+        visibility: visible;
+    }
+
+    /*
+    // NOTE: make sure the main container, which holds the printable is not set to display: none!
+    :not(body):not(:root):not(.print):not(.print *) {
+        display: none;
+    }
+    */
 }
 
 /*
@@ -113,6 +202,10 @@ Sample:
 /*
 Search
 */
+.nav-search-below {
+    @extend .bg-dark;
+}
+
 ul.search-results {
 
     padding: 1em 0;
@@ -126,4 +219,58 @@ ul.search-results {
             padding: 1em;
         }
     }
+}
+
+/*
+Posts
+*/
+ul.posts {
+    padding-left: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+.catalogue-item {
+
+    font-size: 1rem;
+
+    .catalogue-title {
+        font-size: 1.8rem;
+        text-decoration: none;
+    }
+
+    .catalogue-line {
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        border-top: 0.2rem solid $primary;
+        display: block;
+        width: 2rem;
+        padding-bottom: 1em;
+    }
+   
+    .catalogue-preview {
+
+        padding-top: .5em;
+
+        img {
+            max-height: 5em;
+            float: left;
+            margin-right: 1em;
+            margin-bottom: .5em;
+        }
+
+        &:after {
+            float: none;
+        }
+    }
+
+    &:hover {
+        .catalogue-line {
+            width: 5rem;
+        }
+    }
+
 }

@@ -15,15 +15,25 @@ paginator:
 permalink: "{{ customPagination.pagedPath }}/"
 ---
 
+{#
 <h2>Posts</h2>
+#}
 
-<ul>
+<ul class="posts">
 {%- for item in customPagination.items -%}
   <li>
     {# need to load full page data #}
     {% set post = collections.postCollection | getCollectionItem(item) %}
+
+    {#
     {% if post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="w-25"></img>{% endif %}
     <h5><a href="{{ post.url | url }}">{{ post.data.title }}</a></h5>
+    #}
+
+    {% include "partials/post/card.html" %}
+
+    {% if not loop.last %}<hr/>{% endif %}
+
   </li>
 {%- endfor -%}
 </ul>
