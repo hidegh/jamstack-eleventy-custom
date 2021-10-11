@@ -1,0 +1,12 @@
+{% if post.data.tags and post.data.tags.length %}
+<div class="d-flex">
+    <div class="d-inline-block me-1">
+        <a href="{{ globals.tags.path | url }}"><i class="fas fa-fw fa-tags"></i></a>
+    </div>
+    <div class="d-inline-block">
+        {% for tag in post.data.tags %}
+        <a href="{{ globals.tag.path | url | normalize }}{{ tag | slug | firstPage(globals.tag.postsPageSize) }}" class="me-1">{{ tag }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

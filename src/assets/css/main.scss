@@ -54,6 +54,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: .5em;
 }
 
+.stretched-link-exempt {
+    position:relative;
+    pointer-events: none;
+    z-index: 1;
+    
+    a {
+        pointer-events: all;
+    }
+}
+
 /*
 Navbar
 */
@@ -209,4 +219,58 @@ ul.search-results {
             padding: 1em;
         }
     }
+}
+
+/*
+Posts
+*/
+ul.posts {
+    padding-left: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+.catalogue-item {
+
+    font-size: 1rem;
+
+    .catalogue-title {
+        font-size: 1.8rem;
+        text-decoration: none;
+    }
+
+    .catalogue-line {
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        border-top: 0.2rem solid $primary;
+        display: block;
+        width: 2rem;
+        padding-bottom: 1em;
+    }
+   
+    .catalogue-preview {
+
+        padding-top: .5em;
+
+        img {
+            max-height: 5em;
+            float: left;
+            margin-right: 1em;
+            margin-bottom: .5em;
+        }
+
+        &:after {
+            float: none;
+        }
+    }
+
+    &:hover {
+        .catalogue-line {
+            width: 5rem;
+        }
+    }
+
 }
