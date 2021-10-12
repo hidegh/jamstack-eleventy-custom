@@ -8,6 +8,13 @@
 
         <div class="ms-auto mx-2"></div>
 
+        <!-- standalone search bar activator (below navigation) -->
+        <a type="button" role="button" class="btn border-0 me-2 d-{{ globals.navbar.break }}-none"
+            data-bs-toggle="collapse" data-bs-target="#blog-search-bar">
+            <!-- d-sm-none = hide if above sm -->
+            <i class="fas fa-search"></i>
+        </a>
+
         <button type="button" class="btn navbar-toggler"
             data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,20 +50,27 @@
 
         </div>
 
+        <!-- inline search-bar with same expand breakpoint as navigation -->
+        <nav class="nav-search d-none d-{{ globals.navbar.break }}-inline">
+            <!-- hidden by def., visible (block) aft. size SM -->
+            <div class="inline-input-group inline-text-right">
+                <span class="inline-text"><i class="fas fa-search"></i></span>
+                <input type="text" class="blog-search-input form-control py-0" placeholder="Search...">
+            </div>
+        </nav>
+
     </div>
 
 </nav>
 
-<!-- standalone search bar -->
-<nav class="nav-search-below p-3" id="blog-search-bar">
-
+<!-- standalone search bar (below navigation) with same breakpoint as navigation (shown on collapse) -->
+<nav class="nav-search-below d-{{ globals.navbar.break }}-none collapse p-3" id="blog-search-bar">
     <div class="container">
-
+        <!-- d-sm-none = hide if above sm -->
         <div class="inline-input-group inline-text-left">
             <span class="inline-text"><i class="fas fa-search"></i></span>
             <input type="text" class="blog-search-input form-control" placeholder="Search...">
         </div>
 
     </div>
-
 </nav>

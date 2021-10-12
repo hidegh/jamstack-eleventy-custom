@@ -71,16 +71,52 @@ Navbar
 
     @extend .navbar-dark;
     @extend .bg-primary;
+    @extend .text-light;
+
+    .btn {
+        @extend .btn-outline-secondary;
+    }
 
     .navbar-brand img {
         max-height: 2em;
     }
 
     .navbar-toggler {
-        // If we'd like to have a more lighter hamburger icon...
-        // @extend .text-light;
+        // If we'd like to adjust the hamburger icon...
+        @extend .btn;
+        /*
+        @extend .btn-dark;
+        */
     }
 
+    .nav-search {
+        .blog-search-input {
+            line-height: 2em !important;
+        }
+    }
+
+}
+
+/*
+Search
+*/
+.nav-search-below {
+    @extend .bg-dark;
+}
+
+ul.search-results {
+
+    padding: 1em 0;
+    padding-left: 0em;
+
+    li {
+        list-style: none;
+        padding: 0 0 1em 0;
+
+        .search-result-item {
+            padding: 1em;
+        }
+    }
 }
 
 /*
@@ -197,28 +233,6 @@ Sample:
         align-items: center;
     }
 
-}
-
-/*
-Search
-*/
-.nav-search-below {
-    @extend .bg-dark;
-}
-
-ul.search-results {
-
-    padding: 1em 0;
-    padding-left: 0em;
-
-    li {
-        list-style: none;
-        padding: 0 0 1em 0;
-
-        .search-result-item {
-            padding: 1em;
-        }
-    }
 }
 
 /*
