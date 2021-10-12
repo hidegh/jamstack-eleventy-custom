@@ -42,6 +42,25 @@
 </h2>
 `,
 
+        _resultTemplate_simple: `
+<h2>
+    <span class="text-secondary">Search results for:</span>
+    <span class="text-primary"><%= searchText %></span>
+</h2>
+
+<ul class="search-results">
+<% searchResults.forEach((sr, idx, arr) => { %>
+    <li>
+        <div class="search-result-item position-relative border shadow">
+            <h5><%- sr.ref.title %></h5>
+            <p class="x-text-nowrap x-text-truncate"><%- sr.ref.summary %></p>
+            <a href="<%- urlPrefix %><%- sr.ref.url %>" class="stretched-link"></a>
+        </div>
+    </li>
+<% }); %>
+</ul>        
+`,
+
         _resultTemplate: `
 <h2>
     <span class="text-secondary">Search results for:</span>
@@ -49,13 +68,26 @@
 </h2>
 
 <ul class="search-results">
-<% searchResults.forEach((sr) => { %>
+<% searchResults.forEach((sr, idx, arr) => { %>
     <li>
-        <div class="search-result-item position-relative border shadow">
-            <h5><%- sr.ref.title %></h5>
-            <p class="x-text-nowrap x-text-truncate"><%- sr.ref.summary %></p>
-            <a href="<%- urlPrefix %><%- sr.ref.url %>" class="stretched-link"></a>
+
+        <div class="catalogue-item position-relative">
+            
+            <a class="stretched-link" href="<%- urlPrefix %><%- sr.ref.url %>"></a>
+            <h3 class="catalogue-title"><%- sr.ref.title %></h3>
+            <div class="catalogue-line"></div>
+
+            <div class="catalogue-preview clearfix">
+                <% if (sr.ref.image) { %>
+                <img src="<%- sr.ref.image %>" class="catalogue-image img-fluid img-thumbnail"></img>
+                <% } %>
+                <div class="excerpt">
+                    <%- sr.ref.summary %>
+                </div>
+            </div>
+
         </div>
+
     </li>
 <% }); %>
 </ul>        

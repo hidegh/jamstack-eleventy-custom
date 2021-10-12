@@ -60,6 +60,8 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter('mergePaths', function(value) { return filters.mergePaths(value); });
     eleventyConfig.addFilter('normalize', function(value) { return filters.normalize(value); });
+    eleventyConfig.addFilter('truthy', function(value) { return !!value; });
+    eleventyConfig.addFilter('falsy', function(value) { return !value; });
 
     eleventyConfig.addFilter('truncateHtml', function(value, charLimit, lineLimit) { return clip(value, charLimit, { html: true, maxLines: lineLimit }); });
 

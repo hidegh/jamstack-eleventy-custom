@@ -22,7 +22,7 @@
 
     <div class="catalogue-preview clearfix">
         {% if globals.posts.showImage  and post | hasImage %}<img src="{{ post | absoluteImageUrl | url }}" class="catalogue-image img-fluid img-thumbnail"></img>{% endif %}
-        <div class="exceprt">
+        <div class="excerpt">
             {% if post.data.page.excerpt %}{{ post.data.page.excerpt | truncateHtml(globals.posts.maximizeContent, globals.posts.maximizeLines) | safe }}{% elseif globals.posts.card.showContentWhenExcerptMissing %}{{ post.templateContent | truncateHtml(globals.posts.maximizeContent, globals.posts.maximizeLines) | safe }}{% endif %}
         </div>
     </div>

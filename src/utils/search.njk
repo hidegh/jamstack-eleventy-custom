@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
         "title": "{{ post.data.title }}",
         "date": "{{ post.date }}",
         "author": "{{ post.data.author }}",
-        "image": "{{ post.data.image }}",
+        "image": "{% if (post.data.image | truthy) %}{{ post | absoluteImageUrl | url }}{% endif %}",
         "tags": {% if post.data.tags %}{{ post.data.tags | json | safe }}{% else %}[]{% endif %},
         "categories": {% if post.data.categories %}{{ post.data.categories | json | safe }}{% else %}[]{% endif %},
         "summary": {% if post.data.page.excerpt %}{{ post.data.page.excerpt | truncateHtml(globals.site.search.maximizeSummaryContent, globals.site.search.maximizeSummaryLines) | json | safe }}{% else %}{{ post.templateContent | truncateHtml(globals.site.search.maximizeSummaryContent, globals.site.search.maximizeSummaryLines) | json | safe }}{%- endif %},
