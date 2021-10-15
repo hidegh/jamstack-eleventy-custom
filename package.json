@@ -13,7 +13,7 @@
         "watch:sass": "npm run sass -- --watch"
     },
     "dependencies": {
-        "@11ty/eleventy": "^0.12.1",
+        "@11ty/eleventy": "^1.0.0-beta.2",
         "@11ty/eleventy-plugin-rss": "^1.1.1",
         "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.2",
         "@popperjs/core": "^2.9.2",
