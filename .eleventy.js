@@ -84,7 +84,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(syntaxHighlight, {
         init: function({ Prism }) {
             // Not workign as expected, see: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/47
-            // Prism.languages.console = Prism.languages.extend('markup', {});
+            Prism.languages.mermaid = Prism.languages.extend('markup', {});
+            Prism.languages.mathjax = Prism.languages.extend('markup', {});
         }
     });
 
