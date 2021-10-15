@@ -25,6 +25,7 @@ module.exports = function (eleventyConfig, pluginOptions) {
     pluginOptions = Object.assign({ /* defaults */ }, pluginOptions);
 
     eleventyConfig.addTransform('eleventy-hugo-style-local-post-images', function (content, outputPath) {
+
         // NOTE: we need current THIS (as it's the template) and thus we can't use arrow fnc. def.
         const transformOptions = {
             template: this,
