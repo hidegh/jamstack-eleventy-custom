@@ -17,10 +17,15 @@ module.exports = function (transformOptions, pluginOptions) {
     //
     // Note:
     // - always return original content (we do not transform it, we do just additional processing of assets)
-
     console.debug(`TRANSFORM - input: ${transformOptions.template.inputPath}, output: ${transformOptions.outputPath}`);
 
-    const templateFormats = transformOptions.template._config.templateFormats;
+    const templateFormats = 
+        // ISSUE: https://github.com/11ty/eleventy/issues/1647
+        // v0.12: transformOptions.template._config.templateFormats
+        // v1.x: pluginOptions.eleventyConfig.templateFormats - does not work as when the plugin is configured, the eleventyConfig is not fully set (templateFormats is empty)
+        // generic solution below:
+        pluginOptions.templateFormats
+        ;
 
     const outputDir = path.dirname(transformOptions.outputPath);
     const templateDir = path.dirname(transformOptions.template.inputPath).replace(/^\.\//, "");

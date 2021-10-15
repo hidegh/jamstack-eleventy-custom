@@ -6,6 +6,13 @@ const { DateTime } = require("luxon");
 const filters = require("./src/scripts/filters");
 const customPagination = require("./src/scripts/custom-pagination");
 
+const templateFormats = [
+    "html",
+    "njk",
+    "ejs",
+    "md"
+];
+
 //
 // Custom plugins / filters / ...
 
@@ -75,7 +82,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('getRelatedNavigationDetails', (...args) => require('./src/scripts/post-related.filter').getRelatedNavigationDetails(...args));
 
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
-    eleventyConfig.addPlugin(localPostImagesPlugin, { excludes: ["src/plugins/**"] });
+    eleventyConfig.addPlugin(localPostImagesPlugin, { eleventyConfig: eleventyConfig, templateFormats: templateFormats, excludes: ["src/plugins/**"] });
 
     //
     // NuGet plugins / filters / ...
@@ -160,12 +167,7 @@ module.exports = function (eleventyConfig) {
         htmlTemplateEngine: "njk",
         markdownTemplateEngine: "njk",
 
-        templateFormats: [
-            "html",
-            "njk",
-            "ejs",
-            "md"
-        ],
+        templateFormats: templateFormats,
 
         dir: {
             input: "src",
