@@ -178,7 +178,7 @@ module.exports = function (eleventyConfig) {
         },
 
         // NOTE: it's always a good idea to test custom scripts with sub-folder support!
-        pathPrefix: "/my-site"
+        pathPrefix: "/jamstack-eleventy-custom"
     };
 
 }
