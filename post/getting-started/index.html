@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="-1">
+
+        <title>Getting Started | BLOG</title>
+        <meta name="title" content="Getting Started | BLOG">
+        <meta name="description" content="Helping others with useful content">
+        <meta name="keywords" content="posts,blog,samples,jekyll,getting started,digitalization,business,management,agile,software,softwareengineering,softwarearchitecture,programming">
+        <meta name="author" content="Cotes Chung">
+        <meta name="robots" content="index, follow">
+
+        <link rel="canonical" href="https://blog.domain.com/post/getting-started/">
+        <link rel="shortcut icon" type="image/png" href="/jamstack-eleventy-custom/assets/img/favicon.png">
+        
+        <link rel="preconnect" href="cdnjs.cloudflare.com">
+        <link rel="dns-prefetch" href="cdnjs.cloudflare.com">
+
+        <link rel="preconnect" href="cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="cdn.jsdelivr.net">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        
+        <script src="/jamstack-eleventy-custom/assets/js/custom/clipboard-copy.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js" integrity="sha256-mOsgtygNfXBUPc/+cc19yr+g0jieqYOgRL5xFD2sC0Y=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.min.js" integrity="sha512-PEsccDx9jqX6Dh4wZDCnWMaIO3gAaU0j46W//sSqQhUQxky6/eHZyeB3NrXD2xsyugAKd4KPiDANkcuoEa2JuA==" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="/jamstack-eleventy-custom/assets/css/main.css" />
+
+    </head>
+    <body>
+
+        <header class="sticky-top">
+            <nav class="navbar navbar-this navbar-expand-lg">
+
+    <div class="container">
+
+        <a class="navbar-brand align-middle" href="#">
+            <img src="/jamstack-eleventy-custom/assets/logo.png" />
+        </a>
+
+        <div class="ms-auto mx-2"></div>
+
+        <!-- standalone search bar activator (below navigation) -->
+        <a type="button" role="button" class="btn border-0 me-2 d-lg-none"
+            data-bs-toggle="collapse" data-bs-target="#blog-search-bar">
+            <!-- d-sm-none = hide if above sm -->
+            <i class="fas fa-search"></i>
+        </a>
+
+        <button type="button" class="btn navbar-toggler"
+            data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Using navbar-toggler fix in main.scss and FA icons instead of: <span class="navbar-toggler-icon"></span> -->
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-sm-0">
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/">Home</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/posts/1/">Posts</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/tags">Tags</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/categories">Categories</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/series">Series</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- inline search-bar with same expand breakpoint as navigation -->
+        <nav class="nav-search d-none d-lg-inline">
+            <!-- hidden by def., visible (block) aft. size SM -->
+            <div class="inline-input-group inline-text-right">
+                <span class="inline-text"><i class="fas fa-search"></i></span>
+                <input type="text" class="blog-search-input form-control py-0" placeholder="Search...">
+            </div>
+        </nav>
+
+    </div>
+
+</nav>
+
+<!-- standalone search bar (below navigation) with same breakpoint as navigation (shown on collapse) -->
+<nav class="nav-search-below d-lg-none collapse p-3" id="blog-search-bar">
+    <div class="container">
+        <!-- d-sm-none = hide if above sm -->
+        <div class="inline-input-group inline-text-left">
+            <span class="inline-text"><i class="fas fa-search"></i></span>
+            <input type="text" class="blog-search-input form-control" placeholder="Search...">
+        </div>
+
+    </div>
+</nav>
+        </header>
+
+        <main>
+            
+            
+
+    
+
+    <div class="container">
+
+        <div id="global-content-view" class="row pt-3">
+
+            <div class="col-12 col-xl-9 p-0 overflow-hidden">
+                
+
+    
+    
+    
+    <section class="p-3 d-flex d-flex justify-content-between align-items-center">
+        
+<section class="share-wrapper">
+    <span class="share-label text-muted mr-1">Share post</span>
+    <span class="share-icons">
+        
+               
+        
+            
+                
+                <a  href="https://www.linkedin.com/sharing/share-offsite/?url=/post/getting-started/"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="LinkedIn"
+                    target="_blank" rel="noopener"
+                    aria-label="LinkedIn"
+                    >
+                    <i class="fa-fw fab fa-fw fa-linkedin"></i>
+                </a>
+            
+        
+            
+        
+            
+                
+                <a  href="https://twitter.com/intent/tweet?text=Share post&amp;url=/post/getting-started/"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Twitter"
+                    target="_blank" rel="noopener"
+                    aria-label="Twitter"
+                    >
+                    <i class="fa-fw fab fa-fw fa-twitter"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+
+        <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i>
+    </span>
+</section>
+
+<script>
+    function copyLink(url) {
+
+        if (!url || 0 === url.length)
+            url = window.location.href;
+
+        ClipboardCopy.copy(
+            url,
+            () => { alert("Link copied successfully!"); },
+            (err) => { alert("Link copy failed! Error: ", err); },
+        );
+    }
+</script>
+
+    </section>
+    
+    <section class="article print-container p-3 mb-3">
+
+        <section>
+            <h1>Getting Started</h1>
+            
+        </section>
+
+        <section class="small">
+            <div class="row row-cols-auto gx-3">
+                <div class="col"><i class="far fa-fw fa-calendar-alt"></i>Invalid DateTime</div>
+                <div class="col"><i class="far fa-fw fa-user"></i>Cotes Chung</div>
+                <div class="col"><i class="fas fa-fw fa-stopwatch"></i> 3 min reading time</div>
+            </div>
+            <hr/>
+        </section>
+
+        <section class="pb-3">
+            
+            <h2 id="prerequisites" tabindex="-1">Prerequisites</h2>
+<p>Follow the <a href="https://jekyllrb.com/docs/installation/">Jekyll Docs</a> to complete the installation of <code>Ruby</code>, <code>RubyGems</code>, <code>Jekyll</code> and <code>Bundler</code>.</p>
+<h2 id="installation" tabindex="-1">Installation</h2>
+<p>There are two ways to get the theme:</p>
+<ul>
+<li><strong>Install from RubyGems</strong> - Easy to update, isolate irrelevant project files so you can focus on writing.</li>
+<li><strong>Fork on GitHub</strong> - Convenient for custom development, but difficult to update, only suitable for web developers.</li>
+</ul>
+<h3 id="installing-the-theme-gem" tabindex="-1">Installing the Theme Gem</h3>
+<p>Add this line to your Jekyll site’s <code>Gemfile</code>:</p>
+<pre class="language-ruby"><code class="language-ruby">gem <span class="token string">"jekyll-theme-chirpy"</span></code></pre>
+<p>And add this line to your Jekyll site’s <code>_config.yml</code>:</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> jekyll<span class="token punctuation">-</span>theme<span class="token punctuation">-</span>chirpy</code></pre>
+<p>And then execute:</p>
+<pre><code>$ bundle
+</code></pre>
+<p>Finally, copy the required files from the theme’s gem (for detailed files, see <a href="https://github.com/cotes2020/chirpy-starter">starter project</a>) to your Jekyll site.</p>
+<blockquote>
+<p><strong>Hint</strong>: To locate the installed theme’s gem, execute:</p>
+<pre><code>$ bundle info --path jekyll-theme-chirpy
+</code></pre>
+</blockquote>
+<p>Or you can <a href="https://github.com/cotes2020/chirpy-starter/generate"><strong>use the starter template</strong></a> to create a Jekyll site to save time copying files from theme’s gem. We have prepared everything for you there!</p>
+<h3 id="fork-on-github" tabindex="-1">Fork on GitHub</h3>
+<p><a href="https://github.com/cotes2020/jekyll-theme-chirpy/fork">Fork <strong>Chirpy</strong></a> on GitHub and then clone your fork to local.</p>
+<p>Install gem dependencies by:</p>
+<pre><code>$ bundle
+</code></pre>
+<p>And then execute:</p>
+<pre><code>$ bash tools/init.sh
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: If you don’t plan to deploy your site on GitHub Pages, append parameter option <code>--no-gh</code> at the end of the above command.</p>
+</blockquote>
+<p>What it does is:</p>
+<ol>
+<li>
+<p>Remove some files or directories from your repository:</p>
+<ul>
+<li><code>.travis.yml</code></li>
+<li>files under <code>_posts</code></li>
+<li>folder <code>docs</code></li>
+</ul>
+</li>
+<li>
+<p>If you use the <code>--no-gh</code> option, the directory <code>.github</code> will be deleted. Otherwise, setup the GitHub Action workflow by removing extension <code>.hook</code> of <code>.github/workflows/pages-deploy.yml.hook</code>, and then remove the other files and directories in folder <code>.github</code>.</p>
+</li>
+<li>
+<p>Automatically create a commit to save the changes.</p>
+</li>
+</ol>
+<h2 id="usage" tabindex="-1">Usage</h2>
+<h3 id="configuration" tabindex="-1">Configuration</h3>
+<p>Update the variables of <code>_config.yml</code> as needed. Some of them are typical options:</p>
+<ul>
+<li><code>url</code></li>
+<li><code>avatar</code></li>
+<li><code>timezone</code></li>
+<li><code>lang</code></li>
+</ul>
+<h3 id="running-local-server" tabindex="-1">Running Local Server</h3>
+<p>You may want to preview the site contents before publishing, so just run it by:</p>
+<pre><code>$ bundle exec jekyll s
+</code></pre>
+<p>Or run the site on Docker with the following command:</p>
+<pre><code>$ docker run -it --rm \
+    --volume=&quot;$PWD:/srv/jekyll&quot; \
+    -p 4000:4000 jekyll/jekyll \
+    jekyll serve
+</code></pre>
+<p>Open a browser and visit to <em><a href="http://localhost:4000">http://localhost:4000</a></em>.</p>
+<h3 id="deployment" tabindex="-1">Deployment</h3>
+<p>Before the deployment begins, checkout the file <code>_config.yml</code> and make sure the <code>url</code> is configured correctly. Furthermore, if you prefer the <a href="https://help.github.com/en/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites"><strong>project site</strong></a> and don’t use a custom domain, or you want to visit your website with a base url on a web server other than <strong>GitHub Pages</strong>, remember to change the <code>baseurl</code> to your project name that starting with a slash, e.g, <code>/project-name</code>.</p>
+<p>Now you can choose ONE of the following methods to deploy your Jekyll site.</p>
+<h4 id="deploy-on-github-pages" tabindex="-1">Deploy on GitHub Pages</h4>
+<p>For security reasons, GitHub Pages build runs on <code>safe</code> mode, which restricts us from using plugins to generate additional page files. Therefore, we can use <strong>GitHub Actions</strong> to build the site, store the built site files on a new branch, and use that branch as the source of the GH Pages service.</p>
+<p>Quickly check the files needed for GitHub Actions build:</p>
+<ul>
+<li>Ensure your Jekyll site has the file <code>.github/workflows/pages-deploy.yml</code>. Otherwise, create a new one and fill in the contents of the <a href="https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/.github/workflows/pages-deploy.yml.hook">workflow file</a>, and the value of the <code>on.push.branches</code> should be the same as your repo’s default branch name.</li>
+<li>Ensuer your Jekyll site has file <code>tools/test.sh</code> and <code>tools/deploy.sh</code>. Otherwise, copy them from this repo to your Jekyll site.</li>
+</ul>
+<p>And then rename your repoistory to <code>&lt;GH-USERNAME&gt;.github.io</code> on GitHub.</p>
+<p>Now publish your Jekyll site by:</p>
+<ol>
+<li>
+<p>Push any commit to remote to trigger the GitHub Actions workflow. Once the build is complete and successful, a new remote branch named <code>gh-pages</code> will appear to store the built site files.</p>
+</li>
+<li>
+<p>Browse to your repo’s landing page on GitHub and select the branch <code>gh-pages</code> as the <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">publishing source</a> throught <em>Settings</em> → <em>Options</em> → <em>GitHub Pages</em>:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/posts/20190809/gh-pages-sources.png" alt="gh-pages-sources"></p>
+</li>
+<li>
+<p>Visit your website at the address indicated by GitHub.</p>
+</li>
+</ol>
+<h4 id="deploy-on-other-platforms" tabindex="-1">Deploy on Other Platforms</h4>
+<p>On platforms other than GitHub, we cannot enjoy the convenience of <strong>GitHub Actions</strong>. Therefore, we should build the site locally (or on some other 3rd-party CI platform) and then put the site files on the server.</p>
+<p>Go to the root of the source project, build your site by:</p>
+<pre><code>$ JEKYLL_ENV=production bundle exec jekyll b
+</code></pre>
+<p>Or build the site with Docker by:</p>
+<pre><code>$ docker run -it --rm \
+    --env JEKYLL_ENV=production \
+    --volume=&quot;$PWD:/srv/jekyll&quot; \
+    jekyll/jekyll \
+    jekyll build
+</code></pre>
+<p>Unless you specified the output path, the generated site files will be placed in folder <code>_site</code> of the project’s root directory. Now you should upload those files to your web server.</p>
+
+        </section>
+
+    </section>
+
+    <section class="p-3">
+        
+
+
+<div class="d-flex">
+    <div class="post-navigation-button text-start me-auto">
+        <a class="btn btn-sm btn-outline-primary" href="/jamstack-eleventy-custom/post/writing-a-new-post/" title="Writing a New Post"><i class="me-3 fas fa-chevron-left align-middle"></i>Writing a New Post</a>
+    </div>
+    
+    <div class="post-navigation-button text-end ms-auto">
+        <a class="btn btn-sm btn-outline-primary" href="/jamstack-eleventy-custom/post/customize-the-favicon/" title="Customize the Favicon">Customize the Favicon<i class="ms-3 fas fa-chevron-right align-middle"></i></a>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="p-3">
+        
+    </section>
+  
+
+            </div>
+
+            <aside class="sticky-container d-none d-xl-block small col-xl-3 p-0">
+                
+
+    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        
+        
+
+
+    </section>
+
+    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        
+        
+
+
+<div class="heading">
+    <h2 class="d-inline">Similar articles</h2>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+</div>
+
+<div><ul class="related-posts">
+    
+    <li>
+        
+        <a href="/jamstack-eleventy-custom/post/ddd-series-5-bounded-context-at-help-to-tackle-complexity/">
+            <span>DDD Series - 5 - Bounded context at help to tackle complexity</span>
+        </a>
+    </li>
+    
+    <li>
+        
+        <a href="/jamstack-eleventy-custom/post/text-and-typography/">
+            <span>Text and Typography</span>
+        </a>
+    </li>
+    
+    <li>
+        
+        <a href="/jamstack-eleventy-custom/post/writing-a-new-post/">
+            <span>Writing a New Post</span>
+        </a>
+    </li>
+    
+    <li>
+        
+        <a href="/jamstack-eleventy-custom/post/customize-the-favicon/">
+            <span>Customize the Favicon</span>
+        </a>
+    </li>
+    
+    <li>
+        
+        <a href="/jamstack-eleventy-custom/post/enable-google-page-views/">
+            <span>Enable Google Page Views</span>
+        </a>
+    </li>
+    
+</ul></div>
+
+
+    </section>
+
+    <section class="sticky p-3 mb-3">
+        
+<div class="heading">
+    <h2 class="d-inline">Recent posts</h2>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+</div>
+
+        
+<ul class="recent-posts">
+    
+    <li>
+        <a href="/jamstack-eleventy-custom/post/enable-google-page-views/">
+            <span>Enable Google Page Views</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="/jamstack-eleventy-custom/post/customize-the-favicon/">
+            <span>Customize the Favicon</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="/jamstack-eleventy-custom/post/getting-started/">
+            <span>Getting Started</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="/jamstack-eleventy-custom/post/writing-a-new-post/">
+            <span>Writing a New Post</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="/jamstack-eleventy-custom/post/text-and-typography/">
+            <span>Text and Typography</span>
+        </a>
+    </li>
+    
+</ul>
+    </section>
+    
+    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        
+<div class="heading">
+    <h2 class="d-inline">Tag cloud</h2>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+</div>
+
+         
+    <span style="font-size: 1.05em;">
+        <a href="/jamstack-eleventy-custom/tag/blog/1/">blog</a>
+    </span>
+ 
+    <span style="font-size: 1.1125em;">
+        <a href="/jamstack-eleventy-custom/tag/ddd/1/">ddd</a>
+    </span>
+ 
+    <span style="font-size: 0.8625em;">
+        <a href="/jamstack-eleventy-custom/tag/dont/1/">dont</a>
+    </span>
+ 
+    <span style="font-size: 0.8em;">
+        <a href="/jamstack-eleventy-custom/tag/favicon/1/">favicon</a>
+    </span>
+ 
+    <span style="font-size: 0.8em;">
+        <a href="/jamstack-eleventy-custom/tag/getting-started/1/">getting started</a>
+    </span>
+ 
+    <span style="font-size: 0.8em;">
+        <a href="/jamstack-eleventy-custom/tag/google-analytics/1/">google analytics</a>
+    </span>
+ 
+    <span style="font-size: 1.1125em;">
+        <a href="/jamstack-eleventy-custom/tag/intro/1/">intro</a>
+    </span>
+ 
+    <span style="font-size: 1.05em;">
+        <a href="/jamstack-eleventy-custom/tag/jekyll/1/">jekyll</a>
+    </span>
+ 
+    <span style="font-size: 0.925em;">
+        <a href="/jamstack-eleventy-custom/tag/management/1/">management</a>
+    </span>
+ 
+    <span style="font-size: 0.8em;">
+        <a href="/jamstack-eleventy-custom/tag/outer-middle-inner/1/">outer - middle - inner</a>
+    </span>
+ 
+    <span style="font-size: 0.8em;">
+        <a href="/jamstack-eleventy-custom/tag/pageviews/1/">pageviews</a>
+    </span>
+ 
+    <span style="font-size: 1.8em;">
+        <a href="/jamstack-eleventy-custom/tag/posts/1/">posts</a>
+    </span>
+ 
+    <span style="font-size: 1.05em;">
+        <a href="/jamstack-eleventy-custom/tag/samples/1/">samples</a>
+    </span>
+ 
+    <span style="font-size: 0.925em;">
+        <a href="/jamstack-eleventy-custom/tag/samples-11ty-customized/1/">samples, 11ty-customized</a>
+    </span>
+ 
+    <span style="font-size: 1.1125em;">
+        <a href="/jamstack-eleventy-custom/tag/series/1/">series</a>
+    </span>
+ 
+    <span style="font-size: 1.3em;">
+        <a href="/jamstack-eleventy-custom/tag/technical/1/">technical</a>
+    </span>
+ 
+    <span style="font-size: 0.8em;">
+        <a href="/jamstack-eleventy-custom/tag/typography/1/">typography</a>
+    </span>
+ 
+    <span style="font-size: 0.8em;">
+        <a href="/jamstack-eleventy-custom/tag/writing/1/">writing</a>
+    </span>
+
+
+    </section>
+
+    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        
+        
+
+
+<div class="heading">
+    <h2 class="d-inline">Table of contents</h2>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+</div>
+
+<div><div class="text-nowrap overflow-hidden"><nav class="toc">
+                <ol>
+                    
+                    <li><a href="#prerequisites">Prerequisites</a>
+            		</li>
+
+                    <li><a href="#installation">Installation</a>
+            
+                <ol>
+                    
+                    <li><a href="#installing-the-theme-gem">Installing the Theme Gem</a>
+            		</li>
+
+                    <li><a href="#fork-on-github">Fork on GitHub</a>
+            		</li>
+                </ol>
+            		</li>
+
+                    <li><a href="#usage">Usage</a>
+            
+                <ol>
+                    
+                    <li><a href="#configuration">Configuration</a>
+            		</li>
+
+                    <li><a href="#running-local-server">Running Local Server</a>
+            		</li>
+
+                    <li><a href="#deployment">Deployment</a>
+            
+                <ol>
+                    
+                    <li><a href="#deploy-on-github-pages">Deploy on GitHub Pages</a>
+            		</li>
+
+                    <li><a href="#deploy-on-other-platforms">Deploy on Other Platforms</a>
+            		</li>
+                </ol>
+            		</li>
+                </ol>
+            		</li>
+                </ol>
+            </nav></div></div>
+
+
+    </section>
+
+
+            </aside>
+
+        </div>
+
+        <div id="search-results-container" class="row pt-3 d-none">
+            <div class="search-results col-12">
+            </div>
+        </div>
+
+    </div>
+
+    
+
+
+        </main>
+
+	    <!-- dynamic & custom scripts to alter rendered content -->
+        <script>
+
+    /* uses:
+    EJS.CO for templating
+    LUNR for search
+    HE for HTML encoding (at highlight fnc.)
+    */
+   
+    class Debouncer {
+        _timeoutId = undefined;
+        _wait = 250;
+        _callback;
+
+        constructor(callback, wait) {
+            this._wait = wait ? wait : this._wait;
+            this._callback = callback;
+        }
+
+        next(...args) {
+            this.cancel();
+            this._timeoutId = window.setTimeout(() => {
+            this._callback.apply(null, args);
+            }, this._wait);
+        }
+
+        cancel() {
+            window.clearTimeout(this._timeoutId);
+        }
+    }
+
+    const blogSearch = {
+
+        _searchIndexPath: '/jamstack-eleventy-custom/search.json',
+        _urlPrefix: '/jamstack-eleventy-custom/',
+        _debounceTime: 400,
+
+        _searchingTemplate: `
+<h2>
+    <i class="text-secondary fas fa-spin fa-circle-notch"></i>
+    <span class="text-secondary">Searching for:</span>
+    <span class="text-primary"><%= searchText %></span>
+</h2>
+`,
+
+        _resultTemplate_simple: `
+<h2>
+    <span class="text-secondary">Search results for:</span>
+    <span class="text-primary"><%= searchText %></span>
+</h2>
+
+<ul class="search-results">
+<% searchResults.forEach((sr, idx, arr) => { %>
+    <li>
+        <div class="search-result-item position-relative border shadow">
+            <h5><%- sr.ref.title %></h5>
+            <p class="x-text-nowrap x-text-truncate"><%- sr.ref.summary %></p>
+            <a href="<%- urlPrefix %><%- sr.ref.url %>" class="stretched-link"></a>
+        </div>
+    </li>
+<% }); %>
+</ul>        
+`,
+
+        _resultTemplate: `
+<h2>
+    <span class="text-secondary">Search results for:</span>
+    <span class="text-primary"><%= searchText %></span>
+</h2>
+
+<ul class="search-results">
+<% searchResults.forEach((sr, idx, arr) => { %>
+    <li>
+
+        <div class="catalogue-item position-relative">
+            
+            <a class="stretched-link" href="<%- urlPrefix %><%- sr.ref.url %>"></a>
+            <h3 class="catalogue-title"><%- sr.ref.title %></h3>
+            <div class="catalogue-line"></div>
+
+            <div class="catalogue-preview clearfix">
+                <% if (sr.ref.image) { %>
+                <img src="<%- sr.ref.image %>" class="catalogue-image img-fluid img-thumbnail"></img>
+                <% } %>
+                <div class="excerpt">
+                    <%- sr.ref.summary %>
+                </div>
+            </div>
+
+        </div>
+
+    </li>
+<% }); %>
+</ul>        
+`,
+
+        _inputElements: [],
+        _cancelElements: [],
+        
+        _updateInputs(value) {
+            this._inputElements.forEach(el => el.value = value);
+        },
+
+        _setUpListeners(inputSelector, cancelSelector) {
+            if (inputSelector) {
+                this._inputElements = document.querySelectorAll(inputSelector);
+                this._inputElements.forEach(el => el.addEventListener('keyup', evt => { if (evt.keyCode == 27) this._escapePressed(el); else this._inputValueChanged(el); } ));
+            } else {
+                this._inputElements = [];
+            }
+
+            if (cancelSelector) {
+                this._cancelElements = document.querySelectorAll(cancelSelector);
+            } else {
+                this._cancelElements = [];
+            }
+        },
+
+        _escapePressed(el) {
+            this.clearSearch();
+        },
+
+        _inputValueChanged(el) {
+            const value = el.value;
+            this._updateInputs(value);
+            this._debouncedSearch.next(value);
+        },
+
+        _resultContainerEls: [],
+        _containersToHideEls: [],
+
+        _setUpContainers(resultContainerSelector, containersToHideWhenResultSelector) {
+            this._resultContainerEls = document.querySelectorAll(resultContainerSelector);
+            this._containersToHideEls = document.querySelectorAll(containersToHideWhenResultSelector);
+        },
+
+        _showResults: false,
+        _searching: false,
+        _searchText: '',
+        _searchResults: [],
+
+        refreshUi() {
+            const self = this;
+
+            self._inputElements.forEach(el => el.value = self._searchText );
+
+            const html = self._showResults
+                ? self._searching
+                    ? ejs.render(self._searchingTemplate, { searchText: self._searchText })
+                    : ejs.render(self._resultTemplate, { urlPrefix: self._urlPrefix.replace(/\/+$/, ''), searchText: self._searchText, searchResults: self._searchResults })
+                : '';
+
+            self._resultContainerEls.forEach(el => { 
+                // hide/show container
+                self._showResults ? el.classList.remove("d-none") : el.classList.add("d-none")
+                
+                // find results element and set results
+                const resultsEl = el.querySelector(".search-results");
+                if (resultsEl) {
+                    resultsEl.innerHTML = self._showResults ? html : "";
+                }
+            });
+
+            self._containersToHideEls.forEach(el => self._showResults ? el.classList.add("d-none") : el.classList.remove("d-none"));          
+        },
+
+        clearSearch() {
+            this._showResults = false;
+            this._searchText = '';
+            this._searchResults = [];
+            this.refreshUi();
+        },
+
+        search(text) {
+
+            const self = this;
+
+            console.log('searching for: ', text);
+            self._searchText = text;
+
+            if (!text) {
+                self.clearSearch();
+                return;
+            }
+
+            this._searchResults = [];
+            self._searching = true;
+            self._showResults = true;
+            this.refreshUi();
+
+            const hasSpecial = self._lunrSpecial.some(special => text.includes(special));
+            const pattern =  hasSpecial 
+                ? text
+                : text + "*";
+
+            console.log('lunr pattern: ', pattern);
+            const localResults = self._lunrEngine.search(pattern);
+
+            // NOTE: just for tests...
+            // console.log('total result', localResults)
+
+            // NOTE: highlighting
+            localResults.forEach(localResult => {
+                // NOTE: hard. ref.
+                const data = self._lunrSearchData.find(i => i.url == localResult.ref);
+
+                const highlight = {};
+
+                for (let term in localResult.matchData.metadata) {
+                    for (let field in localResult.matchData.metadata[term]) {
+
+                        const positions = localResult.matchData.metadata[term][field].position;
+
+                        const fieldValue = data[field];
+                        let fieldReadIndex = 0;
+
+                        highlight[field] = "";
+
+                        for (let position of positions) {
+
+                            if (position[0] > fieldReadIndex)
+                                highlight[field] += fieldValue.substring(fieldReadIndex, position[0]);
+
+                            highlight[field] += ("{:::" + fieldValue.substring(position[0], position[0] + position[1]) + ":::}");
+
+                            fieldReadIndex = position[0] + position[1];
+
+                        }
+
+                        highlight[field] += fieldValue.substring(fieldReadIndex);             
+
+                    }
+
+                }
+
+                for (let key in highlight) {
+                    let value = highlight[key];
+
+                    const encode = false;
+                    let encoded = encode
+                        ? he.encode(value)
+                        : value;
+
+                    let highlighted = encoded.replace(/{:::/g, '<mark>').replace(/:::}/g, '</mark>');
+                    highlight[key] = highlighted;
+                }
+
+                localResult.ref = Object.assign({}, data, highlight);
+            });
+
+            self._searchResults = localResults;
+
+            // finally
+            self._searching = false;
+            self.refreshUi();
+        },
+
+        _lunrSpecial: "*+-:^~".split(''),
+        _lunrSearchData: undefined,
+        _lunrEngine: undefined,
+
+        init(inputSelector, cancelSelector, resultContainerSelector, containersToHideWhenResultSelector) {
+
+            console.log('initializing search', this);
+
+            // set up result / hide elements
+            this._setUpContainers(resultContainerSelector, containersToHideWhenResultSelector);
+
+            // refresh
+            this.refreshUi();
+
+            fetch(this._searchIndexPath).then((response) => {
+                response.json().then((raw) => {
+
+                    // set up engine, store search data
+                    this._lunrSearchData = raw;
+
+                    this._lunrEngine = lunr(function () {
+                        this.ref('url')
+                        this.field('title')
+                        this.field('date')
+                        this.field('author')
+                        this.field('summary')
+                        this.field('text')
+
+                        this.metadataWhitelist = ['position']
+
+                        raw.forEach(function (doc) { this.add(doc) }, this)
+                    });
+
+                    // set up UI listeners
+                    this._debouncedSearch = new Debouncer((args) => this.search(args), this._debounceTime);
+                    this._setUpListeners(inputSelector, cancelSelector);
+
+                    // refresh
+                    this.refreshUi();
+                });
+            });
+
+        }
+
+    };
+
+    // NOTE:
+    // #search-results-container must have an additional element with a .search-results class
+    // these objects (along with #global-content-view) were already set up inside main.njk
+    blogSearch.init('.blog-search-input', '.blog-search-cancel', '#search-results-container', '#global-content-view');
+
+</script>
+
+
+        
+
+        
+
+
+        
+
+        
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
+
+<script>
+    const scripts_config = {
+
+        defaultCookies: function () {
+            console.log('default cookies');
+
+            // note: using anonymized IP
+            if (typeof loadGA === 'function') loadGA(true);
+        },
+
+        enableCookies: function () {
+            console.log('enabled cookies');
+
+            if (typeof loadGA === 'function') loadGA(false);
+            if (typeof loadDisqus === 'function') loadDisqus();
+        },
+
+        disableCookies: function () {
+            console.log('disabled cookies');
+
+            this.defaultCookies();
+        },
+
+        loadScripts: function (requireConsent, consentUrl) {
+            if (requireConsent) {
+                // scripts managed based on consent status
+                this.initializeCookieConsent(consentUrl);
+            } else {
+                // all scripts enabled
+                this.enableCookies();
+            }
+        },
+
+        initializeCookieConsent: function (consentUrl) {
+
+            const me = this;
+
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#edeff5",
+                        "text": "#838391"
+                    },
+                    "button": {
+                        "background": "#4b81e8"
+                    }
+                },
+                "position": "bottom-right",
+                "type": "opt-in",
+                "content": {
+                    "message": "This website uses cookies to ensure you get the best experience here.",
+                    "href": consentUrl
+                },
+
+                onInitialise: function (status) {
+                    console.log(`cc - onInitialise, status: ${status}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+                    if (type == 'opt-in' && didConsent) {
+                        me.enableCookies();
+                    }
+                    else if (type == 'opt-out' && !didConsent) {
+                        me.disableCookies();
+                    }
+                    else {
+                        me.defaultCookies();
+                    }
+                },
+
+                onStatusChange: function (status, chosenBefore) {
+                    console.log(`cc - onStatusChange, status: ${status}, chosenBefore: ${chosenBefore}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+                    if (type == 'opt-in' && didConsent) {
+                        me.enableCookies();
+                    }
+                    if (type == 'opt-out' && !didConsent) {
+                        me.disableCookies();
+                    }
+                },
+
+                onRevokeChoice: function () {
+                    // NOTE: this hook is called immediately after the revoke button is clicked and removes previous answers
+                    console.log(`cc - onRevokeChoice`);
+
+                    var type = this.options.type;
+                    if (type == 'opt-in') {
+                        me.disableCookies();
+
+                        // NOTE: we need to reload page, so that we get rid of the loaded GA / Disqus scripts!
+                        location.reload();
+                    }
+                    if (type == 'opt-out') {
+                        me.enableCookies();
+                    }
+                },
+
+                onPopupOpen: function () {
+                    console.log(`cc - onPopupOpen`);
+                },
+
+                onPopupClose: function () {
+                    console.log(`cc - onPopupClose`);
+                }
+
+            });
+
+        }
+
+    };
+
+    const requireConsent = JSON.parse('true');
+    const consentUrl = '/jamstack-eleventy-custom/cookies.html';
+    
+    scripts_config.loadScripts(requireConsent, consentUrl);
+</script>
+
+
+
+    </body>
+
+    <!-- dynamic & custom scripts that need to run after the entire "final" content is rendered -->
+    <script src="/jamstack-eleventy-custom/assets/js/custom/d-hide-if-empty.js"></script>
+    <script src="/jamstack-eleventy-custom/assets/js/custom/sticky.js"></script>
+
+</html>
