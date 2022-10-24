@@ -1,7 +1,7 @@
 
 
 # jamstack-eleventy-custom
-A static site created with 11ty (eleventy). The repo should serve as a demo/sample on creating 11ty sites from scratch - and also as a sample/basic for blog-sites.
+A static site created with 11ty (elevent, @zachleat). The repo should serve as a demo/sample on creating 11ty sites from scratch - and also as a sample/basic for blog-sites.
 
 This site was created from scratch and **blog related features were added**. The main idea was to have it as much flexible as it gets. 
 
