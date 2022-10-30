@@ -1,4 +1,5 @@
 ---
+eleventyExcludeFromCollections: true
 title: Cookies
 permalink: '{{globals.cookieConsent.consentUrl}}'
 ---

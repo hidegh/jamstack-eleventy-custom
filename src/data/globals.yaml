@@ -18,11 +18,14 @@ site:
     - softwarearchitecture
     - programming
   copyright: Copyright - 2021
+  defaultAside: 3
   paths:
     rss: /rss.xml
     searchIndex: /search.json
   search:
-    collectionName: postCollection
+    collections:
+      - postCollection
+      - www
     maximizeSummaryContent: 400
     maximizeSummaryLines: 10
 

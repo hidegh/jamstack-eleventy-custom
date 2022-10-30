@@ -163,7 +163,14 @@ module.exports = function (eleventyConfig) {
 
         passthroughFileCopy: true,
 
+        // NOTE:
+        // IMPORTANT - @deprecated https://www.11ty.dev/docs/data-preprocessing/ in future versions
+        // see workaround: src\www\_blog-related\_blog-related.11tydata.js
+        // affected files:
+        // - src\www\www.11tydata.json
+        // - src\posts\posts.11tydata.json
         dataTemplateEngine: 'njk',
+
         htmlTemplateEngine: "njk",
         markdownTemplateEngine: "njk",
 
@@ -178,7 +185,7 @@ module.exports = function (eleventyConfig) {
         },
 
         // NOTE: it's always a good idea to test custom scripts with sub-folder support!
-        pathPrefix: "/jamstack-eleventy-custom"
+        // pathPrefix: "/jamstack-eleventy-custom"
     };
 
 }

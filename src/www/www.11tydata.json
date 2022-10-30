@@ -1,5 +1,7 @@
 {
-  "eleventyExcludeFromCollections": true,
+  "eleventyExcludeFromCollections": false,
   "layout": "page",
-  "permalink": "{{ title | slug }}/"
+  "permalink": "{{ title | slug }}/",
+  "aside": 0,
+  "tags": "www"
 }
