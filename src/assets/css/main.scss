@@ -22,9 +22,9 @@ BOOTSTRAP
 @import "./bootswatch/bs5/flatly/variables";
 
 @import url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700);
-@import url(https://fonts.googleapis.com/css2?family=Lora);
+@import url(https://fonts.googleapis.com/css?family=Lora);
 $headings-font-family: Voltaire;
-$font-family-sans-serif: Lora;
+$font-family-base: Lora;
 
 @import "bootstrap";
 @import "./bootswatch/bs5/flatly/bootswatch";
