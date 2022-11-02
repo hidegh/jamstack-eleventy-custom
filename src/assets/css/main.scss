@@ -65,6 +65,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*
+Flex stretch
+*/
+body.fit-height {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+body.fit-height main {
+    flex: 1;
+    height: 100%;
+}
+/*
 Navbar
 */
 .navbar-this {
