@@ -12,7 +12,7 @@
 
     <div class="{% if fluid %}container-fluid{% else %}container{% endif %}">
 
-        <div id="global-content-view" class="row pt-3">
+        <div id="global-content-view" class="row pt-3 hide-on-search-results-container-display">
 
             <div class="col-12 col-{{ asideBreak }}-{{ 12 - aside }} p-0 overflow-hidden">
                 {% block content %}{% endblock %}
