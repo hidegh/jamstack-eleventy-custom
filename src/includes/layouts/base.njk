@@ -59,6 +59,7 @@
 
         <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
 
+        {{ styles | safe }}
     </head>
     <body>
 
@@ -90,5 +91,8 @@
     <!-- dynamic & custom scripts that need to run after the entire "final" content is rendered -->
     <script src="{{ '/assets/js/custom/d-hide-if-empty.js' | url }}"></script>
     <script src="{{ '/assets/js/custom/sticky.js' | url }}"></script>
+
+    <!-- scripts from content pages -->
+    {{ scripts | safe }}
 
 </html>
