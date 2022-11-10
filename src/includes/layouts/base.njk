@@ -59,6 +59,18 @@
 
         <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jarallax@2.0.4/dist/jarallax.css" integrity="sha256-/a0I9OFWuIXZRhqSuqIj8g0NUYSID+mwuyOuuFZb12A=" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jarallax@2.0.4/dist/jarallax.min.js" integrity="sha256-uCknJLYMrtYTPwl8PwQnFj6T6Hck2oSGEZLhMi1BRvU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jarallax@2.0.4/dist/jarallax-video.min.js" integrity="sha256-zYuE44YyKYv3Y4xv38UkxBY4jFCzAmAxwJ2nfRj16WI=" crossorigin="anonymous"></script>
+        <script>
+            function InitParallax() {
+                jarallax(document.querySelectorAll('.jarallax'), {
+                    speed: 0.2, 
+                    disableVideo: /iPad|iPhone|iPod|Android/
+                });
+            }
+        </script>
+
         {{ styles | safe }}
     </head>
     <body class="fit-height">
