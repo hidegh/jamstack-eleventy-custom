@@ -71,6 +71,30 @@
             }
         </script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" integrity="sha512-3J8teBiHrSyaaRBajZyIEtpDsXdPq1gsznKWIVb5CnorQuFhjWGhWe54z8YNnHHr7MZuExb9m5kvf964HiT1Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            function InitTyped() {
+                // sample:
+                // <span class="text-success">ever created for
+                //   <span data-typed='{"strings": ["developers.", "founders.", "designers."]}'></span>
+                //   <span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span>
+                // </span>
+                document.querySelectorAll("[data-typed]").forEach(e => {
+                    const t = {
+                        typeSpeed: 40,
+                        backSpeed: 10,
+                        backDelay: 2e3,
+                        loop: true,
+                        replaceBaseText : true, /* future feature */
+                        autoInsertCss: true,
+                        ...e.dataset.typed ? JSON.parse(e.dataset.typed) : {}
+                    };
+
+                    var typed = new Typed(e, t);
+                });
+            }         
+        </script>
+
         {{ styles | safe }}
     </head>
     <body class="fit-height">
