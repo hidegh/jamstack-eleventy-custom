@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const glob = require("glob");
+const glob = require("fast-glob");
 
 const minimatch = require("minimatch");
 
@@ -17,7 +17,7 @@ module.exports = function (transformOptions, pluginOptions) {
     //
     // Note:
     // - always return original content (we do not transform it, we do just additional processing of assets)
-    console.debug(`TRANSFORM - input: ${transformOptions.template.inputPath}, output: ${transformOptions.outputPath}`);
+    console.debug(`TRANSFORM - input: ${transformOptions.template.inputPath}, output: ${transformOptions.outputPath}`);     
 
     const templateFormats = 
         // ISSUE: https://github.com/11ty/eleventy/issues/1647
@@ -45,8 +45,8 @@ module.exports = function (transformOptions, pluginOptions) {
 
     //
     // Handling copy-over for the concrete template
-    const templatePattern = path.join(templateDir, `**\\*.{${extensionsRegex}}`);
-    const templates = glob.sync(templatePattern, { nodir: true });
+    const templatePattern = path.join(templateDir, `**\\*.{${extensionsRegex}}`).replace(/\\/g, "/");
+    const templates = glob.sync(templatePattern, { onlyFiles: true });
 
     // only 1 template allowed when copying assets
     if (templates.length > 1) {
@@ -55,8 +55,9 @@ module.exports = function (transformOptions, pluginOptions) {
     }
 
     // copy all hierarchically, except templates
-    const assetSearchPattern = path.join(templateDir, `**\\*`);
-    const filesToCopy = glob.sync(assetSearchPattern, { nodir: true, ignore: templatePattern });
+    const assetSearchPattern = path.join(templateDir, `**\\*`).replace(/\\/g, "/");
+    const filesToCopy = glob.sync(assetSearchPattern, { onlyFiles: true, ignore: [templatePattern] });
+    if (filesToCopy.length) console.log('Files To Copy:', filesToCopy.join(", "))
 
     for (let filePath of filesToCopy) {
         // strip template dir
