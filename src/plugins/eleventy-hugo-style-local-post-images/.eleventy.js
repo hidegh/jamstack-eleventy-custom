@@ -12,12 +12,18 @@ Plugin setup:
 
 Filter usage:
 
-    <section class="pb-3">
-        {% if (post | hasImage) -%}
-        <img class="img-responsive" src="{{ post | absoluteImageUrl | url }}">
-        {%- endif %}
-        {{ content | safe }}
-    </section>
+    When the image is defined inside post meta-data:
+
+        <section class="pb-3">
+            {% if (post | hasImage) -%}
+            <img class="img-responsive" src="{{ post | absoluteImageUrl | url }}">
+            {%- endif %}
+            {{ content | safe }}
+        </section>
+
+    When there's any other local-image we want to use:
+
+        <img src="{{ page | absoluteImageUrl('local asset path.jpg') | url }}">
 
 */
 module.exports = function (eleventyConfig, pluginOptions) {
@@ -41,8 +47,8 @@ module.exports = function (eleventyConfig, pluginOptions) {
         return imgUrl ? true : false;
     });
 
-    eleventyConfig.addFilter('absoluteImageUrl', function(page) { 
-        const imgUrl = page.data.image;
+    eleventyConfig.addFilter('absoluteImageUrl', function(page, imageUrl) { 
+        const imgUrl = imageUrl ?? page.data.image;
         const postUrl = page.url + (page.url.endsWith("/") ? "" : "/") /* normalize url */;
                 
         if (typeof imgUrl === 'string' || imgUrl instanceof String) {           
