@@ -1,7 +1,7 @@
 {% if post.data.tags and post.data.tags.length %}
 <div class="d-flex">
     <div class="d-inline-block me-1">
-        <a href="{{ globals.tags.path | url }}"><i class="fas fa-fw fa-tags"></i></a>
+        <a href="{{ globals.tags.path | url }}"><i class="fa-solid fa-tags fa-fw"></i></a>
     </div>
     <div class="d-inline-block">
         {% for tag in post.data.tags %}
