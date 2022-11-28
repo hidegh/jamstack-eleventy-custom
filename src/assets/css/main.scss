@@ -70,7 +70,8 @@ Flex stretch
 body.fit-height {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    // NOTE: height: 100vh would interfere with sticky
+    min-height: 100vh;
 }
 
 body.fit-height main {
