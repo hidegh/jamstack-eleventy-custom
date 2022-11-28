@@ -57,6 +57,9 @@ module.exports = function (eleventyConfig) {
     // add YAML support
     eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
+    // add Markdown filter
+    eleventyConfig.addFilter("md", content => markdownIt({ html: true }).render(content ?? ""));
+
     //
     // Debugging
     eleventyConfig.addFilter("json", function (value) { return JSON.stringify(value); });
