@@ -35,9 +35,9 @@ asideMobile: false
 
         <section class="small">
             <div class="row row-cols-auto gx-3">
-                <div class="col"><i class="far fa-fw fa-calendar-alt"></i>{{ post.data.date | readableDate }}</div>
-                <div class="col"><i class="far fa-fw fa-user"></i>{{ post.data.author }}</div>
-                <div class="col"><i class="fas fa-fw fa-stopwatch"></i> {{ post.templateContent | readingTime }} reading time</div>
+                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>{{ post.data.date | readableDate }}</div>
+                <div class="col"><i class="fa-regular fa-user fa-fw"></i>{{ post.data.author }}</div>
+                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> {{ post.templateContent | readingTime }} reading time</div>
             </div>
             <hr/>
         </section>

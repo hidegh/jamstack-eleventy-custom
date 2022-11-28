@@ -89,11 +89,11 @@
     <ul class="pagination">
 
         <!-- first --!>
-        {{ paginationLink(false, isFirst, firstPageHref, '<i class="fas fa-angle-double-left"></i>') }}
+        {{ paginationLink(false, isFirst, firstPageHref, '<i class="fa-solid fa-angles-left"></i>') }}
 
         <!-- previous --!>
         {% if showPrevNext %}
-            {{ paginationLink(false, isFirst, previousPageHref, '<i class="fas fa-angle-left"></i>') }}
+            {{ paginationLink(false, isFirst, previousPageHref, '<i class="fa-solid fa-angle-left"></i>') }}
         {% endif %}
 
         <!-- if first link isn't shown --!>
@@ -131,11 +131,11 @@
 
         <!-- next --!>
         {% if showPrevNext %}
-            {{ paginationLink(false, isLast, nextPageHref, '<i class="fas fa-angle-right"></i>') }}
+            {{ paginationLink(false, isLast, nextPageHref, '<i class="fa-solid fa-angle-right"></i>') }}
         {% endif %}
 
         <!-- last --!>
-        {{ paginationLink(false, isLast, lastPageHref, '<i class="fas fa-angle-double-right"></i>') }}
+        {{ paginationLink(false, isLast, lastPageHref, '<i class="fa-solid fa-angles-right"></i>') }}
 
     </ul>
 </nav>
