@@ -26,10 +26,10 @@
         <link rel="preconnect" href="cdn.jsdelivr.net">
         <link rel="dns-prefetch" href="cdn.jsdelivr.net">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css" integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha512-BOsvKbLb0dB1IVplOL9ptU1EYA+LuCKEluZWRUYG73hxqNBU85JBIBhPGwhQl7O633KtkjMv8lvxZcWP+N3V3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
         <script src="/assets/js/custom/clipboard-copy.js"></script>
 
@@ -41,11 +41,71 @@
 
         <link rel="stylesheet" href="/assets/css/main.css" />
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jarallax@2.0.4/dist/jarallax.css" integrity="sha256-/a0I9OFWuIXZRhqSuqIj8g0NUYSID+mwuyOuuFZb12A=" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jarallax@2.0.4/dist/jarallax.min.js" integrity="sha256-uCknJLYMrtYTPwl8PwQnFj6T6Hck2oSGEZLhMi1BRvU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jarallax@2.0.4/dist/jarallax-video.min.js" integrity="sha256-zYuE44YyKYv3Y4xv38UkxBY4jFCzAmAxwJ2nfRj16WI=" crossorigin="anonymous"></script>
+        <script>
+            function InitParallax() {
+                jarallax(document.querySelectorAll('.jarallax'), {
+                    speed: 0.2, 
+                    disableVideo: /iPad|iPhone|iPod|Android/
+                });
+            }
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" integrity="sha512-3J8teBiHrSyaaRBajZyIEtpDsXdPq1gsznKWIVb5CnorQuFhjWGhWe54z8YNnHHr7MZuExb9m5kvf964HiT1Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            function InitTyped() {
+                // sample:
+                // <span class="text-success">ever created for
+                //   <span data-typed='{"strings": ["developers.", "founders.", "designers."]}'></span>
+                //   <span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span>
+                // </span>
+                document.querySelectorAll("[data-typed]").forEach(e => {
+                    const t = {
+                        typeSpeed: 40,
+                        backSpeed: 10,
+                        backDelay: 2e3,
+                        loop: true,
+                        replaceBaseText : true, /* future feature */
+                        autoInsertCss: true,
+                        ...e.dataset.typed ? JSON.parse(e.dataset.typed) : {}
+                    };
+
+                    var typed = new Typed(e, t);
+                });
+            }         
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4=" crossorigin="anonymous">
+        <script>
+            function InitAOS() {
+                AOS.init({ duration: 800, offset:0 });
+            }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+        <script>
+            function InitCounters() {
+                new PureCounter();
+            }
+        </script>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" integrity="sha256-bT9i1NF5afnHDpQ4z2cQBHJQGehoEj8uvClaAG+NXS0=" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js" integrity="sha256-A9/h+86SqfF/zRoVASE72CDQUKsIXDOEGasGo2MclFk=" crossorigin="anonymous"></script>
+        <script>
+            function InitLightbox() {
+                GLightbox({});
+            }
+        </script>
+
+        
     </head>
-    <body>
+    <body class="fit-height sticky-container">
 
         <header class="sticky-top">
-            <nav class="navbar navbar-this navbar-expand-lg">
+            <nav id="navbar-main" class="navbar-main navbar navbar-expand-lg">
 
     <div class="container">
 
@@ -59,14 +119,14 @@
         <a type="button" role="button" class="btn border-0 me-2 d-lg-none"
             data-bs-toggle="collapse" data-bs-target="#blog-search-bar">
             <!-- d-sm-none = hide if above sm -->
-            <i class="fas fa-search"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
         </a>
 
         <button type="button" class="btn navbar-toggler"
             data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <!-- Using navbar-toggler fix in main.scss and FA icons instead of: <span class="navbar-toggler-icon"></span> -->
-            <i class="fas fa-bars"></i>
+            <i class="fa-solid fa-bars"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -101,7 +161,7 @@
         <nav class="nav-search d-none d-lg-inline">
             <!-- hidden by def., visible (block) aft. size SM -->
             <div class="inline-input-group inline-text-right">
-                <span class="inline-text"><i class="fas fa-search"></i></span>
+                <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                 <input type="text" class="blog-search-input form-control py-0" placeholder="Search...">
             </div>
         </nav>
@@ -115,7 +175,7 @@
     <div class="container">
         <!-- d-sm-none = hide if above sm -->
         <div class="inline-input-group inline-text-left">
-            <span class="inline-text"><i class="fas fa-search"></i></span>
+            <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
             <input type="text" class="blog-search-input form-control" placeholder="Search...">
         </div>
 
@@ -131,7 +191,7 @@
 
     <div class="container">
 
-        <div id="global-content-view" class="row pt-3">
+        <div id="global-content-view" class="row pt-3 hide-on-search-results-container-display">
 
             <div class="col-12 col-xl-9 p-0 overflow-hidden">
                 
@@ -181,8 +241,8 @@
         
             
         
-
-        <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i>
+        
+        <i class="fa-solid fa-link fa-fw small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i>
     </span>
 </section>
 
@@ -215,7 +275,7 @@
 
 <div class="d-flex">
     <div class="post-navigation-button text-end ms-auto">
-        <a class="btn btn-sm btn-outline-primary" href="/post/how-to-get-better-at-anything-pt2/" title="How-to-get-better-at-anything - pt2">How-to-get-better-at-anything - pt2<i class="ms-3 fas fa-chevron-right align-middle"></i></a>
+        <a class="btn btn-sm btn-outline-primary" href="/post/how-to-get-better-at-anything-pt2/" title="How-to-get-better-at-anything - pt2">How-to-get-better-at-anything - pt2<i class="fa-solid fa-chevron-right ms-3 align-middle"></i></a>
     </div>
     </div>
             </section>
@@ -224,9 +284,9 @@
 
         <section class="small">
             <div class="row row-cols-auto gx-3">
-                <div class="col"><i class="far fa-fw fa-calendar-alt"></i>18 Jul 2021</div>
-                <div class="col"><i class="far fa-fw fa-user"></i>BaHI</div>
-                <div class="col"><i class="fas fa-fw fa-stopwatch"></i> 1 min reading time</div>
+                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>18 Jul 2021</div>
+                <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
+                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
             </div>
             <hr/>
         </section>
@@ -245,11 +305,11 @@
 
 <div class="d-flex">
     <div class="post-navigation-button text-start me-auto">
-        <a class="btn btn-sm btn-outline-primary" href="/post/mathjax-(mathematical-expressions)-and-mermaid-(graphs)/" title="Mathjax (mathematical expressions) and Mermaid (graphs)"><i class="me-3 fas fa-chevron-left align-middle"></i>Mathjax (mathematical expressions) and Mermaid (graphs)</a>
+        <a class="btn btn-sm btn-outline-primary" href="/post/mathjax-(mathematical-expressions)-and-mermaid-(graphs)/" title="Mathjax (mathematical expressions) and Mermaid (graphs)"><i class="fa-solid fa-chevron-left me-3 align-middle"></i>Mathjax (mathematical expressions) and Mermaid (graphs)</a>
     </div>
     
     <div class="post-navigation-button text-end ms-auto">
-        <a class="btn btn-sm btn-outline-primary" href="/post/how-to-get-better-at-anything-pt2/" title="How-to-get-better-at-anything - pt2">How-to-get-better-at-anything - pt2<i class="ms-3 fas fa-chevron-right align-middle"></i></a>
+        <a class="btn btn-sm btn-outline-primary" href="/post/how-to-get-better-at-anything-pt2/" title="How-to-get-better-at-anything - pt2">How-to-get-better-at-anything - pt2<i class="fa-solid fa-chevron-right ms-3 align-middle"></i></a>
     </div>
     </div>
 
@@ -272,7 +332,7 @@
 
 <div class="heading">
     <h2 class="d-inline">Articles in serie</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
 </div>
 
 <div><ul>
@@ -297,7 +357,7 @@
 
 <div class="heading">
     <h2 class="d-inline">Similar articles</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
 </div>
 
 <div><ul class="related-posts">
@@ -346,7 +406,7 @@
         
 <div class="heading">
     <h2 class="d-inline">Recent posts</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
 </div>
 
         
@@ -389,7 +449,7 @@
         
 <div class="heading">
     <h2 class="d-inline">Tag cloud</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fas fa-link"></i></a>
+    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
 </div>
 
          
@@ -531,7 +591,7 @@
 
         _searchingTemplate: `
 <h2>
-    <i class="text-secondary fas fa-spin fa-circle-notch"></i>
+    <i class="fa-solid fa-circle-notch fa-spin text-secondary"></i>
     <span class="text-secondary">Searching for:</span>
     <span class="text-primary"><%= searchText %></span>
 </h2>
@@ -798,7 +858,7 @@
     // NOTE:
     // #search-results-container must have an additional element with a .search-results class
     // these objects (along with #global-content-view) were already set up inside main.njk
-    blogSearch.init('.blog-search-input', '.blog-search-cancel', '#search-results-container', '#global-content-view');
+    blogSearch.init('.blog-search-input', '.blog-search-cancel', '#search-results-container', '.hide-on-search-results-container-display');
 
 </script>
 
@@ -941,5 +1001,10 @@
     <!-- dynamic & custom scripts that need to run after the entire "final" content is rendered -->
     <script src="/assets/js/custom/d-hide-if-empty.js"></script>
     <script src="/assets/js/custom/sticky.js"></script>
+
+    <!-- scripts from content pages -->
+    
+
+    <script src="/assets/js/custom/menu-path-and-scroll-spy.js"></script>
 
 </html>
