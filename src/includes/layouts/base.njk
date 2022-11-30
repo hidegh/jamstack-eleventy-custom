@@ -110,6 +110,14 @@
             }
         </script>
         
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" integrity="sha256-bT9i1NF5afnHDpQ4z2cQBHJQGehoEj8uvClaAG+NXS0=" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js" integrity="sha256-A9/h+86SqfF/zRoVASE72CDQUKsIXDOEGasGo2MclFk=" crossorigin="anonymous"></script>
+        <script>
+            function InitLightbox() {
+                GLightbox({});
+            }
+        </script>
+
         {{ styles | safe }}
     </head>
     <body class="fit-height">
