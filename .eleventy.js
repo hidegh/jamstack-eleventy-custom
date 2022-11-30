@@ -187,7 +187,17 @@ module.exports = function (eleventyConfig) {
             data: "data",
         },
 
-        // NOTE: it's always a good idea to test custom scripts with sub-folder support!
+        //
+        // NOTE:
+        //
+        //  DEV:
+        //      it's always a good idea to test custom scripts with sub-folder support!
+        //
+        //  HOSTING:
+        //
+        //      when hosting under github with no custom domain and inside a sub-folder, then use the repo name as the pathPrefix ()
+        //      same can be achieved with http/head/base (tested localy with partial path ending with /)
+        //
         // pathPrefix: "/jamstack-eleventy-custom"
     };
 
