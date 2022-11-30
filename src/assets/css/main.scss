@@ -30,6 +30,13 @@ $font-family-base: Lora;
 @import "./bootswatch/bs5/flatly/bootswatch";
 
 /*
+Custom variables
+*/
+:root {
+    --navbar-main-min-height: 5em;
+}
+
+/*
 Basic styles
 */
 
@@ -78,14 +85,18 @@ body.fit-height main {
     flex: 1;
     height: 100%;
 }
+
 /*
 Navbar
 */
-.navbar-this {
+.navbar-main {
 
     @extend .navbar-dark;
     @extend .bg-primary;
     @extend .text-light;
+
+    min-height: var(--navbar-main-min-height);
+    height: 100%; /* there's no parent, so this is just so that nested object height: 100% works */
 
     .btn {
         @extend .btn-outline-secondary;
