@@ -198,7 +198,7 @@ module.exports = function (eleventyConfig) {
         //      when hosting under github with no custom domain and inside a sub-folder, then use the repo name as the pathPrefix ()
         //      same can be achieved with http/head/base (tested localy with partial path ending with /)
         //
-        // pathPrefix: "/jamstack-eleventy-custom"
+        pathPrefix: "/jamstack-eleventy-custom"
     };
 
 }
