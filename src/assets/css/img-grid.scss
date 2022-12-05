@@ -1,0 +1,105 @@
+/*
+GRID:
+    https://dcode.domenade.com/tutorials/create-an-image-grid-gallery-with-html-and-css
+
+    Sample:
+
+        <div class="image-grid">
+            <img class="image-grid-col-2 image-grid-row-2" src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
+            <img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
+            <img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
+            <img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
+            <img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
+        </div>
+
+    Note:
+        use style="grid-auto-rows: 20vh;" to set row height!
+
+OVERLAY:
+    https://css-tricks.com/design-considerations-text-images/
+*/
+
+$--ig-gap: .5em;
+$--ig-row-height: 20vh;
+$--ig-cols: (column2: 2, column3: 3, column4: 4);
+
+.img-overlay {
+
+    // NOTE: this is the main container
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: .5em 2em;
+
+    background: inherit;
+    background-attachment: fixed;
+    overflow: hidden;
+
+    // NOTE: content styling - need to set z-index > -1 so content is always above the backdrop
+    z-index: 0;
+    color: white;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        // NOTE: blur the background
+        background: inherit;
+        background-attachment: fixed;
+        backdrop-filter: blur(.75px);
+        // NOTE: add some shade
+        background: rgba(0, 0, 0, 0.25);
+        // need z-index: -1 so the content inside this container is not affected by these effects!
+        z-index: -1;
+    }
+
+}
+
+@mixin make-image-grid($columns, $gap: $--ig-gap, $row-height: $--ig-row-height) {
+	box-sizing: border-box;
+	padding: $gap;
+
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	grid-auto-rows: $row-height;
+	gap: $gap;
+}
+
+.image-grid {
+
+    @each $col in map-values($--ig-cols) {
+        &.image-grid-#{$col} {
+            @include make-image-grid($col);
+        }
+    }
+
+    & > * {
+        // NOTE: this is the image (cell) container (can be <img> itself)
+        position: relative;
+
+        // rowspan
+        &.rs-2 { grid-row: span 2; }
+        &.rs-3 { grid-row: span 3; }
+        &.rs-4 { grid-row: span 4; }
+
+        // colspan
+        &.cs-2 { grid-column: span 2; }
+        &.cs-3 { grid-column: span 3; }
+        &.cs-4 { grid-column: span 4; }
+    }
+
+    & img {
+        // NOTE: the <img> inside a cell container or itself being a cell container
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+    }
+
+}
