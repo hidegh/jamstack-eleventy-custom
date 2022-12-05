@@ -1,32 +1,55 @@
 ---
-# fluid: true
+#
+# container: false|true|sm|md|lg|xl|xxl|fluid
+# searchResultsContainer: false|true|sm|md|lg|xl|xxl|fluid
 # aside: 3
-# asideBreak: xl
+# asideBreak: sm|md|lg|xl|xxl
 # asideMobile: true
+#
+container: true
+searchResultsContainer: true
+aside: 3
+asideBreak: xl
+asideMobile: false
 ---
+
 {% extends './base.njk' %}
+
+{% import "macros/bs-breakpoint.html" as bs_br %}
 
 {% block main %}
 
     {% block before %}{% endblock %}
 
-    <div class="{% if fluid %}container-fluid{% else %}container{% endif %}">
+    <div id="wrapper">
 
-        <div id="global-content-view" class="row pt-3 hide-on-search-results-container-display">
+        <div id="content-container" class="{{- ('hide-on-search-results-container-display ' + bs_br.getBreakpointClass(container, "container")) | trim -}}">
 
-            <div class="col-12 col-{{ asideBreak }}-{{ 12 - aside }} p-0 overflow-hidden">
-                {% block content %}{% endblock %}
+            <div class="row g-0">
+
+                <div class="main-container col-12 col-{{ asideBreak }}-{{ 12 - aside }} overflow-hidden">
+                    {% block content %}
+                        {{ content | safe }}
+                    {% endblock %}
+                </div>
+
+                <aside class="sticky-container {% if aside == 0 %}d-none{% else %}{% if not asideMobile %}d-none{% else %}col-12{% endif %} d-{{ asideBreak }}-block small col-{{ asideBreak }}-{{ aside }}{% endif %}">
+                    {% block aside %}{% endblock %}
+                </aside>
+
             </div>
-
-            <aside class="sticky-container {% if aside == 0 %}d-none{% else %}{% if not asideMobile %}d-none{% else %}col-12{% endif %} d-{{ asideBreak }}-block small col-{{ asideBreak }}-{{ aside }} p-0{% endif %}">
-                {% block aside %}{% endblock %}
-            </aside>
 
         </div>
 
-        <div id="search-results-container" class="row pt-3 d-none">
-            <div class="search-results col-12">
+        <div id="search-results-container" class="{{- ('d-none ' + bs_br.getBreakpointClass(searchResultsContainer, "container")) | trim -}}">
+
+            <div class="row g-0">
+            
+                <div class="search-results col-12 overflow-hidden">
+                </div>
+
             </div>
+
         </div>
 
     </div>

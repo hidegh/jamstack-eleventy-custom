@@ -52,6 +52,7 @@
         <script src="{{ '/assets/js/custom/clipboard-copy.js' | url }}"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js" integrity="sha256-mOsgtygNfXBUPc/+cc19yr+g0jieqYOgRL5xFD2sC0Y=" crossorigin="anonymous"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.min.js" integrity="sha512-PEsccDx9jqX6Dh4wZDCnWMaIO3gAaU0j46W//sSqQhUQxky6/eHZyeB3NrXD2xsyugAKd4KPiDANkcuoEa2JuA==" crossorigin="anonymous"></script>
         
@@ -99,7 +100,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4=" crossorigin="anonymous">
         <script>
             function InitAOS() {
-                AOS.init({ duration: 800, offset:0 });
+                AOS.init({ duration: 1000, offset:0 });
             }
         </script>
 
@@ -120,7 +121,7 @@
 
         {{ styles | safe }}
     </head>
-    <body class="fit-height sticky-container">
+    <body class="fit-height">
 
         <header class="sticky-top">
             {% include 'layouts/_navigation.html' %}

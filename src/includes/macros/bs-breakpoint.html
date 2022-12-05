@@ -1,0 +1,3 @@
+{%- macro getBreakpointClass(breakpoint, baseClass) -%}
+{% if breakpoint == false or breakpoint == null %}{% elif breakpoint == true or breakpoint == "" %}{{ baseClass }}{% else %}{{ baseClass }}-{{ breakpoint }}{% endif %}
+{%- endmacro -%}
