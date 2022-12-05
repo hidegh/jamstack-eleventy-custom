@@ -334,3 +334,33 @@ ul.posts {
     }
 
 }
+
+/*
+TYPO
+*/
+
+blockquote {
+    font-size: inherit !important;
+    line-height:  inherit !important;
+}
+
+blockquote.quote {
+
+    &:before {
+        content: open-quote;
+    }
+
+
+    &:after {
+        content: close-quote;
+    }
+
+    &:before,
+    &:after {
+        display: inline-block;
+        vertical-align: bottom;
+        position: relative;
+        font-size: 2em;
+        color: var(--color-delimiter);
+    }
+}
