@@ -154,7 +154,7 @@
                 self._showResults ? el.classList.remove("d-none") : el.classList.add("d-none")
                 
                 // find results element and set results
-                const resultsEl = el.querySelector(".search-results");
+                const resultsEl = el.querySelector(".search-results-wrapper");
                 if (resultsEl) {
                     resultsEl.innerHTML = self._showResults ? html : "";
                 }

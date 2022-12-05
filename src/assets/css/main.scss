@@ -125,22 +125,43 @@ Navbar
 /*
 Search
 */
+.nav-search 
+{
+    .inline-input-group .inline-text {
+        font-size: .8 em;
+    }
+
+    .blog-search-input {       
+        border-radius: 0;
+        border: none;
+        background-color: whitesmoke;
+    }
+}
+
 .nav-search-below {
     @extend .bg-dark;
 }
 
-ul.search-results {
+#search-results-container {
 
-    padding: 1em 0;
-    padding-left: 0em;
+    .search-results-wrapper {
+        @extend .p-3;
 
-    li {
-        list-style: none;
-        padding: 0 0 1em 0;
+        ul.search-results {
 
-        .search-result-item {
-            padding: 1em;
+            padding: 1em 0;
+            padding-left: 0em;
+        
+            li {
+                list-style: none;
+                padding: 0 0 1em 0;
+        
+                .search-result-item {
+                    padding: 1em;
+                }
+            }
         }
+        
     }
 }
 
