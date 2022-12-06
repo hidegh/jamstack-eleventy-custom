@@ -34,6 +34,7 @@
         <script src="/jamstack-eleventy-custom/assets/js/custom/clipboard-copy.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js" integrity="sha256-mOsgtygNfXBUPc/+cc19yr+g0jieqYOgRL5xFD2sC0Y=" crossorigin="anonymous"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.min.js" integrity="sha512-PEsccDx9jqX6Dh4wZDCnWMaIO3gAaU0j46W//sSqQhUQxky6/eHZyeB3NrXD2xsyugAKd4KPiDANkcuoEa2JuA==" crossorigin="anonymous"></script>
         
@@ -81,7 +82,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4=" crossorigin="anonymous">
         <script>
             function InitAOS() {
-                AOS.init({ duration: 800, offset:0 });
+                AOS.init({ duration: 1000, offset:0 });
             }
         </script>
 
@@ -102,7 +103,7 @@
 
         
     </head>
-    <body class="fit-height sticky-container">
+    <body class="fit-height">
 
         <header class="sticky-top">
             <nav id="navbar-main" class="navbar-main navbar navbar-expand-lg">
@@ -131,27 +132,28 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-sm-0">
+            <ul class="navbar-nav d-flex flex-row flex-wrap align-items-center bd-navbar-nav pt-2 py-sm-0 px-5 w-100">
 
                 <li class="nav-item col-6 col-lg-auto">
-                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/">Home</a>
+                    <a class="nav-link default p-2" href="/jamstack-eleventy-custom/">Home</a>
                 </li>
 
-                <li class="nav-item col-6 col-lg-auto">
-                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/posts/1/">Posts</a>
-                </li>
+                <div class="ms-auto mx-2"></div>
 
-                <li class="nav-item col-6 col-lg-auto">
-                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/tags">Tags</a>
-                </li>
-
-                <li class="nav-item col-6 col-lg-auto">
-                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/categories">Categories</a>
-                </li>
-
-                <li class="nav-item col-6 col-lg-auto">
-                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/series">Series</a>
-                </li>
+                <li class="nav-item dropdown col-12 col-lg-auto">
+                    <hr class="d-block d-lg-none" />
+                    <a class="d-inline-flex nav-link p-2" href="/jamstack-eleventy-custom/posts/1/">Posts</a>
+                    <a class="d-inline-flex nav-link no-dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-hover="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-angles-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/tags">Tags</a></li>
+                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/categories">Categories</a></li>
+                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/series">Series</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/tags-cloud">Tags cloud</a></li>
+                    </ul>
+                </li>      
 
             </ul>
 
@@ -189,12 +191,14 @@
 
     
 
-    <div class="container">
+    <div id="wrapper">
 
-        <div id="global-content-view" class="row pt-3 hide-on-search-results-container-display">
+        <div id="content-container" class="hide-on-search-results-container-display container">
 
-            <div class="col-12 col-xl-9 p-0 overflow-hidden">
-                
+            <div class="row g-0">
+
+                <div class="main-container col-12 col-xl-9 overflow-hidden">
+                    
 
     <section class="article print-container p-3 mb-3">
         <h1>
@@ -388,10 +392,10 @@
     </section>
     
 
-            </div>
+                </div>
 
-            <aside class="sticky-container d-none d-xl-block small col-xl-3 p-0">
-                
+                <aside class="sticky-container d-none d-xl-block small col-xl-3">
+                    
 
     <!--
     <section class="sticky p-3 mb-3">
@@ -529,13 +533,21 @@
     </section>
     
 
-            </aside>
+                </aside>
+
+            </div>
 
         </div>
 
-        <div id="search-results-container" class="row pt-3 d-none">
-            <div class="search-results col-12">
+        <div id="search-results-container" class="d-none container">
+
+            <div class="row g-0">
+            
+                <div class="search-results-wrapper col-12 overflow-hidden">
+                </div>
+
             </div>
+
         </div>
 
     </div>
@@ -702,7 +714,7 @@
                 self._showResults ? el.classList.remove("d-none") : el.classList.add("d-none")
                 
                 // find results element and set results
-                const resultsEl = el.querySelector(".search-results");
+                const resultsEl = el.querySelector(".search-results-wrapper");
                 if (resultsEl) {
                     resultsEl.innerHTML = self._showResults ? html : "";
                 }
