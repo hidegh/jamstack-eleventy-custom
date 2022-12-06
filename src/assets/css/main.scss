@@ -112,12 +112,23 @@ Navbar
 */
 .navbar-main {
 
-    @extend .navbar-dark;
-    @extend .bg-primary;
-    @extend .text-light;
+    padding: 0;
 
     min-height: var(--navbar-main-min-height);
     height: 100%; /* there's no parent, so this is just so that nested object height: 100% works */
+
+    font-size: 1em;
+    text-transform: uppercase;
+
+    @extend .navbar-light;
+    @extend .bg-white;
+    @extend .text-black;
+
+    border-bottom: .125em solid var(--color-delimiter);
+
+    .container {
+        height: 100%;
+    }
 
     .btn {
         @extend .btn-outline-secondary;
@@ -135,9 +146,111 @@ Navbar
         */
     }
 
+    /* Easiest way to stretch links to 100% height */
+    :not(.collapsed) .nav-link {
+
+        @extend .text-black;
+
+        position: relative;
+        opacity: 1 !important;
+
+        padding-top: 1.0em !important;
+        padding-bottom: 1.0em !important;
+        padding-left: .5em !important;
+        padding-right: .5em !important;
+
+        letter-spacing: 0.0625em;
+    }
+
     .nav-search {
         .blog-search-input {
+            padding: 1em;
             line-height: 2em !important;
+        }
+    }
+
+    .dropdown-menu {
+        border: 0;
+        margin-left: .8em;
+        border-radius: 0;
+        border-left: 2px solid var(--color-delimiter);
+        padding-left: .8em;
+    }
+
+}
+
+/*
+Navbar link effects: default, active, hover
+*/
+@mixin nav-link-default {
+    
+}
+
+@mixin nav-link-selected {
+    color: var(--bs-white) !important;
+    background-color: var(--color-highlight);
+}
+
+@mixin nav-link-hover-start {
+    @include nav-link-selected();
+    background-color: var(--color-highlight);
+    filter: brightness(0.6);
+}
+
+@mixin nav-link-hover-end {
+    @include nav-link-selected();
+}
+
+.navbar-main {
+    
+    .nav-link {
+        position: relative !important;
+        transition: all 2s;
+
+        @include nav-link-default();
+
+        &.active {
+            @include nav-link-selected();
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        &:hover{
+            z-index: 1;
+            
+            &:after {
+                z-index: -1;
+                animation: nav-link-effect 1s forwards;
+                opacity: 1;   
+            }
+        }
+    }
+
+    /* Keyframes */
+    @keyframes nav-link-effect {
+
+        0% {
+            width: 0%;
+            height: .2em;
+            @include nav-link-hover-start();
+        }
+
+        50% {
+            width: 100%;
+            height: .2em;
+        }
+
+        100% {
+            width: 100%;
+            height: 100%;
+
+            @include nav-link-hover-end();
         }
     }
 
