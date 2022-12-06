@@ -24,27 +24,28 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-sm-0">
+            <ul class="navbar-nav d-flex flex-row flex-wrap align-items-center bd-navbar-nav pt-2 py-sm-0 px-5 w-100">
 
                 <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link p-2" href="{{ '/' | url }}">Home</a>
+                    <a class="nav-link default p-2" href="{{ '/' | url }}">Home</a>
                 </li>
 
-                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link p-2" href="{{ '/posts' | url | firstPage(globals.posts.pageSize ) }}">Posts</a>
-                </li>
+                <div class="ms-auto mx-2"></div>
 
-                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link p-2" href="{{ '/tags' | url }}">Tags</a>
-                </li>
-
-                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link p-2" href="{{ '/categories' | url }}">Categories</a>
-                </li>
-
-                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link p-2" href="{{ '/series' | url }}">Series</a>
-                </li>
+                <li class="nav-item dropdown col-12 col-{{ globals.navbar.break }}-auto">
+                    <hr class="d-block d-{{ globals.navbar.break }}-none" />
+                    <a class="d-inline-flex nav-link p-2" href="{{ '/posts' | url | firstPage(globals.posts.pageSize ) }}">Posts</a>
+                    <a class="d-inline-flex nav-link no-dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-hover="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-angles-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{{ '/tags' | url }}">Tags</a></li>
+                        <li><a class="dropdown-item" href="{{ '/categories' | url }}">Categories</a></li>
+                        <li><a class="dropdown-item" href="{{ '/series' | url }}">Series</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ '/tags-cloud' | url }}">Tags cloud</a></li>
+                    </ul>
+                </li>      
 
             </ul>
 
