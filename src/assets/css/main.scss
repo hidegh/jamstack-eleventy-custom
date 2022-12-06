@@ -8,32 +8,34 @@ Font-awesome
 BOOTSTRAP
 - we use overrides, need just to make sure that the grid classes won't get disabled!
 */
-/*
-// NOTES: boldstrap-purple, grayson, lovey, tequila
-@import "./themestr/bs4/tequila";
-*/
-/*
-// NOTES: journal, materia, superhero, darkly, slate, flatly, sandstone
-@import "./bootswatch/bs5/journal/variables";
-@import "bootstrap";
-@import "./bootswatch/bs5/journal/bootswatch";
-*/
 
-@import "./bootswatch/bs5/flatly/variables";
+// Best google fonts 2022: Helvetica Neue, Roboto, Open Sans, Kato, Monsterrat, Oswald, Source Sans Pro, Slabo, Raleway, PT Sans, Merriweather, Noto Sans / Serif, Nunito Sans, Concert One, Prompt, Work Sans
+@import url(https://fonts.googleapis.com/css?family=Helvetica+Neue:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,700italic);
 
-@import url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700);
-@import url(https://fonts.googleapis.com/css2?family=Lora);
-$headings-font-family: Voltaire;
-$font-family-sans-serif: Lora;
+// Best themestr themes: boldstrap-purple, grayson, lovey, tequila
+// Best bootswatch themes: darkly*, flatly, litera, materia, sandstone, slate*, superhero*, yeti
+@import "./bootswatch/bs5/materia/variables";
+$enable-negative-margins: true;
+
+$headings-font-family:"Source Sans Pro", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+$font-family-base: "Source Sans Pro", "Times New Roman", serif;
+
+$nav-link-font-weight: 400;
 
 @import "bootstrap";
-@import "./bootswatch/bs5/flatly/bootswatch";
+@import "./bootswatch/bs5/materia/bootswatch";
 
 /*
 Custom variables
 */
 :root {
     --navbar-main-min-height: 5em;
+    --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
+    --font-family-tall: "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
+    --color-delimiter: steelblue;
+    --color-highlight: orange;
 }
 
 /*
@@ -58,7 +60,16 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-top: .5em;
+    margin-top: 1.25em;
+    margin-bottom: .5em;
+}
+
+.ff-wide {
+    font-family: var(--font-family-wide);
+}
+
+.ff-tall {
+    font-family: var(--font-family-tall);
 }
 
 .stretched-link-exempt {
@@ -84,6 +95,16 @@ body.fit-height {
 body.fit-height main {
     flex: 1;
     height: 100%;
+}
+
+/*
+Container
+*/
+.no-container {
+    // Need to inherit to have same padding and thus right vertical align when stacked...
+    @extend .container;
+    // ...but we need to remowe the max-width constraint
+    max-width: 100% !important;
 }
 
 /*
