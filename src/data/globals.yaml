@@ -23,9 +23,9 @@ site:
     rss: /rss.xml
     searchIndex: /search.json
   posts:
-    navbarMenuEnabled: true
+    navbarMenuEnabled: false
   search:
-    navbarMenuEnabled: true
+    navbarMenuEnabled: false
     collections:
       - postCollection
       - www
