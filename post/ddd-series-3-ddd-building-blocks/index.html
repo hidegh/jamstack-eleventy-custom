@@ -172,15 +172,18 @@
 
 </nav>
 
-<!-- standalone search bar (below navigation) with same breakpoint as navigation (shown on collapse) -->
-<nav class="nav-search-below d-lg-none collapse p-3" id="blog-search-bar">
+<!-- 
+standalone search bar (below navigation) with same breakpoint as navigation (shown on collapse)
+d-sm-none = hide if above sm
+-->
+<nav class="nav-search-below d-lg-none collapse" id="blog-search-bar">
     <div class="container">
-        <!-- d-sm-none = hide if above sm -->
-        <div class="inline-input-group inline-text-left">
-            <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <input type="text" class="blog-search-input form-control" placeholder="Search...">
+        <div class="p-3">
+            <div class="inline-input-group inline-text-left">
+                <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="blog-search-input form-control" placeholder="Search...">
+            </div>
         </div>
-
     </div>
 </nav>
         </header>
