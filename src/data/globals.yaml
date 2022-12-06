@@ -5,7 +5,7 @@
 # site
 site:
   url: https://blog.domain.com
-  logo: /assets/logo.png
+  logo: /assets/reflection logo.png
   title: BLOG
   description: Helping others with useful content
   keywords:
@@ -23,9 +23,9 @@ site:
     rss: /rss.xml
     searchIndex: /search.json
   posts:
-    navbarMenuEnabled: true
+    navbarMenuEnabled: false
   search:
-    navbarMenuEnabled: true
+    navbarMenuEnabled: false
     collections:
       - postCollection
       - www

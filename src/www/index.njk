@@ -3,14 +3,723 @@ eleventyExcludeFromCollections: false
 title: Index
 permalink: /
 layout: main
+container: false
 aside: 0
 tags: home
 styles: |
   <!-- <style></style> -->
+  <style>
+
+    :root {
+      --landing-min-height: 40vh;
+      --landing-hint-overlap: 20vh;
+    }
+
+    /*
+    Copyright
+    */
+    .company-ih,
+    .company-wcusa {
+      // can display
+    }
+
+    .company-ups {
+      // display: none;
+    }
+
+    /*
+    Landing with "hints"
+    */
+
+    .landing-hint {
+      // NOTE: might need some extra button to scroll down on some huge screen-sizes, so rather using simple bottom margin...
+      // min-height: calc(100vh - var(--navbar-main-min-height));
+      // NOTE: next section: trivia provides margins
+      // margin-bottom: 5em;
+    }
+
+    .landing {
+      font-family: var(--font-family-tall);
+      min-height: var(--landing-min-height);
+      padding-bottom: calc(0em + var(--landing-hint-overlap));
+      box-shadow: 0 1rem 3rem rgb(0 0 0 / 40%) !important;
+    }
+
+    .landing .news {
+
+    }
+
+    .landing .content {
+      color: var(--bs-white);
+    }
+
+    .hints {        
+      margin-top: calc(-1 * var(--landing-hint-overlap));
+      font-family: var(--font-family-wide);
+    }
+
+    .hints .content {
+      padding: 0;
+
+      color: var(--bs-light);
+      background: var(--bs-dark);
+      border: 1px solid var(--bs-dark);      
+    }
+
+    .hints .partner-simplyput {
+      filter: brightness(2.5);
+    }
+
+    /*
+    The rest
+    */
+  
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      background-color: rgba(0, 0, 0, calc(2/3));
+    }
+
+    .btn {
+      margin: .25em;
+    }
+
+    *:not(.bypass-text-highlight) > .text-highlight {
+      color: var(--color-highlight);
+    }
+
+    .top-delimiter {
+      border-top: .25em solid var(--color-delimiter);      
+    }
+    
+    .bottom-delimiter {
+      border-bottom: .25em solid var(--color-delimiter);      
+    }
+
+    .services {
+      color: black !important;
+    }
+
+    .services .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .fa-linkedin {
+      color: #0a66c2;
+      color: var(--bs-light);
+    }
+
+    .fa-file-contract {
+      color: var(--bs-light);
+    }
+
+    .case-studies .heading {
+      background-color: var(--bs-dark) !important;
+      color: var(--bs-light) !important;
+    }
+
+    .case-studies .accordion .accordion-item {
+        background-color: rgba(255, 255, 255, .90) !important;
+        color: var(--bs-dark) !important;
+    }
+
+    .case-studies .accordion .accordion-button {
+      background-color: var(--bs-dark) !important;
+      color: var(--bs-light) !important;
+    }
+
+  </style>
 scripts: |
-  <!-- <script></script> -->
+  <script>
+    InitParallax();
+    InitTyped();
+    InitAOS();
+    InitCounters()
+
+    function fixAOS() {
+      setTimeout(() => AOS.refresh(), 250);
+    }
+
+  </script>
 ---
 
+{#
 This is the main static WWW page!
 
 {% include 'partials/bs-sample.html' %}
+#}
+
+<!-- Content wrapper (due to AOS.JS we need overflow hidden here) -->
+<div id="home" class="overflow-hidden hide-on-search-results-container-display bg-light">   
+
+  <!-- LANDING + HINT -->
+  <div class="landing-hint">
+
+    <!-- ST: LANDING -->
+    <section class="jarallax landing" data-jarallax data-video-src="mp4:/assets/bg/team/pexels-edmond-dantes-production ID_4427212.mp4">
+
+      <div class="overlay"></div>
+
+      <img class="jarallax-img" src="/assets/bg/handshake/pexels-fauxels-3183197.jpg">
+
+      <div class="container p-0">
+
+        <div class="p-5 g-5 d-flex flex-column">
+
+          <div class="d-none row mt-n3 mb-3">
+            <div class="col align-items-center" data-aos="fade-down">
+              <div class="news d-inline">
+                New articles available!
+              </div>
+            </div>
+          </div>
+
+          <div class="row flex-grow-1 align-items-center justify-content-center">
+
+            <div class="col align-items-center" data-aos="zoom-in">
+            
+              <div class="content">
+
+                <h1 class="display-1 my-3 skip-text-highlight fw-bold">$100K EXPENSES</h1>
+                <p class="lead my-3">on project failures</p>
+                <p class="lead my-3">and maintenance costs for a badly designed project</p>
+
+                <p class="lead text-uppercase skip-text-highlight skip-fw-bold" style="height: 3em;">
+                  <span data-typed='{"strings": ["We can do better!", "Save your company from these disasters!", "Let us make you the HERO!"]}'></span>
+                </p>
+
+                <p class="story text-uppercase">
+                  See how we have <span class="text-highlight">rescued and rebuilt</span> the core internal management software of a <span class="text-highlight">$150 Million Covid Testing and Vaccination company</span> within 2 months!
+                </p>
+
+                <p>
+                  <a href="{{ '/success-stories/ih-tla' | url }}" class="btn btn-secondary m-0 shadow">Find out more about the project!</a>
+                </p>
+              
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+      </div>
+
+    </section><!-- ET: LANDING -->
+
+    <!-- ST: HINTS-->
+    <section class="hints">
+
+      <div class="container p-0" data-aos="zoom-in-up">
+
+        <div class="content p-3 pt-5 p-lg-0">
+      
+          <div class="row align-items-stretch justify-content-center" data-aos="zoom-in-up">
+            
+            <div class="d-none d-md-block col-md-4">
+              <div class="h-100 w-100 using-data-jarallax" data-jarallax data-type="scroll" data-speed="1.4" data-img-position="42.5% 50%">
+                <img class="img-fluid jarallax-img" src="/assets/bg/team/pexels-andrea-piacquadio-3790808.jpg">            
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="p-3 px-lg-3 pt-lg-5">
+
+                <div class="text-center">
+
+                  <p class="fs-4 mb-0">
+                    We Believe that <span class="text-nowrap">IT &amp; Software Projects</span> <span class="text-nowrap">can be Done Right!</span>
+                  </p>
+
+                  <hr/>
+
+                  <p>
+                    <span class="text-uppercase">We are on a Mission to Make This Happen!</span>
+                    <br/>
+                    <span>Our clients trust us to deliver great results - We're here to help them succeed.</span>
+                  </p>      
+
+                  <p>
+                    <span class="text-highlight">Consultation &amp; Software Development</span> with <span class="text-highlight">On-hand Technical Leadership</span> for <span class="text-highlight">SME</span>s.
+                  </p>
+
+                  <p class="text-center">
+                    <a href="#case-studies" class="d-block d-md-inline-flex btn btn-sm btn-secondary">Case studies...</a>
+                    <a href="#who-what" class="d-block d-md-inline-flex btn btn-sm btn-secondary">Who We Are...</a>
+                    <a href="/projects" class="d-block d-md-inline-flex btn btn-sm btn-secondary">Project showcase...</a>
+                  </p>   
+
+                </div>
+
+                <hr />
+
+                <div class="small">
+                  <p>
+                    We are Partners of
+                    <span class="position-relative text-nowrap">
+                      <img src="/assets/simplyput logo.png" class="partner-simplyput px-2" style="height: 1.5em; vertical-align: bottom;" alt="SimplyPut Consulting Logo">
+                      <a class="stretched-link" href="https://www.simplyput.com"></a>
+                    </span> in the Field of Custom Enterprise Software Development & Team Management.
+
+                    <span class="small text-muted">
+                      SimplyPut Consulting is a no-nonsense management consulting firm comprised of specialists who have a passion for getting sh*t done. They serve Private Equity and C-Suite leaders around the world to deliver on their most challenging business and technology remediations, transitions, and transformations.
+                    </span>
+                  </p>  
+                </div>
+        
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- ET: HINTS -->
+
+  </div><!-- LANDING + HINT -->
+
+  <!-- ST: TRIVIA -->
+  <section class="trivia" id="trivia">
+
+    <div class="container p-sm-0 my-3 my-lg-5">
+
+      <div class="p-3 pt-4 bg-white shadow border">
+        
+        <div class="row g-5 align-items-top justify-content-center">
+          
+          <div class="col-md no-align-self-center text-highlight">
+            <div class="fs-1 text-center"><i class="fa-regular fa-circle-question"></i></div>
+            <div class="text-center text-nowrap fs-5 fw-bold">Did you know?</div>
+          </div>
+
+          <div class="col-md">
+            <figure class="m-0" >
+              <blockquote class="blockquote quote">
+                As software becomes more complex and critical, it is important to have at least one <span class="fw-bold text-nowrap">Stage-5</span> candidate on the team <span class="fw-bold">from the very start - at any cost</span>!
+              </blockquote>
+              <figcaption class="mb-0 blockquote-footer">
+                <a href="https://www.amazon.com/s?k=Meilir-Page-Jones">Meilir Page-Jones</a> in <a href="https://archive.ph/OErpt"><cite>The Seven Stages of Expertise in Software Engineering</cite></a>
+              </figcaption>
+            </figure>         
+          </div>
+
+          <div class="col-md">
+            An <a href="https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf">analysis of 50K software projects</a> conducted by The Standish Group in 2015 found that 
+            <span class="fw-bold text-highlight"><span class="purecounter data-purecounter-start="0" data-purecounter-end="71" data-purecounter-duration=".5" data-purecounter-formater="en-US">0%</span>%</span>
+            of projects were either <span class="fw-bold">failures or challenged to meet expectations</span>. The same study in upcoming years revealed the same or even worse data! 
+          </div>
+
+          <div class="col-md">
+            Many companies, even software agencies have <span class="fw-bold">leadership and management</span> that is <span class="fw-bold">not very technical</span>. This can lead to costly projects, which are often doomed from the start.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- ET: TRIVIA -->
+
+  <!-- ET: WHO-WHAT-SERVICES -->
+  <section class="jarallax who-what-services" id="who-what-services">
+
+    <div class="overlay"></div>
+
+    <img class="jarallax-img" src="/assets/bg/office/unsplash-domenico-loia-hGV2TfOh0ns.jpg">    
+
+    <!-- ST: WHO-WHAT -->
+    <section class="who-what top-delimiter" id="who-what">
+    
+      <div class="container p-0" data-aos="slide-left">
+
+        <div class="px-5 shadow border text-dark bg-white">
+
+          <h1>Who we are</h1>
+          <hr/>
+
+          <div>
+
+            <p>
+              <span class="fs-5 text-highlight fw-bold">We believe that software projects can be done right!</span>
+              <br/>
+              We are on a mission to make this happen!
+            </p>
+
+            <p>
+              <span class="fs-5 text-uppercase">We're different!</span>
+              
+              We adhere to established, <span class="text-highlight">simple</span>-to-comprehend <span class="text-highlight">principles</span> - created by far smarter people than us.
+              We have been doing the same thing every day for the last 20 years, and <span class="text-highlight">we know what works</span>...
+              
+              <span class="fs-5 text-uppercase">That is why we excel.</span>
+            </p>
+
+            <hr/>
+
+            <div class="row gy-3 p-3">
+
+              <div class="col-md-6">
+                <div class="text-center fs-4 fw-bold">
+                  <div>&gt; <span class="purecounter data-purecounter-start="0" data-purecounter-end="38400" data-purecounter-duration="2" data-purecounter-formater="en-US"></span></div>
+                  <div><i class="fa-solid fa-stopwatch"></i></div>
+                  <div class="fs-5">Project Hours</div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="text-center fs-4 fw-bold">
+                  <div>&gt; <span class="purecounter data-purecounter-start="0" data-purecounter-end="38" data-purecounter-duration="1" data-purecounter-formater="en-US"></span></div>
+                  <div><i class="fa-solid fa-building-shield"></i></div>
+                  <div class="fs-5">Completed Projects</div>
+                </div>
+              </div>
+
+            </div>
+
+            <hr/>
+
+            <p>
+              Our team has a proven track record of solving software and business problems.
+              <span>We help our clients define, manage, develop, and deploy high-quality software that meets their business needs.</span>
+            </p>
+            
+            <p class="fs-5 text-highlight">
+              Would you like us to help you with your next IT project or to recover (save) the current one?
+              <span class="fw-bold">See how we can Help You!</span>
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- ET: WHO-WHAT -->
+
+    <!-- ST: SERVICES -->
+    <section class="services" id="services">
+
+      <div class="container p-0 pb-5">
+
+        <div class="primo px-5 text-light">
+
+          <h1>Our Services</h1>
+          <hr/>
+
+          <p class="fs-4">
+            <span class="text-highlight">You’re UNIQUE!</span>
+            Thus the decision to go with a FAANG approach at your company might not work out!
+          </p>
+
+          <p>
+            We <span class="text-highlight">follow and adjust</span> a set of <span class="text-highlight">simple guidelines</span> in order to <span class="text-highlight">address your SPECIFIC situation</span>:
+            <ul>
+              <li>Simple is always BETTER!</li>
+              <li>No nonsense and buzzword recommendations!</li>
+              <li>Start small and scale (see: <a href=" https://martinfowler.com/bliki/MonolithFirst.html">Martin Fowler's article on "Microservices"</a>)!</li>
+              <li>No huge upfront design! Just enough to avoid quality problems, rather than mitigating them!</li>
+              <li>Visible outputs within months!</li>
+            </ul>
+          </p>
+
+          <p class="fs-4 text-highlight">
+            Simple and Manageable Solutions...that Works for You!
+          </p>
+          
+        </div>
+
+        <div class="secundo p-3 p-lg-0 mt-5" data-aos="slide-up">
+
+          <div class="row gy-3 align-items-stretch">
+
+            <div class="col-lg">
+              <div class="text-dark bg-light h-100 p-3 px-lg-4 border shadow d-flex flex-column">
+                <h5 class="text-center text-uppercase"><i class="fa-solid fa-user-tie"></i><span class="ps-2">Consulting</span></h5>
+                <hr/>
+                <ul class="flex-grow-0">
+                  <li>Software &amp; Technology Selection  (requirement gathering, RFP, architecture, estimates, planning)</li>
+                  <li>Software Team Setup &amp; Hiring</li>
+                  <li>Software Architecture &amp; Development</li>
+                </ul>
+                <h6 class="text-center text-uppercase text-muted">Because it might be a good idea to get a <span class="fw-bold">second opinion</span>.</h6>
+              </div>
+            </div>
+
+            <div class="col-lg">
+              <div class="text-dark bg-light h-100 p-3 px-lg-4 border shadow d-flex flex-column">
+                <h5 class="text-center text-uppercase"><i class="fa-solid fa-computer"></i><span class="ps-2">Enterprise Software Development</span></h5>
+                <hr/>
+                <ul class="flex-grow-0">
+                  <li class="skip-fw-bold skip-text-highlight">On-Hand Technical Leadership for .NET &amp; Angular</li>
+                  <li class="skip-fw-bold skip-text-highlight">Project Rescue</li>
+                  <li>Enterprise Software Development</li>
+                  <li>Mentorship</li>
+                </ul>
+                <h6 class="text-center text-uppercase text-muted">
+                  <span class="fw-bold">Beware:</span> having a <span class="fw-bold">Stage 6 Lead</span> on your team can lead to <span class="fw-bold">more quality, less issues</span>, and non-slowing development.
+                  <span class="fw-bold">Wanna risk it?!</span>
+                </h6>
+              </div>
+            </div>
+
+            <div class="col-lg">
+              <div class="text-dark bg-light h-100 p-3 px-lg-4 border shadow d-flex flex-column">
+                <h5 class="text-center text-uppercase"><i class="fa-solid fa-marker"></i><span class="ps-2">Quick Audit</span></h5>
+                <hr/>
+                <ul class="flex-grow-0">
+                  <li>Finding bottlenecks</li>
+                  <li>Suggesting solutions</li>
+                  <li>Increasing productivity</li>
+                </ul>
+                <h6 class="text-center text-uppercase text-muted">
+                  <span class="fw-bold">Learn what’s broken!</span>
+                  <br/>
+                  As for non-technical managers, some performance and quality related issues may sometimes be <span class="fw-bold">difficult to identify</span>.
+                </h6>
+              </div>
+            </div>
+
+            <!--
+            <div class="col-lg">
+              <div class="text-dark bg-light h-100 p-3 px-lg-4 border shadow d-flex flex-column">
+                <h5 class="text-center text-uppercase"><i class="fa-solid fa-bag-shopping"></i><span class="ps-2">Items For Growth</span></h5>
+                <hr/>
+                <ul class="flex-grow-0">
+                  <li>Job-description 101 Cheat Sheet</li>
+                  <li>The Effective Software Developer 101 - Training Material</li>
+                </ul>
+                <h6 class="text-center text-uppercase text-muted">
+                  <span class="fw-bold">Focus on what really matters!</span>
+                  <br/>
+                  Try not to let your team waste energy on things that won't help it progress.
+                </h6>
+              </div>
+            </div>        
+            -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- ET: SERVICES -->
+
+  </div><!-- ET: WHO-WHAT-SERVICES -->
+  
+  <!-- ST: 7STAGES -->
+  <section class="d-none 7stages top-delimiter" id="7stages">
+    
+    <div class="container p-sm-0 my-3 my-lg-5">
+
+      <div class="p-3 px-5 bg-light small shadow border">
+
+        <p class="text-center fs-5">The Seven Stages of Expertise in Software Engineering - Simplified beyond!</p>
+
+        <div class="row gy-3 align-items-top justify-content-center">
+          
+          <div class="col-12 col-md-3">
+            <p class="text-center">
+                Stage
+                <span class="fa-stack">
+                  <i class="fa-regular fa-circle fa-stack-2x"></i>            
+                  <i class="fa-regular fa-4 fa-stack-1x"></i>
+                </span>
+            </p>
+            <p>
+              <span class="fw-bold">Junior Developers</span> with experience or <span class="fw-bold">Mid-level Developers</span>
+              are a great asset to any company, but without a mentor and/or an on-hand technical lead their mistakes (losing focus, missing deadlines) <span class="fw-bold">might cost the company a lot of money</span>.
+            </p>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <p class="text-center">
+              Stage
+              <span class="fa-stack">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>            
+                <i class="fa-regular fa-5 fa-stack-1x"></i>
+              </span>
+            </p>
+            <p>
+              <span class="fw-bold">Senior Developers</span>
+              are the backbone of any company. They're independent contributors. With a broad skill-set given, <span class="fw-bold">the experienced ones should be able to create a working and stable system from scratch</span>.
+            </p>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <p class="text-center">
+              Stage
+              <span class="fa-stack">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>            
+                <i class="fa-regular fa-6 fa-stack-1x"></i>
+              </span>
+            </p>
+            <p>
+              <span class="fw-bold">Architect / Technical Lead / Team Lead</span>
+              ..."adept technician, but also possesses a profound methodological foundation"...
+              <span class="fw-bold">They're the key figures for starting integration, low-latency and/or high-scalable projects.</span>
+              They help you to set up a working development team, including necessary business processes.
+            </p>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <p class="text-center">
+              Stage
+              <span class="fa-stack">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>            
+                <i class="fa-regular fa-7 fa-stack-1x"></i>
+              </span>
+            </p>
+            <p>
+              <span class="fw-bold">Conference Speakers, Authors, Researchers</span>
+              ...community-wide pioneers. 
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- ET: 7STAGES -->
+
+  <!-- ST: CASE STUDIES -->
+  <section class="case-studies top-delimiter bg-light" id="case-studies" data-jarallax data-speed="1" data-img-position="50% 80%">
+    
+    <!--
+    <img class="jarallax-img" src="/assets/bg/office/unsplash-benjamin-child-GWe0dlVD9e0.jpg">
+    <img class="jarallax-img" src="/assets/bg/office/pexels-proxyclick-visitor-management-system-2451566.jpg">
+    -->
+    <img class="jarallax-img" src="/assets/bg/office/unsplash-benjamin-child-GWe0dlVD9e0.jpg">
+
+    <div class="container p-sm-0 py-3 py-lg-5" data-aos="slide-left">
+      
+      <div>
+
+        <div class="heading shadow p-3">
+          <h1>Case Studies</h1>
+        </div>
+
+        <div class="accordion accordion-flush">
+
+          <div class="accordion-item shadow">
+            <h2 class="accordion-header">
+              <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#case_study_ih_tl" onclick="fixAOS()">
+                <span class="fs-5">Covid Testing and Vaccination Company</span>
+              </button>
+            </h2>
+            <div id="case_study_ih_tl" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <p>
+                  <span class="fw-bold">Saved</span> an internal software project of a <span class="text-highlight">$150 Million Covid Testing and Vaccination company</span> <a class="company-ih" href="https://www.impacthealth.com/">[ Impact Health ]</a> from failing in 2022.
+                  The same project was then rebranded and sold to another healthcare provider <a class="company-wcusa" href="https://wellnesscoachesusa.com/">[ Wellness Coaches USA ]</a>.
+                  Despite its complexity (external data, 3rd party synchronisation, SSO, mobile device support) <span class="fw-bold">the project is still in use, it requires minimal technical attention</span> and is working without technical intervention for months.
+                  <a href="{{ '/www/success-stories/ih-tla' | url }}">Link to the detailed success story</a>
+                </p>
+                <ol class="list-group list-group-flush list-group-numbered">
+                  <li class="list-group-item">We've made some <span class="fw-bold">changes</span> to the software development related <span class="fw-bold">business &amp; technological processes</span>, as well as to the tooling to <span class="fw-bold">manage the team more effectively</span>.</li>
+                  <li class="list-group-item">We simplified the UI for <span class="fw-bold">optimal experience</span> on desktop and mobile.</li>
+                  <li class="list-group-item">Introduced technology and implementation to <span class="fw-bold">improve resiliency and performance</span> at 3rd party services integration.</li>
+                  <li class="list-group-item">We've <span class="fw-bold">analyzed the data</span>, drawn up KPIs and reports <span class="fw-bold">to help minimize payroll and staff-related problems</span>.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item shadow">
+            <h2 class="accordion-header">
+              <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#case_study_ups" onclick="fixAOS()">
+                <span class="fs-5">Specialty Service Provider for the Energy Industry</span>
+              </button>
+            </h2>
+            <div id="case_study_ups" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <p>
+                  <span class="text-highlight">Reduced maintenance expenses</span> and minimalized data-discrepancy issues on the company <a class="company-ups" href="https://universalplant.com/">[ Universal Plant Services ]</a> custom hiring applications from a yearly ~$60K to 1/4 with <span class="text-nowrap">ROI: &lt;12 months</span>.
+                  Introduced necessary technologies, tools and processes which lead to more effective development (more things done with less code so less liability), higher data throughput and better end user experience.
+                  <span class="fw-bold">Introduced the necessary technologies, tools, and processes</span> that lead to <span class="fw-bold">more effective development</span> - this includes: more things done with less code so <span class="fw-bold">less liability</span>, higher data throughput, and a <span class="fw-bold">better end user experience</span>.
+                </p>
+                <ol class="list-group list-group-flush list-group-numbered">
+                  <li class="list-group-item">Introduced <span class="fw-bold">new technologies &amp; solutions to speed-up development</span>, authored the reusable component libraries for .NET (NuGet) and Angular (NPM).</li>
+                  <li class="list-group-item">Contributed new ideas to <span class="fw-bold">extend and stabilize</span> the hiring application.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- ET: CASE STUDIES -->
+
+  <!-- ST: CONTACT-US -->
+  <section class="contact-us top-delimiter bg-dark text-light" id="contact-us" data-aos="slide-up">
+    
+    <div class="container p-5">
+
+      <div class="row gy-3 align-items-top justify-content-center">
+
+        <div class="col-md ms-n5">
+          <p><img style="height: 3em;" src="{{ globals.site.logo | url }}" /></p>
+        </div>
+
+        <div class="col-md">
+          <p><span class="text-uppercase">Quick Links</span></p>
+          <ul style="list-style-type: none; padding:0; margin: 0;">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#who-what">Who We Are</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="{{ '/projects' | url }}">Projects</a></li>
+          </ul>
+        </div>     
+
+        <div class="col-md">
+          <p><span class="text-uppercase">Let us Help!</span></p>
+          <p>
+
+            <a 
+              href="https://www.linkedin.com/in/hideghety/"
+              class="d-flex align-items-center"
+              >
+              <i class="fa-brands fa-linkedin fa-fw fa-1x fs-5"></i>
+              Message us on Linked In
+            </a>
+            <!--
+            <a 
+              href="https://form.jotform.com/balazshideghety/reflection-contact-form"
+              target="_blank"
+              class="d-flex align-items-center"
+              >
+              <i class="fa-solid fa-file-contract fa-fw fa-1x fs-5"></i>
+              Fill out this form
+            </a>
+            -->
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- ET: CONTACT-US -->
+
+</div>  
