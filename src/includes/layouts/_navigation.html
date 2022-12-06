@@ -9,7 +9,7 @@
         <div class="ms-auto mx-2"></div>
 
         <!-- standalone search bar activator (below navigation) -->
-        <a type="button" role="button" class="btn border-0 me-2 d-{{ globals.navbar.break }}-none"
+        <a type="button" role="button" class="btn border-0 me-2 d-{{ globals.navbar.break }}-none {%- if not globals.site.search.navbarMenuEnabled %} d-none-important{% endif -%}"
             data-bs-toggle="collapse" data-bs-target="#blog-search-bar">
             <!-- d-sm-none = hide if above sm -->
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -44,7 +44,7 @@
 
                 <div class="ms-auto mx-2"></div>
 
-                <li class="nav-item dropdown col-12 col-{{ globals.navbar.break }}-auto">
+                <li class="nav-item dropdown col-12 col-{{ globals.navbar.break }}-auto {%- if not globals.site.posts.navbarMenuEnabled %} d-none-important{% endif -%}">
                     <hr class="d-block d-{{ globals.navbar.break }}-none" />
                     <a class="d-inline-flex nav-link p-2" href="{{ '/posts' | url | firstPage(globals.posts.pageSize ) }}">Posts</a>
                     <a class="d-inline-flex nav-link no-dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-hover="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +64,7 @@
         </div>
 
         <!-- inline search-bar with same expand breakpoint as navigation -->
-        <nav class="nav-search d-none d-{{ globals.navbar.break }}-inline">
+        <nav class="nav-search d-none d-{{ globals.navbar.break }}-inline {%- if not globals.site.search.navbarMenuEnabled %} d-none-important{% endif -%}">
             <!-- hidden by def., visible (block) aft. size SM -->
             <div class="inline-input-group inline-text-right">
                 <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
@@ -76,14 +76,17 @@
 
 </nav>
 
-<!-- standalone search bar (below navigation) with same breakpoint as navigation (shown on collapse) -->
-<nav class="nav-search-below d-{{ globals.navbar.break }}-none collapse p-3" id="blog-search-bar">
+<!-- 
+standalone search bar (below navigation) with same breakpoint as navigation (shown on collapse)
+d-sm-none = hide if above sm
+-->
+<nav class="nav-search-below d-{{ globals.navbar.break }}-none collapse {%- if not globals.site.search.navbarMenuEnabled %} d-none-important{% endif -%}" id="blog-search-bar">
     <div class="container">
-        <!-- d-sm-none = hide if above sm -->
-        <div class="inline-input-group inline-text-left">
-            <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <input type="text" class="blog-search-input form-control" placeholder="Search...">
+        <div class="p-3">
+            <div class="inline-input-group inline-text-left">
+                <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="blog-search-input form-control" placeholder="Search...">
+            </div>
         </div>
-
     </div>
 </nav>

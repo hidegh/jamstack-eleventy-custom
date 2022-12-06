@@ -22,7 +22,10 @@ site:
   paths:
     rss: /rss.xml
     searchIndex: /search.json
+  posts:
+    navbarMenuEnabled: true
   search:
+    navbarMenuEnabled: true
     collections:
       - postCollection
       - www
