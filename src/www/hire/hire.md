@@ -16,7 +16,10 @@ scripts: |
   </script>
 ---
 
-# Full-Stack .NET & Angular Technical LEAD
+# Technical LEAD | .NET & Angular
+<img class="skip-float-end" style="height: 12em;" src="{{ page | absoluteImageUrl('./business card.png') | url }}" alt="image" />
+
+- - - 
 
 
 
