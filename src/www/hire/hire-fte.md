@@ -1,11 +1,11 @@
 ---
 title: Hire me!
-permalink: /hire/
+permalink: /hire-fte/
 layout: page
 aside: 3
 pageData:
   linkedInUrl: https://www.linkedin.com/in/hideghety/
-  cvUrl: balazs_HIDEGHETY_dotNET_and_Angular_Technical_LEAD_CV.pdf
+  cvUrl: balazs_HIDEGHETY_dotNET_and_Angular_Technical_LEAD_and_Architect_CV.pdf
   whatServicerUrl: /#who-what-services
   caseStudiesUrl: /#case-studies
   successStoryUrl: /success-stories/ih-tla
@@ -16,7 +16,7 @@ scripts: |
   </script>
 ---
 
-# Technical LEAD | .NET & Angular
+# Technical LEAD & Architect | .NET & Angular
 <img class="skip-float-end" style="height: 12em;" src="{{ page | absoluteImageUrl('./business card.png') | url }}" alt="image" />
 
 - - - 
