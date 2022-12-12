@@ -4,22 +4,33 @@
 
 # site
 site:
-  url: https://blog.domain.com
+  url: https://reflectivetechconsulting.com/
   ico: /assets/reflection logo.ico
   logo: /assets/reflection logo.png
   logoSubtitle: ReflectiveTechConsulting.Com
-  title: BLOG
+  title: Reflective Tech Consulting For Succesful Projects
   description: Helping others with useful content
   keywords:
-    - digitalization
-    - business
-    - management
-    - agile
-    - software
-    - softwareengineering
-    - softwarearchitecture
-    - programming
-  copyright: Copyright - 2021
+    - Software Projects Done Right
+    - Effective Software Solutions
+    - On-hand Technical Leadership
+    - Project Rescue
+    - Fractional Leadership
+    - Fractional CTO
+    - Simple Approach
+    - No Huge Upfront Design
+    - Balanced Tactical and Strategic Approaches
+    - Problem Finder
+    - Digitalization
+    - Consultation
+    - Management
+    - Team Management
+    - Mentoring
+    - Software Procurement
+    - Software Architecture
+    - Software Development
+    - Software Best Practices
+  copyright: Copyright - 2022
   defaultAside: 3
   paths:
     rss: /rss.xml
