@@ -2,8 +2,11 @@
 
     <div class="container">
 
-        <a class="navbar-brand align-middle" href="#">
-            <img src="{{ globals.site.logo | url }}" />
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <div class="d-flex flex-column">
+                <img src="{{ globals.site.logo | url }}" />
+                <span class="navbar-brand-subtitle align-self-center">{{ globals.site.logoSubtitle }}</span>
+            </div>
         </a>
 
         <div class="ms-auto mx-2"></div>

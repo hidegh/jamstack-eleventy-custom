@@ -142,6 +142,13 @@ Navbar
         max-height: 2em;
     }
 
+    .navbar-brand-subtitle {
+        font-family: var(--font-family-wide);        
+        text-transform: none;
+        font-size: .5em;
+        line-height: .5em;
+    }
+
     .navbar-toggler {
         // If we'd like to adjust the hamburger icon...
         @extend .btn;
