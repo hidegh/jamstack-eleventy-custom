@@ -1,0 +1,5 @@
+try to move the sample content to a specific directory to have them there if needed, but otherwise shield them from posts!
+consider adding https://plantuml.com/mindmap-diagram (via plugin)
+AOS.JS replacement (or fix mobile scroll-anchor issue when menu toggler icon is presses - better anchor point!?)
+AOS.JS alt.: https://github.com/mciastek/sal (check if it works with that menu issue)
+fix fontawesome icon's old classes for social icons/links inside globals.yaml
