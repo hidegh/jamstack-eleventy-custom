@@ -46,6 +46,7 @@ module.exports = function (eleventyConfig) {
     // unlike in hugo, not the content of the assets folder, but the asset folder itself (with it's subfolders) will be copied...
     // SCSS is also stored in assets, but we're interested just in the final CSS build (so ignoring SCSS)...
     eleventyConfig.addPassthroughCopy("src/assets/**/!(*.scss)");
+    eleventyConfig.addPassthroughCopy("CNAME");
 
     eleventyConfig.addLayoutAlias('default', 'page.njk')
 
