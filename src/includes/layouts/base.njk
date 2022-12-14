@@ -96,11 +96,15 @@
             }         
         </script>
 
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4=" crossorigin="anonymous">
+        {#
+        // Temporarily using WOW.js but if the community around JOSH.js will be more active, that can be a simple and flexible alternative!
+        // <script src="https://cdn.jsdelivr.net/npm/joshjs@1.0.8/dist/josh.es5.min.js" integrity="sha256-kiV4pixOcm6ZCtDBHrmBpUynrWGrCByhRJtN/BJjURs=" crossorigin="anonymous"></script>
+        #}
+        <script src="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js" integrity="sha256-gHiUEskgBO+3ccSDRM+c5+nEwTGp64R99KYPfITpnuo=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=" crossorigin="anonymous">
         <script>
             function InitAOS() {
-                AOS.init({ duration: 1000, offset:0 });
+                new WOW({ animateClass: 'animate__animated' }).init();
             }
         </script>
 
