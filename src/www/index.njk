@@ -137,7 +137,7 @@ styles: |
       background-color: var(--bs-dark) !important;
       color: var(--bs-light) !important;
     }
-
+    
   </style>
 scripts: |
   <script>
@@ -145,11 +145,6 @@ scripts: |
     InitTyped();
     InitAOS();
     InitCounters()
-
-    function fixAOS() {
-      setTimeout(() => AOS.refresh(), 250);
-    }
-
   </script>
 ---
 
@@ -177,7 +172,7 @@ This is the main static WWW page!
         <div class="p-5 g-5 d-flex flex-column">
 
           <div class="d-none row mt-n3 mb-3">
-            <div class="col align-items-center" data-aos="fade-down">
+            <div class="col align-items-center wow animate__bounce">
               <div class="news d-inline">
                 New articles available!
               </div>
@@ -186,7 +181,7 @@ This is the main static WWW page!
 
           <div class="row flex-grow-1 align-items-center justify-content-center">
 
-            <div class="col align-items-center" data-aos="zoom-in">
+            <div class="col align-items-center wow animate__fadeInUp">
             
               <div class="content">
 
@@ -221,11 +216,11 @@ This is the main static WWW page!
     <!-- ST: HINTS-->
     <section class="hints">
 
-      <div class="container p-0" data-aos="zoom-in-up">
+      <div class="container p-0">
 
         <div class="content p-3 pt-5 p-lg-0">
       
-          <div class="row align-items-stretch justify-content-center" data-aos="zoom-in-up">
+          <div class="row align-items-stretch justify-content-center">
             
             <div class="d-none d-md-block col-md-4">
               <div class="h-100 w-100 using-data-jarallax" data-jarallax data-type="scroll" data-speed="1.4" data-img-position="42.5% 50%">
@@ -344,7 +339,7 @@ This is the main static WWW page!
     <!-- ST: WHO-WHAT -->
     <section class="who-what top-delimiter" id="who-what">
     
-      <div class="container p-0" data-aos="slide-left">
+      <div class="container p-0 wow animate__slideInRight" data-wow-duration="2s">
 
         <div class="px-5 shadow border text-dark bg-white">
 
@@ -442,7 +437,7 @@ This is the main static WWW page!
           
         </div>
 
-        <div class="secundo p-3 p-lg-0 mt-5" data-aos="slide-up">
+        <div class="secundo p-3 p-lg-0 mt-5 wow animate__slideInUp">
 
           <div class="row gy-3 align-items-stretch">
 
@@ -607,7 +602,7 @@ This is the main static WWW page!
     -->
     <img class="jarallax-img" src="/assets/bg/office/unsplash-benjamin-child-GWe0dlVD9e0.jpg">
 
-    <div class="container p-sm-0 py-3 py-lg-5" data-aos="slide-left">
+    <div class="container p-sm-0 py-3 py-lg-5 wow animate__slideInLeft">
       
       <div>
 
@@ -619,7 +614,7 @@ This is the main static WWW page!
 
           <div class="accordion-item shadow">
             <h2 class="accordion-header">
-              <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#case_study_ih_tl" onclick="fixAOS()">
+              <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#case_study_ih_tl">
                 <span class="fs-5">Covid Testing and Vaccination Company</span>
               </button>
             </h2>
@@ -643,7 +638,7 @@ This is the main static WWW page!
 
           <div class="accordion-item shadow">
             <h2 class="accordion-header">
-              <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#case_study_ups" onclick="fixAOS()">
+              <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#case_study_ups">
                 <span class="fs-5">Specialty Service Provider for the Energy Industry</span>
               </button>
             </h2>
@@ -671,7 +666,7 @@ This is the main static WWW page!
   </section><!-- ET: CASE STUDIES -->
 
   <!-- ST: CONTACT-US -->
-  <section class="contact-us top-delimiter bg-dark text-light" id="contact-us" data-aos="slide-up">
+  <section class="contact-us top-delimiter bg-dark text-light wow animate__slideInUp" id="contact-us">
     
     <div class="container p-5">
 
