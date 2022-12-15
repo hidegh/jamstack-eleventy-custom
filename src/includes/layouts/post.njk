@@ -6,6 +6,7 @@ aside: 3
 asideBreak: xl
 asideMobile: false
 toc: true
+comments: true
 ---
 {% extends './main.njk' %}
 
@@ -59,7 +60,7 @@ toc: true
         {% include 'partials/post/prev-next-navigation.html' %}
     </section>
 
-    <section class="p-3">
+    <section class="p-3 d-hide-if-empty">
         {% include 'partials/js/disqus.html' %}
     </section>
   

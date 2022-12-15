@@ -6,6 +6,7 @@ categories:
   - [Blog, Samples, Jekyll]
 tags: [blog, samples, jekyll, getting started]
 toc: false
+comments: false
 pin: true
 ---
 
