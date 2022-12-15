@@ -430,6 +430,12 @@ ul.posts {
     }
 }
 
+.post {
+    h1:first-of-type {
+        margin-top: 0;
+    }
+}
+
 .catalogue-item {
 
     font-size: 1rem;

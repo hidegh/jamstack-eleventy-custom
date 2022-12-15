@@ -74,6 +74,8 @@ posts:
     limit: 5
 
 post:
+  showCategories: true
+  showTags: true
   serie:
     navigation:
       totalLinkCount: 4
