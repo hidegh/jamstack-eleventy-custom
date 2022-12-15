@@ -5,6 +5,7 @@ date: 2019-08-09T20:55:00+0800
 categories: 
   - [Blog, Samples, Jekyll]
 tags: [blog, samples, jekyll, getting started]
+toc: false
 pin: true
 ---
 

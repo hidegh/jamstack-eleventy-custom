@@ -1,4 +1,6 @@
+{%- if toc -%}
 {% set tocHtml = content | toc | safe %}
 {%- if tocHtml.length -%}
 <div class="text-nowrap overflow-hidden">{{ tocHtml }}</div>
+{%- endif -%}
 {%- endif -%}
