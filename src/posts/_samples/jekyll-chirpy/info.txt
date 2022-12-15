@@ -1,0 +1,19 @@
+original source from: https://github.com/cotes2020/jekyll-theme-chirpy/tree/master/_posts
+
+taxonomy:
+- categories: [Samples, Jekyll-Chirpy]
+
+necessary patches:
+- dates had to be changed to valid ISO format
+- renamed all occurence of ```console to ```bash
+- there was a {% highlight %} command that is not avail. in the current setup - needed to comment that block out (see below)
+
+extra patches:
+- for the 2019-08-08-text-and-typography.md
+  - altered yaml and used simple image: tag - image: https://chirpy-img.netlify.app/commons/devices-mockup.png
+  - replaced /posts/20190808/ with https://chirpy-img.netlify.app/posts/20190808/
+
+{#
+> The Jekyll tag `{% highlight %}` is not compatible with this theme.
+{: .prompt-danger }
+#}

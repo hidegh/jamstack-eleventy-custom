@@ -2,6 +2,9 @@
 title: DDD Series - 6 - Summary
 author: BaHI
 date: 2021-01-13
+categories:
+ - [Samples, Series, Ddd]
+ - [Samples, Series, Ddd, Summary]
 tags: [posts, technical, ddd, intro, series]
 series: ddd series
 series_no: 6

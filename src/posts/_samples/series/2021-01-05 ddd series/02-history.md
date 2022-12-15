@@ -2,7 +2,7 @@
 title: DDD Series - 2 - The history of DDD
 author: BaHI
 date: 2021-01-06
-categories: [Default-posts, Technical]
+categories: [Samples, Series, Ddd]
 tags: [posts, technical, ddd, intro, series]
 series: ddd series
 series_no: 2
