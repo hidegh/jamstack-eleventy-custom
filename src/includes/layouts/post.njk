@@ -6,11 +6,12 @@ aside: 3
 asideBreak: xl
 asideMobile: false
 toc: true
+share: true
 comments: true
 ---
 {% extends './main.njk' %}
 
-{% import "macros/share.html" as share %}
+{% import "macros/share.html" as m_share %}
 {% import "macros/heading.html" as heading %}
 
 {% block content %}
@@ -22,8 +23,8 @@ comments: true
     #}
     {% set post = collections[globals.posts.collectionName] | getCollectionItem(page) %}
     
-    <section class="p-3 d-flex d-flex justify-content-between align-items-center">
-        {{ share.withTitle(globals, page, 'Share post') }}
+    <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
+        {{ m_share.withTitle(share, globals, page, 'Share post') }}
     </section>
     
     <section class="article print-container p-3 mb-3">
