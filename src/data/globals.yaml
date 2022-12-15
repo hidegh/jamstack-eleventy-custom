@@ -65,7 +65,11 @@ posts:
   path: /posts
   pageSize: 20   # 0 to display all on a single page
   showImage: true
-  showTaxonomy: false
+  showCategories: true
+  showTags: true
+  showContentWhenNoExcerpt: true
+  maximizeContent: 400
+  maximizeLines: 10
   recent:
     limit: 5
 
