@@ -6,9 +6,9 @@
     "author": "",
     "license": "MIT",
     "scripts": {
-        "build": "npm run sass && eleventy",
+        "build": "set ELEVENTY_ENV=prod && npm run sass && eleventy",
         "sass": "sass src/assets/css/main.scss:_site/assets/css/main.css --load-path=node_modules --load-path=node_modules/bootstrap/scss",
-        "serve": "npm-run-all sass --parallel watch:*",
+        "serve": "set ELEVENTY_ENV=dev && npm-run-all sass --parallel watch:*",
         "watch:eleventy": "eleventy --serve --port=4300",
         "watch:sass": "npm run sass -- --watch"
     },
