@@ -147,8 +147,14 @@ module.exports = function (eleventyConfig) {
 
     //
     // Collections (posts)
-    const postCollectionName = 'postCollection';
-    eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob('src/posts/**/*.md'));
+    const postCollectionName = globals.posts.collectionName;
+    const addSamples = globals.posts.includeSamplesOnProd || (env.toUpperCase() != "PROD");
+    const postCollectionGlob = [
+        "src/posts/**/*.md",
+        ...(addSamples ? ["src/post-samples/**/*.md"] : [])        
+    ];
+    console.log("Loading posts from: ", postCollectionGlob);
+    eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob(postCollectionGlob));
 
     const pagedPostCollectionName = 'pagedPostCollection';
     eleventyConfig.addCollection(pagedPostCollectionName, require('./src/scripts/collections/paged-posts').forCollection(postCollectionName));

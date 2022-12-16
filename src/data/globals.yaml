@@ -62,8 +62,9 @@ paging:
 #posts
 posts:
   collectionName: postCollection
-  path: /posts
-  pageSize: 20   # 0 to display all on a single page
+  path: /posts    # the uri under the posts are paged (see: paged-posts.js)
+  includeSamplesOnProd: false
+  pageSize: 20    # 0 to display all on a single page
   showImage: true
   showCategories: true
   showTags: true
