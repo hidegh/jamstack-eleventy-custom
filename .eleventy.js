@@ -100,7 +100,7 @@ module.exports = function (eleventyConfig) {
     // syntax-highlight for MD code-blocks: https://prismjs.com/#supported-languages (also see Prism.languages.extend...)
     eleventyConfig.addPlugin(syntaxHighlight, {
         init: function({ Prism }) {
-            // Not workign as expected, see: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/47
+            // Not working as expected, see: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/47
             Prism.languages.mermaid = Prism.languages.extend('markup', {});
             Prism.languages.mathjax = Prism.languages.extend('markup', {});
         }
