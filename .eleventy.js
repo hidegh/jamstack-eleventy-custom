@@ -1,3 +1,4 @@
+const fs = require('fs');
 const yaml = require("js-yaml");
 const util = require("util");
 const clip = require("text-clipper").default;
@@ -40,6 +41,9 @@ module.exports = function (eleventyConfig) {
 
     const env = (process.env.ELEVENTY_ENV || "").trim();
     console.log("Environment: ", env);
+
+    const globals = yaml.load(fs.readFileSync("src/data/globals.yaml"));
+    console.log("Loaded 'globals' from yaml", globals);
 
     //
     // Default config
