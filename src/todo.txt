@@ -1,0 +1,8 @@
+TODO:
+-----
+1. consider adding https://plantuml.com/mindmap-diagram (via plugin)
+2. consider using same content count display for the generic categories as for a selected sub-category (currently it displays how many items are in the concrete cat., no details on the sub-cat item count)
+3. consider importing additional features and styles from:
+    - https://github.com/cotes2020/jekyll-theme-chirpy
+    - https://chirpy.cotes.page/
+4. ?

@@ -1,4 +1,4 @@
-{% set related =  page | getRelatedNavigationDetails(collections[globals.posts.collectionName], globals.post.related.limit) %}
+{% set related =  page | getRelatedNavigationDetails(collections.all, collections[globals.posts.collectionName], globals.post.related.limit) %}
 {%- if globals.post.related.limit > 0 and related.links.length > 0 -%}
 <ul class="related-posts">
     {% for link in related.links %}

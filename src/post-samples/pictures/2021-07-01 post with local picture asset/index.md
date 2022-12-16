@@ -3,7 +3,7 @@ title: Pictures - post using image from local folder
 author: BaHI
 date: 2020-07-01
 categories:
-  - [Blog, Samples]
+  - [Samples, Pictures]
 tags: samples, 11ty-customized
 image:  intro.jpg
 ---

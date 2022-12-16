@@ -1,4 +1,5 @@
-{% macro withTitle(globals, page, title) %}
+{% macro withTitle(share, globals, page, title) %}
+{% if share %}
 <section class="share-wrapper">
     <span class="share-label text-muted mr-1">{{ title }}</span>
     <span class="share-icons">
@@ -36,4 +37,5 @@
         );
     }
 </script>
+{% endif %}
 {% endmacro %}

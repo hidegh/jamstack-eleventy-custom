@@ -1,3 +1,4 @@
+const fs = require('fs');
 const yaml = require("js-yaml");
 const util = require("util");
 const clip = require("text-clipper").default;
@@ -37,6 +38,12 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginReadingTime = require('eleventy-plugin-reading-time');
 
 module.exports = function (eleventyConfig) {
+
+    const env = (process.env.ELEVENTY_ENV || "").trim();
+    console.log("Environment: ", env);
+
+    const globals = yaml.load(fs.readFileSync("src/data/globals.yaml"));
+    console.log("Loaded 'globals' from yaml", globals);
 
     //
     // Default config
@@ -94,7 +101,7 @@ module.exports = function (eleventyConfig) {
     // syntax-highlight for MD code-blocks: https://prismjs.com/#supported-languages (also see Prism.languages.extend...)
     eleventyConfig.addPlugin(syntaxHighlight, {
         init: function({ Prism }) {
-            // Not workign as expected, see: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/47
+            // Not working as expected, see: https://github.com/11ty/eleventy-plugin-syntaxhighlight/issues/47
             Prism.languages.mermaid = Prism.languages.extend('markup', {});
             Prism.languages.mathjax = Prism.languages.extend('markup', {});
         }
@@ -141,8 +148,14 @@ module.exports = function (eleventyConfig) {
 
     //
     // Collections (posts)
-    const postCollectionName = 'postCollection';
-    eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob('src/posts/**/*.md'));
+    const postCollectionName = globals.posts.collectionName;
+    const addSamples = globals.posts.includeSamplesOnProd || (env.toUpperCase() != "PROD");
+    const postCollectionGlob = [
+        "src/posts/**/*.md",
+        ...(addSamples ? ["src/post-samples/**/*.md"] : [])        
+    ];
+    console.log("Loading posts from: ", postCollectionGlob);
+    eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob(postCollectionGlob));
 
     const pagedPostCollectionName = 'pagedPostCollection';
     eleventyConfig.addCollection(pagedPostCollectionName, require('./src/scripts/collections/paged-posts').forCollection(postCollectionName));

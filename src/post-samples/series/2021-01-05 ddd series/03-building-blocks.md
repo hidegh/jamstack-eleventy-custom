@@ -2,7 +2,7 @@
 title: DDD Series - 3 - DDD building blocks
 author: BaHI
 date: 2021-01-07
-categories: [Default-posts, Technical]
+categories: [Samples, Series, Ddd]
 tags: [posts, technical, ddd, intro, series, dont]
 series: ddd series
 series_no: 3

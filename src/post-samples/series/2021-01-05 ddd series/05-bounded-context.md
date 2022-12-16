@@ -2,10 +2,7 @@
 title: DDD Series - 5 - Bounded context at help to tackle complexity
 author: BaHI
 date: 2021-01-12
-categories:
-  - [Default-posts, Technical]
-  - Custom
-  - Fred, Wilma
+categories: [Samples, Series, Ddd]
 tags: [posts, technical, ddd, intro, series]
 series: ddd series
 series_no: 5

@@ -2,8 +2,7 @@
 title: Mathjax (mathematical expressions) and Mermaid (graphs)
 author: BaHI
 date: 2021-07-12
-categories:
-  - [Blog, Samples]
+categories: Samples, This isn't a Hierarchical, Category
 tags: samples, 11ty-customized
 mathjax: true
 mermaid: true

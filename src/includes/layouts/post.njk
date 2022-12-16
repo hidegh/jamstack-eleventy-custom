@@ -5,62 +5,75 @@ searchResultsContainer: true
 aside: 3
 asideBreak: xl
 asideMobile: false
+toc: true
+share: true
+comments: true
 ---
 {% extends './main.njk' %}
 
-{% import "macros/share.html" as share %}
-{% import "macros/heading.html" as heading %}
+{% import "macros/share.html" as m_share %}
+{% import "macros/heading.html" as m_heading %}
 
 {% block content %}
 
-    {#
-        the basic page object has just a subset of the entire post-data available
-        so we need to find the post with full data from the post collection
-        storing it into the post variable makes it possible for us to ise the includes/partials/post/*
-    #}
-    {% set post = collections[globals.posts.collectionName] | getCollectionItem(page) %}
-    
-    <section class="p-3 d-flex d-flex justify-content-between align-items-center">
-        {{ share.withTitle(globals, page, 'Share post') }}
-    </section>
-    
-    <section class="article print-container p-3 mb-3">
+    <div class="post">
 
-        <section>
-            <h1>{{ title }}</h1>
-            {% if post.data.series %}
-            <p>This article is part of the serie: <a href="{{ globals.serie.path | normalize | url }}{{ post.data.series | slug }}">{{ post.data.series }}</a></p>
-            <section class="pb-3">
-                {% include 'partials/post/series-prev-next-navigation.html' %}
+        {#
+            the basic page object has just a subset of the entire post-data available
+            so we need to find the post with full data from the post collection
+            storing it into the post variable makes it possible for us to ise the includes/partials/post/*
+        #}
+        {% set post = collections.all | getCollectionItem(page) %}
+        
+        <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
+            {{ m_share.withTitle(share, globals, page, 'Share post') }}
+        </section>
+        
+        <section class="article print-container p-3 mb-3">
+
+            <section>
+                <h1>{{ title }}</h1>
+                {% if post.data.series %}
+                <p>This article is part of the serie: <a href="{{ globals.serie.path | normalize | url }}{{ post.data.series | slug }}">{{ post.data.series }}</a></p>
+                <section class="pb-3">
+                    {% include 'partials/post/series-prev-next-navigation.html' %}
+                </section>
+                {% endif %}
             </section>
-            {% endif %}
-        </section>
+        
+            <section class="small">
+                <div class="row row-cols-auto gx-3">
+                    <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>{{ post.data.date | readableDate }}</div>
+                    <div class="col"><i class="fa-regular fa-user fa-fw"></i>{{ post.data.author }}</div>
+                    <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> {{ post.templateContent | readingTime }} reading time</div>
+                </div>
+            </section>
 
-        <section class="small">
-            <div class="row row-cols-auto gx-3">
-                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>{{ post.data.date | readableDate }}</div>
-                <div class="col"><i class="fa-regular fa-user fa-fw"></i>{{ post.data.author }}</div>
-                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> {{ post.templateContent | readingTime }} reading time</div>
-            </div>
+            <section class="small text-muted d-flex gap-3">
+                {%- if globals.post.showCategories -%}{% include "partials/post/_categories.html" %}{%- endif -%}
+                {%- if globals.post.showTags -%}{% include "partials/post/_tags.html" %}{%- endif -%}
+            </section>
+
             <hr/>
+
+            <section class="pb-3">
+                {% if (post | hasImage) -%}
+                <img class="img-responsive" src="{{ post | absoluteImageUrl | url }}">
+                {%- endif %}
+                {{ content | safe }}
+            </section>
+
         </section>
 
-        <section class="pb-3">
-            {% if (post | hasImage) -%}
-            <img class="img-responsive" src="{{ post | absoluteImageUrl | url }}">
-            {%- endif %}
-            {{ content | safe }}
+        <section class="p-3">
+            {% include 'partials/post/prev-next-navigation.html' %}
         </section>
 
-    </section>
+        <section class="p-3 d-hide-if-empty">
+            {% include 'partials/js/disqus.html' %}
+        </section>
 
-    <section class="p-3">
-        {% include 'partials/post/prev-next-navigation.html' %}
-    </section>
-
-    <section class="p-3">
-        {% include 'partials/js/disqus.html' %}
-    </section>
+    </div>
   
 {% endblock %}
 
@@ -68,27 +81,27 @@ asideMobile: false
 
     <section class="sticky p-3 mb-3 d-hide-if-empty">
         {% set seriesHtml %}{% include 'partials/post/series-navigation.html' %}{% endset %}
-        {{ heading.withLinkWhenContent('Articles in serie', seriesHtml) }}
+        {{ m_heading.withLinkWhenContent('Articles in serie', seriesHtml) }}
     </section>
 
     <section class="sticky p-3 mb-3 d-hide-if-empty">
         {% set relatedHtml %}{% include 'partials/post/related-navigation.html' %}{% endset %}
-        {{ heading.withLinkWhenContent('Similar articles', relatedHtml) }}
+        {{ m_heading.withLinkWhenContent('Similar articles', relatedHtml) }}
     </section>
 
     <section class="sticky p-3 mb-3">
-        {{ heading.withLink('Recent posts') }}
+        {{ m_heading.withLink('Recent posts') }}
         {% include 'partials/recent-posts.html' %}
     </section>
     
     <section class="sticky p-3 mb-3 d-hide-if-empty">
-        {{ heading.withLink('Tag cloud') }}
+        {{ m_heading.withLink('Tag cloud') }}
         {% include 'partials/tag-cloud.html' %}
     </section>
 
     <section class="sticky p-3 mb-3 d-hide-if-empty">
         {% set tocHtml %}{% include 'partials/toc.html' %}{% endset %}
-        {{ heading.withLinkWhenContent('Table of contents', tocHtml) }}
+        {{ m_heading.withLinkWhenContent('Table of contents', tocHtml) }}
     </section>
-
+    
 {% endblock %}

@@ -2,7 +2,7 @@
 title: DDD Series - 4 - How ORM changed the way we do DDD
 author: BaHI
 date: 2021-01-08
-categories: [Default-posts, Technical]
+categories: [Samples, Series, Ddd]
 tags: [posts, technical, ddd, intro, series, dont]
 series: ddd series
 series_no: 4

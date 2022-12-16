@@ -2,8 +2,7 @@
 title: How-to-get-better-at-anything
 author: BaHI
 date: 2021-07-18T20:00:00
-categories: 
-  - [Posts, Technical, Management, WTF]
+categories: [Samples, Series, 1% Better]
 tags: [posts, technical, management]
 series: 1% better
 series_no: 1 
