@@ -23,7 +23,7 @@ comments: true
             so we need to find the post with full data from the post collection
             storing it into the post variable makes it possible for us to ise the includes/partials/post/*
         #}
-        {% set post = collections[globals.posts.collectionName] | getCollectionItem(page) %}
+        {% set post = collections.all | getCollectionItem(page) %}
         
         <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
             {{ m_share.withTitle(share, globals, page, 'Share post') }}

@@ -61,19 +61,20 @@ module.exports = {
     /**
      * Register it as follows, to avoid binding the Template object to the local 'this'!
      * > eleventyConfig.addFilter('getRelatedNavigationDetails', (...args) => require('./src/scripts/related-posts.filter').getRelatedNavigationDetails(...args));
-     * @param {*} templatePage 
-     * @param {*} collection 
-     * @param {*} take 
+     * @param {*} templatePage the page to which we search related items
+     * @param {*} collectionAll all the generated items, where we look up our page to get detailed information about it
+     * @param {*} collectionRelated collection to search for the related items
+     * @param {*} take limit the total results
      */
-    getRelatedNavigationDetails: function (templatePage, collection, take) {
+    getRelatedNavigationDetails: function (templatePage, collectionsAll, collectionRelated, take) {
 
         const self = this;
 
         // get current index (and also page with full data - see: https://github.com/11ty/eleventy/issues/338#issuecomment-795331119)
-        const pageIndex = collection.findIndex(p => p.url == templatePage.url);
-        const page = collection[pageIndex];
+        const pageIndex = collectionsAll.findIndex(p => p.url == templatePage.url);
+        const page = collectionsAll[pageIndex];
 
-        const otherItems = collection.filter(p => p.url != page.url);
+        const otherItems = collectionRelated.filter(p => p.url != page.url);
 
         // prepare for faster scoring
         const pageTags = [...new Set(page.data.tags ? [].concat(page.data.tags) : [])];
@@ -93,9 +94,9 @@ module.exports = {
 
         // return navigation links with prev/next pages
         return {
-            prev: pageIndex > 0 ?  collection[pageIndex - 1] : undefined,
+            prev: pageIndex > 0 ?  collectionRelated[pageIndex - 1] : undefined,
             links: trimmedScoredOtherItems,
-            next: pageIndex < collection.length - 1 ? collection[pageIndex + 1] : undefined
+            next: pageIndex < collectionRelated.length - 1 ? collectionRelated[pageIndex + 1] : undefined
         }
     }
 

@@ -8,24 +8,25 @@ module.exports = {
      * page | series(coll, 5, 3) - 5 links total, from which 3 should be next (newer) pages, ending with: 1 older, 1 actual and 3 newer page's to navigate to.
      * 
      * @param {*} page the page to which we generate the series navigation
-     * @param {*} collection collection to search for the other series items
+     * @param {*} collectionAll all the generated items, where we look up our page to get detailed information about it
+     * @param {*} collectionRelated collection to search for the other series items
      * @param {*} totalLinks total navigation links, including current post item
      * @param {*} nextLinks how many of the total links is a link to a newer item in the series
      */
-    getSeriesNavigationDetails: function (templatePage, collection, totalLinks, nextLinks) {
+    getSeriesNavigationDetails: function (templatePage, collectionAll, collectionRelated, totalLinks, nextLinks) {
 
         const self = this;
 
         totalLinks = totalLinks || 0;  
 
         // get current index (and also page with full data - see: https://github.com/11ty/eleventy/issues/338#issuecomment-795331119)
-        const pageIndex = collection.findIndex(p => p.url == templatePage.url);
-        const page = collection[pageIndex];
+        const pageIndex = collectionAll.findIndex(p => p.url == templatePage.url);
+        const page = collectionAll[pageIndex];
 
         if (!page.data.series)
             return [];
 
-        const series = collection
+        const series = collectionRelated
             .filter(i => page.data.series && page.data.series == i.data.series)
             .sort((a, b) => a.data.series_no - b.data.series_no);
 

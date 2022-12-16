@@ -1,6 +1,6 @@
 {%- if post.data.series -%}
 {# series nav #}
-{% set navDetails = page | getSeriesNavigationDetails(collections[globals.posts.collectionName], globals.post.serie.navigation.totalLinkCount, globals.post.serie.navigation.nextLinkCount) %} 
+{% set navDetails = page | getSeriesNavigationDetails(collections.all, collections[globals.posts.collectionName], globals.post.serie.navigation.totalLinkCount, globals.post.serie.navigation.nextLinkCount) %} 
 {% set prev = navDetails.prev %}
 {% set next = navDetails.next %}
 <div class="d-flex">
