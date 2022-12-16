@@ -1,0 +1,39 @@
+---
+# see main.njk for page-setting properties
+# this layout should be used for easinng the DEBUGGING process
+---
+{% extends './main.njk' %}
+
+{% block content %}
+    
+    <div class="row">
+        <div class="col">Page</div>
+        <div class="col"><textarea class="w-100 h-100">{{ page | inspect }}</textarea></div>
+    </div>
+
+    {% set post = collections.all | getCollectionItem(page) %}
+
+    <div class="row">
+        <div class="col">Post</div>
+        <div class="col"><textarea class="w-100 h-100">{{ post | inspect }}</textarea></div>
+    </div>
+
+    <div class="row">
+        <div class="col">Post.Data</div>
+        <div class="col"><textarea class="w-100 h-100">{{ post.data | inspect }}</textarea></div>
+    </div>
+
+    <div class="row">
+        <div class="col">collections.all.length</div>
+        <div class="col"><textarea class="w-100 h-100">{{ collections.all | inspect }}</textarea></div>
+    </div>    
+
+    <hr/>
+
+    {{ content | safe }}
+    
+{% endblock %}
+
+{% block aside %}
+    
+{% endblock %}
