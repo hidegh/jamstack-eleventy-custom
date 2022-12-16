@@ -76,12 +76,12 @@ posts:
   collectionName: postCollection
   path: /posts    # the uri under the posts are paged (see: paged-posts.js)
   includeSamplesOnProd: true
-  pageSize: 20    # 0 to display all on a single page
+  pageSize: 10    # 0 to display all on a single page
   showImage: true
   showCategories: true
   showTags: true
   showContentWhenNoExcerpt: true
-  maximizeContent: 400
+  maximizeContent: 200
   maximizeLines: 10
   recent:
     limit: 5
