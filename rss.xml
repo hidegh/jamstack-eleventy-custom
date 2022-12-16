@@ -3,37 +3,44 @@
   <title>BLOG</title><subtitle>Helping others with useful content</subtitle>
   <link href="/jamstack-eleventy-custom/rss.xml/" rel="self"/>
   <link href="/jamstack-eleventy-custom/"/>
-  <updated>2021-07-19T20:00:00Z</updated>
+  <updated>2022-12-15T00:00:00Z</updated>
   <id>/jamstack-eleventy-custom/</id>
   <author>
     <name></name>
   </author>
   <entry>
+    <title>Sample post</title>
+    <link href="/jamstack-eleventy-custom/post/sample-post/"/>
+    <updated>2022-12-15T00:00:00Z</updated>
+    <id>/jamstack-eleventy-custom/post/sample-post/</id> 
+    <summary># This is just a **sample**</summary>
+  </entry>
+  <entry>
     <title>How-to-get-better-at-anything - pt3</title>
-    <link href="/jamstack-eleventy-custom/post/how-to-get-better-at-anything-pt3/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt3/"/>
     <updated>2021-07-19T20:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/how-to-get-better-at-anything-pt3/</id>    
-    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt3/</id>    
+    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id ligula....</summary>
   </entry>
   <entry>
     <title>How-to-get-better-at-anything - pt2</title>
-    <link href="/jamstack-eleventy-custom/post/how-to-get-better-at-anything-pt2/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt2/"/>
     <updated>2021-07-19T20:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/how-to-get-better-at-anything-pt2/</id>    
-    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt2/</id>    
+    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id ligula....</summary>
   </entry>
   <entry>
     <title>How-to-get-better-at-anything</title>
-    <link href="/jamstack-eleventy-custom/post/how-to-get-better-at-anything/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything/"/>
     <updated>2021-07-18T20:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/how-to-get-better-at-anything/</id>    
-    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything/</id>    
+    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id ligula....</summary>
   </entry>
   <entry>
     <title>Mathjax (mathematical expressions) and Mermaid (graphs)</title>
-    <link href="/jamstack-eleventy-custom/post/mathjax-(mathematical-expressions)-and-mermaid-(graphs)/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/mathjax-(mathematical-expressions)-and-mermaid-(graphs)/"/>
     <updated>2021-07-12T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/mathjax-(mathematical-expressions)-and-mermaid-(graphs)/</id> 
+    <id>/jamstack-eleventy-custom/post-sample/mathjax-(mathematical-expressions)-and-mermaid-(graphs)/</id> 
     <summary>Sample on using **Mathjax** and **Mermaid** for mathematical expression and grap rendering.
 
 There&#39;s just one thing for an articla author to do, thus including values into **Front Matter** to load the required tool.
@@ -44,121 +51,168 @@ mermaid: true
   </entry>
   <entry>
     <title>DDD Series - 6 - Summary</title>
-    <link href="/jamstack-eleventy-custom/post/ddd-series-6-summary/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/ddd-series-6-summary/"/>
     <updated>2021-01-13T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/ddd-series-6-summary/</id>    
-    <summary>In lacus felis, sodales at mattis ac, gravida quis eros. Curabitur pharetra a arcu nec blandit. Aenean pellentesque mi ac mattis ultricies. Pellentesque id eleifend diam. Donec nec leo at dui finibus bibendum et ut nibh. Vestibulum id pharetra risus, et...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/ddd-series-6-summary/</id>    
+    <summary>In lacus felis, sodales at mattis ac, gravida quis eros. Curabitur pharetra a arcu nec blandit. Aenean pellentesque mi ac mattis ultricies. Pellentesque id eleifend diam. Donec nec leo at dui finibus bibendum et ut nibh. Vestibulum id pharetra risus, et auctor eros. Morbi egestas iaculis convallis. Etiam posuere id sem accumsan dignissim. Morbi varius justo et elementum dictum. Fusce mollis...</summary>
   </entry>
   <entry>
     <title>DDD Series - 5 - Bounded context at help to tackle complexity</title>
-    <link href="/jamstack-eleventy-custom/post/ddd-series-5-bounded-context-at-help-to-tackle-complexity/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/ddd-series-5-bounded-context-at-help-to-tackle-complexity/"/>
     <updated>2021-01-12T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/ddd-series-5-bounded-context-at-help-to-tackle-complexity/</id>    
-    <summary>Ut non tortor vitae nisi luctus hendrerit quis sagittis ligula. Suspendisse eu risus mollis, ullamcorper ante in, venenatis lorem. Nunc quis eros porta nisi lacinia consectetur nec sed quam. Nulla ut elementum velit. Praesent ut metus tristique, facilisis...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/ddd-series-5-bounded-context-at-help-to-tackle-complexity/</id>    
+    <summary>Ut non tortor vitae nisi luctus hendrerit quis sagittis ligula. Suspendisse eu risus mollis, ullamcorper ante in, venenatis lorem. Nunc quis eros porta nisi lacinia consectetur nec sed quam. Nulla ut elementum velit. Praesent ut metus tristique, facilisis enim eu, semper quam. Morbi vel sapien at erat gravida convallis vitae nec urna. Mauris nisl eros, dictum consequat metus ut, vehicula imperdiet...</summary>
   </entry>
   <entry>
     <title>DDD Series - 4 - How ORM changed the way we do DDD</title>
-    <link href="/jamstack-eleventy-custom/post/ddd-series-4-how-orm-changed-the-way-we-do-ddd/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/ddd-series-4-how-orm-changed-the-way-we-do-ddd/"/>
     <updated>2021-01-08T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/ddd-series-4-how-orm-changed-the-way-we-do-ddd/</id>    
+    <id>/jamstack-eleventy-custom/post-sample/ddd-series-4-how-orm-changed-the-way-we-do-ddd/</id>    
     <summary>OUT AND IN works just when no permalinks are set!
 
-Aliquam efficitur in tortor eu eleifend. Proin eu tincidunt ipsum. Donec malesuada posuere ex, ac volutpat mi tristique laoreet. Morbi malesuada vehicula eros, nec fermentum dui. Vestibulum luctus feugiat...</summary>
+Aliquam efficitur in tortor eu eleifend. Proin eu tincidunt ipsum. Donec malesuada posuere ex, ac volutpat mi tristique laoreet. Morbi malesuada vehicula eros, nec fermentum dui. Vestibulum luctus feugiat leo, et pellentesque urna hendrerit vel. Donec viverra eros in elit lacinia porttitor. In elementum ex tellus, ac eleifend quam consequat eu....</summary>
   </entry>
   <entry>
     <title>DDD Series - 3 - DDD building blocks</title>
-    <link href="/jamstack-eleventy-custom/post/ddd-series-3-ddd-building-blocks/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/ddd-series-3-ddd-building-blocks/"/>
     <updated>2021-01-07T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/ddd-series-3-ddd-building-blocks/</id>    
+    <id>/jamstack-eleventy-custom/post-sample/ddd-series-3-ddd-building-blocks/</id>    
     <summary>Going above the article’s path when searching for assets will work only, if the targetted path contains no article - or if there’s no perma-link used!
 The experience might differ depending on whether we’re in a list or on a single page!
 
-Nulla sed leo...</summary>
+Nulla sed leo quam. Curabitur a urna sem. Vivamus eget ipsum a risus consequat euismod. Maecenas facilisis imperdiet tortor, non porta nisl gravida quis....</summary>
   </entry>
   <entry>
     <title>DDD Series - 2 - The history of DDD</title>
-    <link href="/jamstack-eleventy-custom/post/ddd-series-2-the-history-of-ddd/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/ddd-series-2-the-history-of-ddd/"/>
     <updated>2021-01-06T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/ddd-series-2-the-history-of-ddd/</id>    
-    <summary>Quisque dui ipsum, facilisis vulputate lorem sed, bibendum placerat velit. Quisque massa arcu, faucibus quis massa iaculis, fermentum commodo risus. Mauris vel mi ac risus dignissim eleifend. Etiam nec congue quam. Proin id tortor vitae risus bibendum...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/ddd-series-2-the-history-of-ddd/</id>    
+    <summary>Quisque dui ipsum, facilisis vulputate lorem sed, bibendum placerat velit. Quisque massa arcu, faucibus quis massa iaculis, fermentum commodo risus. Mauris vel mi ac risus dignissim eleifend. Etiam nec congue quam. Proin id tortor vitae risus bibendum scelerisque in nec arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut id tellus ut odio ornare luctus...</summary>
   </entry>
   <entry>
     <title>DDD Series - 1 - Intro</title>
-    <link href="/jamstack-eleventy-custom/post/ddd-series-1-intro/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/ddd-series-1-intro/"/>
     <updated>2021-01-05T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/ddd-series-1-intro/</id>    
-    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/ddd-series-1-intro/</id>    
+    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id ligula....</summary>
   </entry>
   <entry>
     <title>Enable Google Page Views</title>
-    <link href="/jamstack-eleventy-custom/post/enable-google-page-views/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/enable-google-page-views/"/>
     <updated>2021-01-03T23:32:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/enable-google-page-views/</id>    
-    <summary>This post is to enable Page Views on the Chirpy theme based blog that you just built. This requires technical knowledge and it’s recommended to keep the google_analytics.pv disabled unless you have a good reason. If your website has low traffic, the page...</summary>
+    <id>/jamstack-eleventy-custom/post-sample/enable-google-page-views/</id>    
+    <summary>The content of this post applies only to Universal Analytics property (UA), not Google Analytics 4 (GA 4). In addition, since UA is about to be deprecated on Jul 1, 2023, the Page Views feature of Chirpy will also be deprecated at that time.
+{: .prompt-danger }
+
+This post is to enable Page Views on the Chirpy theme based blog that you just built. This requires technical knowledge and it’s...</summary>
+  </entry>
+  <entry>
+    <title>Clean code - Quick recap</title>
+    <link href="/jamstack-eleventy-custom/post-sample/clean-code-quick-recap/"/>
+    <updated>2020-10-01T00:00:00Z</updated>
+    <id>/jamstack-eleventy-custom/post-sample/clean-code-quick-recap/</id>    
+    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id ligula....</summary>
   </entry>
   <entry>
     <title>Pictures - post using image from main asset folder</title>
-    <link href="/jamstack-eleventy-custom/post/pictures-post-using-image-from-main-asset-folder/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/pictures-post-using-image-from-main-asset-folder/"/>
     <updated>2020-07-01T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/pictures-post-using-image-from-main-asset-folder/</id> 
+    <id>/jamstack-eleventy-custom/post-sample/pictures-post-using-image-from-main-asset-folder/</id> 
     <summary>This is a sample on using images the usual (11ty) way.</summary>
   </entry>
   <entry>
     <title>Pictures - post using image from local folder</title>
-    <link href="/jamstack-eleventy-custom/post/pictures-post-using-image-from-local-folder/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/pictures-post-using-image-from-local-folder/"/>
     <updated>2020-07-01T00:00:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/pictures-post-using-image-from-local-folder/</id> 
+    <id>/jamstack-eleventy-custom/post-sample/pictures-post-using-image-from-local-folder/</id> 
     <summary>By adding the custom **eleventy-hugo-style-local-post-images** plugin we gain the possibility to create a post folder where we can place and use local images.</summary>
   </entry>
   <entry>
+    <title>Hire-talents-easily</title>
+    <link href="/jamstack-eleventy-custom/post-sample/hire-talents-easily/"/>
+    <updated>2020-02-01T00:00:00Z</updated>
+    <id>/jamstack-eleventy-custom/post-sample/hire-talents-easily/</id>    
+    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id ligula....</summary>
+  </entry>
+  <entry>
+    <title>Fix-employee-retention</title>
+    <link href="/jamstack-eleventy-custom/post-sample/fix-employee-retention/"/>
+    <updated>2020-02-01T00:00:00Z</updated>
+    <id>/jamstack-eleventy-custom/post-sample/fix-employee-retention/</id>    
+    <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id ligula....</summary>
+  </entry>
+  <entry>
+    <title>Estimation - Quick recap</title>
+    <link href="/jamstack-eleventy-custom/post-sample/estimation-quick-recap/"/>
+    <updated>2020-01-01T00:00:00Z</updated>
+    <id>/jamstack-eleventy-custom/post-sample/estimation-quick-recap/</id> 
+    <summary>Estimation exceprt with some HTML stuff</summary>
+  </entry>
+  <entry>
     <title>Customize the Favicon</title>
-    <link href="/jamstack-eleventy-custom/post/customize-the-favicon/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/customize-the-favicon/"/>
     <updated>2019-08-10T16:34:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/customize-the-favicon/</id> 
-    <summary>In [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/), the image files of [Favicons](https://www.favicon-generator.org/about/) are placed in `assets/img/favicons/`. You may need to replace them with your own. So let&#39;s see how to customize these Favicons.
+    <id>/jamstack-eleventy-custom/post-sample/customize-the-favicon/</id> 
+    <summary>The [favicons](https://www.favicon-generator.org/about/) of [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/) are placed in the directory `assets/img/favicons/`{: .filepath}. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
 
-With a square image (PNG, JPG or GIF) in hand, open the site [*Favicon &amp; App Icon Generator*](https://www.favicon-generator.org/) and upload your original image.
+## Generate the favicon
 
-Click button Create Favicon and wait a moment for the website to generate the icons of various sizes automatically.
+Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool [**Real Favicon Generator**](https://realfavicongenerator.net/) and click the button Select your Favicon image to upload your image file.
+
+In the next step, the webpage will show all usage scenarios. You can keep the default options, scroll to the bottom of the page, and click the button Generate your Favicons and HTML code to generate the favicon.
+
+## Download &amp; Replace
 
 Download the generated package, unzip and delete the following two from the extracted files:
 
-- browserconfig.xml
-- manifest.json
+- `browserconfig.xml`{: .filepath}
+- `site.webmanifest`{: .filepath}
 
-Now, copy the remaining image files (`.PNG` and `.ICO`) from the extracted `.zip` file to cover the original files in the folder `assets/img/favicons/`.
+And then copy the remaining image files (`.PNG`{: .filepath} and `.ICO`{: .filepath}) to cover the original files in the directory `assets/img/favicons/`{: .filepath} of your Jekyll site. If your Jekyll site doesn&#39;t have this directory yet, just create one.
 
-The following table helps you understand the changes to the icon file:
+The following table will help you understand the changes to the favicon files:
 
-&gt; ✓ means keep, ✗ means delete.
-
-| File(s) | From Favicon &amp; App Icon Generator | From Chirpy |
+| File(s) | From Online Tool | From Chirpy |
 |</summary>
   </entry>
   <entry>
     <title>Getting Started</title>
-    <link href="/jamstack-eleventy-custom/post/getting-started/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/getting-started/"/>
     <updated>2019-08-09T12:55:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/getting-started/</id>    
+    <id>/jamstack-eleventy-custom/post-sample/getting-started/</id>    
     <summary>Prerequisites
-Follow the Jekyll Docs to complete the installation of Ruby, RubyGems, Jekyll and Bundler.
+Follow the instructions in the Jekyll Docs to complete the installation of Ruby, RubyGems, Jekyll, and Bundler. In addition, Git is also required to be installed.
 Installation
-There are two ways to get the theme:
+Creating a New Site
+There are two ways to create a new repository for this theme:
 
-Install from RubyGems - Easy to update, isolate irrelevant project files so you can focus on...</summary>
+Using the Chirpy Starter - Easy to upgrade, isolates irrelevant project files so you can focus on writing.
+Forking on GitHub -...</summary>
   </entry>
   <entry>
     <title>Writing a New Post</title>
-    <link href="/jamstack-eleventy-custom/post/writing-a-new-post/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/writing-a-new-post/"/>
     <updated>2019-08-08T06:10:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/writing-a-new-post/</id> 
-    <summary>This is a summary on how to write new posts!</summary>
+    <id>/jamstack-eleventy-custom/post-sample/writing-a-new-post/</id> 
+    <summary>This post will guide you how to write a post on _Chirpy_ theme. Even if you have previous experience with Jekyll, this article is worth reading, because many features require specific variables to be set.
+
+## Naming and Path
+
+Create a new file named `YYYY-MM-DD-TITLE.EXTENSION`{: .filepath} and put it in the `_posts`{: .filepath} of the root directory. Please note that the `EXTENSION`{: .filepath} must be one of `md`{: .filepath} and `markdown`{: .filepath}. If you want to save time of creating files, please consider using the plugin [`Jekyll-Compose`](https://github.com/jekyll/jekyll-compose) to accomplish this.
+
+## Front Matter
+
+Basically, you need to fill the [Front Matter](https://jekyllrb.com/docs/front-matter/) as below at the top of the post:
+
+```yaml</summary>
   </entry>
   <entry>
     <title>Text and Typography</title>
-    <link href="/jamstack-eleventy-custom/post/text-and-typography/"/>
+    <link href="/jamstack-eleventy-custom/post-sample/text-and-typography/"/>
     <updated>2019-08-08T03:33:00Z</updated>
-    <id>/jamstack-eleventy-custom/post/text-and-typography/</id> 
-    <summary>This post is to show Markdown syntax rendering on [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/fork), you can also use it as an example of writing. Now, let&#39;s start looking at text and typography.</summary>
+    <id>/jamstack-eleventy-custom/post-sample/text-and-typography/</id> 
+    <summary>This post is to show Markdown syntax rendering on [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/fork), you can also use it as an example of writing. Now, let&#39;s start looking at text and typography.
+
+## Titles</summary>
   </entry>
 </feed>

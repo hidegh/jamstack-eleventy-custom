@@ -14165,6 +14165,10 @@ ul.posts li {
   list-style: none;
 }
 
+.post h1:first-of-type, .post .h1:first-of-type {
+  margin-top: 0;
+}
+
 .catalogue-item {
   font-size: 1rem;
 }
@@ -14182,7 +14186,9 @@ ul.posts li {
   padding-bottom: 1em;
 }
 .catalogue-item .catalogue-preview {
-  padding-top: 0.5em;
+  padding-top: 2em;
+  padding-left: 2em;
+  font-size: 0.8em;
 }
 .catalogue-item .catalogue-preview img {
   max-height: 5em;
