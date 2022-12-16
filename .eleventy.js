@@ -38,7 +38,8 @@ const pluginReadingTime = require('eleventy-plugin-reading-time');
 
 module.exports = function (eleventyConfig) {
 
-    const env = process.env.ELEVENTY_ENV;
+    const env = (process.env.ELEVENTY_ENV || "").trim();
+    console.log("Environment: ", env);
 
     //
     // Default config
