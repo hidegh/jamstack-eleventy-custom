@@ -1,7 +1,7 @@
 ---
 title: Text and Typography
 author: cotes
-date: 2019-08-08T11:33:00+0800
+date: 2019-08-08T11:33:00+08:00
 categories: [Samples, Jekyll-Chirpy]
 tags: [typography]
 math: true

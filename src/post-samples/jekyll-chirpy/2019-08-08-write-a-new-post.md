@@ -1,7 +1,7 @@
 ---
 title: Writing a New Post
 author: cotes
-date: 2019-08-08T14:10:00+0800
+date: 2019-08-08T14:10:00+08:00
 categories: [Samples, Jekyll-Chirpy]
 tags: [writing]
 render_with_liquid: false
