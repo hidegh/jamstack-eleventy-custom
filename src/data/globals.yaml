@@ -64,6 +64,9 @@ posts:
   collectionName: postCollection
   path: /posts    # the uri under the posts are paged (see: paged-posts.js)
   includeSamplesOnProd: true
+  sortPinnedFirst: true
+  sortBy: date    # title | date
+  sortDesc: true  
   pageSize: 20    # 0 to display all on a single page
   showImage: true
   showCategories: true
