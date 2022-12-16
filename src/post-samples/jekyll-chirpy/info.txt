@@ -4,7 +4,7 @@ taxonomy:
 - categories: [Samples, Jekyll-Chirpy]
 
 necessary patches:
-- dates had to be changed to valid ISO format
+- dates had to be changed to valid ISO8601 format 2019-08-08T11:33:00+08:00 (see: https://github.com/11ty/eleventy/issues/867)
 - renamed all occurence of ```console to ```bash
 - there was a {% highlight %} command that is not avail. in the current setup - needed to comment that block out (see below)
 

@@ -1,7 +1,7 @@
 ---
 title: Customize the Favicon
 author: cotes
-date: 2019-08-11T00:34:00+0800
+date: 2019-08-11T00:34:00+08:00
 categories: [Samples, Jekyll-Chirpy]
 tags: [favicon]
 ---

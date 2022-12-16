@@ -1,7 +1,9 @@
 <div class="catalogue-item position-relative">
     
     <a class="stretched-link" href="{{ post.url | url }}"></a>
-    <h3 class="catalogue-title">{{ post.data.title }}</h3>
+    
+    <div class="catalogue-pin d-inline">{% if post.data.pin %}<i class="fa-solid fa-thumbtack fa-fw"></i>{% endif %}</div>
+    <div class="catalogue-title d-inline"><h3 class="d-inline">{{ post.data.title }}</h3></div>
     <div class="catalogue-line"></div>
 
     <div class="catalogue-meta">
