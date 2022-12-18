@@ -5,4 +5,5 @@ TODO:
 3. consider importing additional features and styles from:
     - https://github.com/cotes2020/jekyll-theme-chirpy
     - https://chirpy.cotes.page/
-4. ?
+4. consider adding a default footer that can be turned on/off via page.data properties
+
