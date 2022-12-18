@@ -1,5 +1,6 @@
 ---
 # see main.njk for page-setting properties
+extraLayoutClasses:
 container: true
 searchResultsContainer: true
 aside: 3
@@ -12,7 +13,7 @@ asideMobile: false
 
 {% block content %}
 
-    <section class="article print-container p-3 mb-3">
+    <section class="article print-container p-3 px-lg-5 mb-3">
         {{ content | safe }}
     </section>
     
@@ -20,21 +21,25 @@ asideMobile: false
 
 {% block aside %}
 
-    <!--
-    <section class="sticky p-3 mb-3">
-        {{ m_heading.withLink('Recent posts') }}
-        {% include 'partials/recent-posts.html' %}
-    </section>
+    <div class="sticky-container">
+        
+        <!--
+        <section class="sticky p-3 mb-3">
+            {{ m_heading.withLink('Recent posts') }}
+            {% include 'partials/recent-posts.html' %}
+        </section>
 
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
-        {{ m_heading.withLink('Tag cloud') }}
-        {% include 'partials/tag-cloud.html' %}
-    </section>
-    -->
-    
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
-        {% set tocHtml %}{% include 'partials/toc.html' %}{% endset %}
-        {{ m_heading.withLinkWhenContent('Table of contents', tocHtml) }}
-    </section>
-    
+        <section class="sticky p-3 mb-3 d-hide-if-empty">
+            {{ m_heading.withLink('Tag cloud') }}
+            {% include 'partials/tag-cloud.html' %}
+        </section>
+        -->
+        
+        <section class="sticky p-3 mb-3 d-hide-if-empty">
+            {% set tocHtml %}{% include 'partials/toc.html' %}{% endset %}
+            {{ m_heading.withLinkWhenContent('Table of contents', tocHtml) }}
+        </section>
+
+    </div>
+        
 {% endblock %}

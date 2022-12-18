@@ -1,3 +1,23 @@
-{%- macro getBreakpointClass(breakpoint, baseClass) -%}
-{% if breakpoint == false or breakpoint == null %}{% elif breakpoint == true or breakpoint == "" %}{{ baseClass }}{% else %}{{ baseClass }}-{{ breakpoint }}{% endif %}
+{#
+    breakpoint values: false | true | sm | md | lg | xl | xxl | fluid
+
+    if breakpoint is false (or null) - we use the noBreakClass as result;
+    if breakpoint is true (or empty string), base class is to be expected;
+    otherwise the result is: baseClass + "-" + breakpoint;
+
+    NOTE:
+    bootstrap requires a .container if we want to use .rows but containers have extra spaces (gutters around).
+    
+    to remove the extra space, BS docs suggest to use .g-0 and an .overflow-hidden container, which renders .position-sticky useless (non working).
+    the overflow is vidible and causing side effects on small screens when we use width: 100%.
+    other suggested "patches" are cumbersome to use.
+    
+    an alternative solution is to use .g-0 both on the main .container and the immediate .row's inside.
+    see: https://github.com/twbs/bootstrap/issues/8966#issuecomment-1356843165
+
+    <div class="container-fluid g-0">
+        <div class="row g-0">
+#}
+{%- macro getBreakpointClass(breakpoint, baseClass, noBreakClass = '') -%}
+{% if breakpoint == false or breakpoint == null %}{{ noBreakClass }}{% elif breakpoint == true or breakpoint == "" %}{{ baseClass }}{% else %}{{ baseClass }}-{{ breakpoint }}{% endif %}
 {%- endmacro -%}

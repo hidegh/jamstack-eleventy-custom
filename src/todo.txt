@@ -5,5 +5,7 @@ TODO:
 3. consider importing additional features and styles from:
     - https://github.com/cotes2020/jekyll-theme-chirpy
     - https://chirpy.cotes.page/
-4. consider adding a default footer that can be turned on/off via page.data properties
-
+4. consider adding a default footer that can be turned on/off via page properties
+5. ev. moving the aside break from main.njk into the bs-breakpoint.html as a macro
+6. simplify sticky.js
+7. consider :empty or other approach instead of hide if empty via js
