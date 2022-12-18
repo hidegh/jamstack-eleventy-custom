@@ -111,7 +111,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="/">
             <img src="/jamstack-eleventy-custom/assets/logo.png" />
         </a>
 
@@ -193,16 +193,16 @@ d-sm-none = hide if above sm
             
             
 
-    
+    <div class="main-container container">
 
-    <div id="wrapper">
+        <div class="row hide-on-search-results-container-display">
 
-        <div id="content-container" class="hide-on-search-results-container-display container">
+            <div class="main-content-header col-12">
+                
+            </div>
 
-            <div class="row g-0">
-
-                <div class="main-container col-12 col-xl-9 overflow-hidden">
-                    
+            <div class="main-content col-12 col-xl-9 overflow-hidden">
+                
 
     <section class="article print-container p-3 mb-3">
         
@@ -413,10 +413,10 @@ d-sm-none = hide if above sm
     </section>
     
 
-                </div>
+            </div>
 
-                <aside class="sticky-container d-none d-xl-block small col-xl-3">
-                    
+            <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
+                
 
     <!--
     <section class="sticky p-3 mb-3">
@@ -570,26 +570,20 @@ d-sm-none = hide if above sm
     </section>
     
 
-                </aside>
+            </aside>
 
+            <div class="main-content-footer col-12">
+                
             </div>
 
         </div>
 
-        <div id="search-results-container" class="d-none container">
-
-            <div class="row g-0">
-            
-                <div class="search-results-wrapper col-12 overflow-hidden">
-                </div>
-
+        <div class="row search-results-container">
+            <div class="main-content search-results-wrapper col-12 overflow-hidden">
             </div>
-
         </div>
 
     </div>
-
-    
 
 
         </main>
@@ -900,7 +894,7 @@ d-sm-none = hide if above sm
     // NOTE:
     // #search-results-container must have an additional element with a .search-results class
     // these objects (along with #global-content-view) were already set up inside main.njk
-    blogSearch.init('.blog-search-input', '.blog-search-cancel', '#search-results-container', '.hide-on-search-results-container-display');
+    blogSearch.init('.blog-search-input', '.blog-search-cancel', '.search-results-container', '.hide-on-search-results-container-display');
 
 </script>
 
