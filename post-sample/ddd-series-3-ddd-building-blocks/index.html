@@ -193,24 +193,24 @@ d-sm-none = hide if above sm
             
             
 
-    <div class="main-container container">
+    <div class="layout layout-post">
 
-        <div class="row hide-on-search-results-container-display">
+        <div class="main-container container">
 
-            <div class="main-content-header col-12">
-                
-            </div>
+            <div class="hide-on-search-results-container-display row row">
 
-            <div class="main-content col-12 col-xl-9 overflow-hidden">
-                
+                <div class="main-content-header col-12">
+                    
+                </div>
 
-    <div class="post">
+                <div class="main-content col-12 col-xl-9 overflow-hidden">
+                    
 
+    
+    
+    
+    <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
         
-        
-        
-        <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
-            
 
 <section class="share-wrapper">
     <span class="share-label text-muted mr-1">Share post</span>
@@ -272,16 +272,16 @@ d-sm-none = hide if above sm
 </script>
 
 
-        </section>
-        
-        <section class="article print-container p-3 mb-3">
+    </section>
+    
+    <section class="article print-container p-3 mb-3">
 
-            <section>
-                <h1>DDD Series - 3 - DDD building blocks</h1>
+        <section>
+            <h1>DDD Series - 3 - DDD building blocks</h1>
+            
+            <p>This article is part of the serie: <a href="/jamstack-eleventy-custom/serie/ddd-series">ddd series</a></p>
+            <section class="pb-3">
                 
-                <p>This article is part of the serie: <a href="/jamstack-eleventy-custom/serie/ddd-series">ddd series</a></p>
-                <section class="pb-3">
-                    
  
 
 
@@ -294,19 +294,19 @@ d-sm-none = hide if above sm
         <a class="btn btn-sm btn-outline-primary" href="/jamstack-eleventy-custom/post-sample/ddd-series-4-how-orm-changed-the-way-we-do-ddd/" title="DDD Series - 4 - How ORM changed the way we do DDD">DDD Series - 4 - How ORM changed the way we do DDD<i class="fa-solid fa-chevron-right ms-3 align-middle"></i></a>
     </div>
     </div>
-                </section>
-                
             </section>
-        
-            <section class="small">
-                <div class="row row-cols-auto gx-3">
-                    <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>07 Jan 2021</div>
-                    <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
-                    <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
-                </div>
-            </section>
+            
+        </section>
+    
+        <section class="small">
+            <div class="row row-cols-auto gx-3">
+                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>07 Jan 2021</div>
+                <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
+                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
+            </div>
+        </section>
 
-            <section class="small text-muted d-flex gap-3">
+        <section class="small text-muted d-flex gap-3">
 <div class="d-flex">
     <div class="d-inline-block me-1">
         <a href="/jamstack-eleventy-custom/categories"><i class="far fa-fw fa-folder-open"></i></a>
@@ -351,22 +351,22 @@ d-sm-none = hide if above sm
 </div>
 </section>
 
-            <hr/>
+        <hr/>
 
-            <section class="pb-3">
-                
-                <blockquote>
+        <section class="pb-3">
+            
+            <blockquote>
 <p>Going above the article’s path when searching for assets will work only, if the targetted path contains <strong>no article</strong> - <strong>or</strong> if there’s <strong>no perma-link</strong> used!
 The experience might differ depending on whether we’re in a list or on a single page!</p>
 </blockquote>
 <p>Nulla sed leo quam. Curabitur a urna sem. Vivamus eget ipsum a risus consequat euismod. Maecenas facilisis imperdiet tortor, non porta nisl gravida quis. Vestibulum tincidunt pharetra scelerisque. Donec interdum commodo massa id aliquet. Maecenas eget facilisis ipsum. Nullam lacinia blandit mauris, in tristique libero molestie vitae. Etiam bibendum, ex finibus finibus euismod, est eros mattis tellus, eu hendrerit sapien dui sed urna.</p>
 
-            </section>
-
         </section>
 
-        <section class="p-3">
-            
+    </section>
+
+    <section class="p-3">
+        
 
 
 <div class="d-flex">
@@ -379,19 +379,17 @@ The experience might differ depending on whether we’re in a list or on a singl
     </div>
     </div>
 
-        </section>
+    </section>
 
-        <section class="p-3 d-hide-if-empty">
-            
-        </section>
-
-    </div>
+    <section class="p-3 d-hide-if-empty">
+        
+    </section>
   
 
-            </div>
+                </div>
 
-            <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
-                
+                <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
+                    
 
     <section class="sticky p-3 mb-3 d-hide-if-empty">
         
@@ -623,17 +621,25 @@ The experience might differ depending on whether we’re in a list or on a singl
     </section>
     
 
-            </aside>
+                </aside>
 
-            <div class="main-content-footer col-12">
-                
+                <div class="main-content-footer col-12">
+                    
+                </div>
+
             </div>
 
         </div>
 
-        <div class="row search-results-container">
-            <div class="main-content search-results-wrapper col-12 overflow-hidden">
+        <div class="search-results-container container">
+
+            <div class="row">
+                
+                <div class="main-content search-results-wrapper col-12 overflow-hidden">
+                </div>
+
             </div>
+
         </div>
 
     </div>

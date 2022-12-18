@@ -193,24 +193,24 @@ d-sm-none = hide if above sm
             
             
 
-    <div class="main-container container">
+    <div class="layout layout-post">
 
-        <div class="row hide-on-search-results-container-display">
+        <div class="main-container container">
 
-            <div class="main-content-header col-12">
-                
-            </div>
+            <div class="hide-on-search-results-container-display row row">
 
-            <div class="main-content col-12 col-xl-9 overflow-hidden">
-                
+                <div class="main-content-header col-12">
+                    
+                </div>
 
-    <div class="post">
+                <div class="main-content col-12 col-xl-9 overflow-hidden">
+                    
 
+    
+    
+    
+    <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
         
-        
-        
-        <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
-            
 
 <section class="share-wrapper">
     <span class="share-label text-muted mr-1">Share post</span>
@@ -272,24 +272,24 @@ d-sm-none = hide if above sm
 </script>
 
 
+    </section>
+    
+    <section class="article print-container p-3 mb-3">
+
+        <section>
+            <h1>Customize the Favicon</h1>
+            
         </section>
-        
-        <section class="article print-container p-3 mb-3">
+    
+        <section class="small">
+            <div class="row row-cols-auto gx-3">
+                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>10 Aug 2019</div>
+                <div class="col"><i class="fa-regular fa-user fa-fw"></i>cotes</div>
+                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
+            </div>
+        </section>
 
-            <section>
-                <h1>Customize the Favicon</h1>
-                
-            </section>
-        
-            <section class="small">
-                <div class="row row-cols-auto gx-3">
-                    <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>10 Aug 2019</div>
-                    <div class="col"><i class="fa-regular fa-user fa-fw"></i>cotes</div>
-                    <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
-                </div>
-            </section>
-
-            <section class="small text-muted d-flex gap-3">
+        <section class="small text-muted d-flex gap-3">
 <div class="d-flex">
     <div class="d-inline-block me-1">
         <a href="/jamstack-eleventy-custom/categories"><i class="far fa-fw fa-folder-open"></i></a>
@@ -322,11 +322,11 @@ d-sm-none = hide if above sm
 </div>
 </section>
 
-            <hr/>
+        <hr/>
 
-            <section class="pb-3">
-                
-                <p>The <a href="https://www.favicon-generator.org/about/">favicons</a> of <a href="https://github.com/cotes2020/jekyll-theme-chirpy/"><strong>Chirpy</strong></a> are placed in the directory <code>assets/img/favicons/</code>{: .filepath}. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.</p>
+        <section class="pb-3">
+            
+            <p>The <a href="https://www.favicon-generator.org/about/">favicons</a> of <a href="https://github.com/cotes2020/jekyll-theme-chirpy/"><strong>Chirpy</strong></a> are placed in the directory <code>assets/img/favicons/</code>{: .filepath}. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.</p>
 <h2 id="generate-the-favicon" tabindex="-1">Generate the favicon</h2>
 <p>Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool <a href="https://realfavicongenerator.net/"><strong>Real Favicon Generator</strong></a> and click the button <kbd>Select your Favicon image</kbd> to upload your image file.</p>
 <p>In the next step, the webpage will show all usage scenarios. You can keep the default options, scroll to the bottom of the page, and click the button <kbd>Generate your Favicons and HTML code</kbd> to generate the favicon.</p>
@@ -365,12 +365,12 @@ d-sm-none = hide if above sm
 </blockquote>
 <p>The next time you build the site, the favicon will be replaced with a customized edition.</p>
 
-            </section>
-
         </section>
 
-        <section class="p-3">
-            
+    </section>
+
+    <section class="p-3">
+        
 
 
 <div class="d-flex">
@@ -383,19 +383,17 @@ d-sm-none = hide if above sm
     </div>
     </div>
 
-        </section>
+    </section>
 
-        <section class="p-3 d-hide-if-empty">
-            
-        </section>
-
-    </div>
+    <section class="p-3 d-hide-if-empty">
+        
+    </section>
   
 
-            </div>
+                </div>
 
-            <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
-                
+                <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
+                    
 
     <section class="sticky p-3 mb-3 d-hide-if-empty">
         
@@ -623,17 +621,25 @@ d-sm-none = hide if above sm
     </section>
     
 
-            </aside>
+                </aside>
 
-            <div class="main-content-footer col-12">
-                
+                <div class="main-content-footer col-12">
+                    
+                </div>
+
             </div>
 
         </div>
 
-        <div class="row search-results-container">
-            <div class="main-content search-results-wrapper col-12 overflow-hidden">
+        <div class="search-results-container container">
+
+            <div class="row">
+                
+                <div class="main-content search-results-wrapper col-12 overflow-hidden">
+                </div>
+
             </div>
+
         </div>
 
     </div>

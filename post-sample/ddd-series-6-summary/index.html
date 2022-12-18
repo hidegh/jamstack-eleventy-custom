@@ -193,24 +193,24 @@ d-sm-none = hide if above sm
             
             
 
-    <div class="main-container container">
+    <div class="layout layout-post">
 
-        <div class="row hide-on-search-results-container-display">
+        <div class="main-container container">
 
-            <div class="main-content-header col-12">
-                
-            </div>
+            <div class="hide-on-search-results-container-display row row">
 
-            <div class="main-content col-12 col-xl-9 overflow-hidden">
-                
+                <div class="main-content-header col-12">
+                    
+                </div>
 
-    <div class="post">
+                <div class="main-content col-12 col-xl-9 overflow-hidden">
+                    
 
+    
+    
+    
+    <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
         
-        
-        
-        <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
-            
 
 <section class="share-wrapper">
     <span class="share-label text-muted mr-1">Share post</span>
@@ -272,16 +272,16 @@ d-sm-none = hide if above sm
 </script>
 
 
-        </section>
-        
-        <section class="article print-container p-3 mb-3">
+    </section>
+    
+    <section class="article print-container p-3 mb-3">
 
-            <section>
-                <h1>DDD Series - 6 - Summary</h1>
+        <section>
+            <h1>DDD Series - 6 - Summary</h1>
+            
+            <p>This article is part of the serie: <a href="/jamstack-eleventy-custom/serie/ddd-series">ddd series</a></p>
+            <section class="pb-3">
                 
-                <p>This article is part of the serie: <a href="/jamstack-eleventy-custom/serie/ddd-series">ddd series</a></p>
-                <section class="pb-3">
-                    
  
 
 
@@ -290,19 +290,19 @@ d-sm-none = hide if above sm
         <a class="btn btn-sm btn-outline-primary" href="/jamstack-eleventy-custom/post-sample/ddd-series-5-bounded-context-at-help-to-tackle-complexity/" title="DDD Series - 5 - Bounded context at help to tackle complexity"><i class="fa-solid fa-chevron-left me-3 align-middle"></i>DDD Series - 5 - Bounded context at help to tackle complexity</a>
     </div>
     </div>
-                </section>
-                
             </section>
-        
-            <section class="small">
-                <div class="row row-cols-auto gx-3">
-                    <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>13 Jan 2021</div>
-                    <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
-                    <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
-                </div>
-            </section>
+            
+        </section>
+    
+        <section class="small">
+            <div class="row row-cols-auto gx-3">
+                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>13 Jan 2021</div>
+                <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
+                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
+            </div>
+        </section>
 
-            <section class="small text-muted d-flex gap-3">
+        <section class="small text-muted d-flex gap-3">
 <div class="d-flex">
     <div class="d-inline-block me-1">
         <a href="/jamstack-eleventy-custom/categories"><i class="far fa-fw fa-folder-open"></i></a>
@@ -358,18 +358,18 @@ d-sm-none = hide if above sm
 </div>
 </section>
 
-            <hr/>
+        <hr/>
 
-            <section class="pb-3">
-                
-                <p>In lacus felis, sodales at mattis ac, gravida quis eros. Curabitur pharetra a arcu nec blandit. Aenean pellentesque mi ac mattis ultricies. Pellentesque id eleifend diam. Donec nec leo at dui finibus bibendum et ut nibh. Vestibulum id pharetra risus, et auctor eros. Morbi egestas iaculis convallis. Etiam posuere id sem accumsan dignissim. Morbi varius justo et elementum dictum. Fusce mollis fringilla ultrices. Mauris dignissim fermentum diam. Cras non leo vitae nisi placerat tincidunt. Donec sed suscipit lorem. Donec accumsan ullamcorper elit, nec porttitor tortor ultrices at. Aenean semper blandit nulla a hendrerit.</p>
-
-            </section>
+        <section class="pb-3">
+            
+            <p>In lacus felis, sodales at mattis ac, gravida quis eros. Curabitur pharetra a arcu nec blandit. Aenean pellentesque mi ac mattis ultricies. Pellentesque id eleifend diam. Donec nec leo at dui finibus bibendum et ut nibh. Vestibulum id pharetra risus, et auctor eros. Morbi egestas iaculis convallis. Etiam posuere id sem accumsan dignissim. Morbi varius justo et elementum dictum. Fusce mollis fringilla ultrices. Mauris dignissim fermentum diam. Cras non leo vitae nisi placerat tincidunt. Donec sed suscipit lorem. Donec accumsan ullamcorper elit, nec porttitor tortor ultrices at. Aenean semper blandit nulla a hendrerit.</p>
 
         </section>
 
-        <section class="p-3">
-            
+    </section>
+
+    <section class="p-3">
+        
 
 
 <div class="d-flex">
@@ -382,19 +382,17 @@ d-sm-none = hide if above sm
     </div>
     </div>
 
-        </section>
+    </section>
 
-        <section class="p-3 d-hide-if-empty">
-            
-        </section>
-
-    </div>
+    <section class="p-3 d-hide-if-empty">
+        
+    </section>
   
 
-            </div>
+                </div>
 
-            <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
-                
+                <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
+                    
 
     <section class="sticky p-3 mb-3 d-hide-if-empty">
         
@@ -626,17 +624,25 @@ d-sm-none = hide if above sm
     </section>
     
 
-            </aside>
+                </aside>
 
-            <div class="main-content-footer col-12">
-                
+                <div class="main-content-footer col-12">
+                    
+                </div>
+
             </div>
 
         </div>
 
-        <div class="row search-results-container">
-            <div class="main-content search-results-wrapper col-12 overflow-hidden">
+        <div class="search-results-container container">
+
+            <div class="row">
+                
+                <div class="main-content search-results-wrapper col-12 overflow-hidden">
+                </div>
+
             </div>
+
         </div>
 
     </div>

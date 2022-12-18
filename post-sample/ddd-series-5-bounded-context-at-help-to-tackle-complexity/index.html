@@ -193,24 +193,24 @@ d-sm-none = hide if above sm
             
             
 
-    <div class="main-container container">
+    <div class="layout layout-post">
 
-        <div class="row hide-on-search-results-container-display">
+        <div class="main-container container">
 
-            <div class="main-content-header col-12">
-                
-            </div>
+            <div class="hide-on-search-results-container-display row row">
 
-            <div class="main-content col-12 col-xl-9 overflow-hidden">
-                
+                <div class="main-content-header col-12">
+                    
+                </div>
 
-    <div class="post">
+                <div class="main-content col-12 col-xl-9 overflow-hidden">
+                    
 
+    
+    
+    
+    <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
         
-        
-        
-        <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
-            
 
 <section class="share-wrapper">
     <span class="share-label text-muted mr-1">Share post</span>
@@ -272,16 +272,16 @@ d-sm-none = hide if above sm
 </script>
 
 
-        </section>
-        
-        <section class="article print-container p-3 mb-3">
+    </section>
+    
+    <section class="article print-container p-3 mb-3">
 
-            <section>
-                <h1>DDD Series - 5 - Bounded context at help to tackle complexity</h1>
+        <section>
+            <h1>DDD Series - 5 - Bounded context at help to tackle complexity</h1>
+            
+            <p>This article is part of the serie: <a href="/jamstack-eleventy-custom/serie/ddd-series">ddd series</a></p>
+            <section class="pb-3">
                 
-                <p>This article is part of the serie: <a href="/jamstack-eleventy-custom/serie/ddd-series">ddd series</a></p>
-                <section class="pb-3">
-                    
  
 
 
@@ -294,19 +294,19 @@ d-sm-none = hide if above sm
         <a class="btn btn-sm btn-outline-primary" href="/jamstack-eleventy-custom/post-sample/ddd-series-6-summary/" title="DDD Series - 6 - Summary">DDD Series - 6 - Summary<i class="fa-solid fa-chevron-right ms-3 align-middle"></i></a>
     </div>
     </div>
-                </section>
-                
             </section>
-        
-            <section class="small">
-                <div class="row row-cols-auto gx-3">
-                    <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>12 Jan 2021</div>
-                    <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
-                    <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
-                </div>
-            </section>
+            
+        </section>
+    
+        <section class="small">
+            <div class="row row-cols-auto gx-3">
+                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>12 Jan 2021</div>
+                <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
+                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
+            </div>
+        </section>
 
-            <section class="small text-muted d-flex gap-3">
+        <section class="small text-muted d-flex gap-3">
 <div class="d-flex">
     <div class="d-inline-block me-1">
         <a href="/jamstack-eleventy-custom/categories"><i class="far fa-fw fa-folder-open"></i></a>
@@ -349,18 +349,18 @@ d-sm-none = hide if above sm
 </div>
 </section>
 
-            <hr/>
+        <hr/>
 
-            <section class="pb-3">
-                
-                <p>Ut non tortor vitae nisi luctus hendrerit quis sagittis ligula. Suspendisse eu risus mollis, ullamcorper ante in, venenatis lorem. Nunc quis eros porta nisi lacinia consectetur nec sed quam. Nulla ut elementum velit. Praesent ut metus tristique, facilisis enim eu, semper quam. Morbi vel sapien at erat gravida convallis vitae nec urna. Mauris nisl eros, dictum consequat metus ut, vehicula imperdiet turpis.</p>
-
-            </section>
+        <section class="pb-3">
+            
+            <p>Ut non tortor vitae nisi luctus hendrerit quis sagittis ligula. Suspendisse eu risus mollis, ullamcorper ante in, venenatis lorem. Nunc quis eros porta nisi lacinia consectetur nec sed quam. Nulla ut elementum velit. Praesent ut metus tristique, facilisis enim eu, semper quam. Morbi vel sapien at erat gravida convallis vitae nec urna. Mauris nisl eros, dictum consequat metus ut, vehicula imperdiet turpis.</p>
 
         </section>
 
-        <section class="p-3">
-            
+    </section>
+
+    <section class="p-3">
+        
 
 
 <div class="d-flex">
@@ -373,19 +373,17 @@ d-sm-none = hide if above sm
     </div>
     </div>
 
-        </section>
+    </section>
 
-        <section class="p-3 d-hide-if-empty">
-            
-        </section>
-
-    </div>
+    <section class="p-3 d-hide-if-empty">
+        
+    </section>
   
 
-            </div>
+                </div>
 
-            <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
-                
+                <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
+                    
 
     <section class="sticky p-3 mb-3 d-hide-if-empty">
         
@@ -617,17 +615,25 @@ d-sm-none = hide if above sm
     </section>
     
 
-            </aside>
+                </aside>
 
-            <div class="main-content-footer col-12">
-                
+                <div class="main-content-footer col-12">
+                    
+                </div>
+
             </div>
 
         </div>
 
-        <div class="row search-results-container">
-            <div class="main-content search-results-wrapper col-12 overflow-hidden">
+        <div class="search-results-container container">
+
+            <div class="row">
+                
+                <div class="main-content search-results-wrapper col-12 overflow-hidden">
+                </div>
+
             </div>
+
         </div>
 
     </div>
