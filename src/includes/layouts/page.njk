@@ -1,18 +1,23 @@
 ---
 # see main.njk for page-setting properties
+extraLayoutClasses:
 container: true
 searchResultsContainer: true
 aside: 3
 asideBreak: xl
 asideMobile: false
+asideContentClass:
+  recent: d-none
+  tagCloud: d-none
+  toc: order-last
 ---
 {% extends './main.njk' %}
 
-{% import "macros/heading.html" as m_heading %}
+{% import "macros/aside-sticky-container.html" as m_asideSticky %}
 
 {% block content %}
 
-    <section class="article print-container p-3 mb-3">
+    <section class="article print-container p-3 px-lg-5 mb-3">
         {{ content | safe }}
     </section>
     
@@ -20,21 +25,17 @@ asideMobile: false
 
 {% block aside %}
 
-    <!--
-    <section class="sticky p-3 mb-3">
-        {{ m_heading.withLink('Recent posts') }}
-        {% include 'partials/recent-posts.html' %}
-    </section>
+    <div class="sticky-container d-flex flex-column">
 
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
-        {{ m_heading.withLink('Tag cloud') }}
-        {% include 'partials/tag-cloud.html' %}
-    </section>
-    -->
-    
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
+        {% set recentHtml %}{% include 'partials/recent-posts.html' %}{% endset %}
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.recent + ' sticky p-3 mb-1') | trim, 'Recent Posts', recentHtml) }}
+
+        {% set tagCloudHtml %}{% include 'partials/tag-cloud.html' %}{% endset %}
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.tagCloud + ' sticky p-3 mb-1') | trim, 'Tag Cloud', tagCloudHtml) }}
+
         {% set tocHtml %}{% include 'partials/toc.html' %}{% endset %}
-        {{ m_heading.withLinkWhenContent('Table of contents', tocHtml) }}
-    </section>
-    
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.toc + ' sticky p-3 mb-1') | trim, 'Table of Contents', tocHtml) }}
+
+    </div>
+        
 {% endblock %}

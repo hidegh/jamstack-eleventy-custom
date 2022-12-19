@@ -137,8 +137,7 @@
         <main>
             {# we use nunjucks blocks for layouts #}
             {% block main %}
-                {# and provide a 11ty layout composition rendering fallback #}
-                {# which is not working, do a default page must be anything but not base.njk #}
+                {# and provide a 11ty layout composition rendering inside #}
                 {{ content | safe }}
             {% endblock %}
         </main>

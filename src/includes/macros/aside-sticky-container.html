@@ -1,0 +1,23 @@
+{#
+    Macro to render the aside container...
+
+    We'd have a includeRef parameter,
+    set some scoped variable inside: {% set content %}{% include includeRef %}{% endset %},
+    but as the includes require global scope (global variables),
+    this won't work...
+    
+    So we set a variable outside and pass it via param. content.
+#}
+{%- macro renderAsideStickyContainer(containerClasses, headingText, content, renderAlways = 'false') -%}
+{%- if content or renderAlways == true -%}
+<section class="{{ containerClasses }}">
+    <div class="heading">
+        <h2 class="d-inline">{{ headingText }}</h2>
+        <a class="sticky-link"><i class="fa-solid fa-link"></i></a>
+    </div>
+    <div>{{content | safe}}</div>
+</section>
+{%- endif -%}
+{%- endmacro -%}
+
+
