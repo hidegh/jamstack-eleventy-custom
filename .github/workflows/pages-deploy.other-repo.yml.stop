@@ -11,6 +11,9 @@ on:
       - README.md
       - LICENSE
 
+env:
+  ELEVENTY_ENV: PROD
+
 jobs:
   continuous-delivery:
 

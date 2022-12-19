@@ -40,7 +40,9 @@ const pluginReadingTime = require('eleventy-plugin-reading-time');
 module.exports = function (eleventyConfig) {
 
     const env = (process.env.ELEVENTY_ENV || "").trim();
+    const isProd = env.toUpperCase() == "PROD";
     console.log("Environment: ", env);
+    console.log("Is Prod    : ", isProd);
 
     const globals = yaml.load(fs.readFileSync("src/data/globals.yaml"));
     console.log("Loaded 'globals' from yaml", globals);
@@ -148,11 +150,12 @@ module.exports = function (eleventyConfig) {
     //
     // Collections (posts)
     const postCollectionName = globals.posts.collectionName;
-    const addSamples = globals.posts.includeSamplesOnProd || (env.toUpperCase() != "PROD");
+    const addSamples = globals.posts.includeSamplesOnProd || !isProd;
     const postCollectionGlob = [
         "src/posts/**/*.md",
         ...(addSamples ? ["src/post-samples/**/*.md"] : [])        
     ];
+    console.log("Adding samples    : ", addSamples);
     console.log("Loading posts from: ", postCollectionGlob);
     eleventyConfig.addCollection(postCollectionName, require('./src/scripts/collections/posts').filterPagesByGlob(postCollectionGlob));
 
