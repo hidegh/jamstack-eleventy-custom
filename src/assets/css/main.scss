@@ -32,10 +32,15 @@ Custom variables
 */
 :root {
     --navbar-main-min-height: 5em;
+    
     --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
     --font-family-tall: "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
+    
     --color-delimiter: steelblue;
     --color-highlight: orange;
+
+    --color-bg-main: ghostwhite;
+    --color-bg-content: var(--bs-white);
 }
 
 /*
@@ -109,6 +114,41 @@ Container
     @extend .container;
     // ...but we need to remowe the max-width constraint
     max-width: 100% !important;
+}
+
+/*
+Styling
+*/
+main {
+    background-color: var(--color-bg-main);
+    background: top left / cover no-repeat fixed url(/assets/bg/office/unsplash-benjamin-child-GWe0dlVD9e0.jpg);
+
+    .layout-page,
+    .layout-post {
+
+        margin-top: .5em;
+        margin-bottom: .5em;
+
+        .main-content {
+            background-color: var(--color-bg-content);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
+        }
+
+        aside {
+
+            .sticky-container {
+                
+                .sticky {
+                    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+                    background-color: var(--color-bg-content);
+                    border-top: 1px solid var(--color-bg-main);
+                }
+
+            }
+
+        }
+
+    }
 }
 
 /*
