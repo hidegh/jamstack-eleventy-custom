@@ -371,10 +371,32 @@ Multi sticky:
     height: 100%;
 
     .sticky {
-        position: sticky;
 
         // Must have non-transparent BG otherwise the sticky panel texts will overlap
         @extend .bg-body;
+
+        //
+        // sticky
+        position: sticky;
+        top: unset;
+
+        .sticky-link {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 1em;
+        }
+
+        //
+        // NOTE: support sticky-ordering via d-flex order + ensure proper overlapping
+        &.order-first { z-index: 999 !important; }
+
+        @for $i from 0 through 5 {
+            &.order-#{$i} { z-index: #{ 1000 + $i} !important; }
+        }
+
+        &.order-last { z-index: 1009 !important; } 
     }
 
 }
