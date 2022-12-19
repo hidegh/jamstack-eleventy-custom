@@ -14118,8 +14118,43 @@ Multi sticky:
 - or viapure CSS
 - or combination
 */
+.sticky-container {
+  height: 100%;
+}
 .sticky-container .sticky {
   position: sticky;
+  top: unset;
+}
+.sticky-container .sticky .sticky-link {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+}
+.sticky-container .sticky.order-first {
+  z-index: 999 !important;
+}
+.sticky-container .sticky.order-0 {
+  z-index: 1000 !important;
+}
+.sticky-container .sticky.order-1 {
+  z-index: 1001 !important;
+}
+.sticky-container .sticky.order-2 {
+  z-index: 1002 !important;
+}
+.sticky-container .sticky.order-3 {
+  z-index: 1003 !important;
+}
+.sticky-container .sticky.order-4 {
+  z-index: 1004 !important;
+}
+.sticky-container .sticky.order-5 {
+  z-index: 1005 !important;
+}
+.sticky-container .sticky.order-last {
+  z-index: 1009 !important;
 }
 
 /*

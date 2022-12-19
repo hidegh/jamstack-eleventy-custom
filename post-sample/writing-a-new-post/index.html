@@ -209,7 +209,7 @@ d-sm-none = hide if above sm
     
     
     
-    <section class="p-3 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
+    <section class="p-3 px-lg-5 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
         
 
 <section class="share-wrapper">
@@ -274,7 +274,7 @@ d-sm-none = hide if above sm
 
     </section>
     
-    <section class="article print-container p-3 mb-3">
+    <section class="article print-container p-3 px-lg-5 mb-3">
 
         <section>
             <h1>Writing a New Post</h1>
@@ -472,7 +472,7 @@ d-sm-none = hide if above sm
 
     </section>
 
-    <section class="p-3">
+    <section class="p-3 px-lg-5">
         
 
 
@@ -488,34 +488,28 @@ d-sm-none = hide if above sm
 
     </section>
 
-    <section class="p-3 d-hide-if-empty">
+    <section class="p-3 px-lg-5 d-hide-if-empty">
         
     </section>
   
 
                 </div>
 
-                <aside class="main-aside sticky-container d-none d-xl-block small col-xl-3">
+                <aside class="main-aside d-none d-xl-block small col-xl-3">
                     
 
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
+    <div class="sticky-container d-flex flex-column">
+
         
         
 
-
-    </section>
-
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
         
-        
-
-
-<div class="heading">
-    <h2 class="d-inline">Similar articles</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
-</div>
-
-<div><ul class="related-posts">
+        <section class="order-1 sticky p-3 mb-1">
+    <div class="heading">
+        <h2 class="d-inline">Similar Articles</h2>
+        <a class="sticky-link"><i class="fa-solid fa-link"></i></a>
+    </div>
+    <div><ul class="related-posts">
     
     <li>
         
@@ -553,18 +547,15 @@ d-sm-none = hide if above sm
     </li>
     
 </ul></div>
-
-
-    </section>
-
-    <section class="sticky p-3 mb-3">
-        
-<div class="heading">
-    <h2 class="d-inline">Recent posts</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
-</div>
+</section>
 
         
+        <section class="order-2 sticky p-3 mb-1">
+    <div class="heading">
+        <h2 class="d-inline">Recent Posts</h2>
+        <a class="sticky-link"><i class="fa-solid fa-link"></i></a>
+    </div>
+    <div>
 <ul class="recent-posts">
     
     <li>
@@ -597,17 +588,16 @@ d-sm-none = hide if above sm
         </a>
     </li>
     
-</ul>
-    </section>
-    
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
-        
-<div class="heading">
-    <h2 class="d-inline">Tag cloud</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
-</div>
+</ul></div>
+</section>
 
-         
+        
+        <section class="order-3 sticky p-3 mb-1">
+    <div class="heading">
+        <h2 class="d-inline">Tag Cloud</h2>
+        <a class="sticky-link"><i class="fa-solid fa-link"></i></a>
+    </div>
+    <div> 
     <span style="font-size: 0.8em;">
         <a href="/jamstack-eleventy-custom/tag/clean-code/1/">clean-code</a>
     </span>
@@ -696,20 +686,16 @@ d-sm-none = hide if above sm
         <a href="/jamstack-eleventy-custom/tag/writing/1/">writing</a>
     </span>
 
-
-    </section>
-
-    <section class="sticky p-3 mb-3 d-hide-if-empty">
-        
-        
-
-
-<div class="heading">
-    <h2 class="d-inline">Table of contents</h2>
-    <a class="sticky-link btn btn-sm btn-outline-primary float-end"><i class="fa-solid fa-link"></i></a>
 </div>
+</section>
 
-<div><div class="text-nowrap overflow-hidden"><nav class="toc">
+        
+        <section class="order-last sticky p-3 mb-1">
+    <div class="heading">
+        <h2 class="d-inline">Table of Contents</h2>
+        <a class="sticky-link"><i class="fa-solid fa-link"></i></a>
+    </div>
+    <div><div class="text-nowrap overflow-hidden"><nav class="toc">
                 <ol>
                     
                     <li><a href="#naming-and-path">Naming and Path</a>
@@ -809,10 +795,10 @@ d-sm-none = hide if above sm
             		</li>
                 </ol>
             </nav></div></div>
+</section>
 
+    </div>
 
-    </section>
-    
 
                 </aside>
 
