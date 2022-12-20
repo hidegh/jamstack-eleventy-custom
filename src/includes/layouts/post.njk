@@ -85,19 +85,19 @@ comments: true
     <div class="sticky-container d-flex flex-column">
 
         {% set seriesHtml %}{% include 'partials/post/series-navigation.html' %}{% endset %}
-        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.series + ' sticky p-3 mb-1') | trim, 'Articles in Serie', seriesHtml) }}
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.series + ' sticky p-3') | trim, 'Articles in Serie', seriesHtml) }}
 
         {% set relatedHtml %}{% include 'partials/post/related-navigation.html' %}{% endset %}
-        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.related + ' sticky p-3 mb-1') | trim, 'Similar Articles', relatedHtml) }}
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.related + ' sticky p-3') | trim, 'Similar Articles', relatedHtml) }}
 
         {% set recentHtml %}{% include 'partials/recent-posts.html' %}{% endset %}
-        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.recent + ' sticky p-3 mb-1') | trim, 'Recent Posts', recentHtml) }}
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.recent + ' sticky p-3') | trim, 'Recent Posts', recentHtml) }}
 
         {% set tagCloudHtml %}{% include 'partials/tag-cloud.html' %}{% endset %}
-        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.tagCloud + ' sticky p-3 mb-1') | trim, 'Tag Cloud', tagCloudHtml) }}
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.tagCloud + ' sticky p-3') | trim, 'Tag Cloud', tagCloudHtml) }}
 
         {% set tocHtml %}{% include 'partials/toc.html' %}{% endset %}
-        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.toc + ' sticky p-3 mb-1') | trim, 'Table of Contents', tocHtml) }}
+        {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.toc + ' sticky p-3') | trim, 'Table of Contents', tocHtml) }}
 
     </div>
 
