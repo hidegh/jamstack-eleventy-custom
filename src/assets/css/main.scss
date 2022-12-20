@@ -32,10 +32,16 @@ Custom variables
 */
 :root {
     --navbar-main-min-height: 5em;
+    
     --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
     --font-family-tall: "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
+    
     --color-delimiter: steelblue;
     --color-highlight: orange;
+
+    // NOTE: consider using ghostwhite for BG;
+    --color-bg-main: var(--bs-white);
+    --color-bg-content: var(--bs-white);
 }
 
 /*
@@ -109,6 +115,49 @@ Container
     @extend .container;
     // ...but we need to remowe the max-width constraint
     max-width: 100% !important;
+}
+
+/*
+Styling
+*/
+main {
+    // NOTE: consider adding pictures to fill out the space (it's usually nicer as a plain color fill)
+    background-color: var(--color-bg-main);
+
+    // NOTE: our layout template allows us to add extra classes to the layout, which we can use to alter design for a concrete content
+    .layout {
+        .search-results-container {
+            @extend .px-3;
+            @extend .px-lg-5;
+            background-color: var(--color-bg-content);
+        }
+    }
+
+    .layout-page,
+    .layout-post {
+        margin-top: .5em;
+        margin-bottom: .5em;
+
+        .main-container {
+            .main-content {
+                background-color: var(--color-bg-content);
+                // NOTE: consider adding shadows to separate content from the background / margin
+                // box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
+            }
+
+            aside {
+                .sticky-container {
+                    .sticky {
+                        background-color: var(--color-bg-content);
+                        border-top: 1px solid var(--color-bg-main);
+                        // NOTE: consider adding shadows to separate content from the background / margin (especially if there's one for the main-content)
+                        // box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 /*
