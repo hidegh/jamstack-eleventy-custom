@@ -13884,6 +13884,8 @@ Custom variables
   --font-family-tall: "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
   --color-delimiter: steelblue;
   --color-highlight: orange;
+  --color-bg-main: var(--bs-white);
+  --color-bg-content: var(--bs-white);
 }
 
 /*
@@ -13951,6 +13953,27 @@ Container
 */
 .no-container {
   max-width: 100% !important;
+}
+
+/*
+Styling
+*/
+main {
+  background-color: var(--color-bg-main);
+}
+main .layout-page,
+main .layout-post {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+main .layout-page .main-content,
+main .layout-post .main-content {
+  background-color: var(--color-bg-content);
+}
+main .layout-page aside .sticky-container .sticky,
+main .layout-post aside .sticky-container .sticky {
+  background-color: var(--color-bg-content);
+  border-top: 1px solid var(--color-bg-main);
 }
 
 /*
