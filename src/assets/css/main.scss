@@ -126,8 +126,10 @@ main {
     background: top center/cover url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) fixed;
 
     // NOTE: our layout template allows us to add extra classes to the layout, which we can use to alter design for a concrete content
-    .layout-main {
+    .layout {
         .search-results-container {
+            @extend .px-3;
+            @extend .px-lg-5;
             background-color: var(--color-bg-content);
         }
     }
@@ -362,7 +364,7 @@ Search
 Main article
 */
 .article {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
 }
 
 /*
