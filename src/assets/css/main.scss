@@ -39,6 +39,7 @@ Custom variables
     --color-delimiter: steelblue;
     --color-highlight: orange;
 
+    // NOTE: consider using ghostwhite for BG;
     --color-bg-main: ghostwhite;
     --color-bg-content: var(--bs-white);
 }
@@ -120,35 +121,41 @@ Container
 Styling
 */
 main {
+    // NOTE: consider adding pictures to fill out the space (it's usually nicer as a plain color fill)
     background-color: var(--color-bg-main);
-    background: top left / cover no-repeat fixed url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg);
+
+    // NOTE: our layout template allows us to add extra classes to the layout, which we can use to alter design for a concrete content
+    .layout-main {
+        .search-results-container {
+            background-color: var(--color-bg-content);
+        }
+    }
 
     .layout-page,
     .layout-post {
-
         margin-top: .5em;
         margin-bottom: .5em;
 
-        .main-content {
-            background-color: var(--color-bg-content);
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
-        }
-
-        aside {
-
-            .sticky-container {
-                
-                .sticky {
-                    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-                    background-color: var(--color-bg-content);
-                    border-top: 1px solid var(--color-bg-main);
-                }
-
+        .main-container {
+            .main-content {
+                background-color: var(--color-bg-content);
+                // NOTE: consider adding shadows to separate content from the background / margin
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
             }
 
+            aside {
+                .sticky-container {
+                    .sticky {
+                        background-color: var(--color-bg-content);
+                        border-top: 1px solid var(--color-bg-main);
+                        // NOTE: consider adding shadows to separate content from the background / margin (especially if there's one for the main-content)
+                        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+                    }
+                }
+            }
         }
-
     }
+
 }
 
 /*
