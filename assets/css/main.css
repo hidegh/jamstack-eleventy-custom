@@ -13961,17 +13961,20 @@ Styling
 main {
   background-color: var(--color-bg-main);
 }
+main .layout-main .search-results-container {
+  background-color: var(--color-bg-content);
+}
 main .layout-page,
 main .layout-post {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-main .layout-page .main-content,
-main .layout-post .main-content {
+main .layout-page .main-container .main-content,
+main .layout-post .main-container .main-content {
   background-color: var(--color-bg-content);
 }
-main .layout-page aside .sticky-container .sticky,
-main .layout-post aside .sticky-container .sticky {
+main .layout-page .main-container aside .sticky-container .sticky,
+main .layout-post .main-container aside .sticky-container .sticky {
   background-color: var(--color-bg-content);
   border-top: 1px solid var(--color-bg-main);
 }
