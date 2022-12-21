@@ -128,7 +128,7 @@ main {
     // NOTE: our layout template allows us to add extra classes to the layout, which we can use to alter design for a concrete content
     .layout {
         .search-results-container {
-            @extend .px-3;
+            @extend .p-3;
             @extend .px-lg-5;
             background-color: var(--color-bg-content);
         }
