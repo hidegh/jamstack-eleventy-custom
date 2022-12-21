@@ -123,6 +123,7 @@ Styling
 main {
     // NOTE: consider adding pictures to fill out the space (it's usually nicer as a plain color fill)
     background-color: var(--color-bg-main);
+    background: top center/cover url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) fixed;
 
     // NOTE: our layout template allows us to add extra classes to the layout, which we can use to alter design for a concrete content
     .layout-main {
