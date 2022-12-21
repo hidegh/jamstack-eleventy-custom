@@ -8135,7 +8135,7 @@ textarea.form-control-lg {
   padding-left: 0.5rem !important;
 }
 
-.px-3 {
+.px-3, main .layout .search-results-container {
   padding-right: 1rem !important;
   padding-left: 1rem !important;
 }
@@ -10922,7 +10922,7 @@ textarea.form-control-lg {
     padding-left: 1.5rem !important;
   }
 
-  .px-lg-5 {
+  .px-lg-5, main .layout .search-results-container {
     padding-right: 3rem !important;
     padding-left: 3rem !important;
   }
@@ -13961,7 +13961,7 @@ Styling
 main {
   background-color: var(--color-bg-main);
 }
-main .layout-main .search-results-container {
+main .layout .search-results-container {
   background-color: var(--color-bg-content);
 }
 main .layout-page,
