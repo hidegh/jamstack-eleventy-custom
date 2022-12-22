@@ -253,7 +253,9 @@ d-sm-none = hide if above sm
             
         
         
-        <i class="fa-solid fa-link fa-fw small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i>
+        <a href onclick="copyLink(); return false;" data-toggle="tooltip" data-placement="top" title="Copy link">
+            <i class="fa-solid fa-link fa-fw small"></i>
+        </a>
     </span>
 </section>
 
@@ -454,7 +456,7 @@ But, for the sake of keeping it simple, we will be using the Google provided def
 <li><strong>metrics</strong>: select <code>ga:pageviews</code></li>
 <li><strong>dimensions</strong>: select <code>ga:pagePath</code></li>
 </ul>
-<p>In order to reduce the returned results and reduce the network bandwidth, we add custom filtering rules [^ga-filters]:</p>
+<p>In order to reduce the returned results and reduce the network bandwidth, we add custom filtering rules <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>:</p>
 <ul>
 <li>
 <p><strong>filters</strong>: fill in <code>ga:pagePath=~^/posts/.*/$;ga:pagePath!@=</code>.</p>
@@ -473,7 +475,13 @@ But, for the sake of keeping it simple, we will be using the Google provided def
 <p>{: file=“_config.yml”}</p>
 <p>Now, you should see the Page View enabled on your blog.</p>
 <h2 id="reference" tabindex="-1">Reference</h2>
-<p>[^ga-filters]: <a href="https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters">Google Analytics Core Reporting API: Filters</a></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters">Google Analytics Core Reporting API: Filters</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
         </section>
 

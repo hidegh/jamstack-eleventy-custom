@@ -253,7 +253,9 @@ d-sm-none = hide if above sm
             
         
         
-        <i class="fa-solid fa-link fa-fw small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i>
+        <a href onclick="copyLink(); return false;" data-toggle="tooltip" data-placement="top" title="Copy link">
+            <i class="fa-solid fa-link fa-fw small"></i>
+        </a>
     </span>
 </section>
 
@@ -356,12 +358,12 @@ d-sm-none = hide if above sm
 </li>
 </ul>
 <h3 id="todo-list" tabindex="-1">ToDo list</h3>
-<ul>
-<li>[ ] Job
-<ul>
-<li>[x] Step 1</li>
-<li>[x] Step 2</li>
-<li>[ ] Step 3</li>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Job
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Step 1</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Step 2</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Step 3</li>
 </ul>
 </li>
 </ul>
@@ -421,7 +423,7 @@ d-sm-none = hide if above sm
 <h2 id="links" tabindex="-1">Links</h2>
 <p><a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></p>
 <h2 id="footnote" tabindex="-1">Footnote</h2>
-<p>Click the hook will locate the footnote[^footnote], and here is another footnote[^fn-nth-2].</p>
+<p>Click the hook will locate the footnote<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, and here is another footnote<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>.</p>
 <h2 id="images" tabindex="-1">Images</h2>
 <ul>
 <li>Default (with caption)</li>
@@ -475,8 +477,15 @@ Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecena
 <pre class="language-sass"><code class="language-sass"><span class="token atrule-line"><span class="token atrule">@import</span></span><br>  <span class="token string">"colors/light-typography"</span><span class="token punctuation">,</span><br>  <span class="token string">"colors/dark-typography"</span></code></pre>
 <p>{: file=‘_sass/jekyll-theme-chirpy.scss’}</p>
 <h2 id="reverse-footnote" tabindex="-1">Reverse Footnote</h2>
-<p>[^footnote]: The footnote source
-[^fn-nth-2]: The 2nd footnote source</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>The footnote source <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>The 2nd footnote source <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
         </section>
 
