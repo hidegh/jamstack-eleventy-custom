@@ -2,6 +2,11 @@
 # the pagination.size does not seems to accept custon data variables
 # so we split the data into page objects (bundles)
 # and render each bundle (thus size: 1)
+layout: page
+asideContentClass:
+  recent: order-0
+  tagCloud: order-1
+  toc: d-none
 pagination:
     data: collections.pagedPostCollection
     alias: customPagination
