@@ -30,6 +30,13 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginTOC = require('eleventy-plugin-nesting-toc');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+const markdownItFootnote = require("markdown-it-footnote");
+const markdownItToc = require("markdown-it-table-of-contents");
+const markdownItEmoji = require('markdown-it-emoji');
+const markdownItSup = require('markdown-it-sup');
+const markdownItSub = require('markdown-it-sub');
+const markdownItSmartArrows = require('markdown-it-smartarrows');
+const markdownItTaskLists = require('markdown-it-task-lists');
 
 // RSS
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -135,7 +142,15 @@ module.exports = function (eleventyConfig) {
             html: true,
             linkify: true,
             typographer: true,
-        }).use(markdownItAnchor, {})
+        })
+        .use(markdownItAnchor, {})
+        .use(markdownItToc, {})
+        .use(markdownItFootnote, {})
+        .use(markdownItSup, {})
+        .use(markdownItSub, {})
+        .use(markdownItEmoji, {})
+        .use(markdownItSmartArrows, {})
+        .use(markdownItTaskLists, {})
     );
 
     // RSS
