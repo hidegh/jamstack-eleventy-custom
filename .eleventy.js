@@ -30,6 +30,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginTOC = require('eleventy-plugin-nesting-toc');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+const markdownItFootnote = require("markdown-it-footnote");
 
 // RSS
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -134,7 +135,9 @@ module.exports = function (eleventyConfig) {
             html: true,
             linkify: true,
             typographer: true,
-        }).use(markdownItAnchor, {})
+        })
+        .use(markdownItAnchor, {})
+        .use(markdownItFootnote, {})
     );
 
     // RSS
