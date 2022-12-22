@@ -33,6 +33,8 @@ const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require("markdown-it-footnote");
 const markdownItToc = require("markdown-it-table-of-contents");
 const markdownItEmoji = require('markdown-it-emoji');
+const markdownItSup = require('markdown-it-sup');
+const markdownItSub = require('markdown-it-sub');
 
 // RSS
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -141,6 +143,8 @@ module.exports = function (eleventyConfig) {
         .use(markdownItAnchor, {})
         .use(markdownItToc, {})
         .use(markdownItFootnote, {})
+        .use(markdownItSup, {})
+        .use(markdownItSub, {})
         .use(markdownItEmoji, {})
     );
 
