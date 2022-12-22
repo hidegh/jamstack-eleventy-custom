@@ -31,6 +31,7 @@ const pluginTOC = require('eleventy-plugin-nesting-toc');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require("markdown-it-footnote");
+const markdownItToc = require("markdown-it-table-of-contents");
 
 // RSS
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -137,6 +138,7 @@ module.exports = function (eleventyConfig) {
             typographer: true,
         })
         .use(markdownItAnchor, {})
+        .use(markdownItToc, {})
         .use(markdownItFootnote, {})
     );
 
