@@ -36,6 +36,7 @@ const markdownItEmoji = require('markdown-it-emoji');
 const markdownItSup = require('markdown-it-sup');
 const markdownItSub = require('markdown-it-sub');
 const markdownItSmartArrows = require('markdown-it-smartarrows');
+const markdownItTaskLists = require('markdown-it-task-lists');
 
 // RSS
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -148,6 +149,7 @@ module.exports = function (eleventyConfig) {
         .use(markdownItSub, {})
         .use(markdownItEmoji, {})
         .use(markdownItSmartArrows, {})
+        .use(markdownItTaskLists, {})
     );
 
     // RSS
