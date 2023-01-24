@@ -1,12 +1,12 @@
 ---
 title: Hire me!
-permalink: /hire-fte/
+permalink: /hire-me/
 layout: page
 aside: 3
 pageData:
   calendlyUrl: https://calendly.com/balazs-hideghety/
   linkedInUrl: https://www.linkedin.com/in/hideghety/
-  cvUrl: balazs_HIDEGHETY_dotNET_and_Angular_Technical_LEAD_and_Architect_CV.pdf
+  cvUrl: balazs_HIDEGHETY_-_senior_software_technician.pdf
   whatServicerUrl: /#who-what-services
   caseStudiesUrl: /#case-studies
   successStoryUrl: /success-stories/ih-tla
@@ -17,7 +17,7 @@ scripts: |
   </script>
 ---
 
-# Technical LEAD & Architect | .NET & Angular
+# Technical LEAD: CTO | VP | Director of SWE
 <img class="skip-float-end" style="height: 12em;" src="{{ page | absoluteImageUrl('./business card.png') | url }}" alt="image" />
 
 - - - 
@@ -38,20 +38,31 @@ I possess over **20 years of experience** in software **development, architectur
 - - -
 
 ## Roles I Consider
-1. Only on-hands **technical- and team-LEAD roles** (~20% coding, rest: architecture/BA/PM/lead/mentoring)
-2. Must be **.NET** based, **Angular** is a complementary stack
-3. **100% REMOTE** (no hybrid)
-4. Considering just **EST / CST based teams**
-5. **FT (full time ~ 40hrs/week) but only on C2C** (I have my own company - do invoicing, all work is conducted by me so: no 3rd parties, there’s no need for work permit nor GC)
+1. **Technical leadership roles** only
+1. **100% REMOTE** (no hybrid)
+1. Considering just within **US** and just **EST / CST based** teams
+1. Consultancy role, so **C2C** (I'm not interested in any form of regular employment, need no permit, need no GC)
 
 ## What I Do
 1. **On-hand technical leadership**
-1. **Mentoring** with focus on effective, simple, and easy to comprehend principles
+1. ~20% coding if stack is **.NET** and **Angular**
+1. **Make key decisions related to software development and align it to the business strategy**
+1. Act as a liaison between the software development team and other departments
+1. **Overseeing the development process of external vendors and agencies** - creating Request for Proposals (RFPs), providing estimations, budgeting and planning for projects...
+1. **Support in hiring** of software talent (design hiring and recruiting plan, write job descriptions)
+1. **Mentor** existing staff with focus on effective, simple, and easy to comprehend principles
+1. **Define software development processes, technology stack, coding standards and process**
+1. **Define architecture, oversee the development and maintenance of software systems**
+1. Define deployment strategy (DevOps)
+
+## Specialities
 1. **Project rescue services** (problem finder services)
 1. **Software development services**, with a focus on **solid architecture** to prevent costly errors and provide long-term low-cost solutions
 1. **Audits** and **second opinion** in software related matters
 
-We offer fair market rate consulting services on a **full-time equivalent** basis (40 hours per week), as well as fractional **technical lead roles**. Our **rates are competitive** with those of a regular employee with **similar experience**.
+<hr/>
+
+We offer fair market rate consulting services on a **fractional** as well as **full-time equivalent** basis (40 hours per week). Our **rates are competitive** with those of a regular employee with **similar experience**.
 
 ## Technologies
 - **.NET** (primary stack), Microsoft **SQL**, Entity Framework, OData, SignalR, **Messaging**, Microsoft **Azure**, IIS 6.5/7

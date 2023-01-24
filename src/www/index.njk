@@ -81,7 +81,6 @@ styles: |
       left: 0;
       right: 0;
       z-index: -1;
-      background-color: rgba(0, 0, 0, calc(2/3));
     }
 
     .btn {
@@ -164,7 +163,7 @@ Env: {{ meta.env }}
     <!-- ST: LANDING -->
     <section class="jarallax landing" data-jarallax data-video-src="mp4:/assets/bg/team/pexels-edmond-dantes-production ID_4427212.mp4">
 
-      <div class="overlay"></div>
+      <div class="overlay bg-black-1-2"></div>
 
       <img class="jarallax-img" src="/assets/bg/handshake/pexels-fauxels-3183197.jpg">
 
@@ -234,20 +233,21 @@ Env: {{ meta.env }}
 
                 <div class="text-center">
 
-                  <p class="fs-4 mb-0">
-                    We Believe that <span class="text-nowrap">IT &amp; Software Projects</span> <span class="text-nowrap">can be Done Right!</span>
-                  </p>
+                  <div>
+                    <p class="fs-4 mb-0">Fractional CTO | VP | Director of SWE</p>
+                    <p class="small text-muted lighten-50">Tailored, Economical, Long-term Consulting Solution for Efficient Team Management &amp; Disaster Prevention</p>
+                  </div>
 
                   <hr/>
 
                   <p>
+                    <span class="text-highlight">We Believe that <span class="text-nowrap">IT &amp; Software Projects</span> <span class="text-nowrap">can be Done Right!</span></span>
                     <span class="text-uppercase">We are on a Mission to Make This Happen!</span>
-                    <br/>
                     <span>Our clients trust us to deliver great results - We're here to help them succeed.</span>
                   </p>      
 
-                  <p>
-                    <span class="text-highlight">Consultation &amp; Software Development</span> with <span class="text-highlight">On-hand Technical Leadership</span> for <span class="text-highlight">SME</span>s.
+                  <p class="d-none">
+                    <span class="text-highlight">On-hand Technical Leadership,</span> Consultation &amp; Software Development for <span class="text-highlight">SME</span>s.
                   </p>
 
                   <p class="text-center">
@@ -333,7 +333,7 @@ Env: {{ meta.env }}
   <!-- ET: WHO-WHAT-SERVICES -->
   <section class="jarallax who-what-services" id="who-what-services">
 
-    <div class="overlay"></div>
+    <div class="overlay bg-black-3-4"></div>
 
     <img class="jarallax-img" src="/assets/bg/office/unsplash-domenico-loia-hGV2TfOh0ns.jpg" />    
 
@@ -342,17 +342,27 @@ Env: {{ meta.env }}
     
       <div class="container p-0 wow animate__slideInRight" data-wow-duration="2s">
 
-        <div class="px-5 shadow border text-dark bg-white">
+        <div class="px-5 text-light">
 
           <h1>Who we are</h1>
           <hr/>
 
           <div>
 
-            <p>
-              <span class="fs-5 text-highlight fw-bold">We believe that software projects can be done right!</span>
+            <p class="fs-5">
+              We believe that software projects can be done right!
               <br/>
               We are on a mission to make this happen!
+            </p>
+
+            <p>
+              The distinction between a failed and successful project can often be attributed to small details and the <span class>implementation of continuous improvement strategies</span>.
+              This can be achieved through mentoring and providing the necessary tools and resources.
+              This does not require extensive education or constant management.
+            </p>
+
+            <p>
+              <span class="fs-5 text-highlight">A <span>fractional leader</span> can provide the hands-on technical guidance and supervision required for success.</span>
             </p>
 
             <p>
@@ -362,6 +372,13 @@ Env: {{ meta.env }}
               We have been doing the same thing every day for the last 20 years, and <span class="text-highlight">we know what works</span>...
               
               <span class="fs-5 text-uppercase">That is why we excel.</span>
+            </p>
+            
+            <p class="">
+              <span class>Don't let your next IT project become a failure.</span>
+              Our team has a proven track record of solving software and business problems. Let us help you define, manage, develop and deploy high-quality software that meets your business needs.
+              <br/>
+              <a href="#contact-us" class="fs-5 text-highlight">Contact us today to see how we can help you!</a>
             </p>
 
             <hr/>
@@ -388,16 +405,6 @@ Env: {{ meta.env }}
 
             <hr/>
 
-            <p>
-              Our team has a proven track record of solving software and business problems.
-              <span>We help our clients define, manage, develop, and deploy high-quality software that meets their business needs.</span>
-            </p>
-            
-            <p class="fs-5 text-highlight">
-              Would you like us to help you with your next IT project or to recover (save) the current one?
-              <span class="fw-bold">See how we can Help You!</span>
-            </p>
-
           </div>
 
         </div>
@@ -409,38 +416,105 @@ Env: {{ meta.env }}
     <!-- ST: SERVICES -->
     <section class="services" id="services">
 
-      <div class="container p-0 pb-5">
+      <div class="container p-0 pb-5 wow animate__slideInLeft" data-wow-duration="2s">
 
         <div class="primo px-5 text-light">
 
           <h1>Our Services</h1>
           <hr/>
 
-          <p class="fs-4">
+          <p class="fs-5">
             <span class="text-highlight">You’re UNIQUE!</span>
             Thus the decision to go with a FAANG approach at your company might not work out!
           </p>
 
-          <p>
-            We <span class="text-highlight">follow and adjust</span> a set of <span class="text-highlight">simple guidelines</span> in order to <span class="text-highlight">address your SPECIFIC situation</span>:
-            <ul>
-              <li>Simple is always BETTER!</li>
-              <li>No nonsense and buzzword recommendations!</li>
-              <li>Start small and scale (see: <a href=" https://martinfowler.com/bliki/MonolithFirst.html">Martin Fowler's article on "Microservices"</a>)!</li>
-              <li>No huge upfront design! Just enough to avoid quality problems, rather than mitigating them!</li>
-              <li>Visible outputs within months!</li>
-            </ul>
+          <p class="fs-5">
+            We Provide <span class="text-highlight">Simple and Manageable Solutions...that Works for You!</span>
           </p>
-
-          <p class="fs-4 text-highlight">
-            Simple and Manageable Solutions...that Works for You!
-          </p>
-          
+        
         </div>
 
-        <div class="secundo p-3 p-lg-0 mt-5 wow animate__slideInUp">
+        <div class="secundo p-3 pt-0 p-lg-0 wow animate__slideInUp">
 
           <div class="row gy-3 align-items-stretch">
+
+            <!-- FCTO -->
+            <div class="col-12">
+              <div class="text-light h-100 p-3 px-lg-4 d-flex flex-column">
+                <h5 class="text-center text-uppercase fw-bold"><span class="ps-2">Fractional Leadership</span><span class="text-muted lighten-80"> | CTO | VP | Director of SWE - As A Service</span></h5>
+                <hr/>
+                <h6 class="text-center text-uppercase darken-20">Because positive effects do not require full-time employment, only a long-term commitment to continuous improvement.</h6>
+                <div class="flex-grow-0">
+
+                  <div class="py-3">
+                    <p>
+                      <span class="text-highlight">Unlock the full potential of your business with fractional CTO services.</span>
+                      Will provide you with tailored solutions for your specific needs, without the commitment of a full-time CTO.
+                      We follow and adjust a set of simple guidelines in order to <span>address your specific situation</span> and help you scale at your own pace.
+                    </p>
+
+                    <p>
+                      Our approach is to start small and scale up as your business grows (see: <a href=" https://martinfowler.com/bliki/MonolithFirst.html" class="lighten-40">Martin Fowler's article on "Microservices"</a>).
+                      This way you can avoid huge upfront design and focus on quality and performance.
+                      With our visible outputs within months, you can rest assured that your technology is in good hands, and you can focus on growing your business.
+                    </p>
+                    
+                    <p class="text-highlight">
+                      Don't let technology hold you back, let us help you take your business to the next level.
+                    </p>
+
+                    <div class="d-flex justify-content-center">
+                      <ul>
+                        <li>Long-term, cost-effective solution to avoid disasters and effectively manage teams without full-time commitment</li>
+                        <li>No huge upfront design! Just enough to avoid future problems.</li>
+                        <li>Start small and scale! <span class="text-highlight">Visible outputs within months!</span></li>
+                        <li>Simple, easy to follow guidelines, no nonsense and buzzword recommendations!</li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                  <div class="row gy-3 align-items-stretch">
+                    
+                    <div class="col-lg-5">
+                      <p class="text-center text-uppercase fw-bold">Business – Non technical</p>
+                      <hr/>
+                      <ul class="small">
+                        <li>Make key decisions related to software development and align it to the business strategy</li>
+                        <li>Act as a liaison between the software development team and other departments</li>
+                        <li>Identify and implement process improvements to increase efficiency and effectiveness of the software development team and business</li>
+                        <li>Define business analysis process for requirements gathering, validation and commitment to work</li>
+                        <li>Creating RFPs, estimations (budgeting) and planning, overseeing the development process of external vendors (agencies)</li>
+                      </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                      <p class="text-center text-uppercase fw-bold">HR</p>
+                      <hr/>
+                      <ul class="small">
+                        <li>Support in hiring of software talent (design hiring and recruiting plan)</li>
+                        <li>Write job descriptions</li>
+                        <li>Mentor existing staff</li>
+                      </ul>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <p class="text-center text-uppercase fw-bold">Technology and development</p>
+                      <hr/>
+                      <ul class="small">
+                        <li>Software development processes & code audit</li>
+                        <li>Define software development processes, technology stack, coding standards and process</li>
+                        <li>Define architecture, oversee the development and maintenance of software systems</li>
+                        <li>Define deployment strategy (DevOps)</li>
+                        <li>Mentoring</li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div><!-- FCTO -->
 
             <div class="col-lg">
               <div class="text-dark bg-light h-100 p-3 px-lg-4 border shadow d-flex flex-column">
