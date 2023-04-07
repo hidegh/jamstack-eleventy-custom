@@ -15,8 +15,8 @@ BOOTSTRAP
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,700italic);
 
 // Best themestr themes: boldstrap-purple, grayson, lovey, tequila
-// Best bootswatch themes: darkly*, flatly, litera, materia, sandstone, slate*, superhero*, yeti
-@import "./bootswatch/bs5/materia/variables";
+// Best bootswatch themes: darkly* (dark) & flatly (light) + litera, materia, sandstone, slate*, superhero*, yeti
+// @import "./bootswatch/bs5/materia/variables";
 $enable-negative-margins: true;
 
 $headings-font-family:"Source Sans Pro", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -25,7 +25,7 @@ $font-family-base: "Source Sans Pro", "Times New Roman", serif;
 $nav-link-font-weight: 400;
 
 @import "bootstrap";
-@import "./bootswatch/bs5/materia/bootswatch";
+// @import "./bootswatch/bs5/materia/bootswatch";
 
 /*
 Custom variables
@@ -550,7 +550,7 @@ ul.posts {
     font-size: 1rem;
 
     .catalogue-pin {
-        color: $info;
+        color: var(--bs-info);
     }
 
     .catalogue-title {
@@ -561,7 +561,7 @@ ul.posts {
         -webkit-transition: all 0.3s ease-out;
         -moz-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
-        border-top: 0.25rem solid $primary;
+        border-top: 0.25rem solid var(--bs-primary);
         display: block;
         width: 4rem;
         padding-bottom: 1em;

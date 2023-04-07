@@ -6,6 +6,7 @@
 # asideBreak: sm|md|lg|xl|xxl
 # asideMobile: true
 #
+theme: dark
 extraLayoutClasses:
 container: true
 searchResultsContainer: true
@@ -31,7 +32,7 @@ mermaid: false
 
 {% block main %}
 
-    <div class="{{- ('layout layout-' + layout + ' ' + (extraLayoutClasses if extraLayoutClasses else '')) | trim -}}">
+    <div class="{{- ('layout layout-' + layout + ' ' + (extraLayoutClasses if extraLayoutClasses else '')) | trim -}}" data-bs-theme="{{ theme }}">
 
         <div class="{{- 'main-container ' + bs_br.getBreakpointClass(container, "container", "container-fluid g-0") -}}">
 
