@@ -1,0 +1,29 @@
+.dynamic-headings {
+
+    // Define the font-size variables as a list
+    $font-sizes: (
+    $h1-font-size,
+    $h2-font-size,
+    $h3-font-size,
+    $h4-font-size,
+    $h5-font-size,
+    $h6-font-size
+    );
+
+    // Loop through the heading levels and create new styles
+    @for $i from 1 through 6 {
+        // Set the current heading level based on the loop variable
+        $heading-level: h#{$i};
+        
+        // Get the font size from the list based on the current heading level
+        $font-size: nth($font-sizes, $i);
+        
+        $new-size: calc($font-size / $font-size-base);
+
+        // Create new styles for the current heading level
+        #{$heading-level} {
+            font-size: #{$new-size}em;
+        }
+    }
+
+}

@@ -17,7 +17,7 @@
     {%- endif -%}
 {%- endset -%}
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-bs-theme="{{ theme }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -131,6 +131,9 @@
     </head>
     <body class="fit-height">
 
+        <!-- cookie consent script -->
+        {% include 'partials/js/cookie-consent.html' %}
+
         <header class="sticky-top">
             {% include 'layouts/_navigation.html' %}
         </header>
@@ -149,9 +152,8 @@
         {% include 'partials/js/mathjax.html' %}
         {% include 'partials/js/mermaid.html' %}
 
+        <!-- cookie consent dependent scripts and features -->
         {% include 'partials/js/google-analytics.html' %}
-
-        {% include 'partials/js/cookie-consent.html' %}
 
     </body>
 

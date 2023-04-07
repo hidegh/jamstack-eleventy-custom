@@ -1,0 +1,7 @@
+/*
+Color overrides for mermaid (and mathjax) - as it needs a light background for thin lines to be visible (have contrast)
+*/
+.mermaid {
+    @extend .bg-body;
+    display: inline-block;   
+}

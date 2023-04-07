@@ -75,7 +75,7 @@ We offer fair market rate consulting services on a **fractional** as well as **f
 
 If all above criteria are met and you like my experience and are considering me, <a class="fw-bold" href="{{ pageData.calendlyUrl }}" target="_blank">feel free to reserve a time for a call (Zoom) [link]</a>.
 
-<p class="small text-muted">
+<p class="small text-body-secondary">
     <span class="fw-bold">NOTE:</span> I allowed scheduling without a notice time, so <span class="fw-bold">if you plan the call within the upcoming 1-4 hrs, plz. make sure to drop a message on LinkedIn</span> (it’s easy to miss if not planned ahead, and I really would not want to waste your time).
 </p>
 

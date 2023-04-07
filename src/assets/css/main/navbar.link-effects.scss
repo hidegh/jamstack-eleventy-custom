@@ -1,0 +1,90 @@
+/*
+Navbar link effects: default, active, hover
+*/
+:root {
+    --nav-link-active-line-height: .2em;
+    --nav-link-active-line-color: var(--bs-warning);
+}
+
+@mixin nav-link-default {
+    
+}
+
+@mixin nav-link-active-layer {
+    height: var(--nav-link-active-line-height);
+    background-color: var(--nav-link-active-line-color);
+}
+
+@mixin nav-link-hover-start-layer {    
+    @include nav-link-active-layer();   
+    width: 0%;
+    filter: brightness(0.5);
+}
+
+@mixin nav-link-hover-mid-layer {    
+    @include nav-link-active-layer();   
+    width: 100%;
+}
+
+@mixin nav-link-hover-end-layer {
+    @include nav-link-active-layer();   
+    width: 100%;
+    height: 100%;
+    filter: brightness(.8);
+}
+
+.navbar-main {
+    
+    .nav-link {
+        position: relative !important;
+        transition: all 2s;
+
+        @include nav-link-default();
+
+        &.active {            
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                @include nav-link-active-layer();
+            }
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        &:hover{
+            z-index: 1;
+            
+            &:after {
+                z-index: -1;
+                animation: nav-link-effect 1s forwards;
+                opacity: 1;   
+            }
+        }
+    }
+
+    /* Keyframes */
+    @keyframes nav-link-effect {
+
+        0% {
+            @include nav-link-hover-start-layer();
+        }
+
+        50% {
+            @include nav-link-hover-mid-layer();
+        }
+
+        100% {
+            @include nav-link-hover-end-layer();
+        }
+    }
+
+}

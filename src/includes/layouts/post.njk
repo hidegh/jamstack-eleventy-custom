@@ -30,36 +30,36 @@ comments: true
     #}
     {% set post = collections.all | getCollectionItem(page) %}
     
-    <section class="p-3 px-lg-5 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
+    <section class="d-flex justify-content-end align-items-center d-hide-if-empty">
         {{ m_share.withTitle(share, globals, page, 'Share post') }}
     </section>
     
-    <section class="article print-container p-3 px-lg-5 mb-3">
+    <section class="article print-container">
 
         <section>
             <h1>{{ title }}</h1>
             {% if post.data.series %}
             <p>This article is part of the serie: <a href="{{ globals.serie.path | normalize | url }}{{ post.data.series | slug }}">{{ post.data.series }}</a></p>
-            <section class="pb-3">
-                {% include 'partials/post/series-prev-next-navigation.html' %}
-            </section>
+            {#
+            {% include 'partials/post/series-prev-next-navigation.html' %}
+            #}
             {% endif %}
         </section>
     
-        <section class="small">
-            <div class="row row-cols-auto gx-3">
-                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>{{ post.data.date | readableDate }}</div>
-                <div class="col"><i class="fa-regular fa-user fa-fw"></i>{{ post.data.author }}</div>
-                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> {{ post.templateContent | readingTime }} reading time</div>
-            </div>
-        </section>
-
-        <section class="small text-muted d-flex gap-3">
+        <section class="taxonomy small d-xl-flex gap-3 pb-3">
             {%- if globals.post.showCategories -%}{% include "partials/post/_categories.html" %}{%- endif -%}
             {%- if globals.post.showTags -%}{% include "partials/post/_tags.html" %}{%- endif -%}
         </section>
 
-        <hr/>
+        <section class="small pb-3">
+            <div><span class="text-body-secondary">Posted</span> {{ post.data.date | readableDate }}</div>
+            <div class="d-xl-flex justify-content-start gap-3">
+                <div><span class="text-body-secondary">By</span> {{ post.data.author }}</div>
+                <div class="ms-auto">{{ post.templateContent | readingTime }} <span class="text-body-secondary">reading time</span></div>
+            </div>
+        </section>
+
+        <hr class="m-1" />
 
         <section class="pb-3">
             {% if (post | hasImage) -%}
@@ -69,34 +69,45 @@ comments: true
         </section>
 
     </section>
+     
+{% endblock %}
 
-    <section class="p-3 px-lg-5">
+{% block articleTail %}
+    
+    <hr class="m-1" />
+
+    <section class="further-reading">
+        <h5 class="text-body-secondary">Further Reading</h5>
+        {% include 'partials/post/related-navigation.html' %}
         {% include 'partials/post/prev-next-navigation.html' %}
     </section>
 
-    <section class="p-3 px-lg-5 d-hide-if-empty">
+    <section class="d-hide-if-empty">
         {% include 'partials/js/disqus.html' %}
+        {% include 'partials/js/gisqus.html' %}
     </section>
-  
+
 {% endblock %}
 
 {% block aside %}
 
     <div class="sticky-container d-flex flex-column">
 
-        {% set seriesHtml %}{% include 'partials/post/series-navigation.html' %}{% endset %}
+        <div non-sticky-heading></div>
+
+        {% set seriesHtml %}{% include 'partials/post/aside/series-navigation.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.series + ' sticky p-3') | trim, 'Articles in Serie', seriesHtml) }}
 
-        {% set relatedHtml %}{% include 'partials/post/related-navigation.html' %}{% endset %}
+        {% set relatedHtml %}{% include 'partials/post/aside/related-navigation.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.related + ' sticky p-3') | trim, 'Similar Articles', relatedHtml) }}
 
-        {% set recentHtml %}{% include 'partials/recent-posts.html' %}{% endset %}
+        {% set recentHtml %}{% include 'partials/aside/recent-posts.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.recent + ' sticky p-3') | trim, 'Recent Posts', recentHtml) }}
 
-        {% set tagCloudHtml %}{% include 'partials/tag-cloud.html' %}{% endset %}
+        {% set tagCloudHtml %}{% include 'partials/aside/tag-cloud.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.tagCloud + ' sticky p-3') | trim, 'Tag Cloud', tagCloudHtml) }}
 
-        {% set tocHtml %}{% include 'partials/toc.html' %}{% endset %}
+        {% set tocHtml %}{% include 'partials/aside/toc.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.toc + ' sticky p-3') | trim, 'Table of Contents', tocHtml) }}
 
     </div>

@@ -32,8 +32,19 @@
         });
     }
 
-    {%- if (globals.cookieConsent.required == false or globals.googleAnalytics.useCcLoader == false) %}
-    loadGA(globals.googleAnalytics.anonymizeIp);
-    {%- endif %}
+    const consentRequired = !!{{ globals.cookieConsent.required }};
+    const anonymizeIp = !!{{ globals.googleAnalytics.anonymizeIp }};
+
+    if (consentRequired == false) {
+        loadGA(anonymizeIp);
+    } else {
+        switch (CookieConsent.getStatus()) {
+            case CookieConsent.StatusEnum.enabled:
+                loadGA(anonymizeIp);
+            default:
+                // no consent given (or no answer ~ default) - we need to anonymize IP
+                loadGA(true);
+        }
+    }
 </script>
 {% endif %}

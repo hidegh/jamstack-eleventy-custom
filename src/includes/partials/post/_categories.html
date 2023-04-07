@@ -1,7 +1,7 @@
 {% if post.data.categories and post.data.categories.length %}
 <div class="d-flex">
     <div class="d-inline-block me-1">
-        <a href="{{ globals.categories.path | url }}"><i class="far fa-fw fa-folder-open"></i></a>
+        <a href="{{ globals.categories.path | url }}"><i class="fa-regular fa-fw fa-folder-open text-body-secondary"></i></a>
     </div>
     <div class="d-inline-block">
         {% for category in post.data.categories %}

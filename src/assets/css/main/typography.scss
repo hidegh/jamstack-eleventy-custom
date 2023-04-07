@@ -1,0 +1,66 @@
+/*
+Generic
+*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+html, body {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 16px;
+    overflow-y: scroll
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.25em;
+    margin-bottom: .5em;
+}
+
+/*
+Extensions
+*/
+.ff-wide {
+    font-family: var(--font-family-wide) !important;
+}
+
+.ff-tall {
+    font-family: var(--font-family-tall) !important;
+}
+
+/*
+Quotes
+*/
+blockquote {
+    font-size: inherit !important;
+    line-height:  inherit !important;
+}
+
+blockquote.quote {
+
+    &:before {
+        content: open-quote;
+    }
+
+    &:after {
+        content: close-quote;
+    }
+
+    &:before,
+    &:after {
+        display: inline-block;
+        vertical-align: bottom;
+        position: relative;
+        font-size: 2em;
+        color: var(--color-delimiter);
+    }
+    
+}
+
+

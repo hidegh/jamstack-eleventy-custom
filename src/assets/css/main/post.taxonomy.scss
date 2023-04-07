@@ -1,0 +1,52 @@
+.taxonomy {
+
+    &.tags,
+    &.categories,
+    &.series {
+       
+        .heading {
+            @extend h1;          
+            .icon { @extend .text-secondary; }
+            .title { }
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 1em;
+
+            li {
+                .badge {
+                    @extend .badge;
+                    @extend .bg-primary;
+                }
+            }
+        }
+    }
+
+    &.tag,
+    &.category {
+
+        .heading {
+            @extend h1;
+
+            text-indent: -6ch;
+            padding-left: 6ch;
+            i { text-indent: 0; /* patch FA issue */ }
+
+            .icon,
+            .prefix {
+                @extend .text-body-secondary;
+            }
+            .title { 
+                @extend .text-body;
+            }
+            .node {
+                @extend .text-nowrap;
+            }
+        }
+    }
+
+    &.tag-cloud {
+        .heading {  @extend h1; }
+    }
+}

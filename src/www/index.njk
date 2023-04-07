@@ -4,6 +4,7 @@ title: Index
 permalink: /
 layout: main
 container: false
+searchResultsContainer: false
 aside: 0
 tags: home
 styles: |
@@ -153,9 +154,10 @@ Env: {{ meta.env }}
 
 {% include 'partials/bs-sample.html' %}
 #}
+{% include 'partials/bs-sample.html' %}
 
 <!-- Content wrapper (due to AOS.JS we need overflow hidden here) -->
-<div id="home" class="overflow-hidden hide-on-search-results-container-display bg-light">   
+<div id="home" class="overflow-hidden hide-on-search-results-container-display">
 
   <!-- LANDING + HINT -->
   <div class="landing-hint">
@@ -235,7 +237,7 @@ Env: {{ meta.env }}
 
                   <div>
                     <p class="fs-4 mb-0">Fractional CTO | VP | Director of SWE</p>
-                    <p class="small text-muted lighten-50">Tailored, Economical, Long-term Consulting Solution for Efficient Team Management &amp; Disaster Prevention</p>
+                    <p class="small text-body-secondary lighten-50">Tailored, Economical, Long-term Consulting Solution for Efficient Team Management &amp; Disaster Prevention</p>
                   </div>
 
                   <hr/>
@@ -268,7 +270,7 @@ Env: {{ meta.env }}
                       <a class="stretched-link" href="https://www.simplyput.com"></a>
                     </span> in the Field of Custom Enterprise Software Development & Team Management.
 
-                    <span class="small text-muted">
+                    <span class="small text-body-secondary">
                       SimplyPut Consulting is a no-nonsense management consulting firm comprised of specialists who have a passion for getting sh*t done. They serve Private Equity and C-Suite leaders around the world to deliver on their most challenging business and technology remediations, transitions, and transformations.
                     </span>
                   </p>  
@@ -441,7 +443,7 @@ Env: {{ meta.env }}
             <!-- FCTO -->
             <div class="col-12">
               <div class="text-light h-100 p-3 px-lg-4 d-flex flex-column">
-                <h5 class="text-center text-uppercase fw-bold"><span class="ps-2">Fractional Leadership</span><span class="text-muted lighten-80"> | CTO | VP | Director of SWE - As A Service</span></h5>
+                <h5 class="text-center text-uppercase fw-bold"><span class="ps-2">Fractional Leadership</span><span class="text-body-secondary lighten-80"> | CTO | VP | Director of SWE - As A Service</span></h5>
                 <hr/>
                 <h6 class="text-center text-uppercase darken-20">Because positive effects do not require full-time employment, only a long-term commitment to continuous improvement.</h6>
                 <div class="flex-grow-0">
@@ -525,7 +527,7 @@ Env: {{ meta.env }}
                   <li>Software Team Setup &amp; Hiring</li>
                   <li>Software Architecture &amp; Development</li>
                 </ul>
-                <h6 class="text-center text-uppercase text-muted">Because it might be a good idea to get a <span class="fw-bold">second opinion</span>.</h6>
+                <h6 class="text-center text-uppercase text-body-secondary">Because it might be a good idea to get a <span class="fw-bold">second opinion</span>.</h6>
               </div>
             </div>
 
@@ -539,7 +541,7 @@ Env: {{ meta.env }}
                   <li>Enterprise Software Development</li>
                   <li>Mentorship</li>
                 </ul>
-                <h6 class="text-center text-uppercase text-muted">
+                <h6 class="text-center text-uppercase text-body-secondary">
                   <span class="fw-bold">Beware:</span> having a <span class="fw-bold">Stage 6 Lead</span> on your team can lead to <span class="fw-bold">more quality, less issues</span>, and non-slowing development.
                   <span class="fw-bold">Wanna risk it?!</span>
                 </h6>
@@ -555,7 +557,7 @@ Env: {{ meta.env }}
                   <li>Suggesting solutions</li>
                   <li>Increasing productivity</li>
                 </ul>
-                <h6 class="text-center text-uppercase text-muted">
+                <h6 class="text-center text-uppercase text-body-secondary">
                   <span class="fw-bold">Learn what’s broken!</span>
                   <br/>
                   As for non-technical managers, some performance and quality related issues may sometimes be <span class="fw-bold">difficult to identify</span>.
@@ -572,7 +574,7 @@ Env: {{ meta.env }}
                   <li>Job-description 101 Cheat Sheet</li>
                   <li>The Effective Software Developer 101 - Training Material</li>
                 </ul>
-                <h6 class="text-center text-uppercase text-muted">
+                <h6 class="text-center text-uppercase text-body-secondary">
                   <span class="fw-bold">Focus on what really matters!</span>
                   <br/>
                   Try not to let your team waste energy on things that won't help it progress.

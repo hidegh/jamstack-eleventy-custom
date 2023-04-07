@@ -36,9 +36,9 @@ site:
     rss: /rss.xml
     searchIndex: /search.json
   posts:
-    navbarMenuEnabled: false
+    navbarMenuEnabled: true
   search:
-    navbarMenuEnabled: false
+    navbarMenuEnabled: true
     collections:
       - postCollection
       - www
@@ -56,16 +56,24 @@ cookieConsent:
 
 # google analytics
 googleAnalytics:
-    id:                             # GA https://tagmanager.google.com/
-    anonymizeIp: true               # only when loaded automatically
-    useCcLoader: true               # if TRUE, cookie consent script is responsible for loading
+  id:                             # GA https://tagmanager.google.com/
+  anonymizeIp: true               # only when loaded automatically
 
 # disqus
 disqus:
-    comments: true                  # boolean type, the global switch for posts comments.
-    shortname:                      # disqus shortname, see › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-    useCcLoader: true               # if TRUE, cookie consent script is responsible for loading
+  enabled: false                  # boolean type, the global switch for posts comments.
+  shortname:                      # disqus shortname, see › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
+# giscus
+gisqus:
+  enabled: false
+  repo: hidegh/hidegh.github.io.giscus
+  repoId: R_kgDOJWRxCQ
+  category: Comments
+  categoryId: DIC_kwDOJWRxCc4CVvXT
+  dataMapping: pathname
+  theme: preferred_color_scheme
+  
 # used by the custom special paging - set's global paging style
 paging:
   pageBaseIndex: 1
@@ -83,7 +91,7 @@ posts:
   showImage: true
   showCategories: true
   showTags: true
-  showContentWhenNoExcerpt: true
+  showContentWhenNoExcerpt: false
   maximizeContent: 200
   maximizeLines: 10
   recent:

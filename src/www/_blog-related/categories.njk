@@ -8,44 +8,50 @@ title: Categories
 eleventyComputed:
   permalink: "{{ globals.categories.path | normalize }}"
 ---
+<div class="taxonomy categories">
 
-<h1>{{ title }}</h1>
+    <div class="heading">
+        <span class="icon"><i class="fa-solid fa-folder-open fa-fw"></i></span>
+        <span class="title">{{ title }}</span>
+    </div>
 
-{% set level = 0 %}
+    {% set level = 0 %}
 
-{% for category in collections.categoryCollection %}
+    {% for category in collections.categoryCollection %}
 
-    {% set ulCount = (category.level - level) | abs %}
+        {% set ulCount = (category.level - level) | abs %}
 
-    {% for i in range(0, ulCount) %}
-        {% if category.level > level %}
-            <ul{% if level == 0 %} class="categories"{% endif %}>
-        {% else  %}
-            </ul>
-        {% endif %} 
+        {% for i in range(0, ulCount) %}
+            {% if category.level > level %}
+                <ul{% if level == 0 %} class="taxonomy categories"{% endif %}>
+            {% else  %}
+                </ul>
+            {% endif %} 
+        {% endfor %}
+
+        <li class="d-flex justify-content-between">
+            <span>
+                <!--
+                <i class="fa-solid fa-angle-right fa-fw"></i>
+                -->
+                <span class="d-inline-block text-end me-1" style="width: 4ch">
+                    <span class="badge bg-secondary">{{category.items.length}}</span>
+                    <!--
+                    <span class="badge bg-primary">{{ category.allItems.length }}</span>
+                    -->
+                </span>
+                <a href="{{ category.categoryUriNonPaged | url | normalize | firstPage(globals.category.postsPageSize) }}">
+                    {{ category.categoryName | capitalize }}
+                </a>
+            </span>
+        </li>
+
+        {% set level = category.level %}
+
     {% endfor %}
 
-    <li class="d-flex justify-content-between">
-        <span>
-            <!--
-            <i class="fa-solid fa-angle-right fa-fw"></i>
-            -->
-            <span class="d-inline-block text-end me-1" style="width: 4ch">
-                <span class="badge bg-secondary">{{category.items.length}}</span>
-                <!--
-                <span class="badge bg-primary">{{ category.allItems.length }}</span>
-                -->
-            </span>
-            <a href="{{ category.categoryUriNonPaged | url | normalize | firstPage(globals.category.postsPageSize) }}">
-                {{ category.categoryName | capitalize }}
-            </a>
-        </span>
-    </li>
+    {% for i in range(0, level) %}
+        </ul>
+    {% endfor %}
 
-    {% set level = category.level %}
-
-{% endfor %}
-
-{% for i in range(0, level) %}
-    </ul>
-{% endfor %}
+</div>
