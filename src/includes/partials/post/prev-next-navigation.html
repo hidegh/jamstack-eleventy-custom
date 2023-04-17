@@ -1,15 +1,17 @@
 {# post nav #}
 {% set prev = collections[globals.posts.collectionName] | getPreviousCollectionItem(page) %}
 {% set next = collections[globals.posts.collectionName] | getNextCollectionItem(page) %}
-<div class="d-flex">
-    {%- if prev.url %}
-    <div class="post-navigation-button text-start me-auto">
-        <a class="btn btn-sm btn-outline-primary" href="{{ prev.url | url }}" title="{{ prev.data.title }}"><i class="fa-solid fa-chevron-left me-3 align-middle"></i>{{ prev.data.title }}</a>
+<section class="post-navigation prev-next">
+    <div class="btn-group btn-group-block d-flex">
+        {%- if prev.url %}
+        <a class="btn btn-sm btn-outline-secondary" prompt="Older" href="{{ prev.url | url }}" title="{{ prev.data.title }}"><div>{{ prev.data.title }}</div></a>
+        {% else %}
+        <a class="btn btn-sm btn-outline-secondary disabled" prompt="Older"><div>-</div></a>
+        {% endif -%}
+        {%- if next.url %}
+        <a class="btn btn-sm btn-outline-primary" prompt="Newer" href="{{ next.url | url }}" title="{{ next.data.title }}"><div>{{ next.data.title }}</div></a>
+        {% else %}
+        <a class="btn btn-sm btn-outline-primary disabled" prompt="Newer"><div>-</div></a>
+        {% endif -%}        
     </div>
-    {% endif -%}
-    {%- if next.url %}
-    <div class="post-navigation-button text-end ms-auto">
-        <a class="btn btn-sm btn-outline-primary" href="{{ next.url | url }}" title="{{ next.data.title }}">{{ next.data.title }}<i class="fa-solid fa-chevron-right ms-3 align-middle"></i></a>
-    </div>
-    {% endif -%}
-</div>
+</section>

@@ -18,7 +18,7 @@ toc: true
 
 {% block content %}
 
-    <section class="article print-container p-3 px-lg-5 mb-3">
+    <section class="article print-container">
         {{ content | safe }}
     </section>
     
@@ -28,13 +28,15 @@ toc: true
 
     <div class="sticky-container d-flex flex-column">
 
-        {% set recentHtml %}{% include 'partials/recent-posts.html' %}{% endset %}
+        <div non-sticky-heading></div>
+
+        {% set recentHtml %}{% include 'partials/aside/recent-posts.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.recent + ' sticky p-3') | trim, 'Recent Posts', recentHtml) }}
 
-        {% set tagCloudHtml %}{% include 'partials/tag-cloud.html' %}{% endset %}
+        {% set tagCloudHtml %}{% include 'partials/aside/tag-cloud.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.tagCloud + ' sticky p-3') | trim, 'Tag Cloud', tagCloudHtml) }}
 
-        {% set tocHtml %}{% include 'partials/toc.html' %}{% endset %}
+        {% set tocHtml %}{% include 'partials/aside/toc.html' %}{% endset %}
         {{ m_asideSticky.renderAsideStickyContainer((asideContentClass.toc + ' sticky p-3') | trim, 'Table of Contents', tocHtml) }}
 
     </div>

@@ -1,13 +1,35 @@
-{% set related =  page | getRelatedNavigationDetails(collections.all, collections[globals.posts.collectionName], globals.post.related.limit) %}
-{%- if globals.post.related.limit > 0 and related.links.length > 0 -%}
-<ul class="related-posts">
+{% set related =  page | getRelatedNavigationDetails(collections.all, collections[globals.posts.collectionName], 3) %}
+{%- if related.links.length > 0 -%}
+<div class="post-navigation related-posts dynamic-headings">
     {% for link in related.links %}
-    <li>
-        {# <span class="badge bg-primary">{{ link.score }}</span> #}
-        <a href="{{ link.page.url | url }}">
-            <span>{{ link.page.data.title }}</span>
-        </a>
-    </li>
+	<div class="card post-preview">
+		
+		<!-- <a class="stretched-link" href="{{ link.page.url | url }}"></a> -->
+
+		<div class="card-body">
+
+			<div class="card-text post-date">{{ link.page.date | readableDate}}</div>
+			<div class="card-title post-title">{{ link.page.data.title }}</div>
+			<div class="card-text post-content">
+				{% if link.page.template.frontMatter.excerpt %}{{ link.page.template.frontMatter.excerpt | truncateHtml(globals.posts.maximizeContent, globals.posts.maximizeLines) | md | safe }}{% elseif globals.posts.showContentWhenNoExcerpt %}{{ link.page.template.frontMatter.content | truncateHtml(globals.posts.maximizeContent, globals.posts.maximizeLines) | md | safe }}{% endif %}
+			</div>
+	
+		</div>
+
+	</div>	
     {% endfor %}
-</ul>
+</div>
 {%- endif -%}
+
+{#
+1: {{ link.page.url }} <br/>
+2: {{ link.page.date }} <br/>
+3: {{ link.page.data.title }} <br/>
+4: {{ link.page.data.author }} <br/>
+5: {{ link.page.data.tags | inspect }} <br/>
+6: {{ link.page.data.categories | inspect }} <br/>
+7: {{ link.page.data.content | inspect }} <br/>
+   {{ link.page.templateContent | inspect }} <br/>
+   {{ link.page.template.frontMatter.content | inspect }} <br/>
+8: {{ link.page.template.frontMatter.excerpt | inspect }} <br/>
+#}

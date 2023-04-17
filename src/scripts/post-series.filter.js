@@ -90,7 +90,7 @@ module.exports = {
         <div class="card-body">
           {% include timeago.html date=post.date class="small" %}
           <h3 class="pt-0 mt-1 mb-3" data-toc-skip>{{ post.title }}</h3>
-          <div class="text-muted small">
+          <div class="text-body-secondary small">
             <p>
               {% include no-linenos.html content=post.content %}
               {{ content | markdownify | strip_html | truncate: LINK_PREVIEW }}

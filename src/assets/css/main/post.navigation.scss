@@ -1,0 +1,85 @@
+/*
+Post-navigation basics...
+*/
+.post-navigation {
+
+    .btn {
+
+        @extend .btn-outline-secondary;
+
+        display: flex;
+        flex-direction: column;
+
+        flex-basis: 100%;
+
+        padding: 1em;
+
+        &.disabled {
+            pointer-events: auto;
+            cursor: not-allowed;
+        }
+
+        &::before {
+            @extend .text-secondary;
+            @extend .lighten-40;
+            text-transform: uppercase;
+            content: attr(prompt);
+        }
+
+        div {
+            padding-top: .5em;
+        }
+    }
+}
+
+/*
+Series navigation - should have smaller paddings
+*/
+.post-navigation.series {
+    .btn {
+        padding-top: .5em;
+        padding-bottom: .5em;
+
+        div {
+            padding-top: .125em;
+        }
+    } 
+}
+
+/*
+Related posts (3)
+*/
+.post-navigation.related-posts {
+    display: flex;
+    flex-direction: row;
+
+    @extend .gap-3;
+    @extend .my-3;
+
+    @extend .small;
+
+    .post-preview {
+        
+        @extend .col;
+
+        .post-date {
+            @extend .text-body-tertiary;
+        }
+
+        .post-title {
+            font-size: 1.6em;
+            line-height: 1.2em;
+        }
+
+        .post-content {
+
+        }
+
+        &:hover {
+                  -webkit-transform: translate3d(0, -3px, 0);
+                  transform: translate3d(0, -.25em, 0);
+                  box-shadow: 0 .75em 1.25em -.25em rgba(0, 0, 0, 0.15);
+                  transition: all 0.4s ease-in-out;
+                }
+    }
+}

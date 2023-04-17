@@ -6,8 +6,10 @@ Motivated by: https://github.com/samsono/sticky-multi-header-scroll
     window.addEventListener('load', () => {
 
         const headerSelector = "header";
+        const nonStickyHeadingAttribute = "non-sticky-heading";
         const stickyContainerSelector = ".sticky-container";
         const stickyElementSelector = ".sticky";
+        const stickyRelatedElementSelector = `.sticky, [${nonStickyHeadingAttribute}]`;
         const stickyElementHeadingSelector = ".heading";
         const stickyElementLinkSelector = ".sticky-link";
 
@@ -40,24 +42,30 @@ Motivated by: https://github.com/samsono/sticky-multi-header-scroll
         stickyContainerEls.forEach(stickyContainerEl => {
 
             const stickyContainerElTop = getTopFromDocument(stickyContainerEl);
-            const sticlyEls = stickyContainerEl.querySelectorAll(stickyElementSelector);          
+            const sticlyRelatedEls = stickyContainerEl.querySelectorAll(stickyRelatedElementSelector);
 
+            var nonStickyHeadingOffset = 0;
             var firstStickyTop = -1;
             var accumulatedStickyHeadingHeights = 0;
             var accumulatedStickyElementHeights = 0;
 
-            // Sort by TOP position
-            const stickyElsArray = Array.from(sticlyEls).sort((a, b) => getTopFromDocument(a) - getTopFromDocument(b));
+            // Sort by TOP position (as we use flex layout with special .order-N classes)
+            const stickyElsArray = Array.from(sticlyRelatedEls).sort((a, b) => getTopFromDocument(a) - getTopFromDocument(b));
             
             stickyElsArray.forEach(stickyEl => {
 
                 // Ignore invis.
                 if (!isVisible(stickyEl)) return;
 
+                if (stickyEl.hasAttribute(nonStickyHeadingAttribute)) {
+                    nonStickyHeadingOffset += getOuterHeight(stickyEl);
+                    return;
+                }
+
                 // Get initial pos.
-                if (firstStickyTop == -1) {                    
+                if (firstStickyTop == -1) {    
                     const stickyElementDistanceFromContainer = getTopFromDocument(stickyEl) - getTopFromDocument(stickyContainerEl);
-                    firstStickyTop = stickyContainerElTop + stickyElementDistanceFromContainer; 
+                    firstStickyTop = stickyContainerElTop + stickyElementDistanceFromContainer - nonStickyHeadingOffset;
                 }
 
                 // Set top for sticky
