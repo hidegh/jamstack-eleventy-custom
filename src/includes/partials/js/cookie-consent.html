@@ -1,55 +1,67 @@
-{% if globals.cookieConsent.required %}
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
-
+<!--
+NOTE:
+    ConsentStatus.enabled is set if no cookie consent is required (globals.cookieConsent.required)...
+    ...otherwise ConsentStatus.default is the default value until consent is not given or denied!
+-->
 <script>
-    const scripts_config = {
+    const CookieConsent = {
 
-        defaultCookies: function () {
-            console.log('default cookies');
-
-            // note: using anonymized IP
-            if (typeof loadGA === 'function') loadGA(true);
-        },
-
-        enableCookies: function () {
-            console.log('enabled cookies');
-
-            if (typeof loadGA === 'function') loadGA(false);
-            if (typeof loadDisqus === 'function') loadDisqus();
-        },
-
-        disableCookies: function () {
-            console.log('disabled cookies');
-
-            this.defaultCookies();
+        StatusEnum: {
+            "default": "default",
+            "enabled": "enabled",
+            "disabled": "disabled"
         },
 
         loadScripts: function (requireConsent, consentUrl) {
             if (requireConsent) {
                 // scripts managed based on consent status
-                this.initializeCookieConsent(consentUrl);
+                this._initializeCookieConsent(consentUrl);
             } else {
                 // all scripts enabled
-                this.enableCookies();
+                this._enableCookies();
             }
         },
 
-        initializeCookieConsent: function (consentUrl) {
+        getStatus() {
+            return localStorage.cookies ?? this.StatusEnum.default;
+        },
+
+        _setStatus(value) {
+            const changed = this.getStatus() != value;
+            localStorage.cookies = value;
+            if (changed) window.location.reload();
+        },
+
+        _defaultCookies: function () {
+            console.log('default cookies');
+            this._setStatus(this.StatusEnum.default);
+        },
+
+        _enableCookies: function () {
+            console.log('enabled cookies');
+            this._setStatus(this.StatusEnum.enabled);
+        },
+
+        _disableCookies: function () {
+            console.log('disabled cookies');
+            this._setStatus(this.StatusEnum.disabled);
+        },
+
+        _initializeCookieConsent: function (consentUrl) {
 
             const me = this;
 
             window.cookieconsent.initialise({
                 "palette": {
                     "popup": {
-                        "background": "#edeff5",
-                        "text": "#838391"
+                        "background": "#aa0000",
+                        "text": "#ffdddd"
                     },
                     "button": {
-                        "background": "#4b81e8"
+                        "background": "#ff0000"
                     }
                 },
+                "theme": "edgeless",
                 "position": "bottom-right",
                 "type": "opt-in",
                 "content": {
@@ -62,14 +74,15 @@
 
                     var type = this.options.type;
                     var didConsent = this.hasConsented();
+                    
                     if (type == 'opt-in' && didConsent) {
-                        me.enableCookies();
+                        me._enableCookies();
                     }
                     else if (type == 'opt-out' && !didConsent) {
-                        me.disableCookies();
+                        me._disableCookies();
                     }
                     else {
-                        me.defaultCookies();
+                        me._defaultCookies();
                     }
                 },
 
@@ -78,11 +91,12 @@
 
                     var type = this.options.type;
                     var didConsent = this.hasConsented();
+
                     if (type == 'opt-in' && didConsent) {
-                        me.enableCookies();
+                        me._enableCookies();
                     }
                     if (type == 'opt-out' && !didConsent) {
-                        me.disableCookies();
+                        me._disableCookies();
                     }
                 },
 
@@ -91,14 +105,15 @@
                     console.log(`cc - onRevokeChoice`);
 
                     var type = this.options.type;
+
                     if (type == 'opt-in') {
-                        me.disableCookies();
+                        me._disableCookies();
 
                         // NOTE: we need to reload page, so that we get rid of the loaded GA / Disqus scripts!
                         location.reload();
                     }
                     if (type == 'opt-out') {
-                        me.enableCookies();
+                        me._enableCookies();
                     }
                 },
 
@@ -115,10 +130,18 @@
         }
 
     };
+</script>
 
+{% if not globals.cookieConsent.required %}
+<script>
+    CookieConsent._setStatus(CookieConsent.StatusEnum.enabled)
+</script>
+{% else %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
+<script>
     const requireConsent = JSON.parse('{{ globals.cookieConsent.required }}');
-    const consentUrl = '{{ globals.cookieConsent.consentUrl | url }}';
-    
-    scripts_config.loadScripts(requireConsent, consentUrl);
+    const consentUrl = '{{ globals.cookieConsent.consentUrl | url }}';  
+    CookieConsent.loadScripts(requireConsent, consentUrl);
 </script>
 {% endif %}

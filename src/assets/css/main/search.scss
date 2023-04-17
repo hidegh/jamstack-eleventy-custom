@@ -1,0 +1,22 @@
+#search-results-container {
+
+    .search-results-wrapper {
+        @extend .p-3;
+
+        ul.search-results {
+
+            padding: 1em 0;
+            padding-left: 0em;
+        
+            li {
+                list-style: none;
+                padding: 0 0 1em 0;
+        
+                .search-result-item {
+                    padding: 1em;
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,42 @@
+/*
+NOTE: BS 5 is missing the possibility to include an icon into the input, so we added it.
+
+Sample:
+
+    <div class="inline-input-group inline-text-right">
+        <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" class="form-control bg-dark text-light">
+    </div>
+
+*/
+.inline-input-group {
+
+    position: relative;
+
+    &:not(.inline-text-right), &.inline-text-left {
+        & .inline-text {
+            left: .5em;
+        }
+        & input {
+            padding-left: 2em;
+        }
+    }
+
+    &.inline-text-right {
+        & .inline-text {
+            right: .5em;
+        }
+        & input {
+            padding-right: 2em;
+        }
+    }
+
+    .inline-text {
+        position: absolute;
+
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+}

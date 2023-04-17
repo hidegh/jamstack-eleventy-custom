@@ -1,0 +1,47 @@
+{% if globals.gisqus.enabled and comments %}
+<div id="giscus" class="giscus">
+    <p class="font-italic text-center text-body-secondary small">
+        Comments powered by <a href="https://giscus.app/">Gisqus</a> - function requires cookie consent (see drawer at the bottom right corner)!
+    </p>
+</div>
+<script>
+    const consentRequired = {{ globals.cookieConsent.required | dump }};
+    const consentGiven = !!(CookieConsent.getStatus() == CookieConsent.StatusEnum.enabled);
+    
+    if (consentRequired == false || consentGiven) {
+        const script = document.createElement('script');        
+        script.src = 'https://giscus.app/client.js';
+        script.dataset.repo = '{{ globals.gisqus.repo }}';
+        script.dataset.repoId = '{{ globals.gisqus.repoId }}';
+        script.dataset.category = '{{ globals.gisqus.category }}';
+        script.dataset.categoryId = '{{ globals.gisqus.categoryId }}';
+        script.dataset.mapping = '{{ globals.gisqus.dataMapping }}';
+        script.dataset.strict = '1';
+        script.dataset.reactionsEnabled = '1';
+        script.dataset.emitMetadata = '0';
+        script.dataset.inputPosition = 'bottom';
+        script.dataset.theme = '{{ globals.gisqus.theme }}';
+        script.dataset.lang = 'en';
+        script.setAttribute('crossorigin', 'anonymous');
+        script.setAttribute('async', null);
+        (document.head || document.body).appendChild(script);
+    }
+</script>
+{% endif %}
+{#
+<script src="https://giscus.app/client.js"
+        data-repo="{{ globals.gisqus.repo }}"
+        data-repo-id="{{ globals.gisqus.repoId }}"
+        data-category="{{ globals.gisqus.category }}"
+        data-category-id="{{ globals.gisqus.categoryId }}"
+        data-mapping="{{ globals.gisqus.dataMapping }}"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="{{ globals.gisqus.theme }}"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+#}

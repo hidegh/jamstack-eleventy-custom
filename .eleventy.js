@@ -92,7 +92,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('truncateHtml', function(value, charLimit, lineLimit) { return clip(value, charLimit, { html: true, maxLines: lineLimit }); });
 
     // NOTE: 2019-08-11T00:34:00+0800 dates with offset are not accepted via 11ty v0.12.1
-    eleventyConfig.addFilter("readableDate", dateObj => { return dateObj ? DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy") : 'N/A'; });
+    eleventyConfig.addFilter("readableDate", dateObj => { return dateObj ? DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("LLL dd, yyyy") : 'N/A'; });
 
     eleventyConfig.addFilter('firstPage', function(value, doPaging) { return customPagination.firstPage(value, doPaging); });
 

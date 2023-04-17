@@ -6,7 +6,7 @@ Font-awesome
 
 /*
 BOOTSTRAP
-- we use overrides, need just to make sure that the grid classes won't get disabled!
+- we use overrides, need just to make sure that the grid classes and negative margins won't get disabled!
 */
 
 // Best google fonts 2022: Helvetica Neue, Roboto, Open Sans, Kato, Monsterrat, Oswald, Source Sans Pro, Slabo, Raleway, PT Sans, Merriweather, Noto Sans / Serif, Nunito Sans, Concert One, Prompt, Work Sans
@@ -14,9 +14,17 @@ BOOTSTRAP
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,400italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,700italic);
 
+// Tools:
+// - https://bootswatch.com/
+// - https://paletton.com/
+// - https://www.materialpalette.com/
+// - https://huemint.com/bootstrap-basic/
+// - http://colormind.io/bootstrap/
+// - https://coolors.co/
+
 // Best themestr themes: boldstrap-purple, grayson, lovey, tequila
-// Best bootswatch themes: darkly*, flatly, litera, materia, sandstone, slate*, superhero*, yeti
-@import "./bootswatch/bs5/materia/variables";
+// Best bootswatch themes: darkly* (dark) & flatly* (light) + litera, materia **, sandstone, slate*, superhero*, yeti
+// @import "./bootswatch/bs5/materia/variables";
 $enable-negative-margins: true;
 
 $headings-font-family:"Source Sans Pro", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -24,591 +32,60 @@ $font-family-base: "Source Sans Pro", "Times New Roman", serif;
 
 $nav-link-font-weight: 400;
 
+
 @import "bootstrap";
-@import "./bootswatch/bs5/materia/bootswatch";
+// @import "./bootswatch/bs5/materia/bootswatch";
 
 /*
 Custom variables
 */
 :root {
-    --navbar-main-min-height: 5em;
-    
-    --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
-    --font-family-tall: "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
-    
+
+    // color extensions
     --color-delimiter: steelblue;
     --color-highlight: orange;
 
-    // NOTE: consider using ghostwhite for BG;
-    --color-bg-main: var(--bs-white);
-    --color-bg-content: var(--bs-white);
+    // typography
+    --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
+    --font-family-tall: "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
+
+    // main.layout
+    --navbar-main-min-height: 4em;
+
+    // navbar.link-effects
+    --nav-link-active-line-height: .2em;
+    --nav-link-active-line-color: var(--bs-warning);
+
+    // sticky
+    --sticky-border-top-color: var(--color-delimiter);
+    --sticky-border-top-size: 2px;
+    --sticky-background: var(--bs-body-bg);
 }
 
 /*
-Basic styles
+Imports
 */
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    line-height: 1.5em;
-}
-
-html, body {
-    margin: 0;
-    padding: 0
-}
-
-html {
-    font-size: 16px;
-    overflow-y: scroll
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 1.25em;
-    margin-bottom: .5em;
-}
-
-.ff-wide {
-    font-family: var(--font-family-wide);
-}
-
-.ff-tall {
-    font-family: var(--font-family-tall);
-}
-
-.stretched-link-exempt {
-    position:relative;
-    pointer-events: none;
-    z-index: 1;
-    
-    a {
-        pointer-events: all;
-    }
-}
-
-.d-none-important {
-    display: none !important;
-}
-
-/*
-Flex stretch
-*/
-body.fit-height {
-    display: flex;
-    flex-direction: column;
-    // NOTE: height: 100vh would interfere with sticky
-    min-height: 100vh;
-}
-
-body.fit-height main {
-    flex: 1;
-    height: 100%;
-}
-
-/*
-Container
-*/
-.no-container {
-    // Need to inherit to have same padding and thus right vertical align when stacked...
-    @extend .container;
-    // ...but we need to remowe the max-width constraint
-    max-width: 100% !important;
-}
-
-/*
-Styling
-*/
-main {
-    // NOTE: consider adding pictures to fill out the space (it's usually nicer as a plain color fill)
-    background-color: var(--color-bg-main);
-
-    // NOTE: our layout template allows us to add extra classes to the layout, which we can use to alter design for a concrete content
-    .layout {
-        .search-results-container {
-            @extend .px-3;
-            @extend .px-lg-5;
-            background-color: var(--color-bg-content);
-        }
-    }
-
-    .layout-page,
-    .layout-post {
-        margin-top: .5em;
-        margin-bottom: .5em;
-
-        .main-container {
-            .main-content {
-                background-color: var(--color-bg-content);
-                // NOTE: consider adding shadows to separate content from the background / margin
-                // box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
-            }
-
-            aside {
-                .sticky-container {
-                    .sticky {
-                        background-color: var(--color-bg-content);
-                        border-top: 1px solid var(--color-bg-main);
-                        // NOTE: consider adding shadows to separate content from the background / margin (especially if there's one for the main-content)
-                        // box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-                    }
-                }
-            }
-        }
-    }
-
-}
-
-/*
-Navbar
-*/
-.navbar-main {
-
-    padding: 0;
-
-    min-height: var(--navbar-main-min-height);
-    height: 100%; /* there's no parent, so this is just so that nested object height: 100% works */
-
-    font-size: 1em;
-    text-transform: uppercase;
-
-    @extend .navbar-light;
-    @extend .bg-white;
-    @extend .text-black;
-
-    border-bottom: .125em solid var(--color-delimiter);
-
-    .container {
-        height: 100%;
-    }
-
-    .btn {
-        @extend .btn-outline-secondary;
-    }
-
-    .navbar-brand img {
-        max-height: 2em;
-    }
-
-    .navbar-toggler {
-        // If we'd like to adjust the hamburger icon...
-        @extend .btn;
-        /*
-        @extend .btn-dark;
-        */
-    }
-
-    /* Easiest way to stretch links to 100% height */
-    :not(.collapsed) .nav-link {
-
-        @extend .text-black;
-
-        position: relative;
-        opacity: 1 !important;
-
-        padding-top: 1.0em !important;
-        padding-bottom: 1.0em !important;
-        padding-left: .5em !important;
-        padding-right: .5em !important;
-
-        letter-spacing: 0.0625em;
-    }
-
-    .nav-search {
-        .blog-search-input {
-            padding: 1em;
-            line-height: 2em !important;
-        }
-    }
-
-    .dropdown-menu {
-        border: 0;
-        margin-left: .8em;
-        border-radius: 0;
-        border-left: 2px solid var(--color-delimiter);
-        padding-left: .8em;
-    }
-
-}
-
-/*
-Navbar link effects: default, active, hover
-*/
-@mixin nav-link-default {
-    
-}
-
-@mixin nav-link-selected {
-    color: var(--bs-white) !important;
-    background-color: var(--color-highlight);
-}
-
-@mixin nav-link-hover-start {
-    @include nav-link-selected();
-    background-color: var(--color-highlight);
-    filter: brightness(0.6);
-}
-
-@mixin nav-link-hover-end {
-    @include nav-link-selected();
-}
-
-.navbar-main {
-    
-    .nav-link {
-        position: relative !important;
-        transition: all 2s;
-
-        @include nav-link-default();
-
-        &.active {
-            @include nav-link-selected();
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-
-        &:hover{
-            z-index: 1;
-            
-            &:after {
-                z-index: -1;
-                animation: nav-link-effect 1s forwards;
-                opacity: 1;   
-            }
-        }
-    }
-
-    /* Keyframes */
-    @keyframes nav-link-effect {
-
-        0% {
-            width: 0%;
-            height: .2em;
-            @include nav-link-hover-start();
-        }
-
-        50% {
-            width: 100%;
-            height: .2em;
-        }
-
-        100% {
-            width: 100%;
-            height: 100%;
-
-            @include nav-link-hover-end();
-        }
-    }
-
-}
-
-/*
-Search
-*/
-.nav-search 
-{
-    .inline-input-group .inline-text {
-        font-size: .8 em;
-    }
-
-    .blog-search-input {       
-        border-radius: 0;
-        border: none;
-        background-color: whitesmoke;
-    }
-}
-
-.nav-search-below {
-    @extend .bg-dark;
-}
-
-#search-results-container {
-
-    .search-results-wrapper {
-        @extend .p-3;
-
-        ul.search-results {
-
-            padding: 1em 0;
-            padding-left: 0em;
-        
-            li {
-                list-style: none;
-                padding: 0 0 1em 0;
-        
-                .search-result-item {
-                    padding: 1em;
-                }
-            }
-        }
-        
-    }
-}
-
-/*
-Main article
-*/
-.article {
-    font-size: 1.0rem;
-}
-
-/*
-Color overrides for mermaid (and mathjax) - as it needs a light background for thin lines to be visible (have contrast)
-*/
-.mermaid {
-    @extend .bg-light;
-    display: inline-block;   
-}
-
-/*
-Print area config via CSS
-*/
-@media print {
-
-    // see: https://developers.hp.com/print-fundamentals-developers/blog/selecting-regions-webpage-print
-
-    body {
-        visibility: hidden;
-    }
-
-    .print-container {
-        overflow: visible;
-        position: absolute !important;
-        top: 0;
-        left: 0;
-    }
-    
-    .print-container, .print-container * {
-        visibility: visible;
-    }
-
-    /*
-    // NOTE: make sure the main container, which holds the printable is not set to display: none!
-    :not(body):not(:root):not(.print):not(.print *) {
-        display: none;
-    }
-    */
-}
-
-/*
-Multi sticky:
-- https://github.com/samsono/sticky-multi-header-scroll
-- or viapure CSS
-- or combination
-*/
-.sticky-container
-{
-    //
-    // NOTE: in case we want to go with pure CSS, which cannot take non-displayed content with sticky class in account....
-    //
-    // $sticky-heading-height: 2.4em;
-    // 
-    // @for $i from 1 through 10 {
-    //     .sticky:nth-child(#{$i}) {
-    //         top: calc(#{$sticky-top} + (#{$i} - 1) * #{$sticky-heading-height});
-    //     }
-    // }
-
-    // NOTE: 100% height on the container is nesessary to keep sticking when scrolling far down (container must be in viewport for sticky)
-    height: 100%;
-
-    .sticky {
-
-        // Must have non-transparent BG otherwise the sticky panel texts will overlap
-        @extend .bg-body;
-
-        //
-        // sticky
-        position: sticky;
-        top: unset;
-
-        .sticky-link {
-            cursor: pointer;
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 1em;
-        }
-
-        //
-        // NOTE: support sticky-ordering via d-flex order + ensure proper overlapping
-        &.order-first { z-index: 999 !important; }
-
-        @for $i from 0 through 5 {
-            &.order-#{$i} { z-index: #{ 1000 + $i} !important; }
-        }
-
-        &.order-last { z-index: 1009 !important; } 
-    }
-
-}
-
-/*
-NOTE: BS 5 is missing the possibility to include an icon into the input, so we added it.
-
-Sample:
-
-    <div class="inline-input-group inline-text-right">
-        <span class="inline-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control bg-dark text-light">
-    </div>
-
-*/
-.inline-input-group {
-
-    position: relative;
-
-    &:not(.inline-text-right), &.inline-text-left {
-        & .inline-text {
-            left: .5em;
-        }
-        & input {
-            padding-left: 2em;
-        }
-    }
-
-    &.inline-text-right {
-        & .inline-text {
-            right: .5em;
-        }
-        & input {
-            padding-right: 2em;
-        }
-    }
-
-    .inline-text {
-        position: absolute;
-
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-}
-
-/*
-Posts
-*/
-ul.posts {
-    padding-left: 0;
-
-    li {
-        list-style: none;
-    }
-}
-
-.post {
-    h1:first-of-type {
-        margin-top: 0;
-    }
-}
-
-.catalogue-item {
-
-    font-size: 1rem;
-
-    .catalogue-pin {
-        color: $info;
-    }
-
-    .catalogue-title {
-        text-decoration: none;
-    }
-
-    .catalogue-line {
-        -webkit-transition: all 0.3s ease-out;
-        -moz-transition: all 0.3s ease-out;
-        transition: all 0.3s ease-out;
-        border-top: 0.25rem solid $primary;
-        display: block;
-        width: 4rem;
-        padding-bottom: 1em;
-    }
-   
-    .catalogue-preview {
-
-        padding-top: 2em;
-        padding-left: 2em;
-
-        font-size: .8em;
-
-        img {
-            max-height: 5em;
-            float: left;
-            margin-right: 1em;
-            margin-bottom: .5em;
-        }
-
-        &:after {
-            float: none;
-        }
-    }
-
-    &:hover {
-        .catalogue-line {
-            width: 8rem;
-        }
-    }
-
-}
-
-/*
-TYPO
-*/
-
-blockquote {
-    font-size: inherit !important;
-    line-height:  inherit !important;
-}
-
-blockquote.quote {
-
-    &:before {
-        content: open-quote;
-    }
-
-
-    &:after {
-        content: close-quote;
-    }
-
-    &:before,
-    &:after {
-        display: inline-block;
-        vertical-align: bottom;
-        position: relative;
-        font-size: 2em;
-        color: var(--color-delimiter);
-    }
-}
-
-/*
-Jarallax fix in case of loadding errors
-*/
-.jarallax {
-    position: relative;
-}
-
-.jarallax-img {
-    object-fit: cover;
-    object-position: 50% 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-/*
-Image grid
-*/
-@import "img-grid";
+@import 'main/typography.scss';
+
+@import 'main/utilities.scss';
+@import 'main/utils.typo.dynamic-headings.scss';
+@import 'main/utils.printing.scss';
+@import 'main/utils.brightness.scss';
+@import 'main/utils.inline-input-group.scss';
+@import "main/utils.image-grid";
+
+@import 'main/main.layout.scss';
+@import 'main/main.styling.scss';
+@import 'main/main.sticky.scss';
+
+@import 'main/navbar.layout.scss';
+@import 'main/navbar.styling.scss';
+@import 'main/navbar.link-effects.scss';
+
+@import 'main/post.taxonomy.scss';
+@import 'main/post.card.scss';
+@import 'main/post.navigation.scss';
+@import 'main/post.scss';
+
+@import "main/patch.mermaid";
+@import "main/patch.jarallax-safety";

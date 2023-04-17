@@ -1,0 +1,29 @@
+/*
+Print area config via CSS
+*/
+@media print {
+
+    // see: https://developers.hp.com/print-fundamentals-developers/blog/selecting-regions-webpage-print
+
+    body {
+        visibility: hidden;
+    }
+
+    .print-container {
+        overflow: visible;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+    }
+    
+    .print-container, .print-container * {
+        visibility: visible;
+    }
+
+    /*
+    // NOTE: make sure the main container, which holds the printable is not set to display: none!
+    :not(body):not(:root):not(.print):not(.print *) {
+        display: none;
+    }
+    */
+}

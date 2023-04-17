@@ -1,0 +1,50 @@
+body {
+
+    main {
+
+        .layout {
+
+            .content-container {
+
+                .article-section {
+                    @extend .bg-body;
+
+                    @extend .p-3;
+                    @extend .p-lg-5;
+
+                    header, article, .tail, footer {
+                        // ...
+                    }
+                }
+
+                .aside-section {
+
+                    [non-sticky-heading] {
+                        display: none;
+                        @extend .bg-body;
+                        @extend .py-3;
+                        @extend .py-lg-5;    
+                    }
+
+                    @extend .small;
+                }
+    
+                .search-results-container {
+                    @extend .bg-body;
+                }
+
+            }
+
+            &.layout-blog-related,
+            &.layout-post {
+                background: top center/cover url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) fixed;
+            }
+
+            &.layout-projects {
+                background: top center/cover url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) fixed;
+            }
+        }
+
+    }
+    
+}

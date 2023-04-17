@@ -1,0 +1,30 @@
+.overlay
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.no-container {
+    // Need to inherit to have same padding and thus right vertical align when stacked...
+    @extend .container;
+    // ...but we need to remowe the max-width constraint
+    max-width: 100% !important;
+}
+
+.d-none-important {
+    display: none !important;
+}
+
+.stretched-link-exempt {
+    position:relative;
+    pointer-events: none;
+    z-index: 1;
+    
+    a {
+        pointer-events: all;
+    }
+}

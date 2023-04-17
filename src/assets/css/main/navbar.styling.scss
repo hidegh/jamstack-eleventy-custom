@@ -1,0 +1,72 @@
+/*
+Navbar - style
+*/
+.navbar-main {
+
+    font-size: 1em;
+    text-transform: uppercase;
+
+    @extend .bg-body;
+
+    border-bottom: .125em solid var(--color-delimiter);
+
+    .btn {
+        @extend .btn-outline-secondary;
+    }
+
+    .navbar-brand-subtitle {
+        font-family: var(--font-family-wide);        
+        text-transform: none;
+        font-size: .5em;
+        line-height: .5em;
+    }
+
+    .navbar-toggler {
+        @extend .btn;
+    }
+
+    /* Easiest way to stretch links to 100% height */
+    :not(.collapsed) .nav-link {
+
+        /*
+        @extend .text-black;
+        */
+
+    }
+
+    .nav-search {
+        .blog-search-input {
+            padding: 1em;
+            line-height: 2em !important;
+        }
+    }
+
+    .dropdown-menu {
+        border: 0;        
+        border-radius: 0;
+        border: 2px solid var(--color-delimiter);
+        padding-left: .5em;
+        padding-right: .5em;
+        margin-bottom: .5em;
+    }
+
+}
+
+
+/*
+Search
+*/
+.nav-search 
+{
+    .inline-input-group .inline-text {
+        font-size: .8 em;
+    }
+
+    .blog-search-input {       
+        border-radius: 0;
+    }
+}
+
+.nav-search-below {
+    @extend .bg-body;
+}

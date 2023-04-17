@@ -1,0 +1,68 @@
+/*
+Multi sticky:
+- https://github.com/samsono/sticky-multi-header-scroll
+- or viapure CSS
+- or combination
+
+NOTE:
+- ANCESTOR WITH OVERFLOW: HIDDEN BREAKS STICKY BEHAVIOR!
+- sticky container must have "extra" space (width)
+*/
+.aside-section {
+    // NOTE: the section has to be FLEX for proper sticky (otherwise last element issues)
+    aside { 
+        flex-grow: 1;
+        max-width: 100%;
+    }
+}
+
+.sticky-container
+{
+    //
+    // NOTE: in case we want to go with pure CSS, which cannot take non-displayed content with sticky class in account....
+    //
+    // $sticky-heading-height: 2.4em;
+    // 
+    // @for $i from 1 through 10 {
+    //     .sticky:nth-child(#{$i}) {
+    //         top: calc(#{$sticky-top} + (#{$i} - 1) * #{$sticky-heading-height});
+    //     }
+    // }
+
+    // NOTE: 100% height on the container is nesessary to keep sticking when scrolling far down (container must be in viewport for sticky)
+    height: 100%;
+
+    .sticky {
+
+        //
+        // sticky
+        position: sticky;
+        top: unset;
+
+        .sticky-link {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 1em;
+        }
+
+        //
+        // NOTE: support sticky-ordering via d-flex order + ensure proper overlapping
+        &.order-first { z-index: 999 !important; }
+
+        @for $i from 0 through 5 {
+            &.order-#{$i} { z-index: #{ 1000 + $i} !important; }
+        }
+
+        &.order-last { z-index: 1009 !important; }
+
+        // Styling
+        &:not(.d-none) + :not(.d-none):not(:first-child) {
+            border-top: var(--sticky-border-top-size) solid var(--sticky-border-top-color);
+        }
+
+        background: var(--sticky-background);
+    }
+
+}

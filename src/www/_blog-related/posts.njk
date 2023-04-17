@@ -3,6 +3,7 @@
 # so we split the data into page objects (bundles)
 # and render each bundle (thus size: 1)
 layout: page
+theme: light
 asideContentClass:
   recent: order-0
   tagCloud: order-1
@@ -37,7 +38,9 @@ permalink: "{{ customPagination.pagedPath }}/"
 
     {% include "partials/post/card.html" %}
 
+    {#
     {% if not loop.last %}<hr/>{% endif %}
+    #}
 
   </li>
 {%- endfor -%}

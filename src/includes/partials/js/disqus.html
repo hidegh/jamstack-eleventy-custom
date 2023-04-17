@@ -1,4 +1,4 @@
-{% if globals.disqus.shortname and comments %}
+{% if globals.disqus.enabled and comments %}
 <!--
     Based on: Jekyll - Chirpy + extension to support CC
 
@@ -10,7 +10,7 @@
         {% if site.disqus.comments and page.comments %}{% include 'partials/disqus.html' %}{% endif %}
 -->
 <div id="disqus">
-    <p class="font-italic text-center text-muted small">
+    <p class="font-italic text-center text-body-secondary small">
         Comments powered by <a href="https://disqus.com/">Disqus</a> - function requires cookie consent (see drawer at the bottom right corner)!
     </p>
 </div>
@@ -34,8 +34,11 @@
         disqusLoader('#disqus', options);
     }
 
-    {%- if (globals.cookieConsent.required == false or globals.disqus.useCcLoader == false ) %}
-    loadDisqus();
-    {%- endif %}
+    const consentRequired = !!{{ globals.cookieConsent.required }};
+    const consentGiven = CookieConsent.getStatus() == CookieConsent.StatusEnum.enabled;
+
+    if (consentRequired == false || consentGiven)
+        loadDisqus();
+
 </script>
 {% endif %}

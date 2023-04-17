@@ -48,7 +48,11 @@
     <span class="text-primary"><%= searchText %></span>
 </h2>
 
-<ul class="search-results">
+<% if (searchResults.length == 0){ %>
+    <span class="no-results">We're sorry, but we couldn't find any items that match your search. Please try again with different keywords or filters...</span>
+<% } %>
+
+<ul class="items-found">
 <% searchResults.forEach((sr, idx, arr) => { %>
     <li>
         <div class="search-result-item position-relative border shadow">
@@ -66,6 +70,10 @@
     <span class="text-secondary">Search results for:</span>
     <span class="text-primary"><%= searchText %></span>
 </h2>
+
+<% if (searchResults.length == 0){ %>
+    <span class="no-results">We're sorry, but we couldn't find any items that match your search. Please try again with different keywords or filters...</span>
+<% } %>
 
 <ul class="search-results">
 <% searchResults.forEach((sr, idx, arr) => { %>
@@ -153,11 +161,10 @@
                 // hide/show container
                 self._showResults ? el.classList.remove("d-none") : el.classList.add("d-none")
                 
-                // find results element and set results
-                const resultsEl = el.querySelector(".search-results-wrapper");
-                if (resultsEl) {
-                    resultsEl.innerHTML = self._showResults ? html : "";
-                }
+                // find results element (or fallback to container) and set results
+                const resultsEl = el.querySelector(".search-results");
+                const displayEl = resultsEl ?? el;
+                displayEl.innerHTML = self._showResults ? html : "";
             });
 
             self._containersToHideEls.forEach(el => self._showResults ? el.classList.add("d-none") : el.classList.remove("d-none"));          
@@ -303,6 +310,6 @@
     // NOTE:
     // #search-results-container must have an additional element with a .search-results class
     // these objects (along with #global-content-view) were already set up inside main.njk
-    blogSearch.init('.blog-search-input', '.blog-search-cancel', '.search-results-container', '.hide-on-search-results-container-display');
+    blogSearch.init('.blog-search-input', '.blog-search-cancel', '.search-results-container', '.hide-if-search-results-container-is-displayed');
 
 </script>

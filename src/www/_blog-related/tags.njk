@@ -8,17 +8,22 @@ title: Tags
 eleventyComputed:
   permalink: "{{ globals.tags.path | normalize }}"
 ---
+<div class="taxonomy tags">
 
-<h1>{{ title }}</h1>
+  <div class="heading">
+    <span class="icon"><i class="fa-solid fa-tag fa-fw"></i></span>
+    <span class="title">{{ title }}</span>
+  </div>
 
-<ul class="tags">
-{% for tag in collections.tagCollection %}
-    <li>
-        <span class="d-inline-block text-end me-1" style="width: 4ch"><span class="badge bg-secondary">{{ tag.count }}</span></span>
-        <a href="{{ globals.tag.path | url | normalize }}{{ tag.name | slug | firstPage(globals.tag.postsPageSize) }}">
-            <i class="fa-solid fa-tag fa-fw text-primary "></i>       
-            <span>{{ tag.name | capitalize }}</span>
-        </a>
-    </li>
-{% endfor %}
-</ul>
+  <ul>
+  {% for tag in collections.tagCollection %}
+      <li>
+          <span class="d-inline-block text-end me-1" style="width: 4ch"><span class="badge">{{ tag.count }}</span></span>
+          <a href="{{ globals.tag.path | url | normalize }}{{ tag.name | slug | firstPage(globals.tag.postsPageSize) }}">
+              <span>{{ tag.name | capitalize }}</span>
+          </a>
+      </li>
+  {% endfor %}
+  </ul>
+
+</div>

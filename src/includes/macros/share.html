@@ -1,7 +1,7 @@
 {% macro withTitle(share, globals, page, title) %}
 {% if share %}
 <section class="share-wrapper">
-    <span class="share-label text-muted mr-1">{{ title }}</span>
+    <span class="share-label text-body-secondary mr-1">{{ title }}</span>
     <span class="share-icons">
         {% set linkTitle = title | default('') %}
         {% set url = [ globals.site.url, page.url ] | mergePaths %}       

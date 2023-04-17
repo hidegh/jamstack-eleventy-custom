@@ -3,7 +3,10 @@
     <div class="container">
 
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="{{ globals.site.logo | url }}" />
+            <div class="d-flex flex-column">
+                <img src="{{ globals.site.logo | url }}" />
+                <span class="navbar-brand-subtitle align-self-center">{{ globals.site.logoSubtitle }}</span>
+            </div>
         </a>
 
         <div class="ms-auto mx-2"></div>
@@ -29,6 +32,22 @@
                 <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
                     <a class="nav-link default p-2" href="{{ '/' | url }}">Home</a>
                 </li>
+                
+                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
+                    <a class="nav-link p-2" href="{{ '/#who-what-services' | url }}">Services</a>
+                </li>
+
+                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
+                    <a class="nav-link p-2" href="{{ '/#case-studies' | url }}">Case Studies</a>
+                </li>
+
+                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
+                    <a class="nav-link p-2" href="{{ '/projects' | url }}">Projects</a>
+                </li>
+
+                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
+                    <a class="nav-link p-2" href="{{ '/about' | url }}">About</a>
+                </li>
 
                 <div class="ms-auto mx-2"></div>
 
@@ -43,7 +62,7 @@
                         <li><a class="dropdown-item" href="{{ '/categories' | url }}">Categories</a></li>
                         <li><a class="dropdown-item" href="{{ '/series' | url }}">Series</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ '/tags-cloud' | url }}">Tags cloud</a></li>
+                        <li><a class="dropdown-item" href="{{ '/tag-cloud' | url }}">Tags cloud</a></li>
                     </ul>
                 </li>      
 

@@ -10,77 +10,85 @@ pagination:
     alias: customPagination
 permalink: "{{ customPagination.pagedPath | normalize }}"
 ---
-<h1>
-    <a class="text-secondary" href="{{ globals.categories.path | normalize | url }}">Category:</a>
+<div class="taxonomy category">
 
-    <!-- parent categories -->
-    {% for node in customPagination.parentNavigationLinks %}
-        <a href="{{ node.uriNonPaged | normalize | url | firstPage(globals.category.postsPageSize) }}">{{ node.name }}</a>
-        |
-        {% if not loop.last %}{% endif %}
-    {% endfor %}
+    <div class="heading">
 
-    <!-- current category -->
-    {% set currentNode = customPagination.parentNavigationLinks %}
-    <a href="{{ customPagination.categoryUriNonPaged | normalize | url | firstPage(globals.category.postsPageSize) }}">{{ customPagination.categoryName }} ( {{customPagination.count }} / {{ customPagination.allCount }} )</a>
-</h1>
+        <a class="text-nowrap" href="{{ globals.categories.path | normalize | url }}">
+            <span class="icon"><i class="fa-solid fa-folder-open fa-fw"></i></span>
+            <span class="prefix">Category:</span>
+        </a>
 
-<hr/>
-
-<!-- inner categories -->
-{% if customPagination.innerNavigationLinks.length > 0 %}
-
-    <h2>Sub-categories</h2>
-
-    {% set level = 0 %}
-
-    {% for link in customPagination.innerNavigationLinks %}
-
-        {% set ulCount = (link.length - level) | abs %}
-
-        {% for i in range(0, ulCount) %}
-            {% if link.length > level %}
-                <ul>
-            {% else  %}
-                </ul>
-            {% endif %} 
+        <!-- parent categories -->
+        {% for node in customPagination.parentNavigationLinks %}
+            <a class="node" href="{{ node.uriNonPaged | normalize | url | firstPage(globals.category.postsPageSize) }}">{{ node.name }}</a>
+            |
+            {% if not loop.last %}{% endif %}
         {% endfor %}
 
-        {% set category = link[link.length - 1] %}
-
-        <li>
-            <a href="{{ category.uriNonPaged | url | normalize | firstPage(globals.category.postsPageSize) }}">
-                {{ category.name }} ( {{category.count }} / {{ category.allCount }} )
-            </a>
-        </li>
-
-        {% set level = link.length %}
-
-    {% endfor %}
-
-    {% for i in range(0, level) %}
-        </ul>
-    {% endfor %}
-
-  <hr/>
-{% endif %}
-
-<!-- items -->
-<div>
-    <div class="print-container">
-
-        <h2>Posts</h2>
-
-        <ul>
-            {% for post in customPagination.items %}
-                <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
-            {% endfor %}
-        </ul>
-
+        <!-- current category -->
+        {% set currentNode = customPagination.parentNavigationLinks %}
+        <a class="node" href="{{ customPagination.categoryUriNonPaged | normalize | url | firstPage(globals.category.postsPageSize) }}">{{ customPagination.categoryName }} ( {{customPagination.count }} / {{ customPagination.allCount }} )</a>
     </div>
-</div>
 
-<!-- paginator -->
-{% if customPagination.hrefs.length %}
-    {% include "partials/paginator.njk" %}
-{% endif %}
+    <hr/>
+
+    <!-- inner categories -->
+    {% if customPagination.innerNavigationLinks.length > 0 %}
+
+        <h2>Sub-categories</h2>
+
+        {% set level = 0 %}
+
+        {% for link in customPagination.innerNavigationLinks %}
+
+            {% set ulCount = (link.length - level) | abs %}
+
+            {% for i in range(0, ulCount) %}
+                {% if link.length > level %}
+                    <ul>
+                {% else  %}
+                    </ul>
+                {% endif %} 
+            {% endfor %}
+
+            {% set category = link[link.length - 1] %}
+
+            <li>
+                <a href="{{ category.uriNonPaged | url | normalize | firstPage(globals.category.postsPageSize) }}">
+                    {{ category.name }} ( {{category.count }} / {{ category.allCount }} )
+                </a>
+            </li>
+
+            {% set level = link.length %}
+
+        {% endfor %}
+
+        {% for i in range(0, level) %}
+            </ul>
+        {% endfor %}
+
+    <hr/>
+    {% endif %}
+
+    <!-- items -->
+    <div>
+        <div class="print-container">
+
+            <h2>Posts</h2>
+
+            <ul>
+                {% for post in customPagination.items %}
+                    <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- paginator -->
+    {% if customPagination.hrefs.length %}
+        {% include "partials/paginator.njk" %}
+    {% endif %}
+
+</div>
