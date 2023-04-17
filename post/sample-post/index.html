@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-bs-theme="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,8 +29,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha512-BOsvKbLb0dB1IVplOL9ptU1EYA+LuCKEluZWRUYG73hxqNBU85JBIBhPGwhQl7O633KtkjMv8lvxZcWP+N3V3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>        
+
         <script src="/jamstack-eleventy-custom/assets/js/custom/clipboard-copy.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js" integrity="sha256-mOsgtygNfXBUPc/+cc19yr+g0jieqYOgRL5xFD2sC0Y=" crossorigin="anonymous"></script>
@@ -106,13 +107,161 @@
     </head>
     <body class="fit-height">
 
+        <!-- cookie consent script -->
+        <!--
+NOTE:
+    ConsentStatus.enabled is set if no cookie consent is required (globals.cookieConsent.required)...
+    ...otherwise ConsentStatus.default is the default value until consent is not given or denied!
+-->
+<script>
+    const CookieConsent = {
+
+        StatusEnum: {
+            "default": "default",
+            "enabled": "enabled",
+            "disabled": "disabled"
+        },
+
+        loadScripts: function (requireConsent, consentUrl) {
+            if (requireConsent) {
+                // scripts managed based on consent status
+                this._initializeCookieConsent(consentUrl);
+            } else {
+                // all scripts enabled
+                this._enableCookies();
+            }
+        },
+
+        getStatus() {
+            return localStorage.cookies ?? this.StatusEnum.default;
+        },
+
+        _setStatus(value) {
+            const changed = this.getStatus() != value;
+            localStorage.cookies = value;
+            if (changed) window.location.reload();
+        },
+
+        _defaultCookies: function () {
+            console.log('default cookies');
+            this._setStatus(this.StatusEnum.default);
+        },
+
+        _enableCookies: function () {
+            console.log('enabled cookies');
+            this._setStatus(this.StatusEnum.enabled);
+        },
+
+        _disableCookies: function () {
+            console.log('disabled cookies');
+            this._setStatus(this.StatusEnum.disabled);
+        },
+
+        _initializeCookieConsent: function (consentUrl) {
+
+            const me = this;
+
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#aa0000",
+                        "text": "#ffdddd"
+                    },
+                    "button": {
+                        "background": "#ff0000"
+                    }
+                },
+                "theme": "edgeless",
+                "position": "bottom-right",
+                "type": "opt-in",
+                "content": {
+                    "message": "This website uses cookies to ensure you get the best experience here.",
+                    "href": consentUrl
+                },
+
+                onInitialise: function (status) {
+                    console.log(`cc - onInitialise, status: ${status}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+                    
+                    if (type == 'opt-in' && didConsent) {
+                        me._enableCookies();
+                    }
+                    else if (type == 'opt-out' && !didConsent) {
+                        me._disableCookies();
+                    }
+                    else {
+                        me._defaultCookies();
+                    }
+                },
+
+                onStatusChange: function (status, chosenBefore) {
+                    console.log(`cc - onStatusChange, status: ${status}, chosenBefore: ${chosenBefore}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+
+                    if (type == 'opt-in' && didConsent) {
+                        me._enableCookies();
+                    }
+                    if (type == 'opt-out' && !didConsent) {
+                        me._disableCookies();
+                    }
+                },
+
+                onRevokeChoice: function () {
+                    // NOTE: this hook is called immediately after the revoke button is clicked and removes previous answers
+                    console.log(`cc - onRevokeChoice`);
+
+                    var type = this.options.type;
+
+                    if (type == 'opt-in') {
+                        me._disableCookies();
+
+                        // NOTE: we need to reload page, so that we get rid of the loaded GA / Disqus scripts!
+                        location.reload();
+                    }
+                    if (type == 'opt-out') {
+                        me._enableCookies();
+                    }
+                },
+
+                onPopupOpen: function () {
+                    console.log(`cc - onPopupOpen`);
+                },
+
+                onPopupClose: function () {
+                    console.log(`cc - onPopupClose`);
+                }
+
+            });
+
+        }
+
+    };
+</script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
+<script>
+    const requireConsent = JSON.parse('true');
+    const consentUrl = '/jamstack-eleventy-custom/cookies.html';  
+    CookieConsent.loadScripts(requireConsent, consentUrl);
+</script>
+
+
         <header class="sticky-top">
             <nav id="navbar-main" class="navbar-main navbar navbar-expand-lg">
 
     <div class="container">
 
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="/jamstack-eleventy-custom/assets/logo.png" />
+            <div class="d-flex flex-column">
+                <img src="/jamstack-eleventy-custom/assets/logo.png" />
+                <span class="navbar-brand-subtitle align-self-center"></span>
+            </div>
         </a>
 
         <div class="ms-auto mx-2"></div>
@@ -138,6 +287,22 @@
                 <li class="nav-item col-6 col-lg-auto">
                     <a class="nav-link default p-2" href="/jamstack-eleventy-custom/">Home</a>
                 </li>
+                
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/#who-what-services">Services</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/#case-studies">Case Studies</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/projects">Projects</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/about">About</a>
+                </li>
 
                 <div class="ms-auto mx-2"></div>
 
@@ -152,7 +317,7 @@
                         <li><a class="dropdown-item" href="/jamstack-eleventy-custom/categories">Categories</a></li>
                         <li><a class="dropdown-item" href="/jamstack-eleventy-custom/series">Series</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/tags-cloud">Tags cloud</a></li>
+                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/tag-cloud">Tags cloud</a></li>
                     </ul>
                 </li>      
 
@@ -194,26 +359,24 @@ d-sm-none = hide if above sm
             
 
     <div class="layout layout-post">
+     
+        <div class="content-container container">
 
-        <div class="main-container container">
+            <div class="hide-if-search-results-container-is-displayed row">
 
-            <div class="hide-on-search-results-container-display row row">
-
-                <div class="main-content-header col-12">
-                    
-                </div>
-
-                <div class="main-content col-12 col-xl-9 overflow-hidden">
-                    
+                <section class="article-section col-12 col-xl-9 overflow-hidden">
+                    <header></header>
+                    <article>
+                        
 
     
     
     
-    <section class="p-3 px-lg-5 d-flex d-flex justify-content-between align-items-center d-hide-if-empty">
+    <section class="d-flex justify-content-end align-items-center d-hide-if-empty">
         
 
 <section class="share-wrapper">
-    <span class="share-label text-muted mr-1">Share post</span>
+    <span class="share-label text-body-secondary mr-1">Share post</span>
     <span class="share-icons">
         
                
@@ -276,25 +439,17 @@ d-sm-none = hide if above sm
 
     </section>
     
-    <section class="article print-container p-3 px-lg-5 mb-3">
+    <section class="article print-container">
 
         <section>
             <h1>Sample post</h1>
             
         </section>
     
-        <section class="small">
-            <div class="row row-cols-auto gx-3">
-                <div class="col"><i class="fa-solid fa-calendar-days fa-fw"></i>15 Dec 2022</div>
-                <div class="col"><i class="fa-regular fa-user fa-fw"></i>BaHI</div>
-                <div class="col"><i class="fa-solid fa-stopwatch fa-fw"></i> 1 min reading time</div>
-            </div>
-        </section>
-
-        <section class="small text-muted d-flex gap-3">
+        <section class="taxonomy small d-xl-flex gap-3 pb-3">
 <div class="d-flex">
     <div class="d-inline-block me-1">
-        <a href="/jamstack-eleventy-custom/categories"><i class="far fa-fw fa-folder-open"></i></a>
+        <a href="/jamstack-eleventy-custom/categories"><i class="fa-regular fa-fw fa-folder-open text-body-secondary"></i></a>
     </div>
     <div class="d-inline-block">
         
@@ -310,7 +465,7 @@ d-sm-none = hide if above sm
 
 <div class="d-flex">
     <div class="d-inline-block me-1">
-        <a href="/jamstack-eleventy-custom/tags"><i class="fa-solid fa-tags fa-fw"></i></a>
+        <a href="/jamstack-eleventy-custom/tags"><i class="fa-solid fa-fw fa-tags text-body-secondary"></i></a>
     </div>
     <div class="d-inline-block">
         
@@ -322,7 +477,15 @@ d-sm-none = hide if above sm
 </div>
 </section>
 
-        <hr/>
+        <section class="small pb-3">
+            <div><span class="text-body-secondary">Posted</span> Dec 15, 2022</div>
+            <div class="d-xl-flex justify-content-start gap-3">
+                <div><span class="text-body-secondary">By</span> BaHI</div>
+                <div class="ms-auto">1 min <span class="text-body-secondary">reading time</span></div>
+            </div>
+        </section>
+
+        <hr class="m-1" />
 
         <section class="pb-3">
             
@@ -332,34 +495,101 @@ d-sm-none = hide if above sm
         </section>
 
     </section>
+     
 
-    <section class="p-3 px-lg-5">
-        
-
-
-<div class="d-flex">
-    <div class="post-navigation-button text-start me-auto">
-        <a class="btn btn-sm btn-outline-primary" href="/jamstack-eleventy-custom/post-sample/getting-started/" title="Getting Started"><i class="fa-solid fa-chevron-left me-3 align-middle"></i>Getting Started</a>
-    </div>
+                    </article>
+                    <div class="article-tail">
+                        
     
-    <div class="post-navigation-button text-end ms-auto">
-        <a class="btn btn-sm btn-outline-primary" href="/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt2/" title="How-to-get-better-at-anything - pt2">How-to-get-better-at-anything - pt2<i class="fa-solid fa-chevron-right ms-3 align-middle"></i></a>
-    </div>
-    </div>
+    <hr class="m-1" />
 
-    </section>
+    <section class="further-reading">
+        <h5 class="text-body-secondary">Further Reading</h5>
+        <div class="post-navigation related-posts dynamic-headings">
+    
+	<div class="card post-preview">
+		
+		<!-- <a class="stretched-link" href="/jamstack-eleventy-custom/post-sample/ddd-series-6-summary/"></a> -->
 
-    <section class="p-3 px-lg-5 d-hide-if-empty">
+		<div class="card-body">
+
+			<div class="card-text post-date">Jan 13, 2021</div>
+			<div class="card-title post-title">DDD Series - 6 - Summary</div>
+			<div class="card-text post-content">
+				<p>In lacus felis, sodales at mattis ac, gravida quis eros. Curabitur pharetra a arcu nec blandit. Aenean pellentesque mi ac mattis ultricies. Pellentesque id eleifend diam. Donec nec leo at dui finibus bibendum et ut nibh. Vestibulum id pharetra risus, et auctor eros. Morbi egestas iaculis convallis. Etiam posuere id sem accumsan dignissim. Morbi varius justo et elementum dictum. Fusce mollis …</p>
+
+			</div>
+	
+		</div>
+
+	</div>	
+    
+	<div class="card post-preview">
+		
+		<!-- <a class="stretched-link" href="/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt2/"></a> -->
+
+		<div class="card-body">
+
+			<div class="card-text post-date">Jul 19, 2021</div>
+			<div class="card-title post-title">How-to-get-better-at-anything - pt2</div>
+			<div class="card-text post-content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id …</p>
+
+			</div>
+	
+		</div>
+
+	</div>	
+    
+	<div class="card post-preview">
+		
+		<!-- <a class="stretched-link" href="/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt3/"></a> -->
+
+		<div class="card-body">
+
+			<div class="card-text post-date">Jul 19, 2021</div>
+			<div class="card-title post-title">How-to-get-better-at-anything - pt3</div>
+			<div class="card-text post-content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor metus non nunc varius, nec fermentum magna sagittis. Ut libero mi, blandit at molestie at, sollicitudin quis magna. Integer quis erat rutrum, euismod augue eu, sodales neque. Nunc vel turpis semper, posuere metus ac, gravida sapien. Mauris at malesuada lorem. Suspendisse dui odio, facilisis ac tempor vitae, porta id …</p>
+
+			</div>
+	
+		</div>
+
+	</div>	
+    
+</div>
         
+
+
+<section class="post-navigation prev-next">
+    <div class="btn-group btn-group-block d-flex">
+        <a class="btn btn-sm btn-outline-secondary" prompt="Older" href="/jamstack-eleventy-custom/post-sample/getting-started/" title="Getting Started"><div>Getting Started</div></a>
+        
+        <a class="btn btn-sm btn-outline-primary" prompt="Newer" href="/jamstack-eleventy-custom/post-sample/how-to-get-better-at-anything-pt2/" title="How-to-get-better-at-anything - pt2"><div>How-to-get-better-at-anything - pt2</div></a>
+        </div>
+</section>
+
     </section>
-  
 
-                </div>
+    <section class="d-hide-if-empty">
+        
+        
 
-                <aside class="main-aside d-none d-xl-block small col-xl-3">
-                    
+    </section>
+
+
+                    </div>
+                    <footer></footer>
+                </section>
+
+                <section class="aside-section d-none d-xl-flex col-xl-3">
+                    <header></header>
+                    <aside>
 
     <div class="sticky-container d-flex flex-column">
+
+        <div non-sticky-heading></div>
 
         
         
@@ -370,7 +600,7 @@ d-sm-none = hide if above sm
         <h2 class="d-inline">Similar Articles</h2>
         <a class="sticky-link"><i class="fa-solid fa-link"></i></a>
     </div>
-    <div><ul class="related-posts">
+    <div><ul class="aside-navigation related-posts">
     
     <li>
         
@@ -556,24 +786,19 @@ d-sm-none = hide if above sm
 
     </div>
 
-
-                </aside>
-
-                <div class="main-content-footer col-12">
-                    
-                </div>
+</aside>
+                    <footer></footer>
+                </section>
 
             </div>
 
-        </div>
-
-        <div class="search-results-container container">
-
-            <div class="row">
+            <div class="hide-if-search-results-container-is-displayed row">
+                <!-- Add tail here? Looks weird if aside content is long! -->
                 
-                <div class="main-content search-results-wrapper col-12 overflow-hidden">
-                </div>
+            </div>
 
+            <div class="search-results-container row">
+                <div class="search-results overflow-hidden"></div>
             </div>
 
         </div>
@@ -634,7 +859,11 @@ d-sm-none = hide if above sm
     <span class="text-primary"><%= searchText %></span>
 </h2>
 
-<ul class="search-results">
+<% if (searchResults.length == 0){ %>
+    <span class="no-results">We're sorry, but we couldn't find any items that match your search. Please try again with different keywords or filters...</span>
+<% } %>
+
+<ul class="items-found">
 <% searchResults.forEach((sr, idx, arr) => { %>
     <li>
         <div class="search-result-item position-relative border shadow">
@@ -652,6 +881,10 @@ d-sm-none = hide if above sm
     <span class="text-secondary">Search results for:</span>
     <span class="text-primary"><%= searchText %></span>
 </h2>
+
+<% if (searchResults.length == 0){ %>
+    <span class="no-results">We're sorry, but we couldn't find any items that match your search. Please try again with different keywords or filters...</span>
+<% } %>
 
 <ul class="search-results">
 <% searchResults.forEach((sr, idx, arr) => { %>
@@ -739,11 +972,10 @@ d-sm-none = hide if above sm
                 // hide/show container
                 self._showResults ? el.classList.remove("d-none") : el.classList.add("d-none")
                 
-                // find results element and set results
-                const resultsEl = el.querySelector(".search-results-wrapper");
-                if (resultsEl) {
-                    resultsEl.innerHTML = self._showResults ? html : "";
-                }
+                // find results element (or fallback to container) and set results
+                const resultsEl = el.querySelector(".search-results");
+                const displayEl = resultsEl ?? el;
+                displayEl.innerHTML = self._showResults ? html : "";
             });
 
             self._containersToHideEls.forEach(el => self._showResults ? el.classList.add("d-none") : el.classList.remove("d-none"));          
@@ -889,7 +1121,7 @@ d-sm-none = hide if above sm
     // NOTE:
     // #search-results-container must have an additional element with a .search-results class
     // these objects (along with #global-content-view) were already set up inside main.njk
-    blogSearch.init('.blog-search-input', '.blog-search-cancel', '.search-results-container', '.hide-on-search-results-container-display');
+    blogSearch.init('.blog-search-input', '.blog-search-cancel', '.search-results-container', '.hide-if-search-results-container-is-displayed');
 
 </script>
 
@@ -899,133 +1131,8 @@ d-sm-none = hide if above sm
         
 
 
+        <!-- cookie consent dependent scripts and features -->
         
-
-        
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
-
-<script>
-    const scripts_config = {
-
-        defaultCookies: function () {
-            console.log('default cookies');
-
-            // note: using anonymized IP
-            if (typeof loadGA === 'function') loadGA(true);
-        },
-
-        enableCookies: function () {
-            console.log('enabled cookies');
-
-            if (typeof loadGA === 'function') loadGA(false);
-            if (typeof loadDisqus === 'function') loadDisqus();
-        },
-
-        disableCookies: function () {
-            console.log('disabled cookies');
-
-            this.defaultCookies();
-        },
-
-        loadScripts: function (requireConsent, consentUrl) {
-            if (requireConsent) {
-                // scripts managed based on consent status
-                this.initializeCookieConsent(consentUrl);
-            } else {
-                // all scripts enabled
-                this.enableCookies();
-            }
-        },
-
-        initializeCookieConsent: function (consentUrl) {
-
-            const me = this;
-
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#edeff5",
-                        "text": "#838391"
-                    },
-                    "button": {
-                        "background": "#4b81e8"
-                    }
-                },
-                "position": "bottom-right",
-                "type": "opt-in",
-                "content": {
-                    "message": "This website uses cookies to ensure you get the best experience here.",
-                    "href": consentUrl
-                },
-
-                onInitialise: function (status) {
-                    console.log(`cc - onInitialise, status: ${status}`);
-
-                    var type = this.options.type;
-                    var didConsent = this.hasConsented();
-                    if (type == 'opt-in' && didConsent) {
-                        me.enableCookies();
-                    }
-                    else if (type == 'opt-out' && !didConsent) {
-                        me.disableCookies();
-                    }
-                    else {
-                        me.defaultCookies();
-                    }
-                },
-
-                onStatusChange: function (status, chosenBefore) {
-                    console.log(`cc - onStatusChange, status: ${status}, chosenBefore: ${chosenBefore}`);
-
-                    var type = this.options.type;
-                    var didConsent = this.hasConsented();
-                    if (type == 'opt-in' && didConsent) {
-                        me.enableCookies();
-                    }
-                    if (type == 'opt-out' && !didConsent) {
-                        me.disableCookies();
-                    }
-                },
-
-                onRevokeChoice: function () {
-                    // NOTE: this hook is called immediately after the revoke button is clicked and removes previous answers
-                    console.log(`cc - onRevokeChoice`);
-
-                    var type = this.options.type;
-                    if (type == 'opt-in') {
-                        me.disableCookies();
-
-                        // NOTE: we need to reload page, so that we get rid of the loaded GA / Disqus scripts!
-                        location.reload();
-                    }
-                    if (type == 'opt-out') {
-                        me.enableCookies();
-                    }
-                },
-
-                onPopupOpen: function () {
-                    console.log(`cc - onPopupOpen`);
-                },
-
-                onPopupClose: function () {
-                    console.log(`cc - onPopupClose`);
-                }
-
-            });
-
-        }
-
-    };
-
-    const requireConsent = JSON.parse('true');
-    const consentUrl = '/jamstack-eleventy-custom/cookies.html';
-    
-    scripts_config.loadScripts(requireConsent, consentUrl);
-</script>
-
-
 
     </body>
 

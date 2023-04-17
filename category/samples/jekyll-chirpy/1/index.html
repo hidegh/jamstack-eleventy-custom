@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-bs-theme="light">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,8 +29,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha512-BOsvKbLb0dB1IVplOL9ptU1EYA+LuCKEluZWRUYG73hxqNBU85JBIBhPGwhQl7O633KtkjMv8lvxZcWP+N3V3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>        
+
         <script src="/jamstack-eleventy-custom/assets/js/custom/clipboard-copy.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js" integrity="sha256-mOsgtygNfXBUPc/+cc19yr+g0jieqYOgRL5xFD2sC0Y=" crossorigin="anonymous"></script>
@@ -106,13 +107,161 @@
     </head>
     <body class="fit-height">
 
+        <!-- cookie consent script -->
+        <!--
+NOTE:
+    ConsentStatus.enabled is set if no cookie consent is required (globals.cookieConsent.required)...
+    ...otherwise ConsentStatus.default is the default value until consent is not given or denied!
+-->
+<script>
+    const CookieConsent = {
+
+        StatusEnum: {
+            "default": "default",
+            "enabled": "enabled",
+            "disabled": "disabled"
+        },
+
+        loadScripts: function (requireConsent, consentUrl) {
+            if (requireConsent) {
+                // scripts managed based on consent status
+                this._initializeCookieConsent(consentUrl);
+            } else {
+                // all scripts enabled
+                this._enableCookies();
+            }
+        },
+
+        getStatus() {
+            return localStorage.cookies ?? this.StatusEnum.default;
+        },
+
+        _setStatus(value) {
+            const changed = this.getStatus() != value;
+            localStorage.cookies = value;
+            if (changed) window.location.reload();
+        },
+
+        _defaultCookies: function () {
+            console.log('default cookies');
+            this._setStatus(this.StatusEnum.default);
+        },
+
+        _enableCookies: function () {
+            console.log('enabled cookies');
+            this._setStatus(this.StatusEnum.enabled);
+        },
+
+        _disableCookies: function () {
+            console.log('disabled cookies');
+            this._setStatus(this.StatusEnum.disabled);
+        },
+
+        _initializeCookieConsent: function (consentUrl) {
+
+            const me = this;
+
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#aa0000",
+                        "text": "#ffdddd"
+                    },
+                    "button": {
+                        "background": "#ff0000"
+                    }
+                },
+                "theme": "edgeless",
+                "position": "bottom-right",
+                "type": "opt-in",
+                "content": {
+                    "message": "This website uses cookies to ensure you get the best experience here.",
+                    "href": consentUrl
+                },
+
+                onInitialise: function (status) {
+                    console.log(`cc - onInitialise, status: ${status}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+                    
+                    if (type == 'opt-in' && didConsent) {
+                        me._enableCookies();
+                    }
+                    else if (type == 'opt-out' && !didConsent) {
+                        me._disableCookies();
+                    }
+                    else {
+                        me._defaultCookies();
+                    }
+                },
+
+                onStatusChange: function (status, chosenBefore) {
+                    console.log(`cc - onStatusChange, status: ${status}, chosenBefore: ${chosenBefore}`);
+
+                    var type = this.options.type;
+                    var didConsent = this.hasConsented();
+
+                    if (type == 'opt-in' && didConsent) {
+                        me._enableCookies();
+                    }
+                    if (type == 'opt-out' && !didConsent) {
+                        me._disableCookies();
+                    }
+                },
+
+                onRevokeChoice: function () {
+                    // NOTE: this hook is called immediately after the revoke button is clicked and removes previous answers
+                    console.log(`cc - onRevokeChoice`);
+
+                    var type = this.options.type;
+
+                    if (type == 'opt-in') {
+                        me._disableCookies();
+
+                        // NOTE: we need to reload page, so that we get rid of the loaded GA / Disqus scripts!
+                        location.reload();
+                    }
+                    if (type == 'opt-out') {
+                        me._enableCookies();
+                    }
+                },
+
+                onPopupOpen: function () {
+                    console.log(`cc - onPopupOpen`);
+                },
+
+                onPopupClose: function () {
+                    console.log(`cc - onPopupClose`);
+                }
+
+            });
+
+        }
+
+    };
+</script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
+<script>
+    const requireConsent = JSON.parse('true');
+    const consentUrl = '/jamstack-eleventy-custom/cookies.html';  
+    CookieConsent.loadScripts(requireConsent, consentUrl);
+</script>
+
+
         <header class="sticky-top">
             <nav id="navbar-main" class="navbar-main navbar navbar-expand-lg">
 
     <div class="container">
 
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="/jamstack-eleventy-custom/assets/logo.png" />
+            <div class="d-flex flex-column">
+                <img src="/jamstack-eleventy-custom/assets/logo.png" />
+                <span class="navbar-brand-subtitle align-self-center"></span>
+            </div>
         </a>
 
         <div class="ms-auto mx-2"></div>
@@ -138,6 +287,22 @@
                 <li class="nav-item col-6 col-lg-auto">
                     <a class="nav-link default p-2" href="/jamstack-eleventy-custom/">Home</a>
                 </li>
+                
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/#who-what-services">Services</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/#case-studies">Case Studies</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/projects">Projects</a>
+                </li>
+
+                <li class="nav-item col-6 col-lg-auto">
+                    <a class="nav-link p-2" href="/jamstack-eleventy-custom/about">About</a>
+                </li>
 
                 <div class="ms-auto mx-2"></div>
 
@@ -152,7 +317,7 @@
                         <li><a class="dropdown-item" href="/jamstack-eleventy-custom/categories">Categories</a></li>
                         <li><a class="dropdown-item" href="/jamstack-eleventy-custom/series">Series</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/tags-cloud">Tags cloud</a></li>
+                        <li><a class="dropdown-item" href="/jamstack-eleventy-custom/tag-cloud">Tags cloud</a></li>
                     </ul>
                 </li>      
 
@@ -193,66 +358,70 @@ d-sm-none = hide if above sm
             
             
 
-    <div class="layout layout-page">
+    <div class="layout layout-page layout-blog-related">
+     
+        <div class="content-container container">
 
-        <div class="main-container container">
+            <div class="hide-if-search-results-container-is-displayed row">
 
-            <div class="hide-on-search-results-container-display row row">
+                <section class="article-section col-12 col-xl-9 overflow-hidden">
+                    <header></header>
+                    <article>
+                        
 
-                <div class="main-content-header col-12">
-                    
-                </div>
+    <section class="article print-container">
+        <div class="taxonomy category">
 
-                <div class="main-content col-12 col-xl-9 overflow-hidden">
-                    
+    <div class="heading">
 
-    <section class="article print-container p-3 px-lg-5 mb-3">
-        <h1>
-    <a class="text-secondary" href="/jamstack-eleventy-custom/categories/">Category:</a>
+        <a class="text-nowrap" href="/jamstack-eleventy-custom/categories/">
+            <span class="icon"><i class="fa-solid fa-folder-open fa-fw"></i></span>
+            <span class="prefix">Category:</span>
+        </a>
 
-    <!-- parent categories -->
-    
-        <a href="/jamstack-eleventy-custom/category/samples/1/">Samples</a>
-        |
+        <!-- parent categories -->
         
-    
-
-    <!-- current category -->
-    
-    <a href="/jamstack-eleventy-custom/category/samples/jekyll-chirpy/1/">Jekyll-Chirpy ( 5 / 5 )</a>
-</h1>
-
-<hr/>
-
-<!-- inner categories -->
-
-
-<!-- items -->
-<div>
-    <div class="print-container">
-
-        <h2>Posts</h2>
-
-        <ul>
+            <a class="node" href="/jamstack-eleventy-custom/category/samples/1/">Samples</a>
+            |
             
-                <li><a href="/jamstack-eleventy-custom/post-sample/getting-started/">Getting Started</a></li>
-            
-                <li><a href="/jamstack-eleventy-custom/post-sample/enable-google-page-views/">Enable Google Page Views</a></li>
-            
-                <li><a href="/jamstack-eleventy-custom/post-sample/customize-the-favicon/">Customize the Favicon</a></li>
-            
-                <li><a href="/jamstack-eleventy-custom/post-sample/writing-a-new-post/">Writing a New Post</a></li>
-            
-                <li><a href="/jamstack-eleventy-custom/post-sample/text-and-typography/">Text and Typography</a></li>
-            
-        </ul>
+        
 
+        <!-- current category -->
+        
+        <a class="node" href="/jamstack-eleventy-custom/category/samples/jekyll-chirpy/1/">Jekyll-Chirpy ( 5 / 5 )</a>
     </div>
-</div>
 
-<!-- paginator -->
+    <hr/>
 
+    <!-- inner categories -->
     
+
+    <!-- items -->
+    <div>
+        <div class="print-container">
+
+            <h2>Posts</h2>
+
+            <ul>
+                
+                    <li><a href="/jamstack-eleventy-custom/post-sample/getting-started/">Getting Started</a></li>
+                
+                    <li><a href="/jamstack-eleventy-custom/post-sample/enable-google-page-views/">Enable Google Page Views</a></li>
+                
+                    <li><a href="/jamstack-eleventy-custom/post-sample/customize-the-favicon/">Customize the Favicon</a></li>
+                
+                    <li><a href="/jamstack-eleventy-custom/post-sample/writing-a-new-post/">Writing a New Post</a></li>
+                
+                    <li><a href="/jamstack-eleventy-custom/post-sample/text-and-typography/">Text and Typography</a></li>
+                
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- paginator -->
+    
+        
 
 
 
@@ -393,17 +562,26 @@ d-sm-none = hide if above sm
     </ul>
 </nav>
 
+    
 
-
+</div>
     </section>
     
 
-                </div>
+                    </article>
+                    <div class="article-tail">
+                        
+                    </div>
+                    <footer></footer>
+                </section>
 
-                <aside class="main-aside d-none d-xl-block small col-xl-3">
-                    
+                <section class="aside-section d-none d-xl-flex col-xl-3">
+                    <header></header>
+                    <aside>
 
     <div class="sticky-container d-flex flex-column">
+
+        <div non-sticky-heading></div>
 
         
         <section class="order-0 sticky p-3">
@@ -551,24 +729,19 @@ d-sm-none = hide if above sm
 
     </div>
         
-
-                </aside>
-
-                <div class="main-content-footer col-12">
-                    
-                </div>
+</aside>
+                    <footer></footer>
+                </section>
 
             </div>
 
-        </div>
-
-        <div class="search-results-container container">
-
-            <div class="row">
+            <div class="hide-if-search-results-container-is-displayed row">
+                <!-- Add tail here? Looks weird if aside content is long! -->
                 
-                <div class="main-content search-results-wrapper col-12 overflow-hidden">
-                </div>
+            </div>
 
+            <div class="search-results-container row">
+                <div class="search-results overflow-hidden"></div>
             </div>
 
         </div>
@@ -629,7 +802,11 @@ d-sm-none = hide if above sm
     <span class="text-primary"><%= searchText %></span>
 </h2>
 
-<ul class="search-results">
+<% if (searchResults.length == 0){ %>
+    <span class="no-results">We're sorry, but we couldn't find any items that match your search. Please try again with different keywords or filters...</span>
+<% } %>
+
+<ul class="items-found">
 <% searchResults.forEach((sr, idx, arr) => { %>
     <li>
         <div class="search-result-item position-relative border shadow">
@@ -647,6 +824,10 @@ d-sm-none = hide if above sm
     <span class="text-secondary">Search results for:</span>
     <span class="text-primary"><%= searchText %></span>
 </h2>
+
+<% if (searchResults.length == 0){ %>
+    <span class="no-results">We're sorry, but we couldn't find any items that match your search. Please try again with different keywords or filters...</span>
+<% } %>
 
 <ul class="search-results">
 <% searchResults.forEach((sr, idx, arr) => { %>
@@ -734,11 +915,10 @@ d-sm-none = hide if above sm
                 // hide/show container
                 self._showResults ? el.classList.remove("d-none") : el.classList.add("d-none")
                 
-                // find results element and set results
-                const resultsEl = el.querySelector(".search-results-wrapper");
-                if (resultsEl) {
-                    resultsEl.innerHTML = self._showResults ? html : "";
-                }
+                // find results element (or fallback to container) and set results
+                const resultsEl = el.querySelector(".search-results");
+                const displayEl = resultsEl ?? el;
+                displayEl.innerHTML = self._showResults ? html : "";
             });
 
             self._containersToHideEls.forEach(el => self._showResults ? el.classList.add("d-none") : el.classList.remove("d-none"));          
@@ -884,7 +1064,7 @@ d-sm-none = hide if above sm
     // NOTE:
     // #search-results-container must have an additional element with a .search-results class
     // these objects (along with #global-content-view) were already set up inside main.njk
-    blogSearch.init('.blog-search-input', '.blog-search-cancel', '.search-results-container', '.hide-on-search-results-container-display');
+    blogSearch.init('.blog-search-input', '.blog-search-cancel', '.search-results-container', '.hide-if-search-results-container-is-displayed');
 
 </script>
 
@@ -894,133 +1074,8 @@ d-sm-none = hide if above sm
         
 
 
+        <!-- cookie consent dependent scripts and features -->
         
-
-        
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css" integrity="sha512-LQ97camar/lOliT/MqjcQs5kWgy6Qz/cCRzzRzUCfv0fotsCTC9ZHXaPQmJV8Xu/PVALfJZ7BDezl5lW3/qBxg==" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous"></script>
-
-<script>
-    const scripts_config = {
-
-        defaultCookies: function () {
-            console.log('default cookies');
-
-            // note: using anonymized IP
-            if (typeof loadGA === 'function') loadGA(true);
-        },
-
-        enableCookies: function () {
-            console.log('enabled cookies');
-
-            if (typeof loadGA === 'function') loadGA(false);
-            if (typeof loadDisqus === 'function') loadDisqus();
-        },
-
-        disableCookies: function () {
-            console.log('disabled cookies');
-
-            this.defaultCookies();
-        },
-
-        loadScripts: function (requireConsent, consentUrl) {
-            if (requireConsent) {
-                // scripts managed based on consent status
-                this.initializeCookieConsent(consentUrl);
-            } else {
-                // all scripts enabled
-                this.enableCookies();
-            }
-        },
-
-        initializeCookieConsent: function (consentUrl) {
-
-            const me = this;
-
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#edeff5",
-                        "text": "#838391"
-                    },
-                    "button": {
-                        "background": "#4b81e8"
-                    }
-                },
-                "position": "bottom-right",
-                "type": "opt-in",
-                "content": {
-                    "message": "This website uses cookies to ensure you get the best experience here.",
-                    "href": consentUrl
-                },
-
-                onInitialise: function (status) {
-                    console.log(`cc - onInitialise, status: ${status}`);
-
-                    var type = this.options.type;
-                    var didConsent = this.hasConsented();
-                    if (type == 'opt-in' && didConsent) {
-                        me.enableCookies();
-                    }
-                    else if (type == 'opt-out' && !didConsent) {
-                        me.disableCookies();
-                    }
-                    else {
-                        me.defaultCookies();
-                    }
-                },
-
-                onStatusChange: function (status, chosenBefore) {
-                    console.log(`cc - onStatusChange, status: ${status}, chosenBefore: ${chosenBefore}`);
-
-                    var type = this.options.type;
-                    var didConsent = this.hasConsented();
-                    if (type == 'opt-in' && didConsent) {
-                        me.enableCookies();
-                    }
-                    if (type == 'opt-out' && !didConsent) {
-                        me.disableCookies();
-                    }
-                },
-
-                onRevokeChoice: function () {
-                    // NOTE: this hook is called immediately after the revoke button is clicked and removes previous answers
-                    console.log(`cc - onRevokeChoice`);
-
-                    var type = this.options.type;
-                    if (type == 'opt-in') {
-                        me.disableCookies();
-
-                        // NOTE: we need to reload page, so that we get rid of the loaded GA / Disqus scripts!
-                        location.reload();
-                    }
-                    if (type == 'opt-out') {
-                        me.enableCookies();
-                    }
-                },
-
-                onPopupOpen: function () {
-                    console.log(`cc - onPopupOpen`);
-                },
-
-                onPopupClose: function () {
-                    console.log(`cc - onPopupClose`);
-                }
-
-            });
-
-        }
-
-    };
-
-    const requireConsent = JSON.parse('true');
-    const consentUrl = '/jamstack-eleventy-custom/cookies.html';
-    
-    scripts_config.loadScripts(requireConsent, consentUrl);
-</script>
-
-
 
     </body>
 
