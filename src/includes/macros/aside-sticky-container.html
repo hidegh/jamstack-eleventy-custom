@@ -12,7 +12,7 @@
 {%- if content or renderAlways == true -%}
 <section class="{{ containerClasses }}">
     <div class="heading">
-        <h2 class="d-inline">{{ headingText }}</h2>
+        <div class="sticky-heading">{{ headingText }}</div>
         <a class="sticky-link"><i class="fa-solid fa-link"></i></a>
     </div>
     <div>{{content | safe}}</div>

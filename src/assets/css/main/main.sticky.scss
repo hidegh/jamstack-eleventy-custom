@@ -39,6 +39,10 @@ NOTE:
         position: sticky;
         top: unset;
 
+        .sticky-heading {
+            @extend .d-inline;
+        }
+
         .sticky-link {
             cursor: pointer;
             position: absolute;
@@ -57,7 +61,14 @@ NOTE:
 
         &.order-last { z-index: 1009 !important; }
 
+        //
         // Styling
+        //
+        .sticky-heading {
+            font-size: 1.0rem;
+            font-weight: bold;
+        }
+
         &:not(.d-none) + :not(.d-none):not(:first-child) {
             border-top: var(--sticky-border-top-size) solid var(--sticky-border-top-color);
         }
