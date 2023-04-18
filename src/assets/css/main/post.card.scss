@@ -8,6 +8,7 @@ ul.posts {
         .post-preview {
 
             min-height: 25vh;
+            height: 25vh;
 
             @extend .rounded-0;
             @extend .mb-3;
@@ -47,8 +48,8 @@ ul.posts {
                 .post-title {
                     margin-top: 0;            
 
-                    @extend h3;
                     @extend .ff-tall;
+                    font-size: 1.4rem;
                     
                     &:after
                     {
@@ -62,8 +63,15 @@ ul.posts {
                 }
 
                 .post-content {            
-                    @extend .small;
                     flex-grow: 1;
+                    flex-shrink: 1;
+                    overflow: hidden;
+
+                    @extend .small;
+                }
+
+                hr {
+                    @extend .my-1;
                 }
 
                 .post-taxonomy {
@@ -77,7 +85,30 @@ ul.posts {
                 }
 
                 .post-details {
+
                     @extend .small;
+
+                    .date-and-pin {
+                        @extend .d-flex;
+                        @extend .justify-content-start;
+                        @extend .gap-3;
+                    }
+
+                    .author-and-reading-time {
+                        @extend .d-xl-flex;
+                        @extend .justify-content-start;
+                        @extend .gap-3;
+                    }
+
+                    .pin {
+                        @extend .ms-auto;
+                        @extend .text-body-secondary;
+
+                        .pin-text {
+                            @extend .d-none;
+                            @extend .d-xl-inline;
+                        }
+                    }
                 }
 
             }
