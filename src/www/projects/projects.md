@@ -44,7 +44,7 @@ scripts: |
     <figcaption class="d-none figure-caption text-center">Image gallery - Application screenshots</figcaption>
 </figure>
 
-<span class="btn btn-sm btn-dark lead">Technical Lead / Lead Architect</span>
+<span class="btn btn-sm btn-dark lead">Principal Engineer / Technical Lead</span>
 <br/>
 <span class="badge bg-success">.NET</span>
 <span class="badge bg-success">Angular</span>

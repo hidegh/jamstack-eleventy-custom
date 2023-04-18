@@ -45,9 +45,14 @@ site:
     maximizeSummaryContent: 400
     maximizeSummaryLines: 10
 
-#navbar
+# navbar
 navbar:
   break: lg
+
+# me
+me:
+  bookingUrl: https://outlook.office.com/bookwithme/user/d5a694f8ce744191a6220ea32ba4eb22%40simplyput.com?anonymous&isanonymous=true
+  linkedInUrl: https://www.linkedin.com/in/hideghety/
 
 # cookie consent
 cookieConsent:

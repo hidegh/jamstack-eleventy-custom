@@ -16,7 +16,7 @@ pin: true
 
 This article is still **relevant for any startup or company involved in software development**. It contains useful informations - just like "Clean Code" by Robert C Martin - **details within this article are timeless**.
 
-I first came across this article around 2016, when I noticed a large **disparity between the usual junior-mid-senior scaling** of developers. This scaling system, unlike others, is **universal**, easy to understand, and **the bear hunting analogy** used in the original article by Meilig Page Jones makes it a **humorous and enjoyable read**.
+I first came across this article around 2016, when I noticed a large **disparity between the usual junior-mid-senior scaling** of developers. This scaling system, unlike others, is **universal**, easy to understand, and **the bear hunting analogy** used in the original article by Meilir Page-Jones makes it a **humorous and enjoyable read**.
 
 Since then, the original page has been taken down (an archive can be found <a target="_blank" href="https://archive.ph/OErpt">here</a>). With the permission of the author, I am allowed to distribute the original article.
 
