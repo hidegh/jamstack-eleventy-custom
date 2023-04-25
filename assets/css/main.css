@@ -8166,7 +8166,7 @@ textarea.form-control-lg {
   margin-left: -3rem !important;
 }
 
-.p-0 {
+.p-0, body main .layout.layout-main .content-container .article-section {
   padding: 0 !important;
 }
 
