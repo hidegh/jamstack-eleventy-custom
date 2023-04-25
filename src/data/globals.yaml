@@ -36,18 +36,23 @@ site:
     rss: /rss.xml
     searchIndex: /search.json
   posts:
-    navbarMenuEnabled: false
+    navbarMenuEnabled: true
   search:
-    navbarMenuEnabled: false
+    navbarMenuEnabled: true
     collections:
       - postCollection
       - www
     maximizeSummaryContent: 400
     maximizeSummaryLines: 10
 
-#navbar
+# navbar
 navbar:
   break: lg
+
+# me
+me:
+  bookingUrl: https://outlook.office.com/bookwithme/user/d5a694f8ce744191a6220ea32ba4eb22%40simplyput.com?anonymous&isanonymous=true
+  linkedInUrl: https://www.linkedin.com/in/hideghety/
 
 # cookie consent
 cookieConsent:
@@ -66,11 +71,11 @@ disqus:
 
 # giscus
 gisqus:
-  enabled: false
-  repo: 
-  repoId: 
-  category: 
-  categoryId: 
+  enabled: true
+  repo: hidegh/hidegh.github.io.giscus
+  repoId: R_kgDOJWRxCQ
+  category: Comments
+  categoryId: DIC_kwDOJWRxCc4CVvXT
   dataMapping: pathname
   theme: preferred_color_scheme
   
@@ -91,7 +96,7 @@ posts:
   showImage: true
   showCategories: true
   showTags: true
-  showContentWhenNoExcerpt: true
+  showContentWhenNoExcerpt: false
   maximizeContent: 200
   maximizeLines: 10
   recent:

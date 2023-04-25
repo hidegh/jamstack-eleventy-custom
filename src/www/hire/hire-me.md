@@ -4,11 +4,8 @@ permalink: /hire-me/
 layout: page
 aside: 3
 pageData:
-  calendlyUrl: https://calendly.com/balazs-hideghety/
-  linkedInUrl: https://www.linkedin.com/in/hideghety/
   cvUrl: balazs_HIDEGHETY_-_senior_software_technician.pdf
-  whatServicerUrl: /#who-what-services
-  caseStudiesUrl: /#case-studies
+  servicesUrl: /#services
   successStoryUrl: /success-stories/ih-tla
   projectsUrl: /projects
 scripts: |
@@ -17,7 +14,7 @@ scripts: |
   </script>
 ---
 
-# Technical LEAD: CTO | VP | Director of SWE
+# Fractional CTO | Principal Engineer
 <img class="skip-float-end" style="height: 12em;" src="{{ page | absoluteImageUrl('./business card.png') | url }}" alt="image" />
 
 - - - 
@@ -26,10 +23,11 @@ scripts: |
 
 Thank you for reaching out.
 
-**If you checked my <a href="{{ pageData.linkedInUrl }}" target="_blank">LinkedIN headline and profile</a>**, did a match then it's without doubt that I am a **suitable** candidate for the position.
+**If you checked my <a href="{{ globals.me.linkedInUrl }}" target="_blank">LinkedIN headline and profile</a>**, did a match then it's without doubt that I am a **suitable** candidate for the position.
 
 I possess over **20 years of experience** in software **development, architecture and team-leading**, so I'm **interested only in specific roles**.
 
+<!--
 **Before getting in touch with me please ensure that:**
 - **all my terms and conditions are met**,
 - that a comprehensive **job description is provided** (with all the details on the team, tasks, ...)
@@ -42,10 +40,11 @@ I possess over **20 years of experience** in software **development, architectur
 1. **100% REMOTE** (no hybrid)
 1. Considering just within **US** and just **EST / CST based** teams
 1. Consultancy role, so **C2C** (I'm not interested in any form of regular employment, need no permit, need no GC)
+-->
 
 ## What I Do
 1. **On-hand technical leadership**
-1. ~20% coding if stack is **.NET** and **Angular**
+1. Expert on **.NET** and **Angular** stack
 1. **Make key decisions related to software development and align it to the business strategy**
 1. Act as a liaison between the software development team and other departments
 1. **Overseeing the development process of external vendors and agencies** - creating Request for Proposals (RFPs), providing estimations, budgeting and planning for projects...
@@ -56,9 +55,9 @@ I possess over **20 years of experience** in software **development, architectur
 1. Define deployment strategy (DevOps)
 
 ## Specialities
-1. **Project rescue services** (problem finder services)
 1. **Software development services**, with a focus on **solid architecture** to prevent costly errors and provide long-term low-cost solutions
 1. **Audits** and **second opinion** in software related matters
+1. **Project rescue services** (problem finder services)
 
 <hr/>
 
@@ -73,9 +72,9 @@ We offer fair market rate consulting services on a **fractional** as well as **f
 
 ## Schedule a Call
 
-If all above criteria are met and you like my experience and are considering me, <a class="fw-bold" href="{{ pageData.calendlyUrl }}" target="_blank">feel free to reserve a time for a call (Zoom) [link]</a>.
+If all above criteria are met and you like my experience and are considering me, <a class="fw-bold" href="{{ globals.me.bookingUrl }}" target="_blank">feel free to reserve a time for a call (Zoom) [link]</a>.
 
-<p class="small text-muted">
+<p class="small text-body-secondary">
     <span class="fw-bold">NOTE:</span> I allowed scheduling without a notice time, so <span class="fw-bold">if you plan the call within the upcoming 1-4 hrs, plz. make sure to drop a message on LinkedIn</span> (it’s easy to miss if not planned ahead, and I really would not want to waste your time).
 </p>
 
@@ -120,20 +119,20 @@ If all above criteria are met and you like my experience and are considering me,
         <td><a id="this-anchor" href target="_blank"></a></td>
     </tr>
     <tr>
+        <td><i class="fa-solid fa-calendar-day fa-fw me-2"></i>Book a free call</td>
+        <td><a href="{{ globals.me.bookingUrl }}" target="_blank">{{ globals.me.bookingUrl }}</a></td>
+    </tr>
+    <tr>
         <td><i class="fa-brands fa-linkedin fa-fw me-2"></i>Linked In</td>
-        <td><a href="{{ pageData.linkedInUrl }}" target="_blank">{{ pageData.linkedInUrl }}</a></td>
+        <td><a href="{{ globals.me.linkedInUrl }}" target="_blank">{{ globals.me.linkedInUrl }}</a></td>
     </tr>
     <tr>
         <td><i class="fa-regular fa-file-lines fa-fw me-2"></i>CV</td>
         <td><a class="anchor-patch" href="{{ pageData.cvUrl | url }}" target="_blank">[link]</a></td>
     </tr>
     <tr>
-        <td><i class="fa-solid fa-gears fa-fw me-2"></i>What I Do / Services</td>
-        <td><a class="anchor-patch" href="{{ pageData.whatServicerUrl | url }}" target="_blank">[link]</a></td>
-    </tr>
-    <tr>
-        <td><i class="fa-solid fa-book fa-fw me-2"></i>Case Studies</td>
-        <td><a class="anchor-patch" href="{{ pageData.caseStudiesUrl | url }}" target="_blank">[link]</a></td>
+        <td><i class="fa-solid fa-gears fa-fw me-2"></i>Services</td>
+        <td><a class="anchor-patch" href="{{ pageData.servicesUrl | url }}" target="_blank">[link]</a></td>
     </tr>
     <tr>
         <td><i class="fa-regular fa-circle-check fa-fw me-2"></i>Success Story</td>

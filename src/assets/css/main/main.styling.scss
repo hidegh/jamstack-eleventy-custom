@@ -35,6 +35,14 @@ body {
 
             }
 
+            &.layout-main {
+                .content-container {
+                    .article-section {
+                        @extend .p-0;
+                    }
+                }
+            }
+
             &.layout-blog-related,
             &.layout-post {
                 background: top center/cover url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) fixed;

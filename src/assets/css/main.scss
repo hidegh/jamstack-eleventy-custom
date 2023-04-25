@@ -87,5 +87,7 @@ Imports
 @import 'main/post.navigation.scss';
 @import 'main/post.scss';
 
-@import "main/patch.mermaid";
-@import "main/patch.jarallax-safety";
+@import "main/patch.mermaid.scss";
+@import "main/patch.jarallax-safety.scss";
+
+@import "www/index.scss";
