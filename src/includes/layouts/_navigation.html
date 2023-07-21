@@ -33,13 +33,8 @@
                     <a class="nav-link default p-2" href="{{ '/' | url }}">Home</a>
                 </li>
                 
-                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link p-2" href="{{ '/#services' | url }}">Services</a>
-                </li>
-
-                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link p-2" href="{{ '/projects' | url }}">Projects</a>
-                </li>
+                {% set webNavUrl = '../../www/' + globals.www.version + '/_navigation.html' %}
+                {% include webNavUrl %}
 
                 <div class="ms-auto mx-2"></div>
 

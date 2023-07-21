@@ -63,6 +63,7 @@ module.exports = function (eleventyConfig) {
     // SCSS is also stored in assets, but we're interested just in the final CSS build (so ignoring SCSS)...
     eleventyConfig.addPassthroughCopy("src/assets/**/!(*.scss)");
     eleventyConfig.addPassthroughCopy("CNAME");
+    eleventyConfig.addPassthroughCopy("robots.txt");
 
     eleventyConfig.addLayoutAlias('default', 'page.njk')
 
@@ -90,21 +91,16 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('truthy', function(value) { return !!value; });
     eleventyConfig.addFilter('falsy', function(value) { return !value; });
     
-    eleventyConfig.addFilter('slugifyPath', function(value) {
-        return value
-            .split("/")
-            .filter((segment) => segment.trim() !== "")
-            .map((segment) => filters.slugFilter(segment))
-            .join("/");
+    eleventyConfig.addFilter('slugifyPath', function(value) { return filters.slugifyPath(value); });
+
+    eleventyConfig.addFilter('versionedWwwUrl', function(value) {
+        const versionedWwwUrl = value.replace('/www/'+ globals.www.version + '/', '/www/');
+        const patchedWwwIndexUrl = filters.trimEnd(versionedWwwUrl, '/index');
+        return patchedWwwIndexUrl;
     });
 
-    eleventyConfig.addFilter('trimEnd', function(originalString, trimString) {
-        return originalString.endsWith(trimString) ? originalString.slice(0, -trimString.length) : originalString;
-    });
-
-    eleventyConfig.addFilter('trimStart', function(source, trim) {
-        return originalString.startsWith(trimString) ? originalString.slice(trimString.length) : originalString;
-    });
+    eleventyConfig.addFilter('trimEnd', function(originalString, trimString) { return filters.trimEnd(originalString, trimString); });
+    eleventyConfig.addFilter('trimStart', function(originalString, trimString) { return filters.trimStart(originalString, trimString); });
 
     eleventyConfig.addFilter('truncateHtml', function(value, charLimit, lineLimit) { return clip(value, charLimit, { html: true, maxLines: lineLimit }); });
 

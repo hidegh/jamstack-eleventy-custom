@@ -11,6 +11,22 @@ module.exports = {
 
     slugFilter: function (path) { return slugFilterFnc(path); },
 
+    slugifyPath: function (path) {
+        return path
+            .split("/")
+            .filter((segment) => segment.trim() !== "")
+            .map((segment) => this.slugFilter(segment))
+            .join("/");
+    },
+
+    trimStart: function(originalString, trimString) {
+        return originalString.startsWith(trimString) ? originalString.slice(trimString.length) : originalString;
+    },
+
+    trimEnd: function(originalString, trimString) {
+        return originalString.endsWith(trimString) ? originalString.slice(0, -trimString.length) : originalString;
+    },
+
     /** Ensure path ends with / */
     normalize: function (path) {
         return path.endsWith("/")

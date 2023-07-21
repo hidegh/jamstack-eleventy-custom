@@ -1,8 +1,8 @@
 {
-  "eleventyExcludeFromCollections": false,
+  "eleventyExcludeFromCollections": true,
   "layout": "page",
   "theme": "dark",
-  "permalink": "{{ title | slug }}/",
+  "permalink": "{{ page.filePathStem | replace('/www/'+ globals.www.version + '/', '/www/') | trimEnd('/index') | slugifyPath }}/",
   "aside": 0,
   "tags": "www"
 }

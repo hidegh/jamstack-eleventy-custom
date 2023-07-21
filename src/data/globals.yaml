@@ -45,7 +45,11 @@ site:
     maximizeSummaryContent: 400
     maximizeSummaryLines: 10
 
-# navbar
+#www
+www:
+  version: _v2
+
+#navbar
 navbar:
   break: lg
 
