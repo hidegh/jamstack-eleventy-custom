@@ -5,8 +5,26 @@ searchResultsContainer: false
 aside: 0
 tags: home
 pageData:
-  successStoryUrl: /success-stories/ih-tla
-  sixLittleLinesOfFailUrl: https://www.youtube.com/watch?v=LGG3IIHUG_w
+  url:
+    www:
+      sixLittleLinesOfFailUrl: https://www.youtube.com/watch?v=LGG3IIHUG_w
+      monolithFirstUrl: https://martinfowler.com/bliki/MonolithFirst.html
+      meilirBooksUrl: https://www.amazon.com/s?k=Meilir-Page-Jones
+      standishgroupReportUrl: https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf
+      upsUrl: https://universalplant.com/
+      wcusaUrl: https://wellnesscoachesusa.com/
+      ihUrl: https://www.impacthealth.com/
+      jotFormUrl: https://form.jotform.com/balazshideghety/reflection-contact-form
+    thisPage:
+      homeUrl: "#home"
+      servicesUrl: "#services"
+      contactUsUrl: "#contact-us"
+      caseStudyUrl: "#case_study_ups"
+    thisSite:
+      meilir7stagesUrl: /post/the-seven-stages-of-expertise-in-software-engineering
+      successStoryUrl: /www/success-stories/ih-tla
+      projectsUrl: /www/projects
+      bookingsUrl: "YAML doesn't support dynamic variable substitution: {{ globals.me.bookingUrl }}"
 styles: |
   <!-- <style></style> -->
   <style href="{{ '/assets/css/www/main.scss' | url }}"></style>
@@ -74,7 +92,7 @@ Env: {{ meta.env }}
                     See how we have <span class="text-highlight">rescued and rebuilt</span> the core internal software of a <span class="text-highlight">$150 Million Covid Testing and Vaccination company</span> within 2 months!
                   </p>
                   <p>
-                    <a href="{{ pageData.successStoryUrl | url }}" class="btn btn-sm btn-secondary m-0 shadow">Find out more about the project!</a>
+                    <a href="{{ pageData.url.thisSite.successStoryUrl | url }}" class="btn btn-sm btn-secondary m-0 shadow">Find out more about the project!</a>
                   </p>
                 </div>
               
@@ -137,7 +155,7 @@ Env: {{ meta.env }}
                     </div>
                     <div class="d-flex flex-column">
                       <a class="btn btn-sm btn-secondary" href="{{ globals.me.bookingUrl | url }}" target="_blank">Book a free call with me now</a>
-                      <a class="btn btn-sm btn-secondary" href="#services">Learn more</a>
+                      <a class="btn btn-sm btn-secondary" href="{{ pageData.url.thisPage.servicesUrl | url }}">Learn more</a>
                     </div>
                   </div>
 
@@ -174,13 +192,13 @@ Env: {{ meta.env }}
                   As software becomes more complex and critical, it is important to have at least one <span class="fw-bold text-nowrap">Stage-5</span> candidate on the team <span class="fw-bold">from the very start - at any cost</span>!
                 </blockquote>
                 <figcaption class="mb-0 blockquote-footer">
-                  <a href="https://www.amazon.com/s?k=Meilir-Page-Jones">Meilir Page-Jones</a> in <a href="{{ '/post/the-seven-stages-of-expertise-in-software-engineering' | url }}"><cite>The Seven Stages of Expertise in Software Engineering</cite></a>
+                  <a href="{{ pageData.url.www.meilirBooksUrl | url }}">Meilir Page-Jones</a> in <a href="{{ pageData.url.thisSite.meilir7stagesUrl | url }}"><cite>The Seven Stages of Expertise in Software Engineering</cite></a>
                 </figcaption>
               </figure>         
             </div>
 
             <div class="col-md">
-              An <a href="https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf">analysis of 50K software projects</a> conducted by The Standish Group in 2015 found that 
+              An <a href="{{ pageData.url.www.standishgroupReportUrl | url }}">analysis of 50K software projects</a> conducted by The Standish Group in 2015 found that 
               <span class="fw-bold text-highlight"><span class="purecounter data-purecounter-start="0" data-purecounter-end="71" data-purecounter-duration=".5" data-purecounter-formater="en-US">0%</span>%</span>
               of projects were either <span class="fw-bold">failures or challenged to meet expectations</span>. The same study in upcoming years revealed the same or even worse data! 
             </div>
@@ -224,7 +242,7 @@ Env: {{ meta.env }}
           <p>
             <span class="fw-bold">Can you identify and prevent costly long-term technical decisions in a timely manner?</span>
             Are you able to identify technical issues?
-            While it may seem simple, sometimes these issues can be difficult to detect and are disguised as demonstrated in <a href="{{ pageData.sixLittleLinesOfFailUrl | url }}" target="_blank">"Six Little Lines of Fail" by Jimmy Bogard</a>.
+            While it may seem simple, sometimes these issues can be difficult to detect and are disguised as demonstrated in <a href="{{ pageData.url.www.sixLittleLinesOfFailUrl | url }}" target="_blank">"Six Little Lines of Fail" by Jimmy Bogard</a>.
           </p>
         </div>
 
@@ -326,7 +344,7 @@ Env: {{ meta.env }}
               In this upcoming session, we will have the opportunity to assess if our services are the <span class="highlight">perfect fit</span> for your needs, and if we can deliver the level of quality that will help you succeed.
             </div>
             <div class="footer">
-              <a class="btn btn-sm btn-primary" href="{{ pageData.bookingsWithMeUrl | url }}" target="_blank">Book a free call with me now!</a>
+              <a class="btn btn-sm btn-primary" href="{{ globals.me.bookingUrl | url }}" target="_blank">Book a free call with me now!</a>
             </div> 
           </div>           
         </div>
@@ -394,7 +412,7 @@ Env: {{ meta.env }}
               </p>
             </div>
             <div class="footer">
-              <a class="btn btn-sm btn-secondary" href="{{ pageData.successStoryUrl | url }}">Check out our success stories!</a>
+              <a class="btn btn-sm btn-secondary" href="{{ pageData.url.thisSite.successStoryUrl | url }}">Check out our success stories!</a>
             </div>              
           </div>
         </div>
@@ -491,7 +509,7 @@ Env: {{ meta.env }}
               <span class>Don't let your next IT project become a failure.</span>
               Our team has a proven track record of solving software and business problems. Let us help you define, manage, develop and deploy high-quality software that meets your business needs.
               <br/>
-              <a href="#contact-us" class="fs-5 text-highlight">Contact us today to see how we can help you!</a>
+              <a href="{{ pagedata.www.thisPage.contactUsUrl | url }}" class="fs-5 text-highlight">Contact us today to see how we can help you!</a>
             </p>
 
             <hr/>
@@ -567,7 +585,7 @@ Env: {{ meta.env }}
                     </p>
 
                     <p>
-                      Our approach is to start small and scale up as your business grows (see: <a href=" https://martinfowler.com/bliki/MonolithFirst.html" class="lighten-40">Martin Fowler's article on "Microservices"</a>).
+                      Our approach is to start small and scale up as your business grows (see: <a href="{{ pageData.www.monolithFirstUrl | url}}" class="lighten-40">Martin Fowler's article on "Microservices"</a>).
                       This way you can avoid huge upfront design and focus on quality and performance.
                       With our visible outputs within months, you can rest assured that your technology is in good hands, and you can focus on growing your business.
                     </p>
@@ -733,10 +751,10 @@ Env: {{ meta.env }}
             <div id="case_study_ih_tl" class="accordion-collapse collapse show">
               <div class="accordion-body">
                 <p>
-                  <span class="fw-bold">Saved</span> an internal software project of a <span class="text-highlight">$150 Million Covid Testing and Vaccination company</span> <a class="company-ih" href="https://www.impacthealth.com/">[ Impact Health ]</a> from failing in 2022.
-                  The same project was then rebranded and sold to another healthcare provider <a class="company-wcusa" href="https://wellnesscoachesusa.com/">[ Wellness Coaches USA ]</a>.
+                  <span class="fw-bold">Saved</span> an internal software project of a <span class="text-highlight">$150 Million Covid Testing and Vaccination company</span> <a class="company-ih" href="{{ pageData.url.www.ihUrl | url }}">[ Impact Health ]</a> from failing in 2022.
+                  The same project was then rebranded and sold to another healthcare provider <a class="company-wcusa" href="{{ pageData.url.www.wcusaUrl | url }}">[ Wellness Coaches USA ]</a>.
                   Despite its complexity (external data, 3rd party synchronisation, SSO, mobile device support) <span class="fw-bold">the project is still in use, it requires minimal technical attention</span> and is working without technical intervention for months.
-                  <a href="{{ '/www/success-stories/ih-tla' | url }}">Link to the detailed success story</a>
+                  <a href="{{ pageData.www.thisSite.successStoryUrl | url }}">Link to the detailed success story</a>
                 </p>
                 <ol class="list-group list-group-flush list-group-numbered">
                   <li class="list-group-item">We've made some <span class="fw-bold">changes</span> to the software development related <span class="fw-bold">business &amp; technological processes</span>, as well as to the tooling to <span class="fw-bold">manage the team more effectively</span>.</li>
@@ -757,7 +775,7 @@ Env: {{ meta.env }}
             <div id="case_study_ups" class="accordion-collapse collapse show">
               <div class="accordion-body">
                 <p>
-                  <span class="text-highlight">Reduced maintenance expenses</span> and minimalized data-discrepancy issues on the company <a class="company-ups" href="https://universalplant.com/">[ Universal Plant Services ]</a> custom hiring applications from a yearly ~$60K to 1/4 with <span class="text-nowrap">ROI: &lt;12 months</span>.
+                  <span class="text-highlight">Reduced maintenance expenses</span> and minimalized data-discrepancy issues on the company <a class="company-ups" href="{{ pageData.url.www.upsUrl | url }}">[ Universal Plant Services ]</a> custom hiring applications from a yearly ~$60K to 1/4 with <span class="text-nowrap">ROI: &lt;12 months</span>.
                   Introduced necessary technologies, tools and processes which lead to more effective development (more things done with less code so less liability), higher data throughput and better end user experience.
                   <span class="fw-bold">Introduced the necessary technologies, tools, and processes</span> that lead to <span class="fw-bold">more effective development</span> - this includes: more things done with less code so <span class="fw-bold">less liability</span>, higher data throughput, and a <span class="fw-bold">better end user experience</span>.
                 </p>
@@ -777,11 +795,6 @@ Env: {{ meta.env }}
 
   </section><!-- ET: CASE STUDIES -->
 
-
-
-
-
-
   <!-- ST: CONTACT-US -->
   <section class="contact-us top-delimiter bg-dark text-light wow animate__slideInUp" id="contact-us">
     
@@ -796,9 +809,9 @@ Env: {{ meta.env }}
         <div class="col-md">
           <p><span class="text-uppercase">Quick Links</span></p>
           <ul style="list-style-type: none; padding:0; margin: 0;">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="{{ '/projects' | url }}">Projects</a></li>
+            <li><a href="{{ pageData.url.thisPage.homeUrl | url }}">Home</a></li>
+            <li><a href="{{ pageData.url.thisPage.servicesUrl | url }}">Our Services</a></li>
+            <li><a href="{{ pageData.url.thisSite.projectsUrl | url }}">Projects</a></li>
           </ul>
         </div>     
 
@@ -824,7 +837,7 @@ Env: {{ meta.env }}
 
             <!--
             <a 
-              href="https://form.jotform.com/balazshideghety/reflection-contact-form"
+              href="{{ pageData.url.www.jotFormUrl | url }}"
               target="_blank"
               class="d-flex align-items-center"
               >

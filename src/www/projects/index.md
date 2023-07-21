@@ -1,6 +1,5 @@
 ---
 title: Projects
-permalink: /projects/
 layout: page
 theme: light
 extraLayoutClasses: layout-projects

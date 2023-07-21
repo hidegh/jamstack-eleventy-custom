@@ -2,7 +2,7 @@
   "eleventyExcludeFromCollections": true,
   "layout": "page",
   "theme": "dark",
-  "permalink": "{{ page.filePathStem | replace('/www/'+ globals.www.version + '/', '/www/') | trimEnd('/index') | slugifyPath }}/",
+  "permalink": "{{ page.filePathStem | versionedWwwUrl | slugifyPath }}/",
   "aside": 0,
   "tags": "www"
 }

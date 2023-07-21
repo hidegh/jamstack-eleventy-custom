@@ -2,7 +2,6 @@
 title: The Impact Health Success Story
 layout: page
 aside: 3
-permalink: /success-stories/ih-tla/
 scripts: |
   <script>
     InitLightbox();
