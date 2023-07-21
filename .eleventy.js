@@ -166,9 +166,11 @@ module.exports = function (eleventyConfig) {
     //
     // Collections (posts)
     const postCollectionName = globals.posts.collectionName;
+    const includeWww = globals.posts.includeWww;
     const addSamples = globals.posts.includeSamplesOnProd || !isProd;
     const postCollectionGlob = [
         "src/posts/**/*.md",
+        ...(includeWww ? ["src/www/**/*.md"] : []),
         ...(addSamples ? ["src/post-samples/**/*.md"] : [])        
     ];
     console.log("Adding samples    : ", addSamples);

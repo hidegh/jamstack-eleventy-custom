@@ -88,6 +88,7 @@ paging:
 posts:
   collectionName: postCollection
   path: /posts    # the uri under the posts are paged (see: paged-posts.js)
+  includeWww: false
   includeSamplesOnProd: false
   sortPinnedFirst: true
   sortBy: date    # title | date
