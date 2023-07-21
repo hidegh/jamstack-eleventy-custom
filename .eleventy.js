@@ -98,6 +98,14 @@ module.exports = function (eleventyConfig) {
             .join("/");
     });
 
+    eleventyConfig.addFilter('trimEnd', function(originalString, trimString) {
+        return originalString.endsWith(trimString) ? originalString.slice(0, -trimString.length) : originalString;
+    });
+
+    eleventyConfig.addFilter('trimStart', function(source, trim) {
+        return originalString.startsWith(trimString) ? originalString.slice(trimString.length) : originalString;
+    });
+
     eleventyConfig.addFilter('truncateHtml', function(value, charLimit, lineLimit) { return clip(value, charLimit, { html: true, maxLines: lineLimit }); });
 
     // NOTE: 2019-08-11T00:34:00+0800 dates with offset are not accepted via 11ty v0.12.1
