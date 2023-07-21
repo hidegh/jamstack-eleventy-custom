@@ -1,6 +1,9 @@
 const urlFilterFnc = require("@11ty/eleventy/src/Filters/Url");
 const slugFilterFnc = require("@11ty/eleventy/src/Filters/Slug");
 
+// TODO: use later, replace | slug with | slugify, slugifyModule.slugify(value)
+// import slugifyModule from "@sindresorhus/slugify";
+
 module.exports = {
 
     /** use it on the final HTML only, it won't help too much without the prefixPath */

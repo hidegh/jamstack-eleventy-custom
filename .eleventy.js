@@ -89,6 +89,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('normalize', function(value) { return filters.normalize(value); });
     eleventyConfig.addFilter('truthy', function(value) { return !!value; });
     eleventyConfig.addFilter('falsy', function(value) { return !value; });
+    
+    eleventyConfig.addFilter('slugifyPath', function(value) {
+        return value
+            .split("/")
+            .filter((segment) => segment.trim() !== "")
+            .map((segment) => filters.slugFilter(segment))
+            .join("/");
+    });
 
     eleventyConfig.addFilter('truncateHtml', function(value, charLimit, lineLimit) { return clip(value, charLimit, { html: true, maxLines: lineLimit }); });
 
