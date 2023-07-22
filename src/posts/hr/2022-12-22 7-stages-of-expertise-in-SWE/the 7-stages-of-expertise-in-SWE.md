@@ -2,7 +2,7 @@
 title: The Seven Stages of Expertise in Software Engineering
 author: Meilir Page-Jones | Balázs HIDEGHÉTY
 date: 2023-04-25
-cagegories:
+categories: 
   - [HR, Classification]
 tags:
   - classification
