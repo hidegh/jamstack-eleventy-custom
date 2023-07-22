@@ -4,8 +4,11 @@ permalink: '{{ globals.site.paths.searchIndex }}'
 eleventyExcludeFromCollections: true
 ---
 [
+{%- set first = true -%}
 {%- for collectionName in globals.site.search.collections %}
 {%- for post in collections[collectionName] %}
+{%- if not first -%},{%- endif -%}
+{%- set first = false -%}
     {
         "url": "{{ metadata.url }}{{ post.data.page.url }}",
         "title": "{{ post.data.title }}",
@@ -16,7 +19,7 @@ eleventyExcludeFromCollections: true
         "categories": {% if post.data.categories %}{{ post.data.categories | json | safe }}{% else %}[]{% endif %},
         "summary": {% if post.data.page.excerpt %}{{ post.data.page.excerpt | truncateHtml(globals.site.search.maximizeSummaryContent, globals.site.search.maximizeSummaryLines) | md | json | safe }}{% else %}{{ post.templateContent | truncateHtml(globals.site.search.maximizeSummaryContent, globals.site.search.maximizeSummaryLines) | md | json | safe }}{%- endif %},
         "text": {{ post.templateContent | striptags(true) | json | safe }}
-    }{% if loop.revindex0 != 0 %},{% endif %}
-{%- endfor %}{% if loop.revindex0 != 0 %},{% endif %}
+    }
+{%- endfor %}
 {%- endfor %}
 ]
