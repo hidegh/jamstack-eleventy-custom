@@ -8,11 +8,11 @@ scripts: |
   </script>
 ---
 
-SimplyPut Consulting transformed this $5 Million biometric testing company into **$150 Million Covid Testing and Vaccination company** in two months​!
+SimplyPut Consulting transformed this $5 Million biometric testing company into a **$150 Million Covid Testing and Vaccination company** in two months​!
 
 To manage the new workload, **the company changed its internal processes**. It required custom tools for its team leaders to enable them to administer dispatched staff at off-site testing locations more effectively.
 
-**They needed a specific and focused view of the data** on their subordinates, including timecards, absenteeism, ratings and a way to manipulate these effectively. These data were from a **3rd party system** and originally synced <a target="_blank" href="https://www.shiftboard.com/">Shiftboard</a> via **Azure App Logic**.
+**They needed a specific and focused view of the data** on their subordinates, including timecards, absenteeism, and ratings and a way to manipulate these effectively. These data were from a **3rd party system** and originally synced <a target="_blank" href="https://www.shiftboard.com/">Shiftboard</a> via **Azure App Logic**.
 
 
 ---
@@ -24,20 +24,39 @@ To manage the new workload, **the company changed its internal processes**. It r
 
 <div class="no-container">
     <div class="row gap-3">
-        <div class="col p-3 text-center bg-dark text-light">
+        <div class="col p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="fa-solid fa-piggy-bank fa-2x"></i>
+            <br/>
+            $300K - $500K Yearly Savings
+        </div>        
+        <div class="col p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="fa-solid fa-bug fa-2x"></i>
+            <br/>
+            80% Fewer Bugs (Less Upkeep Costs)
+            <span class="d-block small text-body-secondary">After The Rewrite / After 1.5 Months</span>
+        </div>        
+        <div class="col p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="fa-solid fa-code fa-2x"></i>
+            <br/>
+            40% Development Speed Increase
+            <span class="d-block small text-body-secondary">From the 2nd Week Onward</span>
+        </div>             
+    </div>
+    <div class="row gap-3">
+        <div class="col p-3 px-lg-3 text-center bg-dark text-light">
             <i class="fa-solid fa-calendar-days fa-2x"></i>
             <br/>
-            ~2500 monthly events
+            ~2500 Monthly Events
         </div>
-        <div class="col p-3 px-lg-5 text-center bg-dark text-light">
+        <div class="col p-3 px-lg-3 text-center bg-dark text-light">
             <i class="fa-solid fa-user-doctor fa-2x"></i>
             <br/>
-            5K-10K placed staff monthly
+            5K-10K Placed Staff Monthly
         </div>
-        <div class="col p-3 px-lg-5 text-center bg-dark text-light">
+        <div class="col p-3 px-lg-3 text-center bg-dark text-light">
             <i class="fa-solid fa-user-tie fa-2x"></i>
             <br/>
-            ~400 active team-leads   
+            ~400 Active Team-Leads   
         </div>
     </div>
 </div>
@@ -83,7 +102,7 @@ To manage the new workload, **the company changed its internal processes**. It r
 
 **The initial solution was developed for approx. 4 months was failing, the reasons:**
 
-1. **Wrong hire** (non lead and non mature enough senior developers) resulted in **quality issues** in the developed product. Missing software related processes made it hard to track progress or to track deployed changes also lead to **faulty deployments** too (both on .NET and Angular side).
+1. **Wrong hires** (non-lead and non-mature enough senior developers) resulted in **quality issues** in the developed product. Missing software-related processes made it hard to track progress or to track deployed changes also lead to **faulty deployments** too (both on .NET and Angular side).
 
 2. **Non-ideal tool selection for synchronization logic** - showed as a problem just later on, the functions in Azure Logic App were repetitive, hard to adjust, ignored some architectural characteristics of the platform (rate limiting), and the ineffective (non-batched) coding approach resulted in long synchronization times and sometimes even failing without a trace.
 
@@ -91,11 +110,11 @@ To manage the new workload, **the company changed its internal processes**. It r
 
 ## <i class="fa-solid fa-shoe-prints fa-fw pe-3 text-secondary"></i> First steps we took
 
-1. **Stabilized deployment** and traceability of work by introducing git-flow, creating CI/CD pipeline in Azure DevOps.
+1. **Stabilized deployment** and traceability of work by introducing git-flow, and creating CI/CD pipeline in Azure DevOps.
 
-2. We **fixed architecture**, and introduced environment settings in the applications, and defined some routing rules for UI.
+2. We **fixed the architecture**, introduced environment settings in the applications, and defined some routing rules for UI.
 
-3. Started to **replace the UI screens step-by step**. This included changes inside the API (back-end) code.
+3. Started to **replace the UI screens step-by-step**. This included changes inside the API (back-end) code.
 
 <span class="fw-bold text-success">At the end of the 2nd month: the entire application was replaced with a new one (redesigned screens, stable functions)</span>
 
@@ -105,9 +124,9 @@ From this moment on we could focus on new enhancements and continuous improvemen
 
 ## <i class="fa-regular fa-lightbulb fa-fw pe-3 text-info"></i> New possibilities
 
-Having **less support tickets** (bugs) enabled us to **focus** on getting the **sync process** right - we moved from Azure App Logic to a custom but generic .NET function, which we executed **periodically** via integrating Hangfire.IO to the back-end.
+Having **fewer support tickets** (bugs) enabled us to **focus** on getting the **sync process** right - we moved from Azure App Logic to a custom but generic .NET function, which we executed **periodically** via integrating Hangfire.IO to the backend.
 
-We were **able to react to new business requirements instantly** as time spent on upkeep was reduced considerably. This enabled us new projects and further possibilities.
+We were **able to react to new business requirements instantly** as time spent on upkeep was reduced considerably. This enabled us to focus on new projects and further possibilities.
 
 ## <i class="fa-regular fa-circle-check fa-fw pe-3 text-success"></i> Final state
 
