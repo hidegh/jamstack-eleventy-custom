@@ -1,0 +1,83 @@
+/*
+https://codepen.io/quinlo/pen/gZeGra
+
+notes:
+    
+    skew adds a 4.76 degree slope and the translateY equation is based on the fact that a 4.76 degree slope has a gradient of 1:12 = tan(4.76)
+    transform: skew(0, 4.76deg) translateY(calc(50vw/-12));
+
+keep it simple:
+
+    we removed the child handling and margin or Y translation adjustment
+    we keep it to the user to use proper margins / paddings
+
+    
+    negative margin top for the skew class
+    positive margin top for the next item
+
+*/
+:root {
+    --skew-angle: 2.0deg;
+}
+
+.skew {
+    transform: skew(0, var(--skew-angle));
+    position: relative;
+    z-index: 1;
+}
+
+.skew > * {
+    transform: skew(0, calc(-1 * var(--skew-angle)));
+    position: relative;
+    z-index: 1;
+}
+
+.skew:not(.skew-skip-fix) {
+    margin-top: calc(-1 * 50% * tan(var(--skew-angle)));
+    padding-top: calc(+1 * 50% * tan(var(--skew-angle)));
+}
+
+.skew:not(.skew-skip-fix):not(.skew-straight-bottom) + * {
+    // NOTE: next item has both margin and padding, but needed 2x negative margin
+    margin-top: calc(-2 * 50% * tan(var(--skew-angle)));
+    padding-top: calc(+1 * 50% * tan(var(--skew-angle)));
+}
+
+.skew.skew-straight-bottom {
+    padding-bottom: calc(+1 * 50% * tan(var(--skew-angle)));
+}
+
+.skew.skew-straight-bottom + * {
+    position: relative;
+    z-index: 1;
+}
+
+.skew.skew-straight-bottom::after {
+    content: " ";
+    position: absolute;
+    z-index: 1 !important;    
+    width: 100%;
+    // for some reason height requires 4x, while padding only 2x
+    padding-bottom: calc(2 * 50% * tan(var(--skew-angle)));
+    background-color: inherit;
+    transform: skew(0, calc(-1 * var(--skew-angle)));
+}
+
+/*
+.skew:first-child,
+.skew:last-child {
+    margin-top: calc(-1 * 50% * tan(var(--skew-angle)));
+}
+
+.skew:not(:last-child) > * {
+    transform: skew(0, calc(-1 * var(--skew-angle)))  ;
+    position: relative;
+    z-index: 1;
+}
+
+.skew:last-child {
+    transform: skew(0);
+    position: relative;
+    z-index: -1;
+}
+*/

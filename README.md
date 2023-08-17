@@ -4,7 +4,7 @@ A static site created with 11ty (elevent, @zachleat). The repo should serve as a
 
 This site was created from scratch and **blog related features were added**. The main idea was to have it as much flexible as it gets. 
 
-## Update @2029-04-17:
+## Update @2023-04-17:
 
 ### Changes:
 - added support for **boostrap 5.3 color schemes**

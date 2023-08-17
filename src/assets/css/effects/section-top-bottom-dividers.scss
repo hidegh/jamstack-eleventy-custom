@@ -1,6 +1,25 @@
 /*
 https://www.agencyboon.com/storybrand/
 https://www.reachtherest.org/
+
+note:
+    - top = white (0-100) - invis (100-0)
+    - bottom = invis (0-100) - white (100-0)
+
+usage:
+
+    <section>
+
+        <div class="et_pb_top_inside_divider"></div>
+
+        <div class="container">
+            ...
+        </div>
+
+        <div class="et_pb_bottom_inside_divider"></div>
+
+    </section>
+
 */
 .et_pb_top_inside_divider {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI2MHB4IiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTEyODAgMTQwVjBIMGwxMjgwIDE0MHoiLz48L2c+PC9zdmc+);

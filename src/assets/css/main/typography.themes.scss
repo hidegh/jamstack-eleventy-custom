@@ -1,0 +1,11 @@
+/*
+Patching heading in dark mode
+*/
+[data-bs-theme="dark"],
+[data-bs-theme="dark"] .theme-dark-patch {
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--bs-light);
+    }
+    
+}

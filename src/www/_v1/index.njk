@@ -8,7 +8,6 @@ pageData:
   projectsUrl: /www/projects
   successStoryUrl: /www/success-stories/ih-tla
 styles: |
-  <!-- <style></style> -->
   <style>
 
     :root {
@@ -152,7 +151,12 @@ scripts: |
 This is the main static WWW page!
 Env: {{ meta.env }}
 
-{% include 'partials/bs-sample.html' %}
+INCLUDES (no versioning):
+  {% include 'partials/bs-sample.html' %}
+  {% include 'src/www/_v3/_me-stats.html' %}
+IMAGE:
+  {{ page | absoluteImageUrl('./_v3/index-assets/balazs-h.png') | url | versionedWwwUrl }}
+
 #}
 
 <!-- Content wrapper (due to AOS.JS we need overflow hidden here) -->
@@ -199,7 +203,7 @@ Env: {{ meta.env }}
                 </p>
 
                 <p>
-                  <a href="{{ pageData.successStoryUrl | url }}" class="btn btn-secondary m-0 shadow">Find out more about the project!</a>
+                  <a href="{{ pageData.successStoryUrl | url | versionedWwwUrl }}" class="btn btn-secondary m-0 shadow">Find out more about the project!</a>
                 </p>
               
               </div>
@@ -254,7 +258,7 @@ Env: {{ meta.env }}
                   <p class="text-center">
                     <a href="#case-studies" class="d-block d-md-inline-flex btn btn-sm btn-secondary">Case studies...</a>
                     <a href="#who-what" class="d-block d-md-inline-flex btn btn-sm btn-secondary">Who We Are...</a>
-                    <a href="{{ pageData.projectsUrl | url }}" class="d-block d-md-inline-flex btn btn-sm btn-secondary">Project showcase...</a>
+                    <a href="{{ pageData.projectsUrl | url | versionedWwwUrl }}" class="d-block d-md-inline-flex btn btn-sm btn-secondary">Project showcase...</a>
                   </p>   
 
                 </div>
@@ -701,7 +705,7 @@ Env: {{ meta.env }}
                   <span class="fw-bold">Saved</span> an internal software project of a <span class="text-highlight">$150 Million Covid Testing and Vaccination company</span> <a class="company-ih" href="https://www.impacthealth.com/">[ Impact Health ]</a> from failing in 2022.
                   The same project was then rebranded and sold to another healthcare provider <a class="company-wcusa" href="https://wellnesscoachesusa.com/">[ Wellness Coaches USA ]</a>.
                   Despite its complexity (external data, 3rd party synchronisation, SSO, mobile device support) <span class="fw-bold">the project is still in use, it requires minimal technical attention</span> and is working without technical intervention for months.
-                  <a href="{{ pageData.successStoryUrl | url }}">Link to the detailed success story</a>
+                  <a href="{{ pageData.successStoryUrl | url |versionedWwwUrl }}">Link to the detailed success story</a>
                 </p>
                 <ol class="list-group list-group-flush list-group-numbered">
                   <li class="list-group-item">We've made some <span class="fw-bold">changes</span> to the software development related <span class="fw-bold">business &amp; technological processes</span>, as well as to the tooling to <span class="fw-bold">manage the team more effectively</span>.</li>
@@ -760,7 +764,7 @@ Env: {{ meta.env }}
             <li><a href="#who-what">Who We Are</a></li>
             <li><a href="#services">Our Services</a></li>
             <li><a href="#case-studies">Case Studies</a></li>
-            <li><a href="{{ pageData.projectsUrl | url }}">Projects</a></li>
+            <li><a href="{{ pageData.projectsUrl | url | versionedWwwUrl }}">Projects</a></li>
           </ul>
         </div>     
 

@@ -28,11 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
             <ul class="navbar-nav d-flex flex-row flex-wrap align-items-center bd-navbar-nav pt-2 py-sm-0 px-5 w-100">
-
-                <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-                    <a class="nav-link default p-2" href="{{ '/' | url }}">Home</a>
-                </li>
-                
+               
                 {% set webNavUrl = '../../www/' + globals.www.version + '/_navigation.html' %}
                 {% include webNavUrl %}
 
