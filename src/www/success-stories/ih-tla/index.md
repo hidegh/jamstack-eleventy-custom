@@ -2,49 +2,91 @@
 title: The Impact Health Success Story
 layout: page
 aside: 3
+styles: |
+  <style>
+    strong {
+        color: var(--color-highlight);
+    }
+  </style>
 scripts: |
   <script>
     InitLightbox();
   </script>
 ---
 
-SimplyPut Consulting transformed this $5 Million biometric testing company into **$150 Million Covid Testing and Vaccination company** in two months​!
-
-To manage the new workload, **the company changed its internal processes**. It required custom tools for its team leaders to enable them to administer dispatched staff at off-site testing locations more effectively.
-
-**They needed a specific and focused view of the data** on their subordinates, including timecards, absenteeism, ratings and a way to manipulate these effectively. These data were from a **3rd party system** and originally synced <a target="_blank" href="https://www.shiftboard.com/">Shiftboard</a> via **Azure App Logic**.
-
-
----
 # {{ title }}
 
+<blockquote class="blockquote quote">
+    One of my favorite success stories is that of Impact Health, as it provides <strong>a compelling example of how a software project can fail due to the lack of a hands-on CTO, even when the conventional managerial aspects are executed excellently</strong>.
+</blockquote>
+<figcaption class="mb-0 blockquote-footer">
+    <cite>Balázs HIDEGHÉTY</cite>
+</figcaption>
+
+***
 
 
-## <i class="fa-solid fa-chart-line fa-fw pe-3 text-primary"></i> Metrics
+
+## <i class="fa-solid fa-chart-line text-secondary-emphasis"></i> Unlocking Business Growth
+
+**A $5 Million to $150 Million Transformation in Two (2) Months**
+
+Witness the remarkable journey of a biometric testing company as it evolved into a $150 million Covid Testing and Vaccination enterprise, all within a mere two months, under the guidance of SimplyPut Consulting.
+
+***
+
+<p class="lead text-center text-secondary-emphasis">Software Development Related Metrics</p>
 
 <div class="no-container">
-    <div class="row gap-3">
-        <div class="col p-3 text-center bg-dark text-light">
-            <i class="fa-solid fa-calendar-days fa-2x"></i>
+    <div class="row gx-3 gy-1">
+        <div class="col-6 col-lg-4 p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="text-success-emphasis fa-solid fa-piggy-bank fa-2x"></i>
             <br/>
-            ~2500 monthly events
+            Yearly Savings
+            <br/>
+            <span class="no-wrap">$300K - $500K</span>
+        </div>        
+        <div class="col-6 col-lg-4 p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="text-danger fa-solid fa-bug fa-2x"></i>
+            <br/>
+            80% Drop in Maintenance Costs
+            <span class="d-block small text-body-secondary">After The Rewrite / After 1.5 Months</span>
+        </div>        
+        <div class="col-6 col-lg-4 p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="text-warning fa-solid fa-code fa-2x"></i>
+            <br/>
+            40% Development Speed Increase
+            <span class="d-block small text-body-secondary">From the 2nd Week Onward</span>
+        </div>             
+        <div class="col-6 col-lg-4 p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="text-secondary fa-solid fa-calendar-days fa-2x"></i>
+            <br/>
+            ~2500 Monthly Events
         </div>
-        <div class="col p-3 px-lg-5 text-center bg-dark text-light">
-            <i class="fa-solid fa-user-doctor fa-2x"></i>
+        <div class="col-6 col-lg-4 p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="text-primary-emphasis fa-solid fa-user-doctor fa-2x"></i>
             <br/>
-            5K-10K placed staff monthly
+            5K-10K Placed Staff Monthly
         </div>
-        <div class="col p-3 px-lg-5 text-center bg-dark text-light">
-            <i class="fa-solid fa-user-tie fa-2x"></i>
+        <div class="col-6 col-lg-4 p-3 px-lg-3 text-center bg-dark text-light">
+            <i class="text-primary fa-solid fa-user-tie fa-2x"></i>
             <br/>
-            ~400 active team-leads   
+            ~400 Active Team-Leads   
         </div>
     </div>
 </div>
 
+***
+
+This transformation necessitated a fundamental shift in internal processes to manage the burgeoning workload effectively. Specifically, the company sought tailored tools for its team leaders, empowering them to oversee off-site testing locations with precision.
+
+The key challenge lay in consolidating data from a third-party system, which encompassed critical information such as timecards, absenteeism, and ratings. These insights were pivotal for informed decision-making.
+
+Enter Impact Health, the embodiment of a success story that showcases resilience and innovation in the face of adversity.
 
 
-## <i class="fa-solid fa-camera fa-fw pe-3 text-info"></i> Screenshots
+
+## <i class="fa-solid fa-camera fa-fw pe-3 text-success-emphasis"></i> Screenshots
 
 <!--
 <figure class="figure">
@@ -79,36 +121,42 @@ To manage the new workload, **the company changed its internal processes**. It r
     <figcaption class="figure-caption text-center">Image gallery - Application screenshots</figcaption>
 </figure>
 
-## <i class="fa-solid fa-triangle-exclamation fa-fw pe-3 text-danger"></i> Initial problems
-
-**The initial solution was developed for approx. 4 months was failing, the reasons:**
-
-1. **Wrong hire** (non lead and non mature enough senior developers) resulted in **quality issues** in the developed product. Missing software related processes made it hard to track progress or to track deployed changes also lead to **faulty deployments** too (both on .NET and Angular side).
-
-2. **Non-ideal tool selection for synchronization logic** - showed as a problem just later on, the functions in Azure Logic App were repetitive, hard to adjust, ignored some architectural characteristics of the platform (rate limiting), and the ineffective (non-batched) coding approach resulted in long synchronization times and sometimes even failing without a trace.
 
 
+## <i class="fa-solid fa-triangle-exclamation fa-fw pe-3 text-danger-emphasis"></i> Initial Challenges
 
-## <i class="fa-solid fa-shoe-prints fa-fw pe-3 text-secondary"></i> First steps we took
+**The initial solution, developed over approximately four (4) months, encountered roadblocks rooted in the hiring of inadequately experienced developers. This inadvertently led to quality issues in the product.**
 
-1. **Stabilized deployment** and traceability of work by introducing git-flow, creating CI/CD pipeline in Azure DevOps.
-
-2. We **fixed architecture**, and introduced environment settings in the applications, and defined some routing rules for UI.
-
-3. Started to **replace the UI screens step-by step**. This included changes inside the API (back-end) code.
-
-<span class="fw-bold text-success">At the end of the 2nd month: the entire application was replaced with a new one (redesigned screens, stable functions)</span>
-
-From this moment on we could focus on new enhancements and continuous improvements.
+Moreover, the absence of streamlined software-related processes hindered progress tracking and contributed to erroneous deployments, both on the .NET and Angular fronts. An initially chosen synchronization approach, facilitated through Azure Logic App, later revealed itself to be non-ideal due to repetitiveness, inadequate adaptability, and inefficiency.
 
 
 
-## <i class="fa-regular fa-lightbulb fa-fw pe-3 text-info"></i> New possibilities
+## <i class="fa-solid fa-trophy fa-fw pe-3 text-secondary-emphasis"></i> Milestones Achieved
 
-Having **less support tickets** (bugs) enabled us to **focus** on getting the **sync process** right - we moved from Azure App Logic to a custom but generic .NET function, which we executed **periodically** via integrating Hangfire.IO to the back-end.
+The road to transformation was paved with meticulous strategic steps:
 
-We were **able to react to new business requirements instantly** as time spent on upkeep was reduced considerably. This enabled us new projects and further possibilities.
+1. **Deployment and Traceability:** The introduction of git-flow and creation of a CI/CD pipeline in Azure DevOps brought stability and enhanced tracking capabilities. This integration allowed us to track changes efficiently, ensuring a smoother flow of updates and enabling us to catch issues early.
+    
+2. **Architectural Refinement:** We revamped the architecture with a focus on efficiency, making transitions smoother and boosting adaptability. Additionally, we established essential routing rules for the user interface, enhancing user navigation.
+    
+3. **Incremental UI Replacement:** Our approach to transforming the user interface was gradual but impactful. We systematically replaced UI screens, extending this transformation to the API (back-end) as well. This ensured a cohesive user experience backed by a robust technical foundation.
+    
+4. **Complete Application Redesign:**  In just two (2) months, we executed a comprehensive application redesign. This encompassed not only revamped screens but also fortified functionalities. The end result was a technologically revitalized application that aligned seamlessly with evolving goals and industry standards.
+    
+With the foundation solidified, attention turned to new improvements and innovative enhancements.
 
-## <i class="fa-regular fa-circle-check fa-fw pe-3 text-success"></i> Final state
 
-The project is **still in use**. It **requires minimal technical attention** and has worked **without intervention for over months** in a strike.
+
+## <i class="fa-solid fa-lightbulb fa-fw pe-3 text-warning-emphasis"></i> Unleashing New Opportunities
+
+The reduction in support tickets paved the way for a renewed focus on synchronization processes. Azure App Logic was transitioned to a custom .NET function, executed periodically through seamless integration with Hangfire.IO.
+
+**The dividends were immediate – quicker adaptation to evolving business needs and a substantial reduction in upkeep time.** This unleashed a cascade of new projects and opportunities for Impact Health.
+
+
+
+## <i class="fa-solid fa-monument fa-fw pe-3 text-success-emphasis"></i> An Enduring Legacy
+
+Presently, the project thrives in a state of self-sufficiency. Requiring **minimal technical intervention**, it has continued to operate seamlessly for months on end, a testament to its resiliency and enduring impact.
+
+The story of Impact Health epitomizes how strategic partnership, technical expertise, and adaptability can swiftly elevate a company from modest beginnings to unparalleled heights of success.

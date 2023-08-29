@@ -2,9 +2,13 @@
     The navigation menu should always use CURRENT www version links (for this there's no _v* segment) !
 -->
 <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-    <a class="nav-link p-2" href="{{ '/www/#services' | url }}">Services</a>
+    <a class="nav-link default p-2" href="{{ '/' | url }}"><i class="fa-solid fa-house"></i></a>
 </li>
 
 <li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
-    <a class="nav-link p-2" href="{{ '/www/projects' | url }}">Projects</a>
+    <a class="nav-link p-2" href="{{ '/www/_v1/#services' | url | versionedWwwUrl }}"><i class="fa-solid fa-house"></i>Services</a>
+</li>
+
+<li class="nav-item col-6 col-{{ globals.navbar.break }}-auto">
+    <a class="nav-link p-2" href="{{ '/www/projects' | url | versionedWwwUrl }}">Projects</a>
 </li>

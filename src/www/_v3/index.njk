@@ -1,0 +1,847 @@
+---
+layout: main
+container: false
+searchResultsContainer: false
+aside: 0
+tags: home
+pageData:
+  url:
+    external:
+      sixLittleLinesOfFailUrl: https://youtu.be/LGG3IIHUG_w?t=78
+      jotFormUrl: https://form.jotform.com/balazshideghety/reflection-contact-form
+      # monolithFirstUrl: https://martinfowler.com/bliki/MonolithFirst.html
+      # meilirBooksUrl: https://www.amazon.com/s?k=Meilir-Page-Jones
+      # standishgroupReportUrl: https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf
+      # upsUrl: https://universalplant.com/
+      # wcusaUrl: https://wellnesscoachesusa.com/
+      # ihUrl: https://www.impacthealth.com/
+    thisBlog:
+      meilir7stagesUrl: /post/the-seven-stages-of-expertise-in-software-engineering
+    www:
+      #
+      # versioned www Url
+      #
+      homeUrl: /www/_v3/#home
+      learnMoreUrl: /www/_v3/#stakes
+      servicesUrl: /www/_v3/#value-proposition
+      #
+      # generic, non versioned www url
+      #
+      projectsUrl: /www/projects
+      successStoriesUrl: /www/success-stories
+      ihSuccessStoryUrl: /www/success-stories/ih-tla
+      fctoUrl: /www/fcto
+      aboutMeUrl: /www/about-me
+    other:
+      bookingsUrl: "YAML doesn't support dynamic variable substitution: {{ globals.me.bookingUrl }}"
+styles: |
+  <style>
+
+    .text-highlight {
+      color: var(--color-highlight);
+    }
+
+    .icon-linked-in {
+      // color: #0a66c2;
+    }
+
+    .top-delimiter {
+      border-top: .25em solid var(--color-delimiter);      
+    }
+    
+    .bottom-delimiter {
+      border-bottom: .25em solid var(--color-delimiter);      
+    }
+
+  </style>
+scripts: |
+  <script>
+    InitParallax();
+    InitTyped();
+    InitAOS();
+    InitCounters()
+  </script>
+---
+
+{#
+
+INCLUDES (no versioning):
+  {% include 'partials/bs-sample.html' %}
+  {% include 'src/www/_v3/_me-stats.html' %}
+IMAGE:
+  {{ page | absoluteImageUrl('./_v3/_assets/balazs-h-1-5.png') | url | versionedWwwUrl }}
+
+#}
+
+{#
+This is the main static WWW page!
+Env: {{ meta.env }}
+
+{% include 'partials/bs-sample.html' %}
+#}
+
+<!--
+* Content wrapper (due to AOS.JS we need overflow hidden here) !
+* Also the background is set to the BG of the last (non footer) item for nicer effect!
+-->
+<div id="home" class="bg-body-secondary text-body overflow-hidden hide-on-search-results-container-display ff-wide" data-bs-theme="dark">
+
+
+
+  <!-- LANDING -->
+  <div data-bs-theme="dark" class="ff-tall z-1 text-body-emphasis jarallax landing">
+
+    <div class="overlay"></div>
+
+    <img class="jarallax-img" src="/assets/bg/handshake/pexels-fauxels-3183197.jpg" />
+
+    <div class="container">
+
+      <div class="p-3 pt-5 px-lg-5 d-flex flex-column">
+
+        <div class="row flex-grow-1 align-items-center justify-content-center">
+
+          <div class="col align-items-center wow animate__fadeInUp">
+          
+            <div class="content bg-black-2-3">
+              
+              <div class="lead p-3 p-lg-5">
+
+                <div class="fs-1 fw-bold">
+                  Driven by the desire to witness your ideas thrive.
+                </div>
+
+                <div class="px-lg-3">
+
+                  <div class="pt-5">
+                    Timely, hands-on guidance right from the beginning can create the pivotal distinction between success and obscurity.
+                  </div>
+
+                  <div class="pt-3">
+                    <span class="text-highlight">Our mission is to help founders, CEOs, and entrepreneurs succeed by transforming their ideas into products (MVPs).</span>
+                    <span class="">All while efficiently reducing costs by $200,000 to $500,000 annually.</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="mt-3 mt-lg-0 p-3 p-lg-5 bg-black-2-3 lead text-center">
+              
+                <div class>
+                  <h1 class="m-0">
+                    Fractional <span class="not-fw-bold">CTO</span> as a Service
+                  </h1>
+                  <div class="text-highlight">
+                    ...because no one should have to deal with technology alone!
+                  </div>
+                </div>
+
+                <div class="pt-3">
+                  <a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Get Your FREE Consultation NOW!</a>
+                  <a class="btn btn-sm btn-secondary mb-1" href="{{ pageData.url.www.learnMoreUrl | url | versionedWwwUrl }}">Learn more...</a>
+                </div>
+
+              </div>
+            
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      
+    </div>
+
+    <div class="p-5"><!-- To have some distance when the hint boxes are pulled up via negative margin --!></div>
+
+  </div><!-- LANDING -->
+
+
+
+  <!-- ST: HINTS-->
+  <section data-bs-theme="light" class="z-1 bg-body text-body hints">
+
+    <div class="container">
+
+      <div class="content">
+    
+        <div class="row g-3 mt-n5">
+          <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
+            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+              <i class="text-warning fa-solid fa-compass-drafting fa-2x"></i>
+              <span class="text-center">21 Years of Hands-on Experience</span>
+            </div>
+          </div>
+          <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
+            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+              <i class="text-primary-emphasis fa-solid fa-clipboard-check fa-2x"></i>
+              <span class="text-center">&gt; 38 Finished Projects</span>
+            </div>
+          </div>
+          <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
+            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+              <i class="text-danger fa-solid fa-industry fa-2x"></i>
+              <span class="text-center">5+ Industries</span>              
+            </div>
+          </div>
+          <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
+            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+              <i class="text-success fa-solid fa-globe-americas fa-2x"></i>
+              <span class="text-center">US and EU Companies</span>
+              <span class="text-center">incl. Government Projects</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- ET: HINTS -->
+
+
+
+  <!-- ST: STAKES -->
+  <section data-bs-theme="light" class="bg-body text-body position-relative stakes" id="stakes">
+
+    <div class="container">
+
+      <div class="content">
+
+        <div class="row g-3 p-3 pt-5 pb-5 px-lg-5">
+
+          <div class="d-none d-lg-block col-lg-4">
+          </div>
+
+          <div class="col-12 col-lg-8 px-3 px-lg-5">
+
+            <p class="lead fw-bold">
+              The Path from Idea to Launch Requires More Than Just Coding!
+            </p>
+
+            <p>
+              ...It requires strategic planning, effective leadership, and rapid execution.
+              This journey optimizes resources, brings insights, and ensures scalable, low-maintenance products, blending technical expertise and visionary guidance.
+            </p>
+
+            <p>
+              Crafting scalable, low-maintenance products or <span class="not-text-highlight">achieving MVPs in just 2-3 months</span> requires hands-on technical expertise and visionary leadership right from the start!
+            </p>
+
+            <hr/>
+
+            <p class="lead fw-bold">
+              Don't let your business become another statistic.
+            </p>
+
+            <div class="ff-tall bg-body-secondary p-3 px-lg-5 mb-3">
+              <p class="p0 text-primary-emphasis">
+                We recently highlighted a true story: <span class="fw-bold">A company that ignored crucial technical advice.</span>
+                The outcome?
+                <span class="fw-bold">A staggering loss of $1.5-2.5 million in just two short years.</span>
+              </p>
+            </div>
+
+            <p>
+              <span class="fw-bold">Hiring full-time CTOs is costly, requires equity, and is hard to find.</span>
+              However, neglecting hands-on leadership can lead to disasters.
+            </p>
+
+            <p>
+              Relying solely on <span class="fw-bold">external vendors</span> appears helpful but is deceptive.
+              They fulfill your exact requests, often ignoring the scalability vital for your business's success.
+              This narrow strategy drives up maintenance expenses and hinders future growth.
+              In severe instances, you risk vendor dependency, <span class="fw-bold">surrendering control</span> to their terms.
+            </p>
+
+            <div class="pb-7 bg-body"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+ 
+    </div>
+
+    <div
+      class="position-absolute d-none d-lg-block"
+      style="
+        background-image: url('{{ page | absoluteImageUrl('/www/_v3/_assets/balazs-h-1-5.png') | url | versionedWwwUrl }}');
+        background-size: contain;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        bottom: 0;
+        left: 0;
+        width: 45%;
+        height: 100%;
+        z-index: 0;
+        "
+      >
+    </div>    
+
+  </section><!-- ET: STAKES -->
+
+
+
+  <!-- ST: VALUE-PROPOSITION -->
+  <section data-bs-theme="dark" class="skew bg-body-secondary text-body value-proposition position-relative" id="value-proposition">
+
+    <div class="not-et_pb_top_inside_divider"></div>
+
+    <div class="container">
+
+      <div class="content">
+
+        <div class="row g-3 xxx-mt-n8 p-3 pt-5 px-lg-5">
+
+          <div class="z-1 col-12 col-md-4 mt-lg-n7">
+            <div class="bg-body h-100 shadow border p-3">
+
+              <div class="mt-0 mt-md-n5 mb-3">
+                <i class="text-primary-emphasis fa-brands fa-black-tie fa-3x"></i>
+              </div>
+
+              <p class="lead text-highlight">
+                Expert Tech Leadership for Non-Tech Founders
+              </p>
+
+              <p class="text-body-emphasis">
+                Discover a dedicated solution designed for SMEs, startups, and small teams.
+              </p>
+
+              <p>
+                Our expertise covers strategy, hiring, vendorship management, architecture, and more. 
+                Whether you're lacking a technical leader or need to complement your existing team, we've got you covered.
+              </p>
+
+              <p class="text-highlight">
+                Gain the momentum you need from the very start, setting your business on the path to success.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="z-1 col-12 col-md-4 mt-lg-n7">
+            <div class="bg-body h-100 shadow border p-3">
+
+              <div class="mt-0 mt-md-n5 mb-3">
+                <i class="text-success-emphasis fa-solid fa-code fa-3x"></i>
+              </div>
+
+              <p class="lead text-highlight">
+                Streamlined Software Development
+              </p>
+
+              <p class="text-body-emphasis">
+                Enhance your software development process by adopting practices that optimize efficiency, collaboration, and agility.
+              </p>
+
+              <p>
+                Streamlining involves automating repetitive tasks, and promoting clear communication among teams.
+                By prioritizing quality, you can deliver high-quality software that requires minimal maintenance, enabling faster responses to changing requirements.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="z-1 col-12 col-md-4 mt-lg-n7">
+            <div class="bg-body h-100 shadow border p-3">
+
+              <div class="mt-0 mt-md-n5 mb-3">
+                <i class="text-warning-emphasis fa-solid fa-lightbulb fa-3x"></i>
+              </div>
+
+              <p class="lead text-highlight">
+                Counsel Services
+              </p>
+
+              <p class="text-body-emphasis">
+                Elevate Your Business with Informed Decisions - Your Second Voice of Reason and Collaborative Brainstorming Partner.
+              </p>
+
+              <p>
+                Success isn't a one-time sprint; it's a marathon.
+                Our partnership extends beyond quick fixes.
+                In the ever-evolving business landscape, we're here to ensure you make the right decisions, providing expert insights that safeguard you from missteps.
+              </p>
+
+              <p class="text-highlight">
+                Let us become your partner, guiding you towards success with every step you take.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="d-none p-3 pt-5 px-lg-5 d-flex flex-column">
+
+          <p>
+            In the dynamic landscape of business, SMEs and Startups stand at a crossroads.
+            While a full-time Chief Technology Officer (CTO) might be a luxury, turning a blind eye to the power of technology can be a costly mistake.
+            This is where we step in.
+          </p>
+
+          <p class="not-d-none">
+            Our expertise lies in aiding non-technical founders to enhance the efficiency of their software development processes.
+            We assume the role of a CTO for SMEs, startups, and small teams, serving as a reliable technical leader.
+            Additionally, we provide support by complementing the efforts of non-technical full-time CTOs, especially those who excel in other roles like product ownership.
+          </p>
+
+        </div>
+
+
+        <div class="not-d-none p-3 px-lg-5 d-flex flex-column">
+          <p>
+            <span class="fw-bold">Can you identify and prevent costly long-term technical decisions in a timely manner?</span>
+            Are you able to identify technical issues?
+            While it may seem simple, sometimes these issues can be difficult to detect and are disguised as demonstrated in <a href="{{ pageData.url.external.sixLittleLinesOfFailUrl | url }}" target="_blank">"Six Little Lines of Fail" by Jimmy Bogard</a>.
+          </p>
+        </div>
+
+        <div class="p-3 px-lg-5 lead text-center">
+          <a class="btn btn-danger mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Get Your FREE Consultation NOW!</a>
+          <a class="btn btn-secondary mb-1" href="{{ pageData.url.www.fctoUrl | url | versionedWwwUrl }}">More about the F-CTO as a Service...</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pb-5"></div>
+
+    <div class="not-et_pb_bottom_inside_divider"></div>
+
+  </section><!-- ET: VALUE-PROPOSITION -->
+
+
+
+  <!-- ST: THE-GUIDE -->
+  <section data-bs-theme="light" class="bg-body text-body bg-white-3-4 the-guide" data-jarallax data-speed="1.2" data-img-position="50% 80%">
+
+    <img class="jarallax-img" src="/assets/bg/office/unsplash-dane-deaner-_-KLkj7on_c-unsplash.jpg" />
+
+    <div class="bg-white-3-4">
+
+      <div class="container">
+
+        <div class="content p-3 px-lg-5 pt-6">
+
+          <div class="row g-5">
+
+            <div class="col-12 col-md-6">
+              <p class="lead fw-bold">Embark on Our Journey of Success</p>
+              <div class="text-primary-emphasis"
+                <p>
+                  Discover our accomplishment in rescuing and revamping the core internal software of a $150 Million Covid Testing and Vaccination company in just 2 months! 
+                </p>
+                <p>
+                  This narrative brings into focus the indispensable nature of hands-on management, <span class="text-primary">revealing the inadequacies of conventional methods in the dynamic world of software</span>.
+                </p>
+                <a class="btn btn-sm btn-danger" href="{{ pageData.url.www.ihSuccessStoryUrl | url | versionedWwwUrl }}">The ImpactHealth Success Story</a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+
+              <div class="row g-5">
+
+                <div class="col-12">
+                  <p class="lead fw-bold">Witness Our Path of Innovation</p>
+                  <p class="text-primary-emphasis">Delve into our portfolio of past projects, each a testament to our expertise.</p>
+                  <a class="btn btn-sm btn-danger" href="{{ pageData.url.www.projectsUrl | url | versionedWwwUrl }}">Previous Projects</a>
+                </div>
+
+                <div class="col-12">
+                  <p class="lead fw-bold">Explore More About 'Us'</p>
+                  <p class="d-none text-primary-emphasis">Let me introduce myself a bit...</p>
+                  <a class="btn btn-sm btn-secondary" href="{{ pageData.url.www.aboutMeUrl | url | versionedWwwUrl }}">More about me...</a>
+                </div>
+              
+              </div>
+
+            </div>
+
+          </div>
+
+          <hr/>
+
+          <div class="pt-3">
+            <p class="lead fw-bold">Hear the Stories from Our Clients</p>
+            <p class="text-primary-emphasis">Discover firsthand accounts of how our solutions have transformed businesses.</p>
+
+            <p class="p-3 px-lg-5 text-center bg-danger text-light">See: LinkedIn Recommendations / Testimonials</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="pt-6"></div>
+
+    </div>
+
+  </section><!-- ET: THE-GUIDE -->
+
+
+
+  <!-- ST: EXPLANATORY -->
+  <section data-bs-theme="dark" class="skew bg-body text-body explanatory">
+
+    <div class="container">
+
+      <div class="content p-3 px-lg-5 pt-5">
+
+        <div class="row g-5">
+
+          <div>
+            Drawing upon two decades of experience, I've come to realize that: <span class="text-highlight">The majority of SMEs and Startups encounter common challenges within the realm of software development.</span>
+            This holds true for companies boasting a development team of up to 10 members, as well as agencies housing three similar teams with different technology stacks.
+          </div>
+
+          <div>
+            <span class="text-highlight">Tackling these issues requires a strategic approach.</span>
+            The sooner we take action, the better – as it involves instilling a culture and fostering positive practices (which is almost impossible or extremely expensive to retrofit later on).
+          </div>
+
+          <div>
+            Upon establishing the correct path, diversions may arise, yet: <span class="text-highlight">Regular evaluations permit seamless adjustments towards the chosen trajectory</span>.
+          </div>
+          
+        </div>
+
+        <div class="pt-5">
+
+        <div>
+
+          <p class="p-3 px-lg-5 lead text-center text-body-emphasis">
+            The best time to fix these issues was yesterday - The second-best time is now!
+          </p>
+
+          <div class="pt-3">
+
+          <p class="text-center">
+            Embark on the journey toward success from the very outset, or allow us to guide you in steering the course correctly.
+          </p>
+
+          <p class="text-center">
+            Retain ownership, trim expenses, and attain remarkable outcomes.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pb-5"></div>
+
+  </section><!-- ET: EXPLANATORY -->
+
+
+
+  <!-- ST: THE-PLAN -->
+  <section data-bs-theme="light" class="bg-body text-body bg-white-3-4 the-plan" data-jarallax data-speed="1.2" data-img-position="50% 80%">
+
+    <img class="jarallax-img" src="/assets/bg/office/pexels-proxyclick-visitor-management-system-2451566.jpg" />
+
+    <div class="container bg-body">
+
+      <div class="content p-3 px-lg-5 pt-6">
+      
+        <div class="text-center pb-5">
+          <p class="lead fw-bold">Ready to Unlock Your Tech Potential?</p>
+          <p>It's Simple. Really.</p>
+        </div>
+
+        <div class="row g-5">
+
+          <div class="col-12 col-md-4">
+            <p class="text-warning">
+              <span class="fa-stack fa-2x">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-1 fa-stack-1x"></i>
+              </span>
+            </p>
+            <p class="lead fw-bold">
+              Exploratory Conversation
+            </p>
+            <p>
+              Let's begin with a complimentary consultation where we'll dive into your software engineering needs.
+              <span class="text-highlight">Through this call, we'll understand your challenges and goals, aligning our services with your requirements.</span>
+            </p>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <p class="text-primary">
+              <span class="fa-stack fa-2x">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-2 fa-stack-1x"></i>
+              </span>
+            </p>
+            <p class="lead fw-bold">
+              Process Evaluation (Audit)
+              <br/>
+              Tailored Solutions
+            </p>
+            <p>
+              We will perform a comprehensive audit of your current processes, revealing inefficiencies and optimization potential.
+              <span class="text-highlight">Based on the audit, we'll present you with personalized strategies that target pain points and lay the groundwork for enhanced software engineering practices.</span>
+            </p>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <p class="text-success">
+              <span class="fa-stack fa-2x">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-3 fa-stack-1x"></i>
+              </span>
+            </p>
+            <p class="lead fw-bold">
+              Ongoing Enhancement
+              <br/>
+              Team Guidance
+            </p>
+            <p>
+              Beyond quick fixes, we're your dedicated compass for enduring triumph.
+              <span class="text-highlight">Embracing the software journey as a continual process, we offer a second voice of reason, an extra pair of eyes, and a ready brain to tackle challenges.</span>
+              Count on us for sustained excellence.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="pb-5"></div>
+
+    </div>
+
+  </section><!-- ET: THE-PLAN -->
+
+
+
+  <!-- ST: LEAD-GENERATOR -->
+  <section data-bs-theme="dark" class="skew skew-straight-bottom bg-body-secondary text-body-secondary lead-generator">
+
+    <div class="container">
+
+      <div class="content p-3 px-lg-5 pt-6">
+
+        <div id="coming-soon" class="row g-3">
+          
+          <div class="col-12 p-3 px-lg-5 bg-body">
+            <p class="p0">
+              <span class="text-highlight fw-bold">COMING SOON:</span>
+              <span class="text-light">Assess Your Tech Health</span>
+            </p>
+            <p class="p0">Is your company technically vulnerable? <span class="fw-bold">Take our simple health-check quiz.</span></p>
+          </div>
+
+          <div class="col-12 p-3 px-lg-5 bg-body">
+            <p class="p0">
+              <span class="text-highlight fw-bold">COMING SOON:</span>
+              <span class="text-light">Essential Insights for Non-Technical Leaders</span>
+            </p>
+            <p class="p0">Explore the Top 10+ Things Every Non-Technical Owner Should Be Aware Of.</span></p>
+          </div>
+
+        </div>
+
+        <div class="pt-6"></div>
+
+        <div class="row g-3">
+
+          <div class="col-12 p-3 px-lg-5 bg-danger text-light">
+            If You're Interested, Stay Connected. Leave your contact details, and we'll be in touch soon.
+          </div>
+
+        </div>
+
+        <div id="contactFormContainer" class="form-container py-5">
+          <!--
+          <h2 class="mb-1 text-center text-light">Contact Form</h2>
+          <div class="pb-4 text-center">Let Us Contact You Later...</div>          
+          -->
+          <form
+            id="contactForm"
+            method="POST"
+            action="https://script.google.com/macros/s/AKfycbyidk1Ivj_HGs31JhZ3Op8W3ndNZHzti-6Ah-elzEeZDqn4gTBLNhB3vYXE-4oXQ3tk4A/exec"
+            >
+            <div class="mb-3">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                class="form-control compact-input"
+                id="email"
+                name="Email"
+                required
+              />
+            </div>
+            <div class="mb-3 row">
+              <div class="col">
+                <label for="jobTitle" class="form-label">Job Title</label>
+                <input
+                  type="text"
+                  class="form-control compact-input"
+                  id="jobTitle"
+                  name="JobTitle"
+                />
+              </div>
+              <div class="col">
+                <label for="company" class="form-label">Company</label>
+                <input
+                  type="text"
+                  class="form-control compact-input"
+                  id="company"
+                  name="Company"
+                />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <div class="col">
+                <label for="firstName" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control compact-input"
+                  id="firstName"
+                  name="FirstName"
+                />
+              </div>
+              <div class="col">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control compact-input"
+                  id="lastName"
+                  name="LastName"
+                />
+              </div>
+            </div>
+            <div class="mb-3 text-center">
+              <button type="submit" class="btn btn-danger mt-3">Submit</button>
+            </div>
+          </form>
+          <p id="successMessage" class="d-none p-3 px-lg-5 bg-success text-white">Thank you for providing your contact information. We will be in touch with you shortly.</p>
+          <p id="errorMessage" class="d-none p-3 px-lg-5 bg-danger text-white">An error occurred while submitting the form.</p>
+          <script>
+              const contactFormContainer = document.getElementById('contactFormContainer');
+              const form = document.getElementById('contactForm');
+              const successMessage = document.getElementById('successMessage');
+              const errorMessage = document.getElementById('errorMessage');
+              
+              form.addEventListener('submit', async function(event) {
+                  event.preventDefault();
+
+                  const formData = new FormData(form);
+
+                  const currentDate = new Date().toISOString();
+                  formData.append('currentDate', currentDate);
+
+                  try {
+                      const response = await fetch(
+                        form.action,
+                        {
+                          method: form.method,
+                          body: formData,
+                        }
+                      );
+
+                      if (response.ok) {
+                          // Reset form, hide it, hide prev. error and show success message
+                          // can't hide the container as error/success resides inside: contactFormContainer.classList.add('d-none');
+                          form.classList.add('d-none');
+                          errorMessage.classList.add('d-none');
+                          successMessage.classList.remove('d-none');
+                          form.reset();
+                      } else {
+                          // Show error message
+                          errorMessage.classList.remove('d-none');
+                      }
+                  } catch (error) {
+                      alert('Error submitting form.');
+                  }
+              });
+          </script>
+        </div>        
+
+      </div>
+
+    </div>
+
+  </section><!-- ET: LEAD-GENERATOR -->
+
+
+
+  <!-- ST: JUNK-DRAWER -->
+  <section class="top-delimiter bg-dark text-light junk-drawer wow animate__slideInUp" id="footer">
+    
+    <div class="container p-5">
+
+      <div class="row gy-3 align-items-top justify-content-center">
+
+        <div class="col-md ms-n5">
+          <p><img style="height: 3em;" src="{{ globals.site.logo | url }}" /></p>
+        </div>
+
+        <div class="col-md">
+          <p><span class="text-uppercase">Quick Links</span></p>
+          <ul style="list-style-type: none; padding:0; margin: 0;">
+            <li><a href="{{ pageData.url.www.homeUrl | url | versionedWwwUrl }}">Home</a></li>
+            <li><a href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Our Services</a></li>
+            <li><a href="{{ pageData.url.www.projectsUrl | url | versionedWwwUrl }}">Projects</a></li>
+          </ul>
+        </div>     
+
+        <div class="col-md">
+          <p><span class="text-uppercase">Let us Help!</span></p>
+          <p>
+
+            <a 
+              href="{{ globals.me.linkedInUrl | url }}"
+              class="d-flex align-items-center"
+              >
+              <i class="icon-linked-in fa-brands fa-linkedin fa-fw fa-1x fs-5"></i>
+              Message me on Linked In
+            </a>
+
+            <a 
+              href="{{ globals.me.bookingUrl | url }}"
+              class="d-flex align-items-center"
+              >
+              <i class="icon-book-a-time fa-solid fa-calendar-day fa-fw fa-1x fs-5"></i>
+              Book a free call
+            </a>
+
+            <!--
+            <a 
+              href="{{ pageData.url.external.jotFormUrl | url }}"
+              target="_blank"
+              class="d-flex align-items-center"
+              >
+              <i class="fa-solid fa-file-contract fa-fw fa-1x fs-5"></i>
+              Fill out this form
+            </a>
+            -->
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- ET: JUNK-DRAWER -->
+
+</div>  
+<!--
+https://medium.com/geekculture/link-your-html-form-to-a-spreadsheet-via-google-forms-9024f0611d82
+
+https://dev.to/kromate/connecting-your-html-forms-to-a-google-spreadsheet-p9h
+https://github.com/levinunnink/html-form-to-google-sheet
+
+https://script.google.com/macros/s/AKfycbyidk1Ivj_HGs31JhZ3Op8W3ndNZHzti-6Ah-elzEeZDqn4gTBLNhB3vYXE-4oXQ3tk4A/exec
+-->

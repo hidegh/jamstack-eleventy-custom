@@ -1,14 +1,40 @@
 ---
 title: Projects
 layout: page
-theme: light
-extraLayoutClasses: layout-projects
+theme: dark
 aside: 3
+extraLayoutClasses: not-layout-projects
 styles: |
   <style>
+
+    strong {
+        color: var(--color-highlight);
+    }
+    
     .company-logo {
       height: 1.5em;
       margin-right: 1em;
+      background-color: var(--bs-light);
+    }
+
+    h3 {
+        padding: 0.25em;
+        padding-top: 0.5em;
+        color: var(--bs-dark);
+        position: relative;
+        z-index: 1;
+    }
+
+    h3:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: -100vw;
+        width: 200vw;
+        height: 100%;
+        z-index: -1;
+        background-color: var(--bs-light);
+        border-bottom: 2px solid var(--color-highlight);
     }
   </style>
 scripts: |
@@ -17,9 +43,17 @@ scripts: |
   </script>
 ---
 
-# Projects
+## Success Stories
 
-## <img class="company-logo" src="{{ page | absoluteImageUrl('./IH/Logo ImpactHealth.png') | url }}" alt="image" /> Impact Health
+One of my favorite success stories is that of Impact Health, as it provides <strong>a compelling example of how a software project can fail due to the lack of a hands-on CTO, even when the conventional managerial aspects are executed excellently</strong>.
+
+<a href="{{ '/www/success-stories/ih-tla' | url | versionedWwwUrl }}" class="not-stretched-link btn btn-sm btn-secondary text-nowrap">Explore more...</a>
+
+## Projects
+
+***
+
+### <img class="company-logo" src="{{ page | absoluteImageUrl('./IH/Logo ImpactHealth.png') | url }}" alt="image" /> Impact Health
 
 <a href="https://www.impacthealth.com/">Impact Health</a> is one of the nation’s leading providers of onsite clinical testing, health, wellness, and consultative support for health promotion services. 
 
@@ -43,19 +77,19 @@ scripts: |
     <figcaption class="d-none figure-caption text-center">Image gallery - Application screenshots</figcaption>
 </figure>
 
-<span class="btn btn-sm btn-dark lead">Principal Engineer / Technical Lead</span>
+<span class="btn btn-sm btn-danger lead">Principal Engineer / Technical Lead</span>
 <br/>
 <span class="badge bg-success">.NET</span>
 <span class="badge bg-success">Angular</span>
 <span class="badge bg-primary">Microsoft Azure</span>
 <span class="badge bg-primary">Azure SQL</span>
-<span class="badge bg-info">Shiftboard</span>
+<span class="badge bg-secondary">Shiftboard</span>
 
 
 
-## <img class="company-logo" src="{{ page | absoluteImageUrl('./UPS/Logo UPS.png') | url }}" alt="image" /> Universal Plant Services
+### <img class="company-logo" src="{{ page | absoluteImageUrl('./UPS/Logo UPS.png') | url }}" alt="image" /> Universal Plant Services
 
-<a href="https://universalplant.com/">Universal Plant Services</a>, a Jones Industrial Holdings company, is one of North America’s largest comprehensive specialty service providers for the energy industry — providing maintenance, repair and installation services for rotating, fixed, reciprocating and electrical equipment. With headquarters in Houston, Texas, UPS employs 3,000 highly trained individuals with 16 full-service facilities that specialize in daily maintenance, turnarounds and capital projects.
+<a href="https://universalplant.com/">Universal Plant Services</a>, a Jones Industrial Holdings company, is one of <strong>North America’s largest comprehensive specialty service providers for the energy industry</strong> — providing maintenance, repair and installation services for rotating, fixed, reciprocating and electrical equipment. With headquarters in Houston, Texas, UPS employs 3,000 highly trained individuals with 16 full-service facilities that specialize in daily maintenance, turnarounds and capital projects.
 
 <figure class="figure w-100">
     <div class="image-grid image-grid-2" style="grid-auto-rows: 10vh;">
@@ -67,7 +101,7 @@ scripts: |
     <figcaption class="d-none figure-caption text-center">Image gallery - Application screenshots</figcaption>
 </figure>
 
-<span class="btn btn-sm btn-dark lead">Senior Software Engineer / Architect</span>
+<span class="btn btn-sm btn-danger lead">Solution Architect / Senior Software Engineer</span>
 <br/>
 <span class="badge bg-success">.NET</span>
 <span class="badge bg-success">Angular</span>
@@ -75,12 +109,12 @@ scripts: |
 <span class="badge bg-primary">Microsoft IIS</span>
 <span class="badge bg-primary">Microsoft Azure</span>
 <span class="badge bg-primary">Azure SQL</span>
-<span class="badge bg-info">Viewpoint</span>
-<span class="badge bg-info">ADP</span>
+<span class="badge bg-secondary">Viewpoint</span>
+<span class="badge bg-secondary">ADP</span>
 
 
 
-## <img class="company-logo" src="{{ page | absoluteImageUrl('./TA/Logo TA.png') | url }}" alt="image" /> Tyrian Advisory
+### <img class="company-logo" src="{{ page | absoluteImageUrl('./TA/Logo TA.png') | url }}" alt="image" /> Tyrian Advisory
 
 The company is providing financial services, acting as an insurance broker.
 
@@ -111,7 +145,7 @@ They needed an online car **insurance comparison portal** with the possibility t
     <figcaption class="d-none figure-caption text-center">Image gallery - Application screenshots</figcaption>
 </figure>
 
-<span class="btn btn-sm btn-dark lead">Senior Software Engineer / Architect</span>
+<span class="btn btn-sm btn-danger lead">CEO / CTO</span>
 <br/>
 <span class="badge bg-success">.NET</span>
 <span class="badge bg-primary">Microsoft SQL</span>
@@ -120,7 +154,7 @@ They needed an online car **insurance comparison portal** with the possibility t
 
 
 <!--
-## <img class="company-logo" src="{{ page | absoluteImageUrl('./PUSR/Logo PUSR.png') | url }}" alt="image" /> The Monuments Board of SVK
+### <img class="company-logo" src="{{ page | absoluteImageUrl('./PUSR/Logo PUSR.png') | url }}" alt="image" /> The Monuments Board of SVK
 
 - National monument registration and classification software
 - Archive artefacts management & classification
@@ -148,7 +182,7 @@ They needed an online car **insurance comparison portal** with the possibility t
     <figcaption class="d-none figure-caption text-center">Image gallery - Application screenshots</figcaption>
 </figure>
 
-<span class="btn btn-sm btn-dark lead">Senior Software Engineer / Architect</span>
+<span class="btn btn-sm btn-danger lead">Senior Software Engineer</span>
 <br/>
 <span class="badge bg-success">.NET</span>
 <span class="badge bg-primary">Microsoft SQL</span>
@@ -157,9 +191,9 @@ They needed an online car **insurance comparison portal** with the possibility t
 
 
 
-## <img class="company-logo" src="{{ page | absoluteImageUrl('./GPSR/Logo GPSR.png') | url }}" alt="image" /> The Public (General) Prosecution of the Slovak Republic
+### <img class="company-logo" src="{{ page | absoluteImageUrl('./GPSR/Logo GPSR.png') | url }}" alt="image" /> The Public (General) Prosecution of the Slovak Republic
 
-Scanning application with OCR, document anonymization (depersonalization), categorization and auto-publish feature.
+Scanning application with <strong>OCR</strong>, document anonymization (depersonalization), categorization and auto-publish feature.
 
 <figure class="figure w-100">
     <div class="image-grid image-grid-2" style="grid-auto-rows: 10vh;">
@@ -175,7 +209,7 @@ Scanning application with OCR, document anonymization (depersonalization), categ
     <figcaption class="d-none figure-caption text-center">Image gallery - Application screenshots</figcaption>
 </figure>
 
-<span class="btn btn-sm btn-dark lead">Senior Software Engineer / Architect</span>
+<span class="btn btn-sm btn-danger lead">Senior Software Engineer</span>
 <br/>
 <span class="badge bg-success">.NET</span>
 <span class="badge bg-primary">Winforms</span>

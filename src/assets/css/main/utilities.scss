@@ -15,6 +15,10 @@
     max-width: 100% !important;
 }
 
+.text-highlight {
+    color: var(--color-highlight);
+}
+
 .d-none-important {
     display: none !important;
 }
@@ -28,3 +32,71 @@
         pointer-events: all;
     }
 }
+
+/*
+Extra top/bottom padding/margin (incl. negative)
+- it does not handle breakpoints
+- so we just redefine BS $spacers and let BS handle the rest instead
+*/
+
+// // Padding and Margin Sizes and Corresponding EM Values
+// $spacing-sizes: (
+//   6: 4em,
+//   7: 8em,
+//   8: 12em
+// );
+
+// // Generate Padding and Margin Classes
+// @each $size, $value in $spacing-sizes {
+
+//   // Padding Variations
+//   .p-#{$size} {
+//     padding: $value;
+//   }
+//   .ps-#{$size}, :dir(rtl) .pe-#{$size} {
+//     padding-left: $value;
+//   }
+//   .pe-#{$size}, :dir(rtl) .ps-#{$size} {
+//     padding-right: $value;
+//   }
+//   .pt-#{$size} {
+//     padding-top: $value;
+//   }
+//   .pb-#{$size} {
+//     padding-bottom: $value;
+//   }
+
+//   // Margin Variations
+//   .m-#{$size} {
+//     margin: $value;
+//   }
+//   .ms-#{$size}, :dir(rtl) .me-#{$size} {
+//     margin-left: $value;
+//   }
+//   .me-#{$size}, :dir(rtl) .ms-#{$size} {
+//     margin-right: $value;
+//   }
+//   .mt-#{$size} {
+//     margin-top: $value;
+//   }
+//   .mb-#{$size} {
+//     margin-bottom: $value;
+//   }
+  
+//   // Negative Margin Variations for Top and Bottom
+//   .m-n#{$size} {
+//     margin: -$value;
+//   }
+//   .ms-n#{$size}, :dir(rtl) .me-n#{$size} {
+//     margin-left: -$value;
+//   }
+//   .me-n#{$size}, :dir(rtl) .ms-n#{$size} {
+//     margin-right: -$value;
+//   }
+//   .mt-n#{$size} {
+//     margin-top: -$value;
+//   }
+//   .mb-n#{$size} {
+//     margin-bottom: -$value;
+//   }
+// }

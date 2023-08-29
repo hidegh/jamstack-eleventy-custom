@@ -71,6 +71,11 @@ Paragraph margin-fix
     margin-bottom: 0;
 }
 
+.last-p0 p:last-of-type {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 /*
 Dense paragraphs
 */

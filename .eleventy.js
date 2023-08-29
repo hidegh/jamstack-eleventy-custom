@@ -93,9 +93,16 @@ module.exports = function (eleventyConfig) {
     
     eleventyConfig.addFilter('slugifyPath', function(value) { return filters.slugifyPath(value); });
 
-    eleventyConfig.addFilter('versionedWwwUrl', function(value) {
-        const versionedWwwUrl = value.replace('/www/'+ globals.www.version + '/', '/www/');
-        const patchedWwwIndexUrl = filters.trimEnd(versionedWwwUrl, '/index');
+    eleventyConfig.addFilter('versionedWwwUrl', function(value) {        
+        
+        const versionedWwwUrl = value.endsWith('/www/'+ globals.www.version)
+            ? value.slice(0, -1 * globals.www.version.length)
+            : value.replace('/www/'+ globals.www.version + '/', '/www/');
+
+        var patchedWwwIndexUrl = versionedWwwUrl
+            .replace(/\/index\/$/, '')
+            .replace(/\/index$/, '');
+           
         return patchedWwwIndexUrl;
     });
 

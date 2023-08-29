@@ -27,6 +27,19 @@ BOOTSTRAP
 // @import "./bootswatch/bs5/materia/variables";
 $enable-negative-margins: true;
 
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 6,
+  7: $spacer * 9,
+  8: $spacer * 12
+) !default;
+
 $headings-font-family:"Source Sans Pro", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
 $font-family-base: "Source Sans Pro", "Times New Roman", serif;
 
@@ -43,7 +56,8 @@ Custom variables
 
     // color extensions
     --color-delimiter: steelblue;
-    --color-highlight: orange;
+    // --color-highlight: orange;
+    --color-highlight: var(--bs-warning);
 
     // typography
     --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
@@ -66,6 +80,7 @@ Custom variables
 Imports
 */
 @import 'main/typography.scss';
+@import 'main/typography.themes.scss';
 
 @import 'main/utilities.scss';
 @import 'main/utils.typo.dynamic-headings.scss';
@@ -82,6 +97,9 @@ Imports
 @import 'main/navbar.styling.scss';
 @import 'main/navbar.link-effects.scss';
 
+@import 'effects/section-top-bottom-dividers.scss';
+@import 'effects/skew.scss';
+
 @import 'main/post.taxonomy.scss';
 @import 'main/post.card.scss';
 @import 'main/post.navigation.scss';
@@ -90,4 +108,7 @@ Imports
 @import "main/patch.mermaid.scss";
 @import "main/patch.jarallax-safety.scss";
 
+/*
+With versioned WWW, now we have multiple landing/index pages...
 @import "www/index.scss";
+*/
