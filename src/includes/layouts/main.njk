@@ -39,7 +39,8 @@ mermaid: false
 
             <div class="{{- ('hide-if-search-results-container-is-displayed' + ' ' + bs_br.getBreakpointClass(container, "row", "row _g-0")) | trim -}}">
 
-                <section class="{{- ('article-section col-12 col-{{ asideBreak }}-{{ 12 - aside }} overflow-hidden ' + (extraArticleClasses if extraArticleClasses else '')) | trim -}}">
+                <section class=" {{- ('article-section col-12 col-' + asideBreak + '-' + (12 - aside) + ' overflow-hidden ' + (extraArticleClasses if extraArticleClasses else '')) | trim -}}">
+               
                     <header>{% block articleHeader %}{% endblock %}</header>
                     <article>
                         {% block content %}
