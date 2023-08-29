@@ -48,13 +48,16 @@ module.exports = function (eleventyConfig, pluginOptions) {
     });
 
     eleventyConfig.addFilter('absoluteImageUrl', function(page, imageUrl) { 
-        const imgUrl = imageUrl ?? page.data.image;
-        const postUrl = page.url + (page.url.endsWith("/") ? "" : "/") /* normalize url */;
+        const imgUrl = imageUrl ?? page.data.image ?? '';
+        const postUrl = page.url + (page.url.endsWith("/") ? "" : "/") /* normalize path */;
                 
-        if (typeof imgUrl === 'string' || imgUrl instanceof String) {           
-            const isAbsolute = path.isAbsolute(imgUrl) || imgUrl.match(/^(file|(ht|f)tp(s?))\:\/\//igm);
-            if (isAbsolute) return imgUrl;  // full (absolute) path
-            else return postUrl + imgUrl;   // path rel. to article
+        if (typeof imgUrl === 'string' || imgUrl instanceof String) {
+            // normalized URL (slash at end) sometimes results in image not being shown e.g. inside background-image: url(...)
+            const patchedImgUrl = imgUrl.endsWith("/") ? imgUrl.slice(0, -1) : imgUrl;
+
+            const isAbsolute = path.isAbsolute(patchedImgUrl) || patchedImgUrl.match(/^(file|(ht|f)tp(s?))\:\/\//igm);
+            if (isAbsolute) return patchedImgUrl;  // full (absolute) path
+            else return postUrl + patchedImgUrl;   // path rel. to article
         }
      });
 
