@@ -53,13 +53,53 @@ styles: |
       border-bottom: .25em solid var(--color-delimiter);      
     }
 
+    .testimonial-card {
+      margin-top: 1em; /* 0em; 1em; */
+      width: 100%;
+    }
+
+    .testimonial-card .card-up {
+      height: .5em; /* 5em; -.5em; */
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+
+    .testimonial-card .avatar {
+      margin-top: -1em; /* -4em; -1em; */      
+      height: 8em;
+      width: 8em;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      /*
+      margin-right: auto !important;
+      margin-left: auto !important;
+      */
+      margin-left: 1em;
+    }
+
   </style>
 scripts: |
   <script>
     InitParallax();
     InitTyped();
     InitAOS();
-    InitCounters()
+    InitCounters();
+
+    // tiny slider
+    InitCarousel(".testimonialsCarousel", {
+      items: 1,
+      loop: true,
+      rewind: true,
+      speed: 1000,
+      mouseDrag: true,
+      navPosition: "bottom",
+
+      autoplay: false,
+      autoplayTimeout: 5000,
+
+      controls: false,
+      autoplayButtonOutput: false,
+    });
   </script>
 ---
 
@@ -70,7 +110,7 @@ INCLUDES (no versioning):
   {% include 'src/www/_v3/_me-stats.html' %}
 IMAGE:
   {{ page | absoluteImageUrl('./_v3/_assets/balazs-h-1-5.png') | url | versionedWwwUrl }}
-
+  {{ page | absoluteImageUrl('/www/_v3/_assets/balazs-h-1-5.png') | url | versionedWwwUrl }}
 #}
 
 {#
@@ -474,7 +514,87 @@ Env: {{ meta.env }}
             <p class="lead fw-bold">Hear the Stories from Our Clients</p>
             <p class="text-primary-emphasis">Discover firsthand accounts of how our solutions have transformed businesses.</p>
 
-            <p class="p-3 px-lg-5 text-center bg-danger text-light">See: LinkedIn Recommendations / Testimonials</p>
+            <p class="d-none p-3 px-lg-5 text-center bg-danger text-light">See: LinkedIn Recommendations / Testimonials</p>
+
+            <section class="testimonialsCarousel d-flex align-items-stretch">
+             
+              <div class="mx-1 d-flex align-items-stretch">
+                <div class="card testimonial-card">
+                  <div class="card-up" style="background-color: #9d789b;"></div>
+                  <div class="avatar">
+                    <img src="{{ page | absoluteImageUrl('/www/_v3/_assets/tony-c.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  </div>
+                  <div class="card-body">
+                    <p class="p0 fs-5">Tony Costanzo</p>
+                    <p class="p0 small text-body-secondary">Co-Founder of SimplyPut Consulting</p>
+                    <hr />
+                    <p class="p0 small">
+                      <i class="fas fa-quote-left pe-2"></i>
+                      Balazs joined us as a Technical Lead (Managing Engineer) when our project with a major client was failing.
+                      Within months, he turned things around, saving our client and fortifying our position.
+                      His unmatched expertise and leadership have reshaped our clients' software development for the better.                      
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mx-1 d-flex align-items-stretch">
+                <div class="card testimonial-card">
+                  <div class="card-up" style="background-color: #7a81a8;"></div>
+                  <div class="avatar">
+                    <img src="{{ page | absoluteImageUrl('/www/_v3/_assets/manoj-k.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  </div>
+                  <div class="card-body">
+                    <p class="p0 fs-5">Manoj Kurup</p>
+                    <p class="p0 small text-body-secondary">Vice President Information Technology at Impact Health</p>
+                    <hr />
+                    <p class="p0 small">
+                      <i class="fas fa-quote-left pe-2"></i>
+                      Balazs has been an integral part of our Software Development team, he has led the development efforts and the team for all our mission critical applications.
+                      Supporting over 2500 events and help manage, maintain and track close to 20K field staff that we have on our roaster.
+                      All this was made possible in a very short time by his efforts and he has been working on continuinally improving the product to meet the organizations needs while maintaining highest level of quality in the solutions delivered.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mx-1 d-flex align-items-stretch">
+                <div class="card testimonial-card">
+                  <div class="card-up" style="background-color: #6d5b98;"></div>
+                  <div class="avatar">
+                    <img src="{{ page | absoluteImageUrl('/www/_v3/_assets/stephanie-g.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  </div>
+                  <div class="card-body">
+                    <p class="p0 fs-5">Stephanie Grizzle</p>
+                    <p class="p0 small text-body-secondary">Senior Project Manager at SimplyPut Consulting</p>
+                    <hr />
+                    <p class="p0 small">
+                      <i class="fas fa-quote-left pe-2"></i>
+                      I have worked with Balazs a few times now at different companies.
+                      He has always kept me on my toes with his insight and expertise.
+                      I like the way he thinks outside of the box.
+                      Sometimes I don't even realize the implications of what I am asking until he asks me questions.
+                      Balazs has superior skills and is very dedicate to knowledge building and information sharing.
+                      I did recommend him when we were seeking a technical expert and will do it again.                   
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mx-1 d-flex align-items-stretch">
+                <div class="card testimonial-card">
+                  <div class="card-up" style="background-color: #0a66c2;"></div>
+                  <div class="avatar">
+                    <img src="{{ page | absoluteImageUrl('/www/_v3/_assets/linkedin-circle.png') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  </div>
+                  <div class="card-body">
+                    For More See LinkedIn Recommendations
+                  </div>
+                </div>
+              </div>              
+
+            </section>
+
           </div>
 
         </div>
@@ -721,6 +841,16 @@ Env: {{ meta.env }}
                   name="LastName"
                 />
               </div>
+            </div>
+            <div class="mb-3">
+              <label for="comments" class="form-label">Comments &amp; Notes</label>
+              <textarea
+                type="comments"
+                class="form-control compact-input"
+                id="comments"
+                name="Comments"
+                required
+              ></textarea>
             </div>
             <div class="mb-3 text-center">
               <button type="submit" class="btn btn-danger mt-3">Submit</button>

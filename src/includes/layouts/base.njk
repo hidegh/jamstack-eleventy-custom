@@ -127,6 +127,46 @@
             }
         </script>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tiny-slider@2.9.4/dist/tiny-slider.css">
+        <script src="https://cdn.jsdelivr.net/npm/tiny-slider@2.9.4/dist/min/tiny-slider.min.js"></script>
+        <style>
+        
+            .tns-nav {
+                text-align: center;
+                margin: 1em 0;
+            }
+
+            .tns-nav > [aria-controls] {
+                width: .5em;
+                height: .5em;
+                padding: 0;
+                margin: .5em .25em;                
+                border: 0;
+                border-radius: 50%;
+                background: var(--bs-gray);
+            }
+
+            .tns-nav > .tns-nav-active { 
+                background: var(--bs-gray-dark); 
+            }
+
+        </style>
+        <!--
+        Possibilities:
+        - bootstrap carousel (1 item visible)
+        - css carousel https://codepen.io/medrupaloscil/pen/OJNrLLX
+        - vanilla JS: keen-slider, swiper, tiny-slider, glider
+        - jQuery carousel: slick-carousel, glidejs
+        -->
+        <script>
+            function InitCarousel(selector, options) {
+                var carousel = tns({
+                    container: selector,
+                    ...options
+                });
+            }
+        </script>
+        
         {{ styles | safe }}
     </head>
     <body class="fit-height">

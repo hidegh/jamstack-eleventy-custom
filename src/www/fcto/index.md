@@ -3,7 +3,6 @@ title: FCTO
 layout: page
 theme: dark
 aside: 3
-extraArticleClasses: theme-dark-patch
 pageData:
   url:
     standishGroupReportUrl: https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf
