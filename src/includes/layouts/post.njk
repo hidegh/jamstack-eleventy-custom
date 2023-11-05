@@ -63,7 +63,7 @@ comments: true
 
         <section class="pb-3">
             {% if (post | hasImage) -%}
-            <img class="img-responsive" src="{{ post | absoluteImageUrl | url }}">
+            <img class="{{ post.data.imageClasses if post.data.imageClasses else 'img-responsive' }}" src="{{ post | absoluteImageUrl | url }}">
             {%- endif %}
             {{ content | safe }}
         </section>
