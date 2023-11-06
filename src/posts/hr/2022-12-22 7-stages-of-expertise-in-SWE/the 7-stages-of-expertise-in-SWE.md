@@ -11,7 +11,21 @@ tags:
   - avoid-failures
   - entrepreneur
   - SME
-pin: true
+image: 7 stages.jpg
+imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
+pin: false
+styles: |
+  <style>
+    .img-this::before {
+      content: "";
+      display: block;
+      padding-bottom: 3em;
+    }
+
+    .img-this {
+      max-height: 30vh;
+    }
+  </style>
 ---
 
 This article is still **relevant for any startup or company involved in software development**. It contains useful informations - just like "Clean Code" by Robert C Martin - **details within this article are timeless**.
