@@ -1,6 +1,5 @@
 module.exports = function(configData) {
   return {
-    theme: "light",
     extraLayoutClasses: "layout-blog-related",
     eleventyExcludeFromCollections: true,
     eleventyComputed: {

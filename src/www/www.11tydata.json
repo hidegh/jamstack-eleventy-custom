@@ -1,7 +1,6 @@
 {
   "eleventyExcludeFromCollections": true,
   "layout": "page",
-  "theme": "dark",
   "permalink": "{{ page.filePathStem | versionedWwwUrl | slugifyPath }}/",
   "aside": 0,
   "tags": "www"

@@ -1,2 +1,2 @@
-// NOTE: this sets LAYOUT in every template to 'default'
+// NOTE: this sets LAYOUT var in every template to 'default'
 module.exports = 'default';
