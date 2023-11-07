@@ -3,6 +3,9 @@ body {
     main {
 
         .layout {
+            
+            // added position: relateive, in case we wan't to apply ::after with postion: absolute height: 100% (or bottom: 0)
+            position: relative;
 
             .content-container {
 
@@ -45,11 +48,11 @@ body {
 
             &.layout-blog-related,
             &.layout-post {
-                background: top center/cover url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) fixed;
+                background: linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.333)), url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) no-repeat top center/cover fixed;
             }
 
             &.layout-projects {
-                background: top center/cover url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) fixed;
+                background: linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.333)), url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) no-repeat top center/cover fixed;
             }
         }
 

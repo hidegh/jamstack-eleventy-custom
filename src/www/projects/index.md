@@ -3,7 +3,7 @@ title: Projects
 layout: page
 theme: dark
 aside: 3
-extraLayoutClasses: not-layout-projects
+extraLayoutClasses: layout-projects
 styles: |
   <style>
 
@@ -29,9 +29,9 @@ styles: |
         content: " ";
         position: absolute;
         top: 0;
-        left: -100vw;
-        width: 200vw;
-        height: 100%;
+        bottom: 0;
+        left: -1em;
+        right: -1em;
         z-index: -1;
         background-color: var(--bs-light);
         border-bottom: 2px solid var(--color-highlight);
