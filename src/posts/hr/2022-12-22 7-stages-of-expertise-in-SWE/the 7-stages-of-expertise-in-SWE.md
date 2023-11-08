@@ -157,9 +157,9 @@ However, **there are organizational implications behind the Seven Stages**. Belo
 
 Vendors who sell Software-Engineering techniques do so by convincing management of their boon to productivity. Although vendors rarely say so explicitly — we at Wayland Systems never used to — they compare the productivity of Stage-5s to that of Stage-2s. Unfortunately, this presentation (see Fig. 1) is not a complete picture. Between Stage-3 and Stage-4 there’s a hair-raising “J-curve” of productivity (see Fig. 2), which represents the difficult rite of passage of the incipient Stage-4.
 
-<div class="d-flex flex-column flex-lg-row justify-content-center">
+<div class="d-flex flex-column flex-lg-row gap-md-3 justify-content-center">
     <figure class="figure text-center">
-        <img class="img-thumbnail" src="{{ page | absoluteImageUrl('./productivity-curve-by-managers.gif') | url }}" alt="image" />
+        <img class="figure-img img-fluid rounded" src="{{ page | absoluteImageUrl('./productivity-curve-by-managers.gif') | url }}" alt="image" />
         <figcaption class="figure-caption">Fig. 1 - The productivity curve as perceived by managers</figcaption>
     </figure>
     <figure class="figure text-center">
