@@ -45,7 +45,9 @@ But why this pervasive skepticism? **Let's delve into the diverse personas you m
 
 3️⃣ Perhaps you hope to find an individual with ample passive income? In that case, consider this: Why would such a person not prefer to establish their own venture?
 
-**Equity-only offers come with a considerable risk** – the technical co-founder you secure may either abandon the project halfway through, or in unfortunate cases, remain until they've secured their full equity without delivering substantial value, leaving a trail of low-quality work behind.
+<div class="alert alert-danger">
+<strong>Equity-only offers come with a considerable risk</strong> – the technical co-founder you secure may either abandon the project halfway through, or in unfortunate cases, remain until they've secured their full equity without delivering substantial value, leaving a trail of low-quality work behind.
+</div>
 
 **So, what alternatives do you have?**
 
