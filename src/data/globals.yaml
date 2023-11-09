@@ -81,7 +81,7 @@ gisqus:
   category: Comments
   categoryId: DIC_kwDOJWRxCc4CVvXT
   dataMapping: pathname
-  theme: preferred_color_scheme
+  theme: dark
   
 # used by the custom special paging - set's global paging style
 paging:
