@@ -14,13 +14,14 @@ styles: |
 -->
 
 <div class="row border-bottom g-0 gap-0">
-    <div class="d-none col-md-4 d-md-flex align-items-end  ">
+    <div class="d-none col-md-4 d-md-flex align-items-end">
         <img
             class="img-fluid"
-            src="{{ '/www/_v3/_assets/balazs-h.png' | url | versionedWwwUrl }}"
+            style="height: 40vh"
+            src="{{ '/www/_v3/_assets/balazs-h-1-5.png' | url | versionedWwwUrl }}"
             />
     </div>
-    <div class="col-md-8 d-flex align-items-end">
+    <div class="col-md-8 d-flex align-items-center">
         <div class="last-p0">
             <p>
                 In his role as an experienced Principal Engineer, Balazs brings over 20 years of expertise to the table.
