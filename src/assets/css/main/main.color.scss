@@ -1,0 +1,8 @@
+/*
+    https://www.matuzo.at/blog/2022/100daysof-day50/
+    
+    That's because .card:has(:not(img)) means “select a .card that has any element that is not an image”!
+    And .card:not(:has(img)) means “select a .card doesn't have (not has) an image”!
+
+    [data-bs-theme]:not([data-bs-theme=dark]) UNSET!
+*/
