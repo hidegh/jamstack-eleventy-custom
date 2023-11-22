@@ -622,10 +622,10 @@ d-sm-none = hide if above sm
 <pre class="language-markdown"><code class="language-markdown"><span class="token code"><span class="token punctuation">```</span><span class="token code-language">yaml</span><br><span class="token code-block language-yaml"><span class="token key atrule">key</span><span class="token punctuation">:</span> value</span><br><span class="token punctuation">```</span></span></code></pre>
 <h4 id="line-number" tabindex="-1">Line Number</h4>
 <p>By default, all languages except <code>plaintext</code>, <code>console</code>, and <code>terminal</code> will display line numbers. When you want to hide the line number of a code block, add the class <code>nolineno</code> to it:</p>
-<pre class="language-markdown"><code class="language-markdown"><span class="token code"><span class="token punctuation">```</span><span class="token code-language">shell</span><br><span class="token code-block language-shell"><span class="token builtin class-name">echo</span> <span class="token string">'No more line numbers!'</span></span><br><span class="token punctuation">```</span></span><br>{: .nolineno }</code></pre>
+<pre class="language-markdown"><code class="language-markdown"><span class="token code"><span class="token punctuation">```</span><span class="token code-language">shell</span><br><span class="token code-block language-shell">echo 'No more line numbers!'</span><br><span class="token punctuation">```</span></span><br>{: .nolineno }</code></pre>
 <h4 id="specifying-the-filename" tabindex="-1">Specifying the Filename</h4>
 <p>You may have noticed that the code language will be displayed at the top of the code block. If you want to replace it with the file name, you can add the attribute <code>file</code> to achieve this:</p>
-<pre class="language-markdown"><code class="language-markdown"><span class="token code"><span class="token punctuation">```</span><span class="token code-language">shell</span><br><span class="token code-block language-shell"><span class="token comment"># content</span></span><br><span class="token punctuation">```</span></span><br>{: file="path/to/file" }</code></pre>
+<pre class="language-markdown"><code class="language-markdown"><span class="token code"><span class="token punctuation">```</span><span class="token code-language">shell</span><br><span class="token code-block language-shell"># content</span><br><span class="token punctuation">```</span></span><br>{: file="path/to/file" }</code></pre>
 <h4 id="liquid-codes" tabindex="-1">Liquid Codes</h4>
 <p>If you want to display the <strong>Liquid</strong> snippet, surround the liquid code with <code>and</code>:</p>
 <pre class="language-markdown"><code class="language-markdown"><br><span class="token code"><span class="token punctuation">```</span><span class="token code-language">liquid</span><br><span class="token code-block language-liquid">{% if product.title contains 'Pack' %}<br>  This product's title contains the word Pack.<br>{% endif %}</span><br><span class="token punctuation">```</span></span><br></code></pre>
@@ -1383,7 +1383,6 @@ d-sm-none = hide if above sm
 
         <!-- cookie consent dependent scripts and features -->
         
-
 
     </body>
 
