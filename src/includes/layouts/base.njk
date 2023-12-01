@@ -9,13 +9,16 @@
     {%- endif -%}
 {%- endset -%}
 {%- set metaKeywords -%}
-    {%- if tags -%}{%- for tag in tags -%}{{ tag }},{%- endfor -%}{%- endif -%}
+    {%- if tags -%}{%- for tag in tags -%}{{ tag }}{%- if not loop.last or globals.site.keywords %}, {% endif -%}{%- endfor -%}{%- endif -%}
     {%- if globals.site.keywords -%}
         {%- for keyword in globals.site.keywords -%}
-            {{ keyword }}{%- if not loop.last %},{% endif -%}
+            {{ keyword }}{%- if not loop.last %}, {% endif -%}
         {%- endfor -%}
     {%- endif -%}
 {%- endset -%}
+{%- if globals.site.keywords2description -%}
+    {%- set metaDesc -%}{{ metaDesc | safe }} | {{ metaKeywords | safe }}{%- endset -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="en-US"{%- if theme %} data-bs-theme="{{ theme }}"{% endif -%}>
     <head>
