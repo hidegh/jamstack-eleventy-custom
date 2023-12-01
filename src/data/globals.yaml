@@ -11,25 +11,54 @@ site:
   title: Reflective Tech Consulting For Succesful Projects
   description: Helping others with useful content
   keywords:
-    - Software Projects Done Right
-    - Effective Software Solutions
-    - On-hand Technical Leadership
-    - Project Rescue
-    - Fractional Leadership
+    # services
+    - CTO
+    - Fractional
     - Fractional CTO
-    - Simple Approach
-    - No Huge Upfront Design
-    - Balanced Tactical and Strategic Approaches
-    - Problem Finder
-    - Digitalization
+    - CTO as a Service
+    - Leadership
+    - Technical Leadership
+    - Fractional Leadership
+    - Affordable Tech Leadership
+    - Affordable Technical Leadership
+    - Strategy
+    - Strategic Leadership
     - Consultation
-    - Management
+    - Tech Consultation
+    - Technical Consultation
+    - Health Check
+    - Precision Tech Audit    
+    - Due Diligence Code Audit
+    - Outsourcing
+    - Nearshoring
+    - Offshoring
+    - Vendor Management
     - Team Management
-    - Mentoring
-    - Software Procurement
+    - Team Mentoring
+    # generic ICP
+    - Entrepreneurs
+    - CEOs
+    - Founders
+    - SMEs
+    - Startups
+    - Software Engineering
+    # other
+    - Boring Companies
+    - Boring Technology
+    - MVP
+    - Minimum Viable Project
+    - Procuct Market Fit
+    # technological
     - Software Architecture
     - Software Development
-    - Software Best Practices
+    - Tech Debt
+    - Technical Debt
+    - Programming Debt
+    - Best Practices
+    - Simple Approach
+    - Near-to-zero Maintenance
+    # companies
+    - SimplyPut Consulting
   copyright: Copyright - 2022
   defaultAside: 3
   paths:
