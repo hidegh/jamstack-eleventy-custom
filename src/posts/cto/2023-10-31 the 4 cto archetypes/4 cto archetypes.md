@@ -1,14 +1,14 @@
 ---
 title: The Critical Choice - Picking the Perfect CTO Archetype for Your Business / Startup
 author: Balázs HIDEGHÉTY
-date: 2023-10-30
+date: 2023-10-31
 categories: 
   - [CTO]
 tags:  
-  - startup
-  - SME
-  - CEO
-  - founder
+  - startups
+  - SMEs
+  - CEOs
+  - founders
   - entrepreneurship
   - team-setup
   - softwareengineering

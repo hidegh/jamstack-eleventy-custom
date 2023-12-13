@@ -5,12 +5,15 @@ date: 2023-04-25
 categories: 
   - [HR, Classification]
 tags:
+  - HR
   - classification
   - startups
   - team-setup
   - avoid-failures
-  - entrepreneur
-  - SME
+  - entrepreneurship
+  - SMEs
+  - CEOs
+  - founders
 image: 7 stages.jpg
 imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
 pin: false

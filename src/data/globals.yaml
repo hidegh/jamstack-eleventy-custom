@@ -85,7 +85,7 @@ navbar:
 
 # me
 me:
-  bookingUrl: https://outlook.office.com/bookwithme/user/d5a694f8ce744191a6220ea32ba4eb22%40simplyput.com?anonymous&isanonymous=true
+  bookingUrl: https://outlook.office.com/bookwithme/user/d5a694f8ce744191a6220ea32ba4eb22@simplyput.com?anonymous&ep=plink
   healthCheckUrl: 
   linkedInUrl: https://www.linkedin.com/in/hideghety/
 

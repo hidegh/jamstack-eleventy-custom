@@ -5,9 +5,9 @@ date: 2023-11-06
 categories: 
   - [CTO]
 tags:  
-  - startup
-  - SME
-  - CEO
+  - startups
+  - SMEs
+  - CEOs
   - founder
   - entrepreneurship
   - team-setup
