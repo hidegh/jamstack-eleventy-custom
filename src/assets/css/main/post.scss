@@ -1,0 +1,6 @@
+.layout-post strong:not(.fw-default-style),
+.layout-post b:not(.fw-default-style),
+.layout-post .fw-bold:not(.fw-default-style) {
+    color: var(--color-highlight);
+    font-weight: normal !important;
+}
