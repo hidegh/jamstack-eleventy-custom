@@ -14,7 +14,7 @@ tags:
   - softwareengineering
 image: the equity fallacy.jpeg
 imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
-pin: false
+pin: true
 styles: |
   <style>
     .img-this::before {
