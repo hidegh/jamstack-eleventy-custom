@@ -1,22 +1,93 @@
-#search-results-container {
+.search-results-container {
 
     .search-results-wrapper {
+    
         @extend .p-3;
 
         ul.search-results {
 
-            padding: 1em 0;
+            padding-top: 1em;
             padding-left: 0em;
-        
+
             li {
                 list-style: none;
                 padding: 0 0 1em 0;
         
-                .search-result-item {
+                .catalogue-item {
+
                     padding: 1em;
+
+                    .catalogue-preview {
+
+                        display: flex;
+                        flex-direction: row;
+
+                        img {
+                            object-fit: cover;
+                            max-height: 15vh;
+
+                            flex: 0 0 auto;
+                            width: 33.33%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .excerpt {
+                            flex-direction: column;
+                            padding-left: 1em;
+                        }
+
+                        &::after {
+                            // clearfix aft.
+                            content: "";
+                            display: table;
+                            clear: both;
+                          }
+                    }
+
+                    .catalogue-title {
+                        margin: 0;
+                        padding: 0;
+                        padding-bottom: .5em;
+                    }
+
+                    /*
+                     * Title effect
+                     */
+                    .catalogue-title {
+
+                        &:after
+                        {
+                            content: "";
+                            display: block;
+                            transition: all 1.0s ease-in-out;
+                            border-top: 0.25rem solid var(--color-highlight);
+                            width: 4em;
+                        }
+
+                    }
+
+                    &:hover {
+                        .catalogue-title:after {
+                            width: 8em;
+                        }
+                    }
+
+                    /*
+                     * .catalouge-item (preview) hover effect
+                     */
+                    &:hover {
+                        box-shadow: 0em .25em 1em var(--bs-body-color);
+                        transition: all 0.2s ease-in;
+                    }
+
                 }
+
             }
+
         }
         
     }
+
 }
