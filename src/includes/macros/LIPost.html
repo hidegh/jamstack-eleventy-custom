@@ -1,6 +1,7 @@
 {#
     Macro to render a linked in post HREF...
 #}
+
 {%- macro write(uri) -%}
 {%- if uri -%}
 <section class="li-post-link">
@@ -11,4 +12,9 @@
 {%- endif -%}
 {%- endmacro -%}
 
+{%- macro writeLink(uri, title, prependIcon = false, appendIcon = false) -%}
+{%- if uri -%}
+<a href="{{uri | url}}" target="_blank" class="text-decoration-none">{%- if prependIcon -%}<i class="fa-brands fa-linkedin"></i>&nbsp;{%- endif -%}{{ title }}{%- if appendIcon -%}&nbsp;<i class="fa-brands fa-linkedin"></i>{%- endif -%}</a>
+{%- endif -%}
+{%- endmacro -%}
 
