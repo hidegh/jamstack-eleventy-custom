@@ -1,0 +1,14 @@
+{#
+    Macro to render a linked in post HREF...
+#}
+{%- macro write(uri) -%}
+{%- if uri -%}
+<section class="li-post-link">
+    <div class="alert alert-secondary">
+        Join the conversation on <a href="{{uri | url}}" target="_blank" class="text-decoration-none"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>. Your insights are valued.
+    </div>
+</section>
+{%- endif -%}
+{%- endmacro -%}
+
+
