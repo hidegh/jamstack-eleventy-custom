@@ -4,14 +4,18 @@
 {%- macro write(tagString) -%}
 <section class="li-hashtag-links">
     <div class="py-3">
-        {%- set hashtags = tagString.split('#') -%}
-        {%- for hashtag in hashtags -%}
-        {%- if hashtag -%}
-            <a href="{{ 'https://www.linkedin.com/feed/hashtag/?keywords=' + hashtag | url}}" target="_blank" class="text-decoration-none"><i class="fa-solid fa-hashtag"></i>{{ hashtag }}</a>
-        {%- endif -%}
-        {%- endfor -%}
+        {{ writeLink(tagString) }}
     </div>
 </section>
+{%- endmacro -%}
+
+{%- macro writeLink(tagString) -%}
+{%- set hashtags = tagString.split('#') -%}
+{%- for hashtag in hashtags -%}
+{%- if hashtag -%}
+<a href="{{ 'https://www.linkedin.com/feed/hashtag/?keywords=' + hashtag | url}}" target="_blank" class="text-decoration-none"><i class="fa-solid fa-hashtag"></i>{{ hashtag }}</a>
+{%- endif -%}
+{%- endfor -%}
 {%- endmacro -%}
 
 
