@@ -3,7 +3,8 @@ title: Rapid Byte Brilliance (RBB) Newsletter
 author: Balázs HIDEGHÉTY
 date: 2023-12-21
 categories: 
-  - [Development]
+  - [Newsletter]
+  - [Newsletter, Clean Code]
 tags:
   - development
   - startups
@@ -35,6 +36,8 @@ styles: |
 Dear Esteemed **CEOs**, **CTOs**, **VPEs**, and **Technical Leads**, in forging the **excellence** of your software, the **pivotal role** played by your **architects** and **developers**, cannot be overstated.
 
 Steer your team away from subpar videos and articles to **save their valuable time**. Ensure a trajectory of success by emphasizing that your developers **engage with top-tier learning materials**.
+
+[Link to Newsletter posts](http://localhost:4300/category/newsletter/clean-code/1/)
 ---
 <div class="clearfix"></div>
 <hr/>
