@@ -1,0 +1,15 @@
+{#
+    Macro to render youtube related!
+#}
+{%- macro videoLink(url, time, title = "", target = "_blank") -%}
+{%- set timeParts = time.split(":")  | reverse -%}
+{%- set seconds = 0 -%}
+{%- set power = 1 -%}
+{%- for timePart in timeParts -%}
+{%- set seconds = seconds + (timePart * power) -%}
+{%- set power = power * 60 -%}
+{%- endfor -%}
+{%- set label = title if title else time -%}
+{%- set urlWithQuery = url + ("&" if ("?" in url) else "?") + "t=" + seconds -%}
+<a href="{{ urlWithQuery | url}}" target="{{ target }}" class="text-decoration-none">{{ label }}</a>
+{%- endmacro -%}
