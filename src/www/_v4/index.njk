@@ -145,7 +145,7 @@ Env: {{ meta.env }}
           
             <div class="content bg-black-2-3">
               
-              <div class="lead p-3 p-lg-5">
+              <div class="lead p-3 p-lg-5 bg-black-2-3">
 
                 <div class="fs-1 fw-bold">
                   Driven by the desire to witness your ideas thrive.
@@ -166,7 +166,7 @@ Env: {{ meta.env }}
 
               </div>
 
-              <div class="mt-3 mt-lg-0 p-3 p-lg-5 bg-black-2-3 lead text-center">
+              <div class="mt-3 mt-lg-0 p-3 p-lg-5 lead text-center">
               
                 <div class>
                   <h1 class="m-0">
@@ -272,8 +272,14 @@ Env: {{ meta.env }}
 
           <div class="col-12 col-lg-8 px-3 px-lg-5">
 
-            <p class="lead fw-bold">
-              The Path from Idea to Launch Requires More Than Just Coding!
+            <p>
+              Developing software that avoids becoming a money pit entails a <span class="fw-bold">spectrum of skills</span>.
+              It goes beyond coding, requiring planning and hands-on expertise in various areas such as hiring, management, leadership, estimation, architecture, coding, testing, deployment, cloud, distributed services, etc. —with a particular emphasis on technical leadership.
+            </p>
+
+            <p>
+              <div class="lead fw-bold">Introducing Fractional Technical Counseling Services</div>
+              <div>— a strategic, cost-effective solution for <span class="fw-bold">SMEs</span><div>
             </p>
 
             <p>
@@ -282,10 +288,13 @@ Env: {{ meta.env }}
             </p>
 
             <p>
-              Hiring full-time CTOs is costly, demands equity, and is challenging to find.
-              However, neglecting hands-on leadership can lead to disasters.
-              <span class="text-decoration-underline">Whether in-house development or partnering with vendors, beneath the appealing facade lies potential trouble</span>.
+              Hiring full-time CTOs is expensive, requires equity, and poses challenges in finding the right fit.
+              <span class="fw-bold">We're here to assist;</span> no initial long-term commitment required — it's free to try and easy to scale up.
             </p>
+
+            <div class="p-3 px-lg-5 lead text-center">
+              <a class="btn btn-danger mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
+            </div>
 
             <div class="ff-tall bg-body-secondary text-primary-emphasis p-3 px-lg-5 mb-3">
               <p class="p0 fw-bold">Don't let your business become another statistic.</p>
@@ -293,26 +302,6 @@ Env: {{ meta.env }}
                 We recently highlighted a true story: <span class="text-decoration-underline">A company that ignored crucial technical advice.</span>
                 The outcome?
                 <span class="text-decoration-underline">A staggering loss of $1.5-2.5 million in just two short years.</span>
-              </p>
-            </div>
-
-            <p>
-              <span class="fw-bold">CTO as a Service</span> (Fractional CTOs) offers a seamless, cost-effective solution, ensuring hands-on leadership to navigate potential pitfalls in your development journey.
-              Embrace success without compromise.
-            </p>
-
-            <p>
-              We're here to help, and there's no need for an initial long-term commitment—<span class="fw-bold">free to try and easy to get more help</span>.
-            </p>
-
-            <div class="p-3 px-lg-5 lead text-center">
-              <a class="btn btn-danger mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
-            </div>
-
-            <div class="d-none ff-tall bg-body-secondary text-primary-emphasis p-3 px-lg-5 mb-3">   
-              <p class="p0">
-                Detecting concealed issues, which can lead to potential losses and challenges, is a complex task, as demonstrated in <a href="{{ pageData.url.external.sixLittleLinesOfFailUrl | url }}" target="_blank">"Six Little Lines of Fail" by Jimmy Bogard</a>.
-                Engaging a hands-on technical expert is crucial to equip your team and architecture for effective handling, minimizing risks and optimizing business resilience.
               </p>
             </div>
 
@@ -646,10 +635,6 @@ Env: {{ meta.env }}
             This holds true for companies boasting a development team of up to 10 members, as well as agencies housing three similar teams with different technology stacks.
           </div>
 
-          <div class="px-lg-5 lead text-center text-body-emphasis">
-            The best time to fix these issues was yesterday - The second-best time is now!
-          </div>
-
           <div>
             <span class="text-highlight">Tackling these issues requires a strategic approach.</span>
             The sooner we take action, the better – as it involves instilling a culture and fostering positive practices (which is almost impossible or extremely expensive to retrofit later on).
@@ -679,13 +664,13 @@ Env: {{ meta.env }}
         <div class="text-center pb-5">
           <p class="lead fw-bold">Ready to Unlock Your Tech Potential?</p>
           <p>We Made It Really Simple!</p>
-          <p class="fs-1 fw-bold text-highlight">Experience the Difference</p>
+          <p class="lead fw-bold no-text-highlight">Experience the Difference Now!</p>
         </div>
 
         <div class="row g-5">
 
-          <div class="col-12 col-md-4">          
-            <div class="text-center text-info">
+          <div class="col-12 col-md-4 d-flex flex-column">          
+            <div class="text-center text-info-emphasis">
               <p>
                 <span class="fa-stack fa-2x">
                   <i class="fa-regular fa-circle fa-stack-2x"></i>
@@ -696,15 +681,17 @@ Env: {{ meta.env }}
                 2-Min Tech Health Check
               </p>
             </div>
-            <p class="text-justify">
+            <p class="text-justify">           
               <span class="text-nowrap fw-bold">Quick & Free!</span>
-              Engage in a brief 2-minute questionnaire for a rapid assessment of your company's technical vitality (no technical expertise required to answer).              
-              <span class="fw-bold">Gain a snapshot overview of your organization's tech landscape now!</span>
+              <span class>Gain an overview report of your organization's tech landscape now!</span>             
+            </p>
+            <p class="mt-auto text-center">
+              <a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check...</a>
             </p>
           </div>
 
-          <div class="col-12 col-md-4">
-            <div class="text-center text-success">
+          <div class="col-12 col-md-4 d-flex flex-column">
+            <div class="text-center text-danger-emphasis">
               <p>
                 <span class="fa-stack fa-2x">
                   <i class="fa-regular fa-circle fa-stack-2x"></i>
@@ -712,18 +699,19 @@ Env: {{ meta.env }}
                 </span>
               </p>
               <p class="lead fw-bold">
-                Precision Tech Audit
+                FREE Consultation
               </p>
             </div>
             <p class="text-justify">
-              Pinpoint your technical health issues with precision and receive valuable insights on how to address them.
-              Opt for solving it on your own or let us guide you seamlessly through the process.
-              <span class="fw-bold">Elevate your tech vitality, mitigate risks, and save where it truly matters.</span>
+              Let's assess synergy. Evaluate compatibility and check if our services align with your needs!
+            </p>
+            <p class="mt-auto text-center">
+              <a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Claim Your FREE Consultation NOW!</a>
             </p>
           </div>
 
-          <div class="col-12 col-md-4">
-            <div class="text-center text-primary">
+          <div class="col-12 col-md-4 d-flex flex-column">
+            <div class="text-center text-primary-emphasis">
               <p>
                 <span class="fa-stack fa-2x">
                   <i class="fa-regular fa-circle fa-stack-2x"></i>
@@ -731,27 +719,20 @@ Env: {{ meta.env }}
                 </span>
               </p>
               <p class="lead fw-bold">
-                Affordable <!--Strategic -->Tech Leadership
+                Affordable Tech Leadership
               </p>
             </div>
             <p class="text-justify">
-              Embark on the software journey with us, whether starting with a project rescue or addressing technical health.
-              Recognize that the software process is ongoing; even completed projects require preparation for cost-effective maintenance.
-              We provide a second voice of reason, an extra pair of eyes.
-              <span class="fw-bold">Rely on us for sustained excellence, steering clear of pitfalls and the hidden costs associated with overlooking essential guidance.</span>
+              Are you in search of tech insights, project support, vendor guidance, or standard software leadership?
+              <span class="fw-bold">We're here to assist you!</span>
             </p>
+            <p class="mt-auto text-center">
+              <a class="btn btn-sm btn-danger mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
+            </p>            
           </div>
 
         </div>
 
-      </div>
-
-      <div class="text-center">
-        {%- if globals.me.healthCheckUrl -%}
-        <a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check...</a>
-        {%- endif -%}
-        <a class="btn btn-sm btn-secondary mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
-        <a class="btn btn-sm btn-secondary mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Claim Your FREE Consultation NOW!</a>
       </div>
 
       <div class="pb-6"></div>

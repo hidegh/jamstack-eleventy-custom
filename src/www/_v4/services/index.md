@@ -28,7 +28,7 @@ styles: |
                 </span>
             </p>
             <p class="lead fw-bold skip-text-highlight">
-                2-Min Tech Health Check
+                2-Min Tech Health Assessment & Report
             </p>
         </div>
         <p class="text-justify">
