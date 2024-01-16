@@ -7,6 +7,11 @@
 
         console.log('loaging GA...')
 
+        if (environment == "local") {
+            console.log("...skipping GA on local!");
+            return;
+        }
+
         document.addEventListener("DOMContentLoaded", function (event) {
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }
