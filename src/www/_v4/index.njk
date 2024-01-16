@@ -292,10 +292,6 @@ Env: {{ meta.env }}
               <span class="fw-bold">We're here to assist;</span> no initial long-term commitment required — it's free to try and easy to scale up.
             </p>
 
-            <div class="p-3 px-lg-5 lead text-center">
-              <a class="btn btn-danger mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
-            </div>
-
             <div class="ff-tall bg-body-secondary text-primary-emphasis p-3 px-lg-5 mb-3">
               <p class="p0 fw-bold">Don't let your business become another statistic.</p>
               <p class="p0">
@@ -303,6 +299,10 @@ Env: {{ meta.env }}
                 The outcome?
                 <span class="text-decoration-underline">A staggering loss of $1.5-2.5 million in just two short years.</span>
               </p>
+            </div>
+
+            <div class="p-3 px-lg-5 lead text-center">
+              <a class="btn btn-danger mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
             </div>
 
             <div class="pb-md-7 bg-body"></div>
@@ -447,7 +447,7 @@ Env: {{ meta.env }}
         </div>
 
 
-        <div class="not-d-none p-3 px-lg-5 d-flex flex-column">
+        <div class="d-none p-3 px-lg-5 d-flex flex-column">
           <p>
             <span class="fw-bold">Can you identify and prevent costly long-term technical decisions in a timely manner?</span>
             Are you able to identify technical issues?
