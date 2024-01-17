@@ -686,7 +686,9 @@ Env: {{ meta.env }}
               <span class>Gain an overview report of your organization's tech landscape now!</span>             
             </p>
             <p class="mt-auto text-center">
+              {%- if globals.me.healthCheckUrl -%}
               <a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check...</a>
+              {%- endif -%}
             </p>
           </div>
 
