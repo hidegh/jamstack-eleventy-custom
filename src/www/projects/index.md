@@ -47,7 +47,14 @@ scripts: |
 
 One of my favorite success stories is that of Impact Health, as it provides <strong>a compelling example of how a software project can fail due to the lack of a hands-on CTO, even when the conventional managerial aspects are executed excellently</strong>.
 
-<a href="{{ '/www/success-stories/ih-tla' | url | versionedWwwUrl }}" class="not-stretched-link btn btn-sm btn-secondary text-nowrap">Explore more...</a>
+<div class="mb-1">
+    <a  class="btn btn-sm btn-secondary text-nowrap me-1" href="{{ '/www/success-stories/ih-tla' | url | versionedWwwUrl }}">Explore more...</a>
+    {%- if globals.me.healthCheckUrl -%}
+    <a class="btn btn-sm btn-secondary text-nowrap me-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check...</a>
+    {%- endif -%}
+</div>
+
+
 
 ## Projects
 

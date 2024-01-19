@@ -36,7 +36,13 @@ Creating an efficient development environment, delivering well-architected and w
 
 
 ## (When do) I need a CTO!?
-  
+
+<div class="mb-3">
+    {%- if globals.me.healthCheckUrl -%}
+    <a class="btn btn-sm btn-primary text-nowrap me-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check to assess how and in what areas a CTO can assist you...</a>
+    {%- endif -%}
+</div>
+
 If you're grappling with issues like delayed features, extensive support ticket and bug fix cycles, sluggish vendor deliveries with unexpected problems, and general inefficiencies in software development, this could be a pivotal moment to contemplate bringing a CTO on board.
 
 <div class="m-3 mx-lg-5 p-3 px-lg-5 last-p0 bg-body-secondary text-body">
