@@ -43,16 +43,16 @@ body {
                     .article-section {
                         @extend .p-0;
                     }
-                }
+                }               
             }
 
             &.layout-blog-related,
             &.layout-post {
-                background: linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.333)), url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) no-repeat top center/cover fixed;
+                background: linear-gradient(rgba(0, 0, 0, 0.666), rgba(0, 0, 0, 0.666)), url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) no-repeat top center/cover fixed;
             }
 
             &.layout-projects {
-                background: linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.333)), url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) no-repeat top center/cover fixed;
+                background: linear-gradient(rgba(0, 0, 0, 0.666), rgba(0, 0, 0, 0.666)), url(/assets/bg/office/unsplash-austin-distel-wawEfYdpkag-unsplash.jpg) no-repeat top center/cover fixed;
             }
         }
 

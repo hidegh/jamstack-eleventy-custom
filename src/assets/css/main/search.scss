@@ -1,5 +1,12 @@
 .search-results-container {
 
+    strong:not(.fw-default-style),
+    b:not(.fw-default-style),
+    .fw-bold:not(.fw-default-style) {
+        color: var(--color-highlight);
+        font-weight: normal !important;
+    }
+
     .search-results-wrapper {
     
         @extend .p-3;
@@ -16,6 +23,9 @@
                 .catalogue-item {
 
                     padding: 1em;
+
+                    max-height: 25vh;                    
+                    overflow: hidden;
 
                     .catalogue-preview {
 

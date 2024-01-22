@@ -4,3 +4,10 @@
     color: var(--color-highlight);
     font-weight: normal !important;
 }
+
+.layout-blog-related strong:not(.fw-default-style),
+.layout-blog-related b:not(.fw-default-style),
+.layout-blog-related .fw-bold:not(.fw-default-style) {
+    color: var(--color-highlight);
+    font-weight: normal !important;
+}
