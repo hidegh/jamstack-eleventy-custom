@@ -3,7 +3,7 @@ title: The Equity Fallacy
 author: Balázs HIDEGHÉTY
 date: 2023-11-06
 categories: 
-  - [CTO]
+  - [CEO]
 tags:  
   - startups
   - SMEs
