@@ -18,14 +18,15 @@ imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-m
 pin: true
 comments: false
 pageData:
-  liRef: https://www.linkedin.com/feed/update/urn:li:activity:7143634743845142529/
-  newsletterRef: /category/development/1/
+  liNewsletterRef: https://www.linkedin.com/newsletters/rapid-byte-brilliance-7143633014344863744/
+  thisNewsletterRef: /category/newsletter/1/
 ---
 Dear Esteemed **CEOs**, **CTOs**, **VPEs**, and **Technical Leads**, in forging the **excellence** of your software, the **pivotal role** played by your **architects** and **developers**, cannot be overstated.
 
-Steer your team away from subpar videos and articles to **save their valuable time**. Ensure a trajectory of success by emphasizing that your developers **engage with top-tier learning materials**.
+Steer your team away from subpar videos and articles to **save their valuable time**. Ensure a trajectory of success by emphasizing that your developers <span class="text-highlight">engage with top-tier learning materials</span>.
 
-[Link to Newsletter posts](http://localhost:4300/category/newsletter/clean-code/1/)
+<a href="{{ pageData.thisNewsletterRef | url}}"><i class="fa-solid fa-globe fa-fw"></i> Link to Newsletter articles on this site</a><br/>
+<a href="{{ pageData.liNewsletterRef | url}}" target="_blank"><i class="fa-brands fa-linkedin fa-fw"></i> Link to the Newsletter on LinkedIn</a><br/>
 ---
 <div class="clearfix"></div>
 <hr/>
@@ -35,20 +36,21 @@ Steer your team away from subpar videos and articles to **save their valuable ti
 
 
 
+📌 Make sure to follow me on {{ liPost.writeLink(globals.me.linkedInUrl, 'LinkedIn', true) }} for exclusive insights and posts that won't be included in the newsletter! <span class="text-highlight">Don't miss out on the extra content!</span>
+
+---
+
 ## Join in to unlock a wealth of expert knowledge at your fingertips!
 
 <div class="p-3 px-lg-5">
   <p>
-    What you will discover are <b>exclusive insights from top-tier developers</b>, presented through engaging posts and videos.
+    What you will discover are <span class="text-highlight">exclusive insights from top-tier developers</span>, presented through engaging posts and videos.
   </p>
   <p>
-    Embrace a <b>less frequent but impactful content</b> flow. Here, the emphasis is on delivering high-quality, genuinely useful material rather than overwhelming you with an excess of mediocre content.
+    Embrace a <span class="text-highlight">less frequent but impactful content</span> flow. Here, the emphasis is on delivering high-quality, genuinely useful material rather than overwhelming you with an excess of mediocre content.
   </p>
   <p>
-    My unique contribution is making this invaluable content accessible to my audience, accompanied by <b>quick summaries</b> and notes for effortless later reference. 
-  </p>
-  <p>
-    Follow me on {{ liPost.writeLink(globals.me.linkedInUrl, 'LinkedIn', true) }} or just save <a href="{{ pageData.newsletterRef | url}}">this link</a> to check out new posts.</a>
+    My unique contribution is making this invaluable content accessible to my audience, accompanied by <span class="text-highlight">quick summaries</span> and notes for effortless later reference. 
   </p>
 </div>
 
@@ -77,11 +79,5 @@ This section will feature the **best sources**, including video and article link
 </div>
 
 ---
-
-📌 Make sure you and your team subscribe (follow me) on {{ liPost.writeLink(globals.me.linkedInUrl, 'LinkedIn', true) }} so you don't miss out on the latest insights! 
-
----
-
-{{ liPost.write(pageData.liRef) }}
 
 {{ liTags.write("#StayInformed #TechTalks #SoftwareEngineeering #CompanyCulture") }}
