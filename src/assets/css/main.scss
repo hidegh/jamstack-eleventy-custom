@@ -56,9 +56,9 @@ Custom variables
 :root {
 
     // color extensions
-    --color-delimiter: steelblue;
-    // --color-highlight: orange;
-    --color-highlight: var(--bs-warning);
+    --color-delimiter: var(--bs-primary-text-emphasis);
+    --color-bold: var(--bs-primary-text-emphasis);
+    --color-highlight: var(--bs-warning-text-emphasis);
 
     // typography
     --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
