@@ -40,9 +40,25 @@ Extensions
 /*
 Quotes
 */
+/*
 blockquote {
     font-size: inherit !important;
     line-height:  inherit !important;
+}
+*/
+
+blockquote {
+    cite {
+        white-space: nowrap;
+        font-size: 0.8em;
+    }
+}
+
+blockquote:not(.quote) {
+    border-left: .25em solid var(--color-delimiter);
+    padding-left: 1em;
+    font-size: 1.2em;
+    color: var(--color-highlight);
 }
 
 blockquote.quote {
