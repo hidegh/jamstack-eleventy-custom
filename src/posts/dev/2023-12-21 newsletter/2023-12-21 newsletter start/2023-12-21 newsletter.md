@@ -20,18 +20,6 @@ comments: false
 pageData:
   liRef: https://www.linkedin.com/feed/update/urn:li:activity:7143634743845142529/
   newsletterRef: /category/development/1/
-styles: |
-  <style>
-    .img-this::before {
-      content: "";
-      display: block;
-      padding-bottom: 3em;
-    }
-
-    .img-this {
-      max-height: 30vh;
-    }
-  </style>
 ---
 Dear Esteemed **CEOs**, **CTOs**, **VPEs**, and **Technical Leads**, in forging the **excellence** of your software, the **pivotal role** played by your **architects** and **developers**, cannot be overstated.
 

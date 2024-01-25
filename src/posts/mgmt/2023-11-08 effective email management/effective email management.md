@@ -22,18 +22,6 @@ pin: false
 comments: false
 pageData:
   liRef: https://www.linkedin.com/feed/update/urn:li:activity:7128063627223285760/
-styles: |
-  <style>
-    .img-this::before {
-      content: "";
-      display: block;
-      padding-bottom: 3em;
-    }
-
-    .img-this {
-      max-height: 30vh;
-    }
-  </style>
 ---
 <p class="fw-bold">
  Efficient email management is a skill that can transform your daily routine and boost your team's productivity.

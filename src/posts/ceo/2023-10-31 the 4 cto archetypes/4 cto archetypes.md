@@ -18,15 +18,6 @@ imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-m
 pin: true
 styles: |
   <style>
-    .img-this::before {
-      content: "";
-      display: block;
-      padding-bottom: 3em;
-    }
-
-    .img-this {
-      max-height: 30vh;
-    }
   </style>
 ---
 

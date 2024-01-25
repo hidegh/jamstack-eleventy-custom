@@ -19,18 +19,6 @@ comments: false
 pageData:
   liRef: https://www.linkedin.com/feed/update/urn:li:activity:7133106880985333760/
   liPragueStoryRef: https://www.linkedin.com/posts/hideghety_remotework-communicationstrategies-leadershiptips-activity-7132744484986994689-zT_W/
-styles: |
-  <style>
-    .img-this::before {
-      content: "";
-      display: block;
-      padding-bottom: 3em;
-    }
-
-    .img-this {
-      max-height: 30vh;
-    }
-  </style>
 ---
 <p class>
   Following my "Story of staying in Prague" I realized that, in addition to understanding how to make asynchronous communication work for you, <span class="fw-bold">recognizing when not to use asynchronous communication is equally crucial</span>.

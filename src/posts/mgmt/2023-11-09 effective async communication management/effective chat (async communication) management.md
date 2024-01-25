@@ -22,18 +22,6 @@ pin: false
 comments: false
 pageData:
   liRef: https://www.linkedin.com/feed/update/urn:li:activity:7128418480881594368/
-styles: |
-  <style>
-    .img-this::before {
-      content: "";
-      display: block;
-      padding-bottom: 3em;
-    }
-
-    .img-this {
-      max-height: 30vh;
-    }
-  </style>
 ---
 <p class="d-none fw-bold">
   Tired of constant interruptions?

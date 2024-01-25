@@ -11,4 +11,17 @@
     color: var(--color-bold);
     font-weight: normal !important;
 }
+
+.layout-post {
+
+    .img-this::before {
+        content: "";
+        display: block;
+        padding-bottom: 3em;
+    }
+
+    .img-this {
+        max-height: 30vh;
+    }
+    
 }

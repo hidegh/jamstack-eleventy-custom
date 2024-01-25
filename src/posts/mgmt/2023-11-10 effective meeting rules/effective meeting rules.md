@@ -22,18 +22,6 @@ pin: false
 comments: false
 pageData:
   liRef: https://www.linkedin.com/feed/update/urn:li:activity:7128750666210025472/
-styles: |
-  <style>
-    .img-this::before {
-      content: "";
-      display: block;
-      padding-bottom: 3em;
-    }
-
-    .img-this {
-      max-height: 30vh;
-    }
-  </style>
 ---
 <p class="fw-bold">
   Meetings can be a pain—we've all been there. The problem? They often lack a plan, decisions are last-minute, and real progress is rare. But fear not! Let's turn things around with these simple rules to make your meetings actually count!

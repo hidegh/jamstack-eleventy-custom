@@ -15,18 +15,6 @@ tags:
 image: the equity fallacy.jpeg
 imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
 pin: true
-styles: |
-  <style>
-    .img-this::before {
-      content: "";
-      display: block;
-      padding-bottom: 3em;
-    }
-
-    .img-this {
-      max-height: 30vh;
-    }
-  </style>
 ---
 
 In the fast-paced world of startups, the journey to success is fraught with uncertainties. Startling statistics reveal that **only a mere 1% of startups manage to reach the coveted IPO stage**, with a significant number meeting their demise within the initial five years[^1].
