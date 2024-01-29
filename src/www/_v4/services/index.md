@@ -2,13 +2,6 @@
 title: Services
 layout: page
 aside: 3
-styles: |
-  <style>
-    b, strong, .fw-bold {
-        font-weight: normal;
-        color: var(--color-highlight);
-    }
-  </style>
 ---
 
 <div class="text-center pb-5">
