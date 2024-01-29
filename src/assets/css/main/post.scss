@@ -1,13 +1,11 @@
 .layout-post strong:not(.fw-default-style),
-.layout-post b:not(.fw-default-style),
-.layout-post .fw-bold:not(.fw-default-style) {
+.layout-post b:not(.fw-default-style) {
     color: var(--color-bold);
     font-weight: normal !important;
 }
 
 .layout-blog-related strong:not(.fw-default-style),
-.layout-blog-related b:not(.fw-default-style),
-.layout-blog-related .fw-bold:not(.fw-default-style) {
+.layout-blog-related b:not(.fw-default-style) {
     color: var(--color-bold);
     font-weight: normal !important;
 }
@@ -24,4 +22,32 @@
         max-height: 30vh;
     }
     
+}
+
+.further-reading {
+
+    .post-navigation {
+
+        &.related-posts {
+            @extend .d-none;
+            @extend .d-md-flex;
+        }
+
+        &.prev-next {
+
+        }
+
+    }
+}
+
+.commenting {
+    
+    &::before {
+        @extend .h5;
+        @extend .text-body-secondary;
+
+        content: "";
+        display: block;
+    }
+
 }

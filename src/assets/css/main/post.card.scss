@@ -13,6 +13,7 @@ ul.posts {
             @extend .rounded-0;
             @extend .mb-3;
 
+            overflow: hidden;
         
             &.card-horizontal {
                 flex-direction: row;
