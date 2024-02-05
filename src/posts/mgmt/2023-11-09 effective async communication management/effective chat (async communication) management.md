@@ -2,6 +2,7 @@
 title: Effective Async Communication for Busy Leaders
 author: Balázs HIDEGHÉTY
 date: 2023-11-09
+series: effective communication
 categories: 
   - [Management, Efficiency]
 tags:

@@ -2,6 +2,7 @@
 title: Effective Meeting Rules
 author: Balázs HIDEGHÉTY
 date: 2023-11-10
+series: effective communication
 categories: 
   - [Management, Efficiency]
 tags:

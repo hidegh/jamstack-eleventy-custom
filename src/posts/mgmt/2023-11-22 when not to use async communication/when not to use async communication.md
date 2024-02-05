@@ -2,6 +2,7 @@
 title: When NOT to use Async Communication
 author: Balázs HIDEGHÉTY
 date: 2023-11-22
+series: effective communication
 categories: 
   - [Management, Efficiency]
 tags:

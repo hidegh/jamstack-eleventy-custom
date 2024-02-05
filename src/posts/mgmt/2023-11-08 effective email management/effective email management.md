@@ -2,6 +2,7 @@
 title: Effective Email Management for Busy Leaders
 author: Balázs HIDEGHÉTY
 date: 2023-11-08
+series: effective communication
 categories: 
   - [Management, Efficiency]
 tags:
