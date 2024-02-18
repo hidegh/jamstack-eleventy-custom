@@ -15,7 +15,7 @@ tags:
   - founders
 image: quick learning.jpeg
 imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
-pin: true
+pin: false
 comments: false
 pageData:
   liNewsletterRef: https://www.linkedin.com/newsletters/rapid-byte-brilliance-7143633014344863744/
