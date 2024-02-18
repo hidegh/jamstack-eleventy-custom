@@ -2,3 +2,4 @@ node_modules/**
 src/plugins/*/readme.md
 src/tests/**
 src/www-backup/**
+src/post-vault/**
