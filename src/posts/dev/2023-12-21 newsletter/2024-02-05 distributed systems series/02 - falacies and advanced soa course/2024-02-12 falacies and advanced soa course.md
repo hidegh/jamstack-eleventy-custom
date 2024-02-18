@@ -52,6 +52,14 @@ But the fallacies are just the start. <span class="text-highlight">If you are in
 
 ---
 
+ <span class="text-highlight">Sneak peek:</span>
+ 
+ **Fallacies of Distributed Systems #2: Latency is Zero** - One of the fallacies of distributed systems is that latency is zero. In reality, it can take much longer for data to travel between two machines than it does to perform a local operation. Crossing geographical boundaries? Expect even more delay. This can be a major problem for applications that need to be fast and responsive.
+
+<img src="{{ page | absoluteImageUrl('code is liability - latency scaled.png') | url }}" class="w-100"></img>
+
+---
+
 📌 Make sure you and your team subscribe (follow me) on {{ liPost.writeLink(globals.me.linkedInUrl, 'LinkedIn', true) }} so you don't miss out on the latest insights!
 
 ---
