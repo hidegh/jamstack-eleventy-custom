@@ -41,10 +41,6 @@ styles: |
       color: var(--color-highlight);
     }
 
-    .icon-linked-in {
-      // color: #0a66c2;
-    }
-
     .top-delimiter {
       border-top: .25em solid var(--color-delimiter);      
     }
@@ -190,7 +186,8 @@ Env: {{ meta.env }}
 
                 <div class="pt-3">
                   {% if globals.me.healthCheckUrl %}<a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check...</a>{% endif %}
-                  <a class="btn btn-sm btn-primary mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Schedule Your FREE Consultation!</a>
+                  <a class="btn btn-sm btn-primary mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Schedule a FREE Consultation!</a>
+                  <a class="btn btn-sm btn-outline-light mb-1" href="{{ globals.me.linkedInUrl | url }}" target="_blank"><i class="fa-brands fa-linkedin fa-fw not-text-social-linked-in"></i>Chat with me on LinkedIn!</a>
                   <a class="d-none btn btn-sm btn-secondary mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
                   <a class="btn btn-sm btn-secondary mb-1" href="{{ pageData.url.www.learnMoreUrl | url | versionedWwwUrl }}">Learn more...</a>
                 </div>

@@ -60,6 +60,8 @@ Custom variables
     --color-bold: var(--bs-primary-text-emphasis);
     --color-highlight: var(--bs-warning-text-emphasis);
 
+    --color-social-linked-in: #0077b5;
+
     // typography
     --font-family-wide: "Montserrat", "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
     --font-family-tall: "Segoe UI", "Helvetica Neue", "Source Sans Pro", "Helvetica", "Arial";
@@ -74,7 +76,11 @@ Custom variables
     // sticky
     --sticky-border-top-color: var(--color-delimiter);
     --sticky-border-top-size: 2px;
-    --sticky-background: var(--bs-body-bg);
+    --sticky-background: var(--bs-body-bg);    
+}
+
+.text-social-linked-in {
+  color: var(--color-social-linked-in);
 }
 
 /*
