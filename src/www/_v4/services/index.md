@@ -1,15 +1,27 @@
 ---
 title: Services
-layout: page
-aside: 3
+layout: main
+aside: 0
+container: false
 ---
+<div class="container p-5">
 
-<div class="text-center pb-5">
+<div class="text-center">
     <p class="lead">Ready to Unlock Your Tech Potential With Our Services?</p>
     <p>We Made It Really Simple!</p>
     <h2 id="services" style="font-size: 0">Our Services</h2>
     <h2 class="mt-0">Experience the Difference</h2>
 </div>
+
+</div>
+
+
+
+<img class="img-fluid w-100 d-none d-lg-block pb-lg-5" src="{{ page | absoluteImageUrl('lifecycle SLICK.gif') | url }}">
+
+
+
+<div class="container p-5">
 
 <div class="row g-5">
     <div class="col-12 col-md-6">          
@@ -260,5 +272,7 @@ With a fascinating backstory in technology that dates back to writing my first "
 Moreover, I have proudly served as CEO of an Insurance Brokerage Company for an impressive 12-year tenure, solidifying my leadership acumen and business prowess.
 
 Beyond my professional pursuits, I have a passion for exploring the realms of sociology, psychology, cognitive biases, gamification, and business (yes, books).  I apply the insights gained from these subjects in my daily work life, enriching my professional endeavors with a diverse range of knowledge.
+
+</div>
 
 </div>
