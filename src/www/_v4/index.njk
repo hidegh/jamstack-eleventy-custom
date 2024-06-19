@@ -868,7 +868,7 @@ Env: {{ meta.env }}
                   const formData = new FormData(form);
 
                   const currentDate = new Date().toISOString();
-                  formData.append('currentDate', currentDate);
+                  formData.append('CurrentDate', currentDate);
 
                   try {
                       const response = await fetch(

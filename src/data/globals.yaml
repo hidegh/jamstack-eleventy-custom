@@ -100,6 +100,20 @@ googleAnalytics:
   id: G-WF12VBK55W                # GA https://tagmanager.google.com/
   anonymizeIp: true               # only when loaded automatically
 
+leedfeeder:
+  id: lAxoEaKv6YA4OYGd
+
+clarity:
+  id: mwy3bmfx4y
+
+factorsAi:
+  id: kf2q8e038uetpsvgrhvrpzhjt9jrgiyy
+
+customlead:
+  enabled: true
+  urisToTrack:
+    UriServices: /www/services/
+
 # disqus
 disqus:
   enabled: false                  # boolean type, the global switch for posts comments.

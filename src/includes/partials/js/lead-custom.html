@@ -1,0 +1,206 @@
+{% if globals.customlead.enabled %}
+<script>
+
+    (function() {
+
+        const storageKey_ip = 'thisWeb.ip';
+        const storageKey_visitedUrls = 'thisWeb.visitedUrls';
+        const action_url = 'https://script.google.com/macros/s/AKfycbyywN0EG7ZGCXjb9kK-dXbzKjL-OtqJd1Ze0T7pwpo5pv5aZQd2SFILyQJkLKaVcxZWPA/exec';
+
+        const avoid_refetch_ip = true;
+        const avoid_repost_ip = true;
+        const avoid_repost_www = true;
+
+        /*
+        const urisToTrack = {
+            'UriServices': '/www/services/',
+        };
+        */      
+        const urisToTrack = JSON.parse('{{ globals.customlead.urisToTrack | dump | safe }}');
+
+        const euCountries = new Set(['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE']);
+
+        async function ipCheckFetchStorePostReturn() {
+
+            // fetch stored
+            const storedIp = sessionStorage.getItem(storageKey_ip);
+            
+            let ip = storedIp;
+            let countryCode = undefined;
+            let data = null;
+
+            if (!avoid_refetch_ip || !storedIp) {
+                // fetch IP with details
+                data = await ipDataFetch();
+                ip = data?.ip;
+                countryCode = data?.country;
+            }
+
+            // do not store IP for EU countries (GDPR)
+            const isFromEu = euCountries.has(countryCode);
+
+            if (isFromEu) {
+                // remove IP for EU (we can't store it) - create some "bogus" value
+                ip = 'EU_' + new Date().toISOString().replace(/[-:]/g, '');
+
+                // override IP from the original result (as we will use it later)
+                data.ip = ip;
+            }
+
+            if (ip) {
+                // store
+                sessionStorage.setItem(storageKey_ip, ip); 
+
+                // post
+                if (!avoid_repost_ip || !storedIp) {
+                    await postIpVisitToGoogleSheet(data);
+                }
+            } else {
+                console.warn('LEAD details unavailable...');
+            }
+
+            return ip;
+        }
+
+        async function ipDataFetch() {
+            
+            // Test: return { ip: "0.0.0." + Math.floor(Math.random() * 5) };
+
+            // Tools:
+            // https://ifconfig.co/json - cors issues
+            // https://api.ipify.org?format=json - just IP
+            // https://ipinfo.io/json - fairly ok, free, 1k/da, 50k/day with free acc...
+            try {
+                /*
+                const response = await fetch('https://ifconfig.co/json');
+                if (!response.ok) throw new Error(`Failed to fetch LEAD details. Status: ${response.status}`);
+                const data = await response.json();
+
+                return {
+                  ip: data.ip,
+                  country: data.country,
+                  region: data.region_name,
+                  org: data.asn_org,
+                  hostName: data.hostname
+                };
+                */
+
+                /*                
+                const response = await fetch('https://api.ipify.org?format=json');
+                if (!response.ok) throw new Error(`Failed to fetch LEAD details. Status: ${response.status}`);
+                const data = await response.json();                
+                */
+                
+                const response = await fetch('https://ipinfo.io/json');
+                if (!response.ok) throw new Error(`Failed to fetch LEAD details. Status: ${response.status}`);
+                const data = await response.json();                
+
+                // note: ASXXXX Company Name split -> const org = data.org.split(' ').slice(1).join(' ');
+                const org = data.org;
+
+                return {
+                  ip: data.ip,
+                  country: data.country,
+                  region: data.region,
+                  org: org,
+                  hostName: data.hostname
+                };
+
+            } catch (error) {
+                console.warn('Error fetching LEAD details:', error);
+                return undefined;
+            }
+        }
+
+        async function urlCheckStorePost(ip) {
+        
+            const currentUrl = window.location.pathname;
+            let visitedUrls = JSON.parse(sessionStorage.getItem(storageKey_visitedUrls) || '{}');
+
+            // check if the current URL is in the urisToTrack object
+            for (const uriKey in urisToTrack) {
+                if (urisToTrack[uriKey] === currentUrl) {
+
+                    const urlNotYetVisited = !visitedUrls[uriKey];
+
+                    // set & store
+                    if (urlNotYetVisited)
+                        console.info("New LEAD key-page was hit!")
+
+                    // notify URL change (post)
+                    if (urlNotYetVisited || !avoid_repost_www)
+                        await postUriVisitToGoogleSheet(ip, uriKey);
+
+                    // store locally
+                    visitedUrls[uriKey] = true;
+                    sessionStorage.setItem(storageKey_visitedUrls, JSON.stringify(visitedUrls));
+
+                    break;
+                }
+            }
+        }
+
+        async function postIpVisitToGoogleSheet(data) {
+
+            const dataToColMap = {
+                'ip': 'Ip',
+                'country': 'IpCountry',
+                'region': 'IpRegion',
+                'org': 'IpOrg',
+                'hostName': 'IpHost'
+            };
+
+            const formData = new FormData();
+
+            for (const key in dataToColMap) {
+                if (data.hasOwnProperty(key)) {
+                    formData.append(dataToColMap[key], data[key]);
+                }
+            }
+
+            await postToGoogleSheet(formData, 'visitor');
+        }
+
+        async function postUriVisitToGoogleSheet(ip, uriKey) {
+            const formData = new FormData();
+            
+            formData.append('Ip', ip);
+            formData.append(uriKey, 1);
+
+            await postToGoogleSheet(formData, 'url');
+        }
+
+        async function postToGoogleSheet(formData, id) {
+            try {
+                const response = await fetch(action_url, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    console.log(`Form ${id} submitted successfully.`);
+                } else {
+                    throw new Error(`Some error occurred during form ${id} submission.`);
+                }
+            } catch (error) {
+                console.warn(`Error submitting form ${id}:`, error);
+            }
+        }
+
+        //
+        //
+        //
+    
+        (async () => {
+            try {
+                console.info('Staring LEAD...');
+                const ip = await ipCheckFetchStorePostReturn();
+                if (ip) await urlCheckStorePost(ip);
+            } catch (error) {
+                console.warn('Error in LEAD:', error);
+            }
+        })();
+
+    })();
+</script>
+{% endif %}
