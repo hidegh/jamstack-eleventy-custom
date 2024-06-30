@@ -18,6 +18,7 @@ tags:
   - advanced SOA
 image: integration.jpg
 imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
+pin: true
 comments: false
 pageData:
   liRef: 

@@ -18,6 +18,7 @@ module.exports = {
 
             const posts = collectionApi
                 .getFilteredByGlob(globFilter)
+                .filter(i=> !i.data.hide)
                 /*
                 .map(_ =>{
                     console.log(`pin: ${_.data.pin}, date: ${_.data.date}, title: ${_.data.title}`);

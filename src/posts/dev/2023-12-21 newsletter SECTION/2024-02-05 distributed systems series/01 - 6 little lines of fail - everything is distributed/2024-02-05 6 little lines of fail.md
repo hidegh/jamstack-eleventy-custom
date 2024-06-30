@@ -18,6 +18,7 @@ tags:
   - advanced SOA
 image: 6 little lines of fail.png
 imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
+pin: true
 comments: false
 pageData:
   liRef: 

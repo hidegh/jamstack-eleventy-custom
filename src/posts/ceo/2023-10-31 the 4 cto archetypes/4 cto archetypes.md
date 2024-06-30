@@ -16,6 +16,7 @@ tags:
 image: 4 CTO archetypes.jpeg
 imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-md-1
 pin: true
+hide: true
 styles: |
   <style>
   </style>
