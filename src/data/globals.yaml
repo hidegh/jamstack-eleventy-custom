@@ -77,7 +77,7 @@ site:
 
 #www
 www:
-  version: _v4
+  version: _v5
 
 #navbar
 navbar:
