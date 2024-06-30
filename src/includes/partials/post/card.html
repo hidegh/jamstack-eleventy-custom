@@ -31,7 +31,7 @@
 
             <section class="post-details">
                 <div class="date-and-pin">
-                    <div><span class="text-body-secondary">Posted</span> {{ post.data.date | readableDate }}</div>
+                    <div class="date"><span class="text-body-secondary">Posted</span> {{ post.data.date | readableDate }}</div>
                     {% if post.data.pin %}<div class="pin"><i class="fas fa-thumbtack fa-fw"></i><span class="pin-text">Pinned</span></div>{% endif %}
                 </div>
                 <div class="author-and-reading-time">

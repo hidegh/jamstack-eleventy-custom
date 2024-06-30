@@ -7,8 +7,8 @@ ul.posts {
 
         .post-preview {
 
-            min-height: 20vh;
-            height: 20vh;
+            min-height: 15vh;
+            height: 15vh;
 
             @extend .rounded-0;
             @extend .mb-3;
@@ -20,7 +20,7 @@ ul.posts {
 
                 .post-picture {
                     flex: 0 0 auto;
-                    width: 40%;
+                    width: 33.33%;
 
                     display: flex;
                     align-items: center;
@@ -47,10 +47,11 @@ ul.posts {
                 @extend .pb-1;
             
                 .post-title {
-                    margin-top: 0;            
+                    @extend .mt-0;
+                    @extend .mb-1;
 
                     @extend .ff-tall;
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                     
                     &:after
                     {
@@ -59,7 +60,7 @@ ul.posts {
                         transition: all 1.0s ease-in-out;
                         border-top: 0.25rem solid var(--color-highlight);
                         width: 4em;
-                        padding-bottom: 1em;
+                        padding-bottom: .25em;
                     }
                 }
 
@@ -69,6 +70,10 @@ ul.posts {
                     overflow: hidden;
 
                     @extend .small;
+
+                    p {
+                        @extend .mb-1;
+                    }
                 }
 
                 hr {
@@ -93,23 +98,27 @@ ul.posts {
                         @extend .d-flex;
                         @extend .justify-content-start;
                         @extend .gap-3;
+
+                        .date {
+
+                        }
+
+                        .pin {
+                            @extend .ms-auto;
+                            @extend .text-body-secondary;
+
+                            .pin-text {
+                                @extend .d-none;
+                            }
+                        }
                     }
 
                     .author-and-reading-time {
-                        @extend .d-xl-flex;
+                        @extend .d-none; // or: @extend .d-xl-flex;
                         @extend .justify-content-start;
                         @extend .gap-3;
                     }
 
-                    .pin {
-                        @extend .ms-auto;
-                        @extend .text-body-secondary;
-
-                        .pin-text {
-                            @extend .d-none;
-                            @extend .d-xl-inline;
-                        }
-                    }
                 }
 
             }
