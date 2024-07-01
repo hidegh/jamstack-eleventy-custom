@@ -26,7 +26,7 @@ module.exports = {
                 })
                 */
                 .sort((a,b) => 
-                    (sortPinnedFirst && (!!b.data.pin - !!a.data.pin))
+                    (sortPinnedFirst && ((b.data.pin || 0) - (a.data.pin || 0)))
                     || (sortBy == "title" && (a.data.title.localeCompare(b.data.title) * (sortDesc ? -1 : 1)))  
                     || (sortBy == "date" && ((new Date(a.data.date) - new Date(b.data.date)) * (sortDesc ? -1 : 1)))              
                 );

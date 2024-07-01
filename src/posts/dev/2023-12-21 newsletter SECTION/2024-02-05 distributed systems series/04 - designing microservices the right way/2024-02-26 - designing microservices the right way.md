@@ -1,5 +1,5 @@
 ---
-title: Designing Microservices the Right Way
+title: Microservices RED Flags - Designing Microservices the Right Way
 author: Balázs HIDEGHÉTY
 date: 2024-02-26
 series: distributed-systems

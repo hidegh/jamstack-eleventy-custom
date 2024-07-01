@@ -104,7 +104,7 @@ The problem with the provided code is: <span class="text-highlight">missing fail
 
 1. **When the call to the database (order placement) fails:** The system displays an error message, but it remains consistent (although no error is good after credit card information has been entered into the system)!
 2. **When the call to Stripe fails:**
-	- **Timeout error:** The payment may have been processed successfully (money withdrawn), but the user receives a timeout exception. Probably, this is one of the trickiest errors of all because, sometimes, it's not even an error!
+	- **Timeout error:** <span class="text-highlight">The payment may have been processed successfully (money withdrawn), but the user receives a timeout exception</span>. Probably, this is one of the trickiest errors of all because, sometimes, it's not even an error!
     - **On other errors:** The system remains at least consistent.
 3. **When SendGrid fails:** With Stripe already succeeding and the transaction being rolled back, the user is billed for nothing. (The customer calls customer service, incurring further costs, and there is no order detail, leading to a poor user experience.)
 4. **When RabbitMQ fails:** Similar issues arise as with SendGrid (plus we already told the customer that the payment was successful).

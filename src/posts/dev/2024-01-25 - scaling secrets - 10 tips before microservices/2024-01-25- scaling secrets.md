@@ -23,7 +23,7 @@ imageClasses: img-thumbnail img-this d-block mx-auto float-md-start me-md-3 mb-m
 comments: false
 pageData:
   liRef: https://www.linkedin.com/feed/update/urn:li:activity:7156296447221514240/
-pin: true
+pin: 100
 styles: |
   <style>
     h3 {
