@@ -42,7 +42,7 @@ container: false
             </ul>
         </div>
         <div class="col-12">
-            ...(then) <strong>you're in the right place</strong> - whether you need to <span class="text-highlight">save your project</span> or <span class="text-highlight">get it right from the start</span>, we're here to help. Schedule a commitment-free 20-minute consultation now!
+            ...(then) <span class="text-light">you're in the right place</span> - whether you need to <span class="text-highlight">save your project</span> or <span class="text-highlight">get it right from the start</span>, we're here to help. <strong>Schedule a commitment-free 20-minute consultation now!</strong>
         </div>
     </div>
 </div>
