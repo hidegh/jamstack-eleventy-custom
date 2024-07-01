@@ -17,6 +17,38 @@ container: false
 
 
 
+<div class="container p-5">
+    <div class="text-justify">
+        We've seen many software projects fail or become overly costly due to a lack of technical leadership on the client side.
+        <span class="text-highlight">What seems to work at first, often misses best practices and key concepts, leading to many bugs, stalled new feature development, and difficult future improvements.</span>
+    </div>
+    <div class="pt-5 row justify-content-center g-3">
+        <div class="col-12 col-md-4">
+            <span class="text-highlight">If you are a</span>
+            <ul>
+                <li>Small or medium-sized business</li>
+                <li>Startup in pre-seed or growth phase</li>
+                <li>Idea owner</li>
+            </ul>
+        </div>
+        <div class="col-12 col-md-8">     
+            <span class="text-highlight">...and you are experiencing</span>
+            <ul>
+                <li>Difficulties with technical team communication</li>
+                <li>Delays and lost revenue from slow feature delivery</li>
+                <li>Product performance and scalability issues</li>
+                <li>Critical knowledge gaps disrupting operations</li>
+                <li>No one is there to help you understand the business impact of technical advice</li>
+            </ul>
+        </div>
+        <div class="col-12">
+            ...(then) <strong>you're in the right place</strong> - whether you need to <span class="text-highlight">save your project</span> or <span class="text-highlight">get it right from the start</span>, we're here to help. Schedule a commitment-free 20-minute consultation now!
+        </div>
+    </div>
+</div>
+
+
+
 <img class="img-fluid w-100 d-none d-lg-block pb-lg-5" src="{{ page | absoluteImageUrl('lifecycle SLICK.gif') | url }}">
 
 
@@ -56,11 +88,11 @@ container: false
                 </span>
             </p>
             <p class="lead fw-bold skip-text-highlight">
-                FREE Consultation
+                20 Minute FREE Consultation
             </p>
         </div>
         <p class="text-justify">
-            Explore the perfect tech partnership with our free consultation.
+            <span class="text-highlight">Got 20 Minutes?</span> Explore the perfect tech partnership with our commintment-free consultation.
             We'll evaluate compatibility, ensuring our services align seamlessly with your needs.
             If it's not an <span class="text-highlight">ideal match</span>, we're committed to <span class="text-highlight">recommending alternatives</span> for your success.
         </p>
@@ -211,9 +243,7 @@ container: false
 <!--
 ABOUT
 -->
-<div class="pt-5 text-center">
-    <h2 id="about" class="">About "Us"</h2>
-</div>
+
 
 <div class="row border-bottom g-0 gap-0">
     <div class="d-none col-md-4 d-md-flex align-items-end">
@@ -223,56 +253,43 @@ ABOUT
             src="{{ '/www/_v3/_assets/balazs-h-1-5.png' | url | versionedWwwUrl }}"
             />
     </div>
-    <div class="col-md-8 d-flex align-items-center">
+    <div class="col-md-8">
         <div class="last-p0">
+            <div class="pt-5 text-center">
+                <h2 id="about" class="">About "Us"</h2>
+            </div>
             <p>
-                Balazs brings over 20 years of expertise to the table - he is not only dedicated to assisting companies in excelling in Software Engineering matters but also excels in mentoring and guiding teams towards success.
-                <strong>With a focus on strategic leadership, he prevents costly project failures and minimizes maintenance expenses, ensuring that your company's tech endeavors stay on track.</strong>
+                Balazs brings over 20 years of expertise in Software Engineering, excelling in mentoring and guiding teams towards success.
+                <span class="text-highlight">With a focus on strategic leadership, he prevents costly project failures and minimizes maintenance expenses, ensuring your company's tech endeavors stay on track.</span>
             </p>
             <p>
-                <span>You can get to know him through his posts on <a href="{{ globals.me.linkedInUrl }}" target="_blank">LinkedIN</a>, and blog articles on <a href="/posts/1">t-his</a> website.</span>
+                Connect with him on <a href="{{ globals.me.linkedInUrl }}" target="_blank">LinkedIN</a>, read his <a href="/posts/1">blog articles</a>, or schedule a personal call to explore potential collaborations.
             </p>
-            <p>
-                Feel free to reach out to him directly via LinkedIn messages, or take the opportunity to schedule a personal call.
-                This will allow you to get to know the individual behind the vast technological experience and explore potential collaborations.
-            </p>
+            <div class="pt-5 text-center">
+                <h2 id="about" class="">Quick Bio</h2>
+                <p>
+                    I began my career as a software engineer, working with SMEs and contracting organizations across diverse industries such as <span class="text-highlight">government, banking, insurance, legal, automotive, oil & gas, and healthcare</span>.
+                </p>
+                <p>
+                    We've seen many software projects fail or become overly costly due to a lack of technical leadership on the client side.
+                    <strong>What appears functional initially often lacks best practices and essential concepts, leading to stagnation in new feature development and hindering future enhancements.</strong>
+                </p>
+                <p>
+                    This gap in leadership and lack of strategic focus can be easily solved. I started offering my 20+ years of technological expertise as a technical consultant (fractional, part-time, full-time). <span class="text-highlight">By partnering with companies, I help them initiate projects correctly, set directions that drive success, achieve significant cost reductions, and rescue struggling initiatives</span>.
+                </p>
+            </div>
         </div>
     </div>
+ 
 </div>
 
-<div class="clearfix"></div>
-<div class="pt-3"></div>
 
 
-<!--
-BIO
--->
-<div class="text-center ">
-    <h3 id="bio" class="">Quick Bio</h3>
-</div>
-
-I began my career as a software engineer, predominantly working with SMEs and Contracting organizations in various industries such as: **government, banking, insurance, legal, automotive, oil & gas, and healthcare**.
-
-As an individual contributor, **I have noticed that many companies were struggling with leadership**, often lacking hands-on technical leaders. This observation presented an opportunity for me to step into technical leadership roles, combining strong technical skills with strategic and architectural thinking.
-
-I have transitioned my focus to the strategic and operational aspects of projects, where my expertise lies in setting crucial directions that drive success. **By partnering with companies, I help them not only to get started on the right foot but also achieve significant cost reductions and efficiently rescue struggling projects.**
-
-I've noticed a significant increase in the need for these types of services. Moreover, it has become apparent that setting up a usual SME for success does not necessarily require a full-time CTO.
-
-**As a result, I decided to offer my 20+ years of technological expertise on a part-time, fractional basis, which allows businesses to benefit from my knowledge and guidance without the need for a full-time commitment.**
-
-
-
-<div class="d-none">
-
-<span class="text-center text-light">...and beyond</span>
-
-With a fascinating backstory in technology that dates back to writing my first "real" program at the tender age of 14. **My passion and proficiency were forged during my initial part-time job in hardware and software development, well before the term "IoT" gained hype.**
-
-Moreover, I have proudly served as CEO of an Insurance Brokerage Company for an impressive 12-year tenure, solidifying my leadership acumen and business prowess.
-
-Beyond my professional pursuits, I have a passion for exploring the realms of sociology, psychology, cognitive biases, gamification, and business (yes, books).  I apply the insights gained from these subjects in my daily work life, enriching my professional endeavors with a diverse range of knowledge.
-
-</div>
-
+<div class="container p-5">
+    <div class="text-center">
+        <p class="lead text-light">Ready to Transform Your Tech?</p>
+        <p>
+            <a class="btn btn-danger mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Schedule a Free 20-Minute Consultation!</a>
+        </p>
+    </div>
 </div>
