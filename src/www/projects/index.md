@@ -47,7 +47,7 @@ scripts: |
   </script>
 ---
 
-## Success Stories
+## Project Rescue Success Stories
 
 One of my favorite success stories is that of Impact Health, as it provides <strong>a compelling example of how a software project can fail due to the lack of a hands-on technical lead, even when the conventional managerial aspects are executed excellently</strong>.
 
