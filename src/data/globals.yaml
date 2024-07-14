@@ -93,7 +93,7 @@ me:
 # cookie consent
 cookieConsent:
     required: true
-    consentUrl: /cookies.html
+    consentUrl: /cookie and data policy.html
 
 # google analytics
 googleAnalytics:

@@ -4,7 +4,7 @@ title: Cookies
 permalink: '{{globals.cookieConsent.consentUrl}}'
 ---
 
-# Cookie Policy for this Site
+# Cookie and Data Policy for this Site
 
 ## What Are Cookies
 
@@ -26,7 +26,7 @@ You can prevent the setting of cookies by adjusting the settings on your browser
 
     In order to provide you with a great experience on this site we provide the functionality to set your preferences for how this site runs when you use it. In order to remember your preferences we need to set cookies so that this information can be called whenever you interact with a page is affected by your preferences.
 
-## Third Party Cookies
+## Data & Third Party Toolss
 
 In some special cases we also use cookies provided by trusted third parties. The following section details which third party cookies you might encounter through this site.
 
