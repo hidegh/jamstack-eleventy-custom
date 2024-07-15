@@ -21,9 +21,9 @@ pageData:
       #
       # versioned www Url
       #
-      homeUrl: /www/_v4/#home
-      learnMoreUrl: /www/_v4/#stakes
-      servicesUrl: /www/_v4/services
+      homeUrl: /www/_v5/#home
+      learnMoreUrl: /www/_v5/#stakes
+      servicesUrl: /www/_v5/services
       #
       # generic, non versioned www url
       #
@@ -257,29 +257,70 @@ Env: {{ meta.env }}
 
       <div class="content">
 
-        <div class="row g-3 p-3 pt-5 pb-5 px-lg-5">
+        <div class="g-3 p-3 pt-5 pb-5 px-lg-5">
 
           <div class="d-none d-lg-block col-lg-4">
           </div>
 
-          <div class="col-12 col-lg-8 px-3 px-lg-5">
+          <div class="col-12 col-lg-8 col-lg-12 px-3 px-lg-5">
 
             <p>
-              <!--
-              Developing software that avoids becoming a money pit entails a <span class="fw-bold">spectrum of skills</span>.
-              It goes beyond coding, requiring planning and hands-on expertise in various areas such as hiring, management, leadership, estimation, architecture, coding, testing, deployment, cloud, distributed services, etc. —with a particular emphasis on technical leadership.
-              -->
-              Building cost-effective software requires expertise in diverse areas, including planning, hiring, leadership, architecture, coding, testing, etc.—with a particular emphasis on hands-on technical leadership.
+               <span class="fw-bold">Success needs planning.</span>
+              Crafting <span class="text-decoration-underline">scalable, low-maintenance products</span> or achieving <span class="text-decoration-underline">MVPs in just 2-3 months</span> requires expertise and leadership right from the start!
+            </p>
+
+            <p class="fw-bold">Beware of Common Pitfalls:</p>
+            <ul>
+              <li>Relying solely on vendors without dedicated client representation can be risky.</li>
+              <li>Classical management without technical leadership often leads to misaligned objectives and poor results, as evidenced by many real-world scenarios, like the ImpactHealth case.</li>
+              <li>Relying on a small team of "senior" developers to deliver a complete system often fails in analysis, communication, architecture, long-term maintenance, and thorough documentation.</li>
+            </ul>
+
+            <p>
+              <span class="fw-bold">Our mission is to empower founders, CEOs, and entrepreneurs</span> by transforming their ideas into successful products (MVPs).
+              We guide you every step of the way, from ideation to project completion.
+              What sets us apart is our dedication to ensuring a smooth, low-cost maintenance phase, <span class="text-decoration-underline">saving you multiple hundreds of thousands on the project and up to $100,000 on maintenance each year.</span>
+            </p>
+
+            <p class="lead fw-bold">
+              Cautionary Tales
             </p>
 
             <p>
-              Hiring full-time CTOs is expensive, requires equity, and poses challenges in finding the right fit.
+              Consider another case: a client with no technical lead, just with an outdated system and an agency eager to revamp it.
+              The result?
+              A flawed replica filled with redundant data and missed capabilities, adding unnecessary complexity and extra costs of ownership.
+              Without understanding the business logic or documenting processes, the project quickly spiraled into chaos.
+            </p>
+
+            <p>
+              Consider my accountant's cautionary tale.
+              Faced with unexpected expenses after assigning a project to a single senior developer, it became clear: communication and strategic alignment are crucial.
+              She missed sharing key details and future plans, and the developer overlooked understanding her business direction and objectives.
+              The project ended up over budget: <span class="fw-bold">3 times the expected cost</span>!
+            </p>
+
+            <div class="p-3 p-lg-5 text-center">
+                <p class="lead">Ready to Unlock Your Tech Potential With Our Services?</p>
+                <p>We Made It Really Simple!</p>
+                <p class="lead">Experience the Difference</p>
+            </div>
+
+            <p>
+              Take Impact Health, for example.
+              <span class="fw-bold">Their success wasn't just about effective management, which alone couldn't deliver the project;
+              it was the decisive impact of technical leadership that navigated them through challenges that oversight alone couldn't resolve</span>.
+            </p>
+            
+            <p>
+              Technical leadership is essential from day one .
+              Hiring full-time CTOs and Technical Leads is expensive, requires equity, and poses challenges in finding the right fit.
               <span class="fw-bold">We're here to assist;</span> no initial long-term commitment required — it's free to try and easy to scale up.
             </p>
 
             <p>
-              <div class="lead fw-bold">Introducing Fractional Technical Counseling Services</div>
-              <div>— a strategic, cost-effective solution for <span class="fw-bold">SMEs</span><div>
+              <div class="lead fw-bold">Introducing Fractional <span class="text-nowrap">Technical Leadership | CTO</span> Services</div>
+              <div>— strategic, affordable solution for <span class="fw-bold">SMEs</span><div>
             </p>
 
             <div class="ff-tall bg-body-secondary text-primary-emphasis p-3 px-lg-5 mb-3">
@@ -291,10 +332,6 @@ Env: {{ meta.env }}
               </p>
             </div>
 
-            <p>
-              Success needs planning.
-              Crafting <span class="text-decoration-underline">scalable, low-maintenance products</span> or achieving <span class="text-decoration-underline">MVPs in just 2-3 months</span> requiresexpertise and leadership right from the start!
-            </p>
 
             <div class="p-3 px-lg-5 lead text-center">
               <a class="btn btn-danger mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
@@ -311,7 +348,7 @@ Env: {{ meta.env }}
     </div>
 
     <div
-      class="position-absolute d-none d-lg-block"
+      class="position-absolute d-none d-lg-block d-lg-none"
       style="
         background-image: url('{{ page | absoluteImageUrl('/www/_v4/_assets/balazs-h-1-5.png') | url | versionedWwwUrl }}');
         background-size: contain;
