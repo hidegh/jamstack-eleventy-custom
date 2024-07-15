@@ -127,7 +127,7 @@ Env: {{ meta.env }}
   <!-- LANDING -->
   <div data-bs-theme="dark" class="ff-tall z-1 text-body-emphasis jarallax landing">
 
-    <div class="overlay"></div>
+    <div class="overlay bg-black-1-4"></div>
 
     <img class="jarallax-img" src="/assets/bg/handshake/pexels-fauxels-3183197.jpg" />
 
@@ -139,51 +139,48 @@ Env: {{ meta.env }}
 
           <div class="col align-items-center wow animate__fadeInUp">
           
-            <div class="content bg-black-2-3">
+            <div class="content bg-black-3-4">
               
-              <div class="lead p-3 p-lg-5 bg-black-2-3">
+              <div class="lead p-3 p-lg-5 bg-black-3-4">
 
-                <div class="fs-1 fw-bold">
-                  Driven by the desire to witness your ideas thrive.
-                </div>
-
-                <div class="px-lg-3">
-
-                  <div class="d-none pt-3">
-                    Timely, hands-on guidance right from the beginning can create the pivotal distinction between success and obscurity.
-                  </div>
-
-                  <div class="pt-3">
-                    <span class="text-highlight">Our mission is to help founders, CEOs, and entrepreneurs succeed by transforming their ideas into products (MVPs).</span>
-                    <span class="">All while efficiently reducing costs by $200,000 to $500,000 annually.</span>
-                  </div>
-
-                </div>
+                <div class="fs-1 fw-boldx">Project in Trouble?</div>
+                <span>Vendor Delays?<!-- Struggling to Build or Modernize Your Software?--></span>
+                <span class="text-highlight"><!--Or Just -->Looking to Get Your Project Right from the Start?</span>
 
               </div>
 
-              <div class="mt-3 mt-lg-0 p-3 p-lg-5 lead text-center">
-              
-                <div class>
-                  <h1 class="m-0">
-                    Technical Counseling Services
-                  </h1>
-                  <p class>
-                    Starup CTO |  Technical Lead | Software Architect
-                  </p>
-                  <p class="text-highlight">
-                    ...affordable solution for <span class="fw-bold">SMEs</span> — because no one should have to deal with technology alone!
-                  </p>
+              <div class="lead mt-3 mt-lg-0 p-3 px-lg-5">
+
+                <div class="small">
                   <p>
-                    <div>
-                      We guide you from ideation to project completion.
-                    </div>
-                    <div>
-                      What sets us apart is our commitment to preparing you for a minimal-cost maintenance phase afterward.
-                    </div>
+                    Is Your Business Planning to Automate Processes or Modernize Your Software, but Finding the Journey Challenging?
+                    <!--Perhaps You Need to Rescue a Project That’s Off Track?-->
                   </p>
+                  <span class="text-highlight">You're Not Alone, Many Small and Medium Businesses Experience:</span>
+                  <ul>
+                    <li>Revenue Delays from Slow Feature Delivery.
+                    </li>
+                    <li>Product Performance and Scalability Issues Disrupting Operations.</li>
+                    <li><span class="text-highlight">Lack of <!--Business-Focused Technical Guidance and -->Representation of Company's Interests in Technical Matters.</span></li>
+                  </ul>
                 </div>
 
+                <div class="p-3 p-lg-5 text-center">
+                  <h1 class="m-0">
+                    Strategic Technical Leadership
+                  </h1>
+                  <p class>
+                    Fractional (part-time) <span class="text-nowrap">Technical Lead | CTO</span>
+                  </p>                
+                </div>
+
+                <div class="small p-3 px-lg-5">
+                  <p class="text-highlight">Let us assist when traditional management or your vendor falls short!</p>
+                  Our mission is to empower founders, CEOs, and entrepreneurs by transforming their ideas into successful products (MVPs).
+                  We guide you every step of the way, from ideation to project completion.
+                  What sets us apart is our dedication to ensuring a smooth, low-cost maintenance phase, <span class="text-highlight">saving you multiple hundreds of thousands on the project and up to $100,000 on maintenance each year.</span>
+                </div>
+               
                 <div class="pt-3">
                   {% if globals.me.healthCheckUrl %}<a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check...</a>{% endif %}
                   <a class="btn btn-sm btn-primary mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Schedule a FREE Consultation!</a>
