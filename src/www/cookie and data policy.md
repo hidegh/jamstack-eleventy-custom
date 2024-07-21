@@ -36,7 +36,7 @@ In some special cases we also use cookies provided by trusted third parties. The
 
     * We never use any user-related ID for tracking
     * We don't share data collected by GA with 3rd parties
-    * We don't use your IP to track location - unless consent is given
+    * Tools we use are GDPR compliant or use IP anonymization (unless consent is given for more) - ref: GDPR
 
     For more information on Google Analytics cookies, see the official Google Analytics page.
 

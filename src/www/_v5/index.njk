@@ -21,9 +21,9 @@ pageData:
       #
       # versioned www Url
       #
-      homeUrl: /www/_v4/#home
-      learnMoreUrl: /www/_v4/#stakes
-      servicesUrl: /www/_v4/services
+      homeUrl: /www/_v5/#home
+      learnMoreUrl: /www/_v5/#stakes
+      servicesUrl: /www/_v5/services
       #
       # generic, non versioned www url
       #
@@ -52,6 +52,7 @@ styles: |
     .testimonial-card {
       margin-top: 1em; /* 0em; 1em; */
       width: 100%;
+      background-color: var(--bs-secondary-bg);  
     }
 
     .testimonial-card .card-up {
@@ -71,6 +72,14 @@ styles: |
       margin-left: auto !important;
       */
       margin-left: 1em;
+    }
+
+    .form-condensed .form-container {
+      margin: auto;
+    }
+
+    .form-condensed .form-label, .form-condensed .form-control {
+      margin-bottom: 0em;
     }
 
   </style>
@@ -127,69 +136,64 @@ Env: {{ meta.env }}
   <!-- LANDING -->
   <div data-bs-theme="dark" class="ff-tall z-1 text-body-emphasis jarallax landing">
 
-    <div class="overlay"></div>
+    <div class="overlay bg-black-1-4"></div>
 
     <img class="jarallax-img" src="/assets/bg/handshake/pexels-fauxels-3183197.jpg" />
 
     <div class="container">
 
-      <div class="p-3 pt-5 px-lg-5 d-flex flex-column">
+      <div class="p-3 pt=lg-5 px-lg-5 d-flex flex-column">
 
         <div class="row flex-grow-1 align-items-center justify-content-center">
 
           <div class="col align-items-center wow animate__fadeInUp">
           
-            <div class="content bg-black-2-3">
+            <div class="content bg-black-3-4">
               
-              <div class="lead p-3 p-lg-5 bg-black-2-3">
+              <div class="lead p-3 p-lg-5 pb-3 bg-black-3-4">
 
-                <div class="fs-1 fw-bold">
-                  Driven by the desire to witness your ideas thrive.
-                </div>
-
-                <div class="px-lg-3">
-
-                  <div class="d-none pt-3">
-                    Timely, hands-on guidance right from the beginning can create the pivotal distinction between success and obscurity.
-                  </div>
-
-                  <div class="pt-3">
-                    <span class="text-highlight">Our mission is to help founders, CEOs, and entrepreneurs succeed by transforming their ideas into products (MVPs).</span>
-                    <span class="">All while efficiently reducing costs by $200,000 to $500,000 annually.</span>
-                  </div>
-
-                </div>
+                <div class="fs-1 fw-boldx">Project in Trouble?</div>
+                <span>Vendor Delays?<!-- Struggling to Build or Modernize Your Software?--></span>
+                <span class="text-highlight"><!--Or Just -->Looking to Get Your Project Right from the Start?</span>
 
               </div>
 
-              <div class="mt-3 mt-lg-0 p-3 p-lg-5 lead text-center">
-              
-                <div class>
-                  <h1 class="m-0">
-                    Technical Counseling Services
-                  </h1>
-                  <p class>
-                    Starup CTO |  Technical Lead | Software Architect
+              <div class="lead mt-3 mt-lg-0 p-3 px-lg-5">
+
+                <div class="small">
+                  <p class="d-none">
+                    Is Your Business Planning to Automate Processes or Modernize Your Software, but Finding the Journey Challenging?
+                    <!--Perhaps You Need to Rescue a Project That’s Off Track?-->
                   </p>
-                  <p class="text-highlight">
-                    ...affordable solution for <span class="fw-bold">SMEs</span> — because no one should have to deal with technology alone!
-                  </p>
-                  <p>
-                    <div>
-                      We guide you from ideation to project completion.
-                    </div>
-                    <div>
-                      What sets us apart is our commitment to preparing you for a minimal-cost maintenance phase afterward.
-                    </div>
-                  </p>
+                  <span class="text-highlight">You're Not Alone, Many Small and Medium Businesses Experience:</span>
+                  <ul>
+                    <li>Revenue Delays from Slow Feature Delivery.
+                    </li>
+                    <li>Product Performance and Scalability Issues Disrupting Operations.</li>
+                    <li><span class="text-highlight">Lack of <!--Business-Focused Technical Guidance and -->Representation of Company's Interests in Technical Matters.</span></li>
+                  </ul>
                 </div>
 
-                <div class="pt-3">
-                  {% if globals.me.healthCheckUrl %}<a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Min Tech Health Check...</a>{% endif %}
-                  <a class="btn btn-sm btn-primary mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Schedule a FREE Consultation!</a>
+                <div class="p-3 px-lg-5 text-center">
+                  <h1 class="m-0">
+                    Strategic Technical Leadership
+                  </h1>
+                  <p class>
+                    Fractional (part-time) <span class="text-nowrap">Technical Lead | CTO</span>
+                  </p>                
+                </div>
+
+                <div class="p-3 px-lg-5 text-justify small">
+                  <span class="text-highlight">We help small and medium enterprises and startups</span> that are dissatisfied with their internal team or vendor progress.
+                  Our hands-on approach <span class="text-highlight">addresses slow delivery, endless bugs, and expensive maintenance</span>, resulting in predictable and manageable outcomes<!--—often something traditional management alone cannot ensure-->.
+                  Our philosophy is simple: we use methods that work for small and medium businesses, as what works <!--and is affordable -->for Google often fails elsewhere. 
+                </div>
+               
+                <div class="pt-3 text-center">
+                  <a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Schedule a 20 Minute FREE Consultation!</a>
+                  {% if globals.me.healthCheckUrl %}<a class="btn btn-sm btn-primary mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Minute Tech Health Check...</a>{% endif %}
                   <a class="btn btn-sm btn-outline-light mb-1" href="{{ globals.me.linkedInUrl | url }}" target="_blank"><i class="fa-brands fa-linkedin fa-fw not-text-social-linked-in"></i>Chat with me on LinkedIn!</a>
-                  <a class="d-none btn btn-sm btn-secondary mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
-                  <a class="btn btn-sm btn-secondary mb-1" href="{{ pageData.url.www.learnMoreUrl | url | versionedWwwUrl }}">Learn more...</a>
+                  <a class="btn btn-sm btn-secondary mb-1" href="{{ pageData.url.www.learnMoreUrl | url | versionedWwwUrl }}">Learn more about us...</a>
                 </div>
 
               </div>
@@ -260,74 +264,17 @@ Env: {{ meta.env }}
 
       <div class="content">
 
-        <div class="row g-3 p-3 pt-5 pb-5 px-lg-5">
+        <div id="checkpoint-main" class="p-3 px-lg-5 pt-7 pb-5 text-center">
+            <p class="lead">Ready to Unlock Your Tech Potential With Our Services?</p>
+            <p>We Made It Really Simple!</p>
+            <p class="fs-3">Experience the Difference</p>
+        </div>        
 
-          <div class="d-none d-lg-block col-lg-4">
-          </div>
-
-          <div class="col-12 col-lg-8 px-3 px-lg-5">
-
-            <p>
-              <!--
-              Developing software that avoids becoming a money pit entails a <span class="fw-bold">spectrum of skills</span>.
-              It goes beyond coding, requiring planning and hands-on expertise in various areas such as hiring, management, leadership, estimation, architecture, coding, testing, deployment, cloud, distributed services, etc. —with a particular emphasis on technical leadership.
-              -->
-              Building cost-effective software requires expertise in diverse areas, including planning, hiring, leadership, architecture, coding, testing, etc.—with a particular emphasis on hands-on technical leadership.
-            </p>
-
-            <p>
-              Hiring full-time CTOs is expensive, requires equity, and poses challenges in finding the right fit.
-              <span class="fw-bold">We're here to assist;</span> no initial long-term commitment required — it's free to try and easy to scale up.
-            </p>
-
-            <p>
-              <div class="lead fw-bold">Introducing Fractional Technical Counseling Services</div>
-              <div>— a strategic, cost-effective solution for <span class="fw-bold">SMEs</span><div>
-            </p>
-
-            <div class="ff-tall bg-body-secondary text-primary-emphasis p-3 px-lg-5 mb-3">
-              <p class="p0 fw-bold">Don't let your business become another statistic.</p>
-              <p class="p0">
-                We recently highlighted a true story: <span class="text-decoration-underline">A company that ignored crucial technical advice.</span>
-                The outcome?
-                <span class="text-decoration-underline">A staggering loss of $1.5-2.5 million in just two short years.</span>
-              </p>
-            </div>
-
-            <p>
-              Success needs planning.
-              Crafting <span class="text-decoration-underline">scalable, low-maintenance products</span> or achieving <span class="text-decoration-underline">MVPs in just 2-3 months</span> requiresexpertise and leadership right from the start!
-            </p>
-
-            <div class="p-3 px-lg-5 lead text-center">
-              <a class="btn btn-danger mb-1" href="{{ pageData.url.www.servicesUrl | url | versionedWwwUrl }}">Explore the Power of Our Services...</a>
-            </div>
-
-            <div class="pb-md-7 bg-body"></div>
-
-          </div>
-
-        </div>
+        <div class="pb-md-7 bg-body"></div>
 
       </div>
  
     </div>
-
-    <div
-      class="position-absolute d-none d-lg-block"
-      style="
-        background-image: url('{{ page | absoluteImageUrl('/www/_v4/_assets/balazs-h-1-5.png') | url | versionedWwwUrl }}');
-        background-size: contain;
-        background-position: bottom center;
-        background-repeat: no-repeat;
-        bottom: 0;
-        left: 0;
-        width: 45%;
-        height: 100%;
-        z-index: 0;
-        "
-      >
-    </div>    
 
   </section><!-- ET: STAKES -->
 
@@ -340,11 +287,11 @@ Env: {{ meta.env }}
 
     <div class="container">
 
-      <div class="content">
+      <div class="content p-3">
 
-        <div class="row g-3 xxx-mt-n8 p-3 pt-5 px-lg-5">
+        <div class="row g-3 pt-5">
 
-          <div class="z-1 col-12 col-md-4 mt-lg-n7">
+          <div class="z-1 col-12 col-md-3 mt-lg-n7">
             <div class="bg-body h-100 shadow border p-3">
 
               <div class="mt-0 mt-md-n5 mb-3">
@@ -352,7 +299,7 @@ Env: {{ meta.env }}
               </div>
 
               <p class="lead text-highlight">
-                Expert Tech Leadership<!-- for Non-Tech Founders-->
+                Technical Representation
               </p>
 
               <p class="text-body-emphasis">
@@ -370,7 +317,33 @@ Env: {{ meta.env }}
             </div>
           </div>
 
-          <div class="z-1 col-12 col-md-4 mt-lg-n7">
+          <div class="z-1 col-12 col-md-3 mt-lg-n7">
+            <div class="bg-body h-100 shadow border p-3">
+
+              <div class="mt-0 mt-md-n5 mb-3">
+                <i class="text-danger-emphasis fa-solid fa-sitemap fa-3x"></i>
+              </div>
+
+              <p class="lead text-highlight">
+                Strategic Planning &amp; Architecural Design
+              </p>
+
+              <p>
+                We meticulously craft a detailed <span class="text-body-emphasis">roadmap</span> for your software project, <span class="text-body-emphasis">emphasizing short feedback cycles</span> to allow timely adjustments as needed.
+              </p>
+
+              <p>
+                Simultaneously, we focus on creating a <span class="text-body-emphasis">robust and scalable software foundation</span>, eliminating unnecessary complexities that could hinder growth.
+              </p>
+
+              <p class="text-highlight">
+                Our designs are tailored to meet both current and future demands, ensuring long-term sustainability and performance.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="z-1 col-12 col-md-3 mt-lg-n7">
             <div class="bg-body h-100 shadow border p-3">
 
               <div class="mt-0 mt-md-n5 mb-3">
@@ -398,7 +371,7 @@ Env: {{ meta.env }}
             </div>
           </div>
 
-          <div class="z-1 col-12 col-md-4 mt-lg-n7">
+          <div class="z-1 col-12 col-md-3 mt-lg-n7">
             <div class="bg-body h-100 shadow border p-3">
 
               <div class="mt-0 mt-md-n5 mb-3">
@@ -428,244 +401,11 @@ Env: {{ meta.env }}
 
         </div>
 
-        <div class="d-none p-3 pt-5 px-lg-5 d-flex flex-column">
-
-          <p>
-            In the dynamic landscape of business, SMEs and Startups stand at a crossroads.
-            While a full-time Chief Technology Officer (CTO) might be a luxury, turning a blind eye to the power of technology can be a costly mistake.
-            This is where we step in.
-          </p>
-
-          <p class="not-d-none">
-            Our expertise lies in aiding non-technical founders to enhance the efficiency of their software development processes.
-            We assume the role of a CTO for SMEs, startups, and small teams, serving as a reliable technical leader.
-            Additionally, we provide support by complementing the efforts of non-technical full-time CTOs, especially those who excel in other roles like product ownership.
-          </p>
-
-        </div>
-
-
-        <div class="d-none p-3 px-lg-5 d-flex flex-column">
-          <p>
-            <span class="fw-bold">Can you identify and prevent costly long-term technical decisions in a timely manner?</span>
-            Are you able to identify technical issues?
-            While it may seem simple, sometimes these issues can be difficult to detect and are disguised as demonstrated in <a href="{{ pageData.url.external.sixLittleLinesOfFailUrl | url }}" target="_blank">"Six Little Lines of Fail" by Jimmy Bogard</a>.
-          </p>
-        </div>
-
-        <div class="d-none p-3 px-lg-5 lead text-center">
-          <a class="btn btn-danger mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Get Your FREE Consultation NOW!</a>
-          <a class="btn btn-secondary mb-1" href="{{ pageData.url.www.fctoUrl | url | versionedWwwUrl }}">More about the F-CTO as a Service...</a>
-        </div>
-
       </div>
 
-    </div>
+      <div class="content p-3">
 
-    <div class="pb-5"></div>
-
-    <div class="not-et_pb_bottom_inside_divider"></div>
-
-  </section><!-- ET: VALUE-PROPOSITION -->
-
-
-
-  <!-- ST: THE-GUIDE -->
-  <section data-bs-theme="light" class="bg-body text-body bg-white-3-4 the-guide" data-jarallax data-speed="1.2" data-img-position="50% 80%">
-
-    <img class="jarallax-img" src="/assets/bg/office/unsplash-dane-deaner-_-KLkj7on_c-unsplash.jpg" />
-
-    <div class="bg-white-3-4">
-
-      <div class="container">
-
-        <div class="content p-3 px-lg-5 pt-6">
-
-          <div class="row g-5">
-
-            <div class="col-12 col-md-6">
-              <p class="lead fw-bold">Embark on Our Journey of Success</p>
-              <div class="text-primary-emphasis"
-                <p>
-                  Discover our accomplishment in rescuing and revamping the core internal software of a $150 Million Covid Testing and Vaccination company in just 2 months! 
-                </p>
-                <p>
-                  This narrative brings into focus the indispensable nature of hands-on management, <span class="text-primary">revealing the inadequacies of conventional methods in the dynamic world of software</span>.
-                </p>
-                <a class="btn btn-sm btn-danger" href="{{ pageData.url.www.ihSuccessStoryUrl | url | versionedWwwUrl }}">The ImpactHealth Success Story</a>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-
-              <div class="row g-5">
-
-                <div class="col-12">
-                  <p class="lead fw-bold">Witness Our Path of Innovation</p>
-                  <p class="text-primary-emphasis">Delve into our portfolio of past projects, each a testament to our expertise.</p>
-                  <a class="btn btn-sm btn-danger" href="{{ pageData.url.www.projectsUrl | url | versionedWwwUrl }}">Previous Projects</a>
-                </div>
-
-                <div class="col-12">
-                  <p class="lead fw-bold">Explore More About 'Us'</p>
-                  <p class="d-none text-primary-emphasis">Let me introduce myself a bit...</p>
-                  <a class="btn btn-sm btn-secondary" href="{{ pageData.url.www.aboutMeUrl | url | versionedWwwUrl }}">More about me...</a>
-                </div>
-              
-              </div>
-
-            </div>
-
-          </div>
-
-          <hr/>
-
-          <div class="pt-3">
-            <p class="lead fw-bold">Hear the Stories from Our Clients</p>
-            <p class="text-primary-emphasis">Discover firsthand accounts of how our solutions have transformed businesses.</p>
-
-            <p class="d-none p-3 px-lg-5 text-center bg-danger text-light">See: LinkedIn Recommendations / Testimonials</p>
-
-            <section class="testimonialsCarousel d-flex align-items-stretch">
-             
-              <div class="mx-1 d-flex align-items-stretch">
-                <div class="card testimonial-card">
-                  <div class="card-up" style="background-color: #9d789b;"></div>
-                  <div class="avatar">
-                    <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/tony-c.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
-                  </div>
-                  <div class="card-body">
-                    <p class="p0 fs-5">Tony Costanzo</p>
-                    <p class="p0 small text-body-secondary">Co-Founder of SimplyPut Consulting</p>
-                    <hr />
-                    <p class="p0 small">
-                      <i class="fas fa-quote-left pe-2"></i>
-                      Balazs joined us as a Technical Lead (Managing Engineer) when our project with a major client was failing.
-                      Within months, he turned things around, saving our client and fortifying our position.
-                      His unmatched expertise and leadership have reshaped our clients' software development for the better.                      
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mx-1 d-flex align-items-stretch">
-                <div class="card testimonial-card">
-                  <div class="card-up" style="background-color: #7a81a8;"></div>
-                  <div class="avatar">
-                    <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/manoj-k.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
-                  </div>
-                  <div class="card-body">
-                    <p class="p0 fs-5">Manoj Kurup</p>
-                    <p class="p0 small text-body-secondary">Vice President Information Technology at Impact Health</p>
-                    <hr />
-                    <p class="p0 small">
-                      <i class="fas fa-quote-left pe-2"></i>
-                      Balazs has been an integral part of our Software Development team, he has led the development efforts and the team for all our mission critical applications.
-                      Supporting over 2500 events and help manage, maintain and track close to 20K field staff that we have on our roaster.
-                      All this was made possible in a very short time by his efforts and he has been working on continuinally improving the product to meet the organizations needs while maintaining highest level of quality in the solutions delivered.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mx-1 d-flex align-items-stretch">
-                <div class="card testimonial-card">
-                  <div class="card-up" style="background-color: #6d5b98;"></div>
-                  <div class="avatar">
-                    <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/stephanie-g.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
-                  </div>
-                  <div class="card-body">
-                    <p class="p0 fs-5">Stephanie Grizzle</p>
-                    <p class="p0 small text-body-secondary">Senior Project Manager at SimplyPut Consulting</p>
-                    <hr />
-                    <p class="p0 small">
-                      <i class="fas fa-quote-left pe-2"></i>
-                      I have worked with Balazs a few times now at different companies.
-                      He has always kept me on my toes with his insight and expertise.
-                      I like the way he thinks outside of the box.
-                      Sometimes I don't even realize the implications of what I am asking until he asks me questions.
-                      Balazs has superior skills and is very dedicate to knowledge building and information sharing.
-                      I did recommend him when we were seeking a technical expert and will do it again.                   
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mx-1 d-flex align-items-stretch">
-                <div class="card testimonial-card">
-                  <div class="card-up" style="background-color: #0a66c2;"></div>
-                  <div class="avatar">
-                    <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/linkedin-circle.png') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
-                  </div>
-                  <div class="card-body">
-                    For More See LinkedIn Recommendations
-                  </div>
-                </div>
-              </div>              
-
-            </section>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="pt-5"></div>
-
-    </div>
-
-  </section><!-- ET: THE-GUIDE -->
-
-
-
-  <!-- ST: EXPLANATORY -->
-  <section data-bs-theme="dark" class="skew bg-body text-body explanatory">
-
-    <div class="container">
-
-      <div class="content p-3 px-lg-5 pt-5">
-
-        <div class="row g-4">
-
-          <div>
-            Drawing upon two decades of experience, I've come to realize that: <span class="text-highlight">The majority of SMEs and Startups encounter common challenges within the realm of software development.</span>
-            This holds true for companies boasting a development team of up to 10 members, as well as agencies housing three similar teams with different technology stacks.
-          </div>
-
-          <div>
-            <span class="text-highlight">Tackling these issues requires a strategic approach.</span>
-            The sooner we take action, the better – as it involves instilling a culture and fostering positive practices (which is almost impossible or extremely expensive to retrofit later on).
-          </div>
-         
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="pb-5"></div>
-
-  </section><!-- ET: EXPLANATORY -->
-
-
-
-  <!-- ST: THE-PLAN -->
-  <section data-bs-theme="light" class="bg-body text-body bg-white-3-4 the-plan" data-jarallax data-speed="1.2" data-img-position="50% 80%">
-
-    <img class="jarallax-img" src="/assets/bg/office/pexels-proxyclick-visitor-management-system-2451566.jpg" />
-
-    <div class="container bg-body">
-
-      <div class="content p-3 px-lg-5 pt-6">
-      
-        <div class="text-center pb-5">
-          <p class="lead fw-bold">Ready to Unlock Your Tech Potential?</p>
-          <p>We Made It Really Simple!</p>
-          <p class="lead fw-bold no-text-highlight">Experience the Difference Now!</p>
-        </div>
-
-        <div class="row g-5">
+        <div class="row g-5 pt-5">
 
           <div class="col-12 col-md-4 d-flex flex-column">          
             <div class="text-center text-info-emphasis">
@@ -699,7 +439,7 @@ Env: {{ meta.env }}
                 </span>
               </p>
               <p class="lead fw-bold">
-                FREE Consultation
+                20 Minute FREE Consultation
               </p>
             </div>
             <p class="text-justify">
@@ -735,7 +475,182 @@ Env: {{ meta.env }}
 
       </div>
 
-      <div class="pb-6"></div>
+    </div>
+
+    <div class="pb-5"></div>
+
+    <div class="not-et_pb_bottom_inside_divider"></div>
+
+  </section><!-- ET: VALUE-PROPOSITION -->
+
+
+
+  <!-- ST: THE-GUIDE -->
+  <section data-bs-theme="light" class="bg-body text-body bg-white-3-4 the-guide" data-jarallax data-speed="1.2" data-img-position="50% 80%">
+
+    <img class="jarallax-img" src="/assets/bg/office/unsplash-dane-deaner-_-KLkj7on_c-unsplash.jpg" />
+
+    <div class="container bg-body">
+
+      <div class="content p-3 px-lg-5 pt-6">
+
+        <div class="row g-5">
+
+          <div class="col-12 col-md-6">
+            <p class="lead fw-bold">Embark on Our Journey of Success</p>
+            <div class="text-primary-emphasis"
+              <p>
+                Discover our accomplishment in rescuing and revamping the core internal software of a $150 Million Covid Testing and Vaccination company in just 2 months! 
+              </p>
+              <p>
+                This narrative brings into focus the indispensable nature of hands-on management, <span class="text-primary">revealing the inadequacies of conventional methods in the dynamic world of software</span>.
+              </p>
+              <a class="btn btn-sm btn-danger" href="{{ pageData.url.www.ihSuccessStoryUrl | url | versionedWwwUrl }}">The ImpactHealth Success Story</a>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+
+            <div class="row g-5">
+
+              <div class="col-12">
+                <p class="lead fw-bold">Witness Our Path of Innovation</p>
+                <p class="text-primary-emphasis">Delve into our portfolio of past projects, each a testament to our expertise.</p>
+                <a class="btn btn-sm btn-danger" href="{{ pageData.url.www.projectsUrl | url | versionedWwwUrl }}">Previous Projects</a>
+              </div>
+
+              <div class="col-12">
+                <p class="lead fw-bold">Explore More About 'Us'</p>
+                <p class="d-none text-primary-emphasis">Let me introduce myself a bit...</p>
+                <a class="btn btn-sm btn-secondary" href="{{ pageData.url.www.aboutMeUrl | url | versionedWwwUrl }}">More about me...</a>
+              </div>
+            
+            </div>
+
+          </div>
+
+        </div>
+
+        <hr/>
+
+        <div class="pt-3">
+          <p class="lead fw-bold">Hear the Stories from Our Clients</p>
+          <p class="text-primary-emphasis">Discover firsthand accounts of how our solutions have transformed businesses.</p>
+
+          <p class="d-none p-3 px-lg-5 text-center bg-danger text-light">See: LinkedIn Recommendations / Testimonials</p>
+
+          <section class="testimonialsCarousel d-flex align-items-stretch">
+            
+            <div class="mx-1 d-flex align-items-stretch">
+              <div class="card testimonial-card">
+                <div class="card-up" style="background-color: #9d789b;"></div>
+                <div class="avatar">
+                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/tony-c.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                </div>
+                <div class="card-body">
+                  <p class="p0 fs-5">Tony Costanzo</p>
+                  <p class="p0 small text-body-secondary">Co-Founder of SimplyPut Consulting</p>
+                  <hr />
+                  <p class="p0 small">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    Balazs joined us as a Technical Lead (Managing Engineer) when our project with a major client was failing.
+                    Within months, he turned things around, saving our client and fortifying our position.
+                    His unmatched expertise and leadership have reshaped our clients' software development for the better.                      
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mx-1 d-flex align-items-stretch">
+              <div class="card testimonial-card">
+                <div class="card-up" style="background-color: #7a81a8;"></div>
+                <div class="avatar">
+                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/manoj-k.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                </div>
+                <div class="card-body">
+                  <p class="p0 fs-5">Manoj Kurup</p>
+                  <p class="p0 small text-body-secondary">Vice President Information Technology at Impact Health</p>
+                  <hr />
+                  <p class="p0 small">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    Balazs has been an integral part of our Software Development team, he has led the development efforts and the team for all our mission critical applications.
+                    Supporting over 2500 events and help manage, maintain and track close to 20K field staff that we have on our roaster.
+                    All this was made possible in a very short time by his efforts and he has been working on continuinally improving the product to meet the organizations needs while maintaining highest level of quality in the solutions delivered.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mx-1 d-flex align-items-stretch">
+              <div class="card testimonial-card">
+                <div class="card-up" style="background-color: #6d5b98;"></div>
+                <div class="avatar">
+                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/stephanie-g.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                </div>
+                <div class="card-body">
+                  <p class="p0 fs-5">Stephanie Grizzle</p>
+                  <p class="p0 small text-body-secondary">Senior Project Manager at SimplyPut Consulting</p>
+                  <hr />
+                  <p class="p0 small">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    I have worked with Balazs a few times now at different companies.
+                    He has always kept me on my toes with his insight and expertise.
+                    I like the way he thinks outside of the box.
+                    Sometimes I don't even realize the implications of what I am asking until he asks me questions.
+                    Balazs has superior skills and is very dedicate to knowledge building and information sharing.
+                    I did recommend him when we were seeking a technical expert and will do it again.                   
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mx-1 d-flex align-items-stretch">
+              <div class="card testimonial-card">
+                <div class="card-up" style="background-color: #0a66c2;"></div>
+                <div class="avatar">
+                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/linkedin-circle.png') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                </div>
+                <div class="card-body">
+                  For More See LinkedIn Recommendations
+                </div>
+              </div>
+            </div>              
+
+          </section>
+
+        </div>
+
+      </div>
+
+      <div class="pb-5"></div>
+
+    </div>
+
+  </section><!-- ET: THE-GUIDE -->
+
+
+
+  <!-- ST: EXPLANATORY -->
+  <section data-bs-theme="dark" class="d-none skew bg-body text-body explanatory">
+
+    <div class="container">
+
+      <div class="pb-5"></div>
+
+    </div>
+
+  </section><!-- ET: EXPLANATORY -->
+
+
+
+  <!-- ST: THE-PLAN -->
+  <section data-bs-theme="light" class="d-none bg-body text-body bg-white-3-4 the-plan" data-jarallax data-speed="1.2" data-img-position="50% 80%">
+
+    <img class="jarallax-img" src="/assets/bg/office/pexels-proxyclick-visitor-management-system-2451566.jpg" />
+
+    <div class="container bg-body">
+
+        <div class="pb-5"></div>
 
     </div>
 
@@ -748,29 +663,7 @@ Env: {{ meta.env }}
 
     <div class="container">
 
-      <div class="content p-3 px-lg-5 pt-0">
-
-        <div id="coming-soon" class="d-none row g-3">
-          
-          <div class="col-12 p-3 px-lg-5 bg-body">
-            <p class="p0">
-              <span class="text-highlight fw-bold">COMING SOON:</span>
-              <span class="text-light">Assess Your Tech Health</span>
-            </p>
-            <p class="p0">Is your company technically vulnerable? <span class="fw-bold">Take our simple health-check quiz.</span></p>
-          </div>
-
-          <div class="col-12 p-3 px-lg-5 bg-body">
-            <p class="p0">
-              <span class="text-highlight fw-bold">COMING SOON:</span>
-              <span class="text-light">Essential Insights for Non-Technical Leaders</span>
-            </p>
-            <p class="p0">Explore the Top 10+ Things Every Non-Technical Owner Should Be Aware Of.</span></p>
-          </div>
-
-        </div>
-
-        <div class="pt-5"></div>
+      <div class="content px-3 px-lg-5 pt-5 pb-0">
 
         <div class="row g-3">
 
@@ -780,7 +673,7 @@ Env: {{ meta.env }}
 
         </div>
 
-        <div id="contactFormContainer" class="form-container py-5">
+        <div id="contactFormContainer" class="form-container form-condensed py-3">
           <!--
           <h2 class="mb-1 text-center text-light">Contact Form</h2>
           <div class="pb-4 text-center">Let Us Contact You Later...</div>          
@@ -790,7 +683,7 @@ Env: {{ meta.env }}
             method="POST"
             action="https://script.google.com/macros/s/AKfycbyidk1Ivj_HGs31JhZ3Op8W3ndNZHzti-6Ah-elzEeZDqn4gTBLNhB3vYXE-4oXQ3tk4A/exec"
             >
-            <div class="mb-3">
+            <div class="mb-1">
               <label for="email" class="form-label">Email *</label>
               <input
                 type="email"
@@ -800,7 +693,7 @@ Env: {{ meta.env }}
                 required
               />
             </div>
-            <div class="mb-3 row">
+            <div class="mb-1 row">
               <div class="col">
                 <label for="jobTitle" class="form-label">Job Title</label>
                 <input
@@ -820,7 +713,7 @@ Env: {{ meta.env }}
                 />
               </div>
             </div>
-            <div class="mb-3 row">
+            <div class="mb-1 row">
               <div class="col">
                 <label for="firstName" class="form-label">First Name</label>
                 <input
@@ -840,8 +733,8 @@ Env: {{ meta.env }}
                 />
               </div>
             </div>
-            <div class="mb-3">
-              <label for="comments" class="form-label">Comments &amp; Notes</label>
+            <div class="mb-1">
+              <label for="comments" class="form-label">Comments &amp; Notes *</label>
               <textarea
                 type="comments"
                 class="form-control compact-input"
@@ -850,8 +743,8 @@ Env: {{ meta.env }}
                 required
               ></textarea>
             </div>
-            <div class="mb-3 text-center">
-              <button type="submit" class="btn btn-danger mt-3">Submit</button>
+            <div class="mb-1 text-center">
+              <button type="submit" class="btn btn-sm btn-danger mt-3 px-5">Submit</button>
             </div>
           </form>
           <p id="successMessage" class="d-none p-3 px-lg-5 bg-success text-white">Thank you for providing your contact information. We will be in touch with you shortly.</p>
