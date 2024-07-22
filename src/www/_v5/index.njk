@@ -140,7 +140,7 @@ Env: {{ meta.env }}
 
     <img class="jarallax-img" src="/assets/bg/handshake/pexels-fauxels-3183197.jpg" />
 
-    <div class="container">
+    <div class="container" style="font-weight: 500">
 
       <div class="p-3 pt=lg-5 px-lg-5 d-flex flex-column">
 
@@ -150,12 +150,12 @@ Env: {{ meta.env }}
           
             <div class="content bg-black-3-4">
               
-              <div class="lead p-3 p-lg-5 pb-3 bg-black-3-4">
-
-                <div class="fs-1 fw-boldx">Project in Trouble?</div>
-                <span>Vendor Delays?<!-- Struggling to Build or Modernize Your Software?--></span>
-                <span class="text-highlight"><!--Or Just -->Looking to Get Your Project Right from the Start?</span>
-
+              <div class="lead p-3 px-lg-5 py-lg-5 bg-black-3-4">
+                <div class="fs-1 fw-bold">Project in Trouble?</div>
+                <div class="fw-bold">
+                  <span>Vendor Delays?<!-- Struggling to Build or Modernize Your Software?--></span>
+                  <span class="text-highlight"><!--Or Just -->Looking to Get Your Project Right from the Start?</span>
+                </div>
               </div>
 
               <div class="lead mt-3 mt-lg-0 p-3 px-lg-5">
@@ -165,16 +165,24 @@ Env: {{ meta.env }}
                     Is Your Business Planning to Automate Processes or Modernize Your Software, but Finding the Journey Challenging?
                     <!--Perhaps You Need to Rescue a Project That’s Off Track?-->
                   </p>
-                  <span class="text-highlight">You're Not Alone, Many Small and Medium Businesses Experience:</span>
-                  <ul>
-                    <li>Revenue Delays from Slow Feature Delivery.
-                    </li>
-                    <li>Product Performance and Scalability Issues Disrupting Operations.</li>
-                    <li><span class="text-highlight">Lack of <!--Business-Focused Technical Guidance and -->Representation of Company's Interests in Technical Matters.</span></li>
-                  </ul>
+                  <div class="bulletpoint">
+                    <span class="text-highlight">You're Not Alone, Many Small and Medium Businesses Experience:</span>
+                    <ul>
+                      <li>Revenue Delays from Slow Feature Delivery.
+                      </li>
+                      <li>Product Performance and Scalability Issues Disrupting Operations.</li>
+                      <li><span class="text-highlight">Lack of <!--Business-Focused Technical Guidance and -->Representation of Company's Interests in Technical Matters.</span></li>
+                    </ul>
+                  </div>
+                  <div class="d-none oneliner">
+                    <span class="text-highlight">You're Not Alone, Many Small and Medium Businesses Experience:</span>
+                    Revenue Delays Due To <span class="text-nowrap text-highlight"><i class="fa-solid fa-hashtag"></i>Slow Feature Delivery</span>,
+                    <span class="text-nowrap text-highlight"><i class="fa-solid fa-hashtag"></i>Performance &amp; Scalability Issues</span> Disrupting Operations,
+                    and <span class="text-nowrap text-highlight"><i class="fa-solid fa-hashtag"></i>Lack of Representation</span> of Company's Interests in Technical Matters.
+                  </div>
                 </div>
 
-                <div class="p-3 px-lg-5 text-center">
+                <div class="px-3 px-lg-5 pb-1 pt-3 pt-lg-5 text-center">
                   <h1 class="m-0">
                     Strategic Technical Leadership
                   </h1>
@@ -186,10 +194,10 @@ Env: {{ meta.env }}
                 <div class="p-3 px-lg-5 text-justify small">
                   <span class="text-highlight">We help small and medium enterprises and startups</span> that are dissatisfied with their internal team or vendor progress.
                   Our hands-on approach <span class="text-highlight">addresses slow delivery, endless bugs, and expensive maintenance</span>, resulting in predictable and manageable outcomes<!--—often something traditional management alone cannot ensure-->.
-                  Our philosophy is simple: we use methods that work for small and medium businesses, as what works <!--and is affordable -->for Google often fails elsewhere. 
+                  <!--Our philosophy is simple: we use methods that work for small and medium businesses, as what works <dpsn class="d-none">and is affordable </span>for Google often fails elsewhere.-->
                 </div>
                
-                <div class="pt-3 text-center">
+                <div class="p-3 text-center">
                   <a class="btn btn-sm btn-danger mb-1" href="{{ globals.me.bookingUrl | url }}" target="_blank">Schedule a 20 Minute FREE Consultation!</a>
                   {% if globals.me.healthCheckUrl %}<a class="btn btn-sm btn-primary mb-1" href="{{ globals.me.healthCheckUrl | url | versionedWwwUrl }}" target="_blank">Try the 2-Minute Tech Health Check...</a>{% endif %}
                   <a class="btn btn-sm btn-outline-light mb-1" href="{{ globals.me.linkedInUrl | url }}" target="_blank"><i class="fa-brands fa-linkedin fa-fw not-text-social-linked-in"></i>Chat with me on LinkedIn!</a>
@@ -208,7 +216,7 @@ Env: {{ meta.env }}
       
     </div>
 
-    <div class="p-5"><!-- To have some distance when the hint boxes are pulled up via negative margin --!></div>
+    <div class="p-4"><!-- To have some distance when the hint boxes are pulled up via negative margin --!></div>
 
   </div><!-- LANDING -->
 
@@ -221,30 +229,29 @@ Env: {{ meta.env }}
 
       <div class="content">
     
-        <div class="row g-3 mt-n5">
+        <div class="row small   g-3 mt-n5">
           <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
-            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+            <div class="bg-body shadow border p-2 w-100 d-flex flex-column align-items-center">
               <i class="text-warning fa-solid fa-compass-drafting fa-2x"></i>
-              <span class="text-center">21 Years of Hands-on Experience</span>
+              <span class="p0 text-center">21 Years of Hands-on Experience</span>
             </div>
           </div>
           <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
-            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+            <div class="bg-body shadow border p-2 w-100 d-flex flex-column align-items-center">
               <i class="text-primary-emphasis fa-solid fa-clipboard-check fa-2x"></i>
-              <span class="text-center">&gt; 38 Finished Projects</span>
+              <span class="p0 text-center">&gt; 38 Finished Projects</span>
             </div>
           </div>
           <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
-            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+            <div class="bg-body shadow border p-2 w-100 d-flex flex-column align-items-center">
               <i class="text-danger fa-solid fa-industry fa-2x"></i>
-              <span class="text-center">5+ Industries</span>              
+              <span class="p0 text-center">5+ Industries incl. GOV</span>              
             </div>
           </div>
           <div class="z-1 col-6 col-md-3 d-flex align-items-stretch">
-            <div class="bg-body shadow border p-3 w-100 d-flex flex-column align-items-center">
+            <div class="bg-body shadow border p-2 w-100 d-flex flex-column align-items-center">
               <i class="text-success fa-solid fa-globe-americas fa-2x"></i>
-              <span class="text-center">US and EU Companies</span>
-              <span class="text-center">incl. Government Projects</span>
+              <span class="p0 text-center">US and EU Companies</span>
             </div>
           </div>
         </div>
@@ -264,7 +271,7 @@ Env: {{ meta.env }}
 
       <div class="content">
 
-        <div id="checkpoint-main" class="p-3 px-lg-5 pt-7 pb-5 text-center">
+        <div id="checkpoint-main" class="p-3 px-lg-5 pt-5 pb-5 text-center">
             <p class="lead">Ready to Unlock Your Tech Potential With Our Services?</p>
             <p>We Made It Really Simple!</p>
             <p class="fs-3">Experience the Difference</p>
@@ -419,7 +426,7 @@ Env: {{ meta.env }}
                 2-Min Tech Health Check
               </p>
             </div>
-            <p class="text-justify">           
+            <p class="text-justify text-light">           
               <span class="text-nowrap fw-bold">Quick & Free!</span>
               <span class>Gain an overview report of your organization's tech landscape now!</span>             
             </p>
@@ -442,7 +449,7 @@ Env: {{ meta.env }}
                 20 Minute FREE Consultation
               </p>
             </div>
-            <p class="text-justify">
+            <p class="text-justify text-light">
               Let's assess synergy. Evaluate compatibility and check if our services align with your needs!
             </p>
             <p class="mt-auto text-center">
@@ -462,7 +469,7 @@ Env: {{ meta.env }}
                 Affordable Tech Leadership
               </p>
             </div>
-            <p class="text-justify">
+            <p class="text-justify text-light">
               Are you in search of tech insights, project support, vendor guidance, or standard software leadership?
               <span class="fw-bold">We're here to assist you!</span>
             </p>

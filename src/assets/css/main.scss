@@ -47,6 +47,12 @@ $font-family-base: "Source Sans Pro", "Times New Roman", serif;
 $line-height-base: 1.8!default;
 $nav-link-font-weight: 400;
 
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            600 !default;
+
+$font-weight-base:            $font-weight-normal !default;
+
 @import "bootstrap";
 // @import "./bootswatch/bs5/materia/bootswatch";
 
