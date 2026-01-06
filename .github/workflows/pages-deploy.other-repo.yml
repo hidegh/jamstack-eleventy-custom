@@ -41,12 +41,12 @@ jobs:
 
       # 5. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.GH_PAGE_PA_TOKEN }}
+          deploy_key: ${{ secrets.GH_DEPLOY_KEY }}
           external_repository: hidegh/hidegh.github.io
           publish_branch: gh-pages
           publish_dir: ./_site
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          force_orphan: true   # ensures clean branch, avoids cached remotes
+          force_orphan: true # ensures clean branch, avoids cached remotes
