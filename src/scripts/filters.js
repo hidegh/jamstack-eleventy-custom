@@ -1,53 +1,69 @@
-const urlFilterFnc = require("@11ty/eleventy/src/Filters/Url");
-const slugFilterFnc = require("@11ty/eleventy/src/Filters/Slug");
+const slugify = require("@sindresorhus/slugify").default || require("@sindresorhus/slugify");
 
-// TODO: use later, replace | slug with | slugify, slugifyModule.slugify(value)
-// import slugifyModule from "@sindresorhus/slugify";
+/** Simple URL normalizer: ensures path starts with / and removes double slashes */
+function urlFilter(path, pathPrefix = "") {
+    if (!path) return "";
+
+    // normalize slashes
+    let normalized = path.replace(/\/+/g, "/");
+
+    // ensure it starts with /
+    if (!normalized.startsWith("/")) normalized = "/" + normalized;
+
+    // optionally prepend pathPrefix
+    if (pathPrefix) {
+        let prefix = pathPrefix.endsWith("/") ? pathPrefix.slice(0, -1) : pathPrefix;
+        normalized = prefix + normalized;
+    }
+
+    return normalized;
+}
+
+/** Slugify a single path segment */
+function slugFilter(segment) {
+    return slugify(segment);
+}
 
 module.exports = {
 
-    /** use it on the final HTML only, it won't help too much without the prefixPath */
-    urlFilter: function (path, pathPrefix) { return urlFilterFnc(path, pathPrefix); },
+    urlFilter,
+    slugFilter,
 
-    slugFilter: function (path) { return slugFilterFnc(path); },
-
+    /** Slugify a full path */
     slugifyPath: function (path) {
         return path
             .split("/")
             .filter((segment) => segment.trim() !== "")
-            .map((segment) => this.slugFilter(segment))
+            .map((segment) => slugFilter(segment))
             .join("/");
     },
 
-    trimStart: function(originalString, trimString) {
-        return originalString.startsWith(trimString) ? originalString.slice(trimString.length) : originalString;
+    trimStart: function (originalString, trimString) {
+        return originalString.startsWith(trimString)
+            ? originalString.slice(trimString.length)
+            : originalString;
     },
 
-    trimEnd: function(originalString, trimString) {
-        return originalString.endsWith(trimString) ? originalString.slice(0, -trimString.length) : originalString;
+    trimEnd: function (originalString, trimString) {
+        return originalString.endsWith(trimString)
+            ? originalString.slice(0, -trimString.length)
+            : originalString;
     },
 
     /** Ensure path ends with / */
     normalize: function (path) {
-        return path.endsWith("/")
-            ? path
-            : path + "/";
+        return path.endsWith("/") ? path : path + "/";
     },
 
-    /** Merges path nodes, ensures node names are sluggified and that final path is normalized */
+    /** Merges path nodes, sluggifies, and normalizes */
     mergePaths: function (nodes) {
-
         const mergedUrl = nodes.reduce((acc, node) => {
-            
             const normalizedNode = this.normalize(node);
-            
-            // if node is absolute, drop prev. result
+            // if node is absolute, drop previous
             if (normalizedNode.startsWith("/")) return normalizedNode;
-            // otherwise append...
             return acc + normalizedNode;
         }, "");
 
         return mergedUrl;
     }
-
-}
+};

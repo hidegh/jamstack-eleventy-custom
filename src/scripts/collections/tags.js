@@ -27,8 +27,13 @@ module.exports = {
         // - otherwise we consider inner arrays as a speific category (joining them to a string)
         const containsInnerArray = tags.some(i => Array.isArray(i));
 
-        if (!containsInnerArray) return tags;
-        else return tags.map(i => Array.isArray(i) ? i.join(" - ") : i);
+        // MUST TRIM HERE!
+        if (!containsInnerArray) {
+            // trim all tags
+            return tags.map(t => (typeof t === "string" ? t.trim() : t));
+        } else {
+            return tags.map(i => Array.isArray(i) ? i.join(" - ").trim() : (typeof i === "string" ? i.trim() : i));
+        }
     },
 
     filterPagesByTag: (postCollection, tagName) => postCollection.filter(item => {
@@ -84,12 +89,14 @@ module.exports = {
 
             let tagListWithCount = tagList.map((tag) => {
                 const items = me.filterPagesByTag(postCollection, tag);
+                const name = Array.isArray(tag) ? [].concat(...tag).join(" - ") : tag
                 return {
                     value: tag,
                     count: items.length,
                     items: items,
                     // flatten and join name in case of "tag-array"
-                    name: Array.isArray(tag) ? [].concat(...tag).join(" - ") : tag
+                    name: name,
+                    slug: require('../filters').slugifyPath(name)
                 };
             });
 

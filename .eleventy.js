@@ -26,17 +26,26 @@ const localPostImagesPlugin = require("./src/plugins/eleventy-hugo-style-local-p
 // Syntax-highlight for MD code-blocks
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+function importCJS(pluginName) {
+    try {
+        return require(pluginName);
+    } catch {
+        return require(pluginName).default;
+    }
+}
+
 // TOC: the main (eleventy-plugin-nesting-toc) plugin generates TOC, the markdown-it-anchor plugin adds ID's to headings...
-const pluginTOC = require('eleventy-plugin-nesting-toc');
-const markdownIt = require('markdown-it');
-const markdownItAnchor = require('markdown-it-anchor');
-const markdownItFootnote = require("markdown-it-footnote");
-const markdownItToc = require("markdown-it-table-of-contents");
-const markdownItEmoji = require('markdown-it-emoji');
-const markdownItSup = require('markdown-it-sup');
-const markdownItSub = require('markdown-it-sub');
-const markdownItSmartArrows = require('markdown-it-smartarrows');
-const markdownItTaskLists = require('markdown-it-task-lists');
+const pluginTOC = importCJS('eleventy-plugin-nesting-toc');
+
+const markdownIt = importCJS('markdown-it');
+const markdownItAnchor = importCJS('markdown-it-anchor');
+const markdownItFootnote = importCJS('markdown-it-footnote');
+const markdownItToc = importCJS('markdown-it-table-of-contents');
+const markdownItEmoji = importCJS('markdown-it-emoji');
+const markdownItSup = importCJS('markdown-it-sup');
+const markdownItSub = importCJS('markdown-it-sub');
+const markdownItSmartArrows = importCJS('markdown-it-smartarrows');
+const markdownItTaskLists = importCJS('markdown-it-task-lists');
 
 // RSS
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -91,7 +100,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('truthy', function(value) { return !!value; });
     eleventyConfig.addFilter('falsy', function(value) { return !value; });
     
-    eleventyConfig.addFilter('slugifyPath', function(value) { return filters.slugifyPath(value); });
+    eleventyConfig.addFilter('slugifyPath', value => value ? filters.slugifyPath(value) : "");
 
     eleventyConfig.addFilter('versionedWwwUrl', function(value) {        
         
