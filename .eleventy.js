@@ -125,9 +125,16 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter('firstPage', function(value, doPaging) { return customPagination.firstPage(value, doPaging); });
 
-    eleventyConfig.addFilter('getSeriesNavigationDetails', (...args) => require('./src/scripts/post-series.filter').getSeriesNavigationDetails(...args));
+    // Async-safe filters
+    eleventyConfig.addNunjucksAsyncFilter('getSeriesNavigationDetails', async (...args) => {
+        const fn = require('./src/scripts/post-series.filter').getSeriesNavigationDetails;
+        return await fn(...args);
+    });
 
-    eleventyConfig.addFilter('getRelatedNavigationDetails', (...args) => require('./src/scripts/post-related.filter').getRelatedNavigationDetails(...args));
+    eleventyConfig.addNunjucksAsyncFilter('getRelatedNavigationDetails', async (...args) => {
+        const fn = require('./src/scripts/post-related.filter').getRelatedNavigationDetails;
+        return await fn(...args);
+    });
 
     // using custom solution as the eleventy-plugin-page-assets has bugs, is too complex (uses even html parsing), ...
     eleventyConfig.addPlugin(localPostImagesPlugin, { eleventyConfig: eleventyConfig, templateFormats: templateFormats, excludes: ["src/plugins/**"] });

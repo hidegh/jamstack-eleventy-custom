@@ -17,13 +17,11 @@ module.exports = {
 
     _getScore: function(page, pageTags, pageNormalizedCategories, pageToScore) {
 
-        const self = this;
-
         let score = 0;
 
         // tag match:
         const pageToScoreTags = [...new Set(pageToScore.data.tags ? [].concat(pageToScore.data.tags) : [])];
-        pageToScoreTags.forEach(tag => { if (pageTags.findIndex(t => t == tag) !== -1) score = score + self._tagScore });
+        pageToScoreTags.forEach(tag => { if (pageTags.findIndex(t => t == tag) !== -1) score = score + this._tagScore });
 
         // category match:
         //  try to match full path, if not possible, go upward
@@ -68,8 +66,6 @@ module.exports = {
      */
     getRelatedNavigationDetails: function (templatePage, collectionsAll, collectionRelated, take) {
 
-        const self = this;
-
         // get current index (and also page with full data - see: https://github.com/11ty/eleventy/issues/338#issuecomment-795331119)
         const pageIndex = collectionsAll.findIndex(p => p.url == templatePage.url);
         const page = collectionsAll[pageIndex];
@@ -84,7 +80,7 @@ module.exports = {
         const scoredOtherItems = otherItems
             .map(pageToScore => ({
                 page: pageToScore,
-                score: self._getScore(page, pageTags, pageNormalizedCategories, pageToScore)
+                score: this._getScore(page, pageTags, pageNormalizedCategories, pageToScore)
             }))
             .sort((a, b) => (a.score - b.score) * -1 /* desc */);
 
