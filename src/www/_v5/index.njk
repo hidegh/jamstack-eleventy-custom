@@ -99,8 +99,8 @@ scripts: |
       mouseDrag: true,
       navPosition: "bottom",
 
-      autoplay: false,
-      autoplayTimeout: 5000,
+      autoplay: true,
+      autoplayTimeout: 10000,
 
       controls: false,
       autoplayButtonOutput: false,
@@ -552,7 +552,7 @@ Env: {{ meta.env }}
               <div class="card testimonial-card">
                 <div class="card-up" style="background-color: #9d789b;"></div>
                 <div class="avatar">
-                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/tony-c.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  <img src="{{ page | absoluteImageUrl('/www/_v5/_assets/tony-c.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
                 </div>
                 <div class="card-body">
                   <p class="p0 fs-5">Tony Costanzo</p>
@@ -570,9 +570,29 @@ Env: {{ meta.env }}
 
             <div class="mx-1 d-flex align-items-stretch">
               <div class="card testimonial-card">
+                <div class="card-up" style="background-color: #dc3545;"></div>
+                <div class="avatar">
+                  <img src="{{ page | absoluteImageUrl('/www/_v5/_assets/marian-m.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                </div>
+                <div class="card-body">
+                  <p class="p0 fs-5">Marian Mokos</p>
+                  <p class="p0 small text-body-secondary">Venture Partner & Founder | Building Scalable Ventures for Family Offices & Founders | Strategy • Operations • Investments</p>
+                  <hr />
+                  <p class="p0 small">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    I had the pleasure of working with Balazs during our cooperation at Tyrian Advisory.
+                    Balazs has exceptional knowledge in IT and a deep understanding of how technology drives business success.
+                    He’s a strong leader with a clear, solution-oriented mindset and a reliable business partner who always delivers.                    
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mx-1 d-flex align-items-stretch">
+              <div class="card testimonial-card">
                 <div class="card-up" style="background-color: #7a81a8;"></div>
                 <div class="avatar">
-                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/manoj-k.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  <img src="{{ page | absoluteImageUrl('/www/_v5/_assets/manoj-k.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
                 </div>
                 <div class="card-body">
                   <p class="p0 fs-5">Manoj Kurup</p>
@@ -592,7 +612,7 @@ Env: {{ meta.env }}
               <div class="card testimonial-card">
                 <div class="card-up" style="background-color: #6d5b98;"></div>
                 <div class="avatar">
-                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/stephanie-g.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  <img src="{{ page | absoluteImageUrl('/www/_v5/_assets/stephanie-g.jpeg') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
                 </div>
                 <div class="card-body">
                   <p class="p0 fs-5">Stephanie Grizzle</p>
@@ -611,17 +631,19 @@ Env: {{ meta.env }}
               </div>
             </div>
 
+            <!--
             <div class="mx-1 d-flex align-items-stretch">
               <div class="card testimonial-card">
                 <div class="card-up" style="background-color: #0a66c2;"></div>
                 <div class="avatar">
-                  <img src="{{ page | absoluteImageUrl('/www/_v4/_assets/linkedin-circle.png') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
+                  <img src="{{ page | absoluteImageUrl('/www/_v5/_assets/linkedin-circle.png') | url | versionedWwwUrl }}" class="rounded-circle img-fluid" />
                 </div>
                 <div class="card-body">
                   For More See LinkedIn Recommendations
                 </div>
               </div>
-            </div>              
+            </div>
+            -->
 
           </section>
 
