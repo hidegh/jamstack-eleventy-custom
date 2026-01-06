@@ -6,67 +6,55 @@ const globals = requireYaml("src/data/globals.yaml");
 
 const categories = require("./collections/categories");
 
-module.exports = {
+const _tagScore = globals.post.related.tagScore;
+const _categoryScore = globals.post.related.categoryScore;
 
-    _tagScore: globals.post.related.tagScore,
-    _categoryScore: globals.post.related.categoryScore,
+function _containsCategory(array, category) {
+    return array.some(a => a.length == category.length && a.every((node, idx) => node == category[idx]));
+}
 
-    _containsCategory(array, category) {
-        return array.some(a => a.length == category.length && a.every((node, idx) => node == category[idx]));
-    },
+function _getScore(page, pageTags, pageNormalizedCategories, pageToScore) {
 
-    _getScore: function(page, pageTags, pageNormalizedCategories, pageToScore) {
+    let score = 0;
 
-        let score = 0;
+    // tag match:
+    const pageToScoreTags = [...new Set(pageToScore.data.tags ? [].concat(pageToScore.data.tags) : [])];
+    pageToScoreTags.forEach(tag => { if (pageTags.findIndex(t => t == tag) !== -1) score = score + _tagScore });
 
-        // tag match:
-        const pageToScoreTags = [...new Set(pageToScore.data.tags ? [].concat(pageToScore.data.tags) : [])];
-        pageToScoreTags.forEach(tag => { if (pageTags.findIndex(t => t == tag) !== -1) score = score + this._tagScore });
+    // category match:
+    const pageToScoreCategories = categories
+        ._getNormalizedCategoriesForCollectionItem(pageToScore)
+        .sort((a, b) => -1 * (a.length - b.length));
 
-        // category match:
-        //  try to match full path, if not possible, go upward
-        //  if match found, match category and every parent category should be added to a match list...
-        //  ...we use match list to avoid scoring again on something we already scored
-        //  ...we also start with the deepest nodes (sort by desc), to avoid matching a longer path (a|b|c) after we added score / matched a shorter (a|b) one.
-        const pageToScoreCategories = categories
-            ._getNormalizedCategoriesForCollectionItem(pageToScore)
-            .sort((a, b) => -1 * (a.length - b.length));
+    let matchedCategories = [];
+    
+    pageToScoreCategories.forEach(category => {
+        const matchCount = categories._categoryNodeMatchCount(category, pageNormalizedCategories)
 
-        let matchedCategories = [];
+        if (matchCount) {
         
-        pageToScoreCategories.forEach(category => {
-            const matchCount = categories._categoryNodeMatchCount(category, pageNormalizedCategories)
-
-            if (matchCount) {
+            const matchedCategory = category.slice(0, matchCount);
+            if (!_containsCategory(matchedCategories, matchedCategory))
+                score = score + Math.pow(_categoryScore, matchCount);
             
-                const matchedCategory = category.slice(0, matchCount);
-                if (!this._containsCategory(matchedCategories, matchedCategory))
-                    score = score + Math.pow(this._categoryScore, matchCount);
-                
-                for (let i = 0; i < matchCount - 1; i++) {
-                    const partialCategory = category.slice(0, i + 1);
-                    if (!this._containsCategory(matchedCategories, partialCategory))
-                        matchedCategories.push(partialCategory);
-                }
-
+            for (let i = 0; i < matchCount - 1; i++) {
+                const partialCategory = category.slice(0, i + 1);
+                if (!_containsCategory(matchedCategories, partialCategory))
+                    matchedCategories.push(partialCategory);
             }
 
-        });
+        }
 
-        return score;        
-    },
+    });
 
-    /**
-     * Register it as follows, to avoid binding the Template object to the local 'this'!
-     * > eleventyConfig.addFilter('getRelatedNavigationDetails', (...args) => require('./src/scripts/related-posts.filter').getRelatedNavigationDetails(...args));
-     * @param {*} templatePage the page to which we search related items
-     * @param {*} collectionAll all the generated items, where we look up our page to get detailed information about it
-     * @param {*} collectionRelated collection to search for the related items
-     * @param {*} take limit the total results
-     */
+    return score;        
+}
+
+module.exports = {
+
     getRelatedNavigationDetails: function (templatePage, collectionsAll, collectionRelated, take) {
 
-        // get current index (and also page with full data - see: https://github.com/11ty/eleventy/issues/338#issuecomment-795331119)
+        // get current index (and also page with full data)
         const pageIndex = collectionsAll.findIndex(p => p.url == templatePage.url);
         const page = collectionsAll[pageIndex];
 
@@ -80,7 +68,7 @@ module.exports = {
         const scoredOtherItems = otherItems
             .map(pageToScore => ({
                 page: pageToScore,
-                score: this._getScore(page, pageTags, pageNormalizedCategories, pageToScore)
+                score: _getScore(page, pageTags, pageNormalizedCategories, pageToScore)
             }))
             .sort((a, b) => (a.score - b.score) * -1 /* desc */);
 
